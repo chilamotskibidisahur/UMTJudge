@@ -52,7 +52,7 @@ interface Props {
   onSelectProblem?: (problem: Problem) => void;
 }
 
-const TheoryMarkdownViewer: React.FC<{ content: string }> = ({ content }) => {
+const TheoryMarkdownViewer = React.memo<{ content: string }>(({ content }) => {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   const handleCopyCode = (code: string, idx: number) => {
@@ -365,7 +365,7 @@ const TheoryMarkdownViewer: React.FC<{ content: string }> = ({ content }) => {
       })}
     </div>
   );
-};
+});
 
 export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
   const { serverUrl } = useNetwork();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { apiFetch } from '../../lib/api';
 import Editor from '@monaco-editor/react';
 import confetti from 'canvas-confetti';
@@ -188,7 +188,7 @@ export const ProblemDetail: React.FC<Props> = ({
   const editorRef = useRef<any>(null);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const handleEditorDidMount = (editor: any, monaco: any) => {
+  const handleEditorDidMount = useCallback((editor: any, monaco: any) => {
     editorRef.current = editor;
     if (monaco) {
       registerCppSuggestions(monaco);
@@ -201,7 +201,7 @@ export const ProblemDetail: React.FC<Props> = ({
         indentSize: 4
       });
     }
-  };
+  }, []);
 
   // Immediate flush of draft code to localStorage (guarantees 0% draft loss on tab close, reload, or navigation)
   const flushCodeDraft = useCallback(() => {
@@ -270,7 +270,7 @@ export const ProblemDetail: React.FC<Props> = ({
   }, [problem.id, contestId]);
 
   // Auto-save code draft on change with 600ms debounce to eliminate typing lag
-  const handleCodeChange = (newCode: string | undefined) => {
+  const handleCodeChange = useCallback((newCode: string | undefined) => {
     const val = newCode || '';
     setCode(val);
     codeRef.current = val;
@@ -288,7 +288,32 @@ export const ProblemDetail: React.FC<Props> = ({
         setCodeSaveStatus('Lỗi lưu nháp');
       }
     }, 600);
-  };
+  }, [storageKey]);
+
+  // Memoized Monaco Editor options to eliminate re-renders on timer ticks or parent updates
+  const editorOptions = useMemo(() => ({
+    fontSize: 14,
+    fontFamily: "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    minimap: { enabled: false },
+    scrollBeyondLastLine: false,
+    lineNumbers: 'on' as const,
+    roundedSelection: true,
+    automaticLayout: true,
+    tabSize: 4,
+    insertSpaces: true,
+    detectIndentation: false,
+    autoIndent: 'full' as const,
+    formatOnType: true,
+    formatOnPaste: true,
+    quickSuggestions: { other: true, comments: false, strings: true },
+    suggestOnTriggerCharacters: true,
+    acceptSuggestionOnCommitCharacter: false,
+    wordBasedSuggestions: 'allDocuments' as const,
+    tabCompletion: 'on' as const,
+    snippetSuggestions: 'top' as const,
+    acceptSuggestionOnEnter: 'on' as const,
+    readOnly: isExamLocked || isSubmitting
+  }), [isExamLocked, isSubmitting]);
 
   const [activeConsoleTab, setActiveConsoleTab] = useState<'custom' | 'result'>('custom');
   const [customInput, setCustomInput] = useState<string>(() => {
@@ -1267,29 +1292,7 @@ export const ProblemDetail: React.FC<Props> = ({
               value={code}
               onChange={handleCodeChange}
               onMount={handleEditorDidMount}
-              options={{
-                fontSize: 14,
-                fontFamily: "'JetBrains Mono', Consolas, 'Courier New', monospace",
-                minimap: { enabled: false },
-                scrollBeyondLastLine: false,
-                lineNumbers: 'on',
-                roundedSelection: true,
-                automaticLayout: true,
-                tabSize: 4,
-                insertSpaces: true,
-                detectIndentation: false,
-                autoIndent: 'full',
-                formatOnType: true,
-                formatOnPaste: true,
-                quickSuggestions: { other: true, comments: false, strings: true },
-                suggestOnTriggerCharacters: true,
-                acceptSuggestionOnCommitCharacter: false,
-                wordBasedSuggestions: 'allDocuments',
-                tabCompletion: 'on',
-                snippetSuggestions: 'top',
-                acceptSuggestionOnEnter: 'on',
-                readOnly: isExamLocked || isSubmitting
-              }}
+              options={editorOptions}
             />
           </div>
 
