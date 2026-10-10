@@ -136,13 +136,13 @@ Các trạng thái phán quyết tiêu chuẩn:
 Thực thi mã nguồn do người dùng nộp tiềm ẩn nhiều rủi ro an ninh mạng nghiêm trọng (mã độc xóa ổ đĩa, fork bomb chiếm dụng CPU, mở cổng socket kết nối trái phép ra ngoài). UMTJudge áp dụng giải pháp an ninh đa tầng:
 1. **Kiểm soát thời gian bằng bộ đếm ngắt hệ thống:** Sử dụng cờ ngắt `timeout` kết hợp tín hiệu `SIGKILL` nhằm tiêu diệt triệt để tiến trình con nếu chạy quá thời gian quy định, ngăn ngừa hoàn toàn hiện tượng treo máy chấm do vòng lặp vô hạn.
 2. **Chuẩn hóa dữ liệu đầu ra (Output Normalization):** Nhằm giải quyết các khác biệt không mong muốn về định dạng xuống dòng giữa Windows (`\r\n`) và Linux (`\n`), hệ thống tích hợp thuật toán chuẩn hóa:
-   $$\text{Normalize}(S) = \text{Trim}\left(\bigcup_{i} \text{TrimEnd}(Line_i)\right)$$
+   `Normalize(S) = Trim( gộp các dòng sau khi TrimEnd(Line_i) )`
    Thuật toán tự động khử bỏ khoảng trắng dư ở cuối mỗi dòng và loại trừ các dòng trống dư ở cuối tệp dữ liệu.
 3. **Thuật toán so khớp sai phân (LCS Diff Computation):** Đối với các bài nộp bị WA ở test ví dụ, hệ thống tính toán Dãy con chung dài nhất (Longest Common Subsequence) để hiển thị trực quan phần ký tự bị sai khác, giúp học sinh nhanh chóng sửa lỗi.
 
 ### 2.3. Mô hình dữ liệu quan hệ nâng cao: Quản lý học sinh và đề thi
-Khác với các phần mềm thông thường coi mối quan hệ giữa Học sinh và Lớp học là $1 : 1$, thực tế tại các trường học một học sinh có thể tham gia nhiều lớp khác nhau (ví dụ: Lớp chuyên Toán, Lớp bồi dưỡng Tin học, Lớp CLB STEM). 
-UMTJudge áp dụng mô hình liên kết nhiều - nhiều ($N : N$):
+Khác với các phần mềm thông thường coi mối quan hệ giữa Học sinh và Lớp học là 1 : 1, thực tế tại các trường học một học sinh có thể tham gia nhiều lớp khác nhau (ví dụ: Lớp chuyên Toán, Lớp bồi dưỡng Tin học, Lớp CLB STEM). 
+UMTJudge áp dụng mô hình liên kết nhiều - nhiều (N : N):
 
 ```
 ┌──────────────┐           ┌───────────────────┐           ┌──────────────┐
@@ -154,14 +154,12 @@ UMTJudge áp dụng mô hình liên kết nhiều - nhiều ($N : N$):
 └──────────────┘           └───────────────────┘           └──────────────┘
 ```
 
-Đồng thời, phạm vi của Đề thi (Exam Scope) được trừu tượng hóa thành hàm phán quyết logic:
-$$\text{IsEligible}(\text{Student}, \text{Exam}) = \begin{cases} 
-\text{True} & \text{khi Scope} = \text{ALL} \\
-\text{True} & \text{khi Scope} = \text{GRADE} \wedge \text{Student.Grade} \in \text{Exam.Grades} \\
-\text{True} & \text{khi Scope} = \text{CLASS} \wedge \exists C \in \text{Student.Classes}: C \in \text{Exam.Classes} \\
-\text{True} & \text{khi Scope} = \text{STUDENT} \wedge \text{Student.Id} \in \text{Exam.StudentIds} \\
-\text{False} & \text{ngược lại}
-\end{cases}$$
+Đồng thời, phạm vi của Đề thi (Exam Scope) được trừu tượng hóa thành hàm phán quyết logic **IsEligible(Student, Exam)** với các quy tắc xét duyệt:
+* **Bằng True** khi `Scope = ALL` (Kỳ thi mở cho toàn trường).
+* **Bằng True** khi `Scope = GRADE` và khối học của học sinh nằm trong danh sách `Exam.Grades`.
+* **Bằng True** khi `Scope = CLASS` và học sinh tham gia ít nhất một lớp học nằm trong danh sách `Exam.Classes`.
+* **Bằng True** khi `Scope = STUDENT` và ID định danh của học sinh nằm trong danh sách `Exam.StudentIds`.
+* **Bằng False** trong tất cả các trường hợp còn lại (học sinh không có quyền truy cập đề thi).
 
 Quy tắc cốt lõi: Một học sinh chỉ nhìn thấy một kỳ thi đúng một lần duy nhất, dữ liệu kết quả chấm không bị nhân bản theo lớp nhằm bảo toàn tính toàn vẹn của bảng xếp hạng.
 
@@ -257,7 +255,7 @@ Nhằm đảm bảo học sinh có một lộ trình học tập khoa học từ
 **Thuật toán sinh Test tất định (Deterministic Test Generator):**
 Mỗi bài tập được trang bị một thuật toán sinh test bằng thuật toán số học giả ngẫu nhiên có hạt giống cố định (PRNG Fixed Seed), đảm bảo:
 * Test 1 và Test 2 là các trường hợp ví dụ mẫu được giải thích cặn kẽ.
-* Test 3 đến 5 bao phủ các trường hợp biên nguy hiểm: giá trị nhỏ nhất ($N = 0, 1$), giá trị lớn nhất ($10^9, 10^{18}$), số âm, chuỗi rỗng.
+* Test 3 đến 5 bao phủ các trường hợp biên nguy hiểm: giá trị nhỏ nhất (N = 0, 1), giá trị lớn nhất (10^9, 10^18), số âm, chuỗi rỗng.
 * Test 6 đến 10 là dữ liệu lớn ngẫu nhiên nhằm kiểm tra triệt để nguy cơ TLE hoặc tràn số nguyên 64-bit.
 
 ### 4.3. Đóng gói dữ liệu Themis và ZIP xuất khẩu
@@ -289,29 +287,29 @@ Toàn bộ 18 bài tập mới của Chặng 1 đã vượt qua 100% các bài k
 
 | Mã bài tập | Tên bài tập | Cấp độ | Số test | Thời gian chạy max | Kết quả kiểm thử |
 |:---|:---|:---:|:---:|:---:|:---:|
-| `RM_RECTAREA` | Diện Tích Và Chu Vi Sân Trường | Cơ bản | 10 | $89.25\text{ ms}$ | **PASSED (10/10)** |
-| `RM_CANDYDIV` | Chia Kẹo Cho Học Sinh Tiểu Học | Cơ bản | 10 | $86.00\text{ ms}$ | **PASSED (10/10)** |
-| `RM_DIGITSUM` | Đếm Chữ Số Và Tổng Chữ Số | Cơ bản | 10 | $65.03\text{ ms}$ | **PASSED (10/10)** |
-| `RM_PRINTPATTERN` | Vẽ Khung Trang Trí Hình Chữ Nhật | Cơ bản | 10 | $78.88\text{ ms}$ | **PASSED (10/10)** |
-| `RM_FIRSTEVEN` | Số Chẵn Đầu Tiên Trong Danh Sách | Cơ bản | 10 | $65.06\text{ ms}$ | **PASSED (10/10)** |
-| `RM_ARRAYQUERY` | Tính Tổng Và Truy Vấn Mảng 1D | Cơ bản | 10 | $87.73\text{ ms}$ | **PASSED (10/10)** |
-| `RM_MINMAXPOS` | Điểm Cao Nhất, Thấp Nhất (Vị trí đầu) | Cơ bản | 10 | $82.07\text{ ms}$ | **PASSED (10/10)** |
-| `RM_REVERSEARR` | Đảo Ngược Thứ Tự Dãy Số | Cơ bản | 10 | $75.41\text{ ms}$ | **PASSED (10/10)** |
-| `RM_GRADEFREQ` | Thống Kê Tần Số Điểm Thi | Cơ bản | 10 | $86.15\text{ ms}$ | **PASSED (10/10)** |
-| `RM_CHARSHIFT` | Biến Đổi Ký Tự Bảng Mã ASCII | Cơ bản | 10 | $87.54\text{ ms}$ | **PASSED (10/10)** |
-| `RM_PALINDROME` | Kiểm Tra Chuỗi Ký Tự Đối Xứng | Cơ bản | 10 | $60.80\text{ ms}$ | **PASSED (10/10)** |
-| `RM_COUNTVOWELS` | Đếm Nguyên Âm Tiếng Anh | Cơ bản | 10 | $67.08\text{ ms}$ | **PASSED (10/10)** |
-| `RM_SQUARECHECK` | Kiểm Tra Số Chính Phương Chính Xác | Trung bình | 10 | $73.60\text{ ms}$ | **PASSED (10/10)** |
-| `RM_REDUCERATE` | Rút Gọn Phân Số Với Tham Chiếu | Cơ bản | 10 | $65.24\text{ ms}$ | **PASSED (10/10)** |
-| `RM_DIAGONAL` | Tính Tổng Hai Đường Chéo Ma Trận | Trung bình | 10 | $80.31\text{ ms}$ | **PASSED (10/10)** |
-| `RM_STUDENTRANK` | Quản Lý Hồ Sơ Học Sinh (Struct) | Trung bình | 10 | $79.66\text{ ms}$ | **PASSED (10/10)** |
-| `RM_CP1_EXAMSTAT`| Thống Kê Điểm Thi & Xét Học Bổng | Trung bình | 10 | $80.30\text{ ms}$ | **PASSED (10/10)** |
-| `RM_CP1_BILLING` | Hóa Đơn Nước Bậc Thang Siêu Thị | Trung bình | 10 | $79.20\text{ ms}$ | **PASSED (10/10)** |
-| `RM_CP1_ZIGZAG` | Duyệt Ma Trận Zic-Zac Điểm Cực Đại| Nâng cao | 10 | $87.29\text{ ms}$ | **PASSED (10/10)** |
+| `RM_RECTAREA` | Diện Tích Và Chu Vi Sân Trường | Cơ bản | 10 | 89.25 ms | **PASSED (10/10)** |
+| `RM_CANDYDIV` | Chia Kẹo Cho Học Sinh Tiểu Học | Cơ bản | 10 | 86.00 ms | **PASSED (10/10)** |
+| `RM_DIGITSUM` | Đếm Chữ Số Và Tổng Chữ Số | Cơ bản | 10 | 65.03 ms | **PASSED (10/10)** |
+| `RM_PRINTPATTERN` | Vẽ Khung Trang Trí Hình Chữ Nhật | Cơ bản | 10 | 78.88 ms | **PASSED (10/10)** |
+| `RM_FIRSTEVEN` | Số Chẵn Đầu Tiên Trong Danh Sách | Cơ bản | 10 | 65.06 ms | **PASSED (10/10)** |
+| `RM_ARRAYQUERY` | Tính Tổng Và Truy Vấn Mảng 1D | Cơ bản | 10 | 87.73 ms | **PASSED (10/10)** |
+| `RM_MINMAXPOS` | Điểm Cao Nhất, Thấp Nhất (Vị trí đầu) | Cơ bản | 10 | 82.07 ms | **PASSED (10/10)** |
+| `RM_REVERSEARR` | Đảo Ngược Thứ Tự Dãy Số | Cơ bản | 10 | 75.41 ms | **PASSED (10/10)** |
+| `RM_GRADEFREQ` | Thống Kê Tần Số Điểm Thi | Cơ bản | 10 | 86.15 ms | **PASSED (10/10)** |
+| `RM_CHARSHIFT` | Biến Đổi Ký Tự Bảng Mã ASCII | Cơ bản | 10 | 87.54 ms | **PASSED (10/10)** |
+| `RM_PALINDROME` | Kiểm Tra Chuỗi Ký Tự Đối Xứng | Cơ bản | 10 | 60.80 ms | **PASSED (10/10)** |
+| `RM_COUNTVOWELS` | Đếm Nguyên Âm Tiếng Anh | Cơ bản | 10 | 67.08 ms | **PASSED (10/10)** |
+| `RM_SQUARECHECK` | Kiểm Tra Số Chính Phương Chính Xác | Trung bình | 10 | 73.60 ms | **PASSED (10/10)** |
+| `RM_REDUCERATE` | Rút Gọn Phân Số Với Tham Chiếu | Cơ bản | 10 | 65.24 ms | **PASSED (10/10)** |
+| `RM_DIAGONAL` | Tính Tổng Hai Đường Chéo Ma Trận | Trung bình | 10 | 80.31 ms | **PASSED (10/10)** |
+| `RM_STUDENTRANK` | Quản Lý Hồ Sơ Học Sinh (Struct) | Trung bình | 10 | 79.66 ms | **PASSED (10/10)** |
+| `RM_CP1_EXAMSTAT`| Thống Kê Điểm Thi & Xét Học Bổng | Trung bình | 10 | 80.30 ms | **PASSED (10/10)** |
+| `RM_CP1_BILLING` | Hóa Đơn Nước Bậc Thang Siêu Thị | Trung bình | 10 | 79.20 ms | **PASSED (10/10)** |
+| `RM_CP1_ZIGZAG` | Duyệt Ma Trận Zic-Zac Điểm Cực Đại| Nâng cao | 10 | 87.29 ms | **PASSED (10/10)** |
 
 ### 5.3. Đánh giá tính năng chống gian lận và giám sát
 Thực nghiệm với kịch bản 40 học sinh làm bài đồng thời:
-* Khi học sinh chuyển tab trình duyệt hoặc thu nhỏ cửa sổ làm bài, giao diện giám sát của giáo viên lập tức kích hoạt cờ cảnh báo đỏ `VIOLATION_BLUR` với độ trễ dưới $200\text{ ms}$.
+* Khi học sinh chuyển tab trình duyệt hoặc thu nhỏ cửa sổ làm bài, giao diện giám sát của giáo viên lập tức kích hoạt cờ cảnh báo đỏ `VIOLATION_BLUR` với độ trễ dưới 200 ms.
 * Cơ chế khóa chức năng dán (Paste Blocking) ngăn chặn hiệu quả học sinh sao chép code từ các trang AI hoặc chat bên ngoài.
 * Bảng điểm trực tiếp (Live Leaderboard) tự động đóng băng trong 15 phút cuối giờ thi để tạo kịch tính, trong khi phía giáo viên vẫn theo dõi được điểm số thật.
 

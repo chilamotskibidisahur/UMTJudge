@@ -34,6 +34,108 @@ const COLOR_SECONDARY = '0F766E'; // Teal
 const COLOR_TEXT = '1F2937';      // Dark Gray / Charcoal
 const COLOR_MUTED = '4B5563';
 
+function cleanLatexAndMarkdown(text) {
+  if (!text) return '';
+  let s = String(text);
+  // Replace LaTeX \text{...} with inside text
+  s = s.replace(/\\text\{([^}]+)\}/g, '$1');
+  // Replace LaTeX symbols with Unicode equivalents
+  s = s.replace(/\\le\b/g, '≤')
+       .replace(/\\ge\b/g, '≥')
+       .replace(/\\times\b/g, '×')
+       .replace(/\\neq\b/g, '≠')
+       .replace(/\\in\b/g, '∈')
+       .replace(/\\exists\b/g, '∃')
+       .replace(/\\forall\b/g, '∀')
+       .replace(/\\wedge\b/g, ' và ')
+       .replace(/\\vee\b/g, ' hoặc ')
+       .replace(/\\rightarrow\b/g, '→')
+       .replace(/\\left/g, '')
+       .replace(/\\right/g, '')
+       .replace(/\\begin\{[a-zA-Z*]+\}/g, '')
+       .replace(/\\end\{[a-zA-Z*]+\}/g, '')
+       .replace(/\\cdot\b/g, '·')
+       .replace(/\\dots\b/g, '...')
+       .replace(/\\cases\b/g, '')
+       .replace(/\\[a-zA-Z]+\b/g, '') // remove remaining backslash commands
+       .replace(/\\{2,}/g, ' ')
+       .replace(/\$/g, '');
+  return s;
+}
+
+function parseInlineFormatting(text, baseOptions = {}) {
+  const cleaned = cleanLatexAndMarkdown(text);
+  const runs = [];
+  const regex = /(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(cleaned)) !== null) {
+    if (match.index > lastIndex) {
+      runs.push(new TextRun({
+        text: cleaned.slice(lastIndex, match.index),
+        font: baseOptions.font || FONT_FAMILY,
+        size: baseOptions.size || 26,
+        color: baseOptions.color || COLOR_TEXT,
+        italics: baseOptions.italics || false,
+        bold: baseOptions.bold || false
+      }));
+    }
+
+    const token = match[0];
+    if (token.startsWith('**') && token.endsWith('**')) {
+      runs.push(new TextRun({
+        text: token.slice(2, -2),
+        font: baseOptions.font || FONT_FAMILY,
+        size: baseOptions.size || 26,
+        bold: true,
+        color: baseOptions.color || COLOR_TEXT,
+        italics: baseOptions.italics || false
+      }));
+    } else if (token.startsWith('`') && token.endsWith('`')) {
+      runs.push(new TextRun({
+        text: token.slice(1, -1),
+        font: 'Consolas',
+        size: (baseOptions.size || 26) - 2,
+        bold: false,
+        color: '0F766E'
+      }));
+    } else if (token.startsWith('*') && token.endsWith('*')) {
+      runs.push(new TextRun({
+        text: token.slice(1, -1),
+        font: baseOptions.font || FONT_FAMILY,
+        size: baseOptions.size || 26,
+        bold: false,
+        color: baseOptions.color || COLOR_TEXT,
+        italics: true
+      }));
+    }
+
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < cleaned.length) {
+    runs.push(new TextRun({
+      text: cleaned.slice(lastIndex),
+      font: baseOptions.font || FONT_FAMILY,
+      size: baseOptions.size || 26,
+      color: baseOptions.color || COLOR_TEXT,
+      italics: baseOptions.italics || false,
+      bold: baseOptions.bold || false
+    }));
+  }
+
+  if (runs.length === 0) {
+    runs.push(new TextRun({
+      text: '',
+      font: baseOptions.font || FONT_FAMILY,
+      size: baseOptions.size || 26
+    }));
+  }
+
+  return runs;
+}
+
 function createPara(text, options = {}) {
   return new Paragraph({
     alignment: options.alignment || AlignmentType.LEFT,
@@ -42,16 +144,7 @@ function createPara(text, options = {}) {
       after: options.spaceAfter !== undefined ? options.spaceAfter : 120,
       line: 320 // 1.33x line spacing
     },
-    children: [
-      new TextRun({
-        text: text,
-        font: FONT_FAMILY,
-        size: options.size || 26, // 13pt
-        bold: options.bold || false,
-        italics: options.italics || false,
-        color: options.color || COLOR_TEXT
-      })
-    ]
+    children: parseInlineFormatting(text, options)
   });
 }
 
@@ -131,15 +224,11 @@ function createStyledTable(rowsData) {
           new Paragraph({
             alignment: isHeader ? AlignmentType.CENTER : AlignmentType.LEFT,
             spacing: { before: 40, after: 40, line: 260 },
-            children: [
-              new TextRun({
-                text: String(cellText || '').trim(),
-                font: FONT_FAMILY,
-                size: isHeader ? 23 : 21,
-                bold: isHeader,
-                color: isHeader ? '0F172A' : COLOR_TEXT
-              })
-            ]
+            children: parseInlineFormatting(String(cellText || '').trim(), {
+              size: isHeader ? 23 : 21,
+              bold: isHeader,
+              color: isHeader ? '0F172A' : COLOR_TEXT
+            })
           })
         ]
       });
@@ -345,41 +434,30 @@ async function buildDocx() {
 
     // Bullet points
     if (line.startsWith('* ') || line.startsWith('- ')) {
-      const cleanText = line.substring(2).replace(/\*\*/g, '').replace(/`/g, '').replace(/\$/g, '');
+      const rawBullet = line.substring(2);
       docChildren.push(new Paragraph({
         bullet: { level: 0 },
         spacing: { before: 40, after: 40, line: 300 },
-        children: [
-          new TextRun({
-            text: cleanText,
-            font: FONT_FAMILY,
-            size: 26,
-            color: COLOR_TEXT
-          })
-        ]
+        children: parseInlineFormatting(rawBullet)
       }));
       continue;
     }
 
     // Numbered list
     if (/^\d+\.\s/.test(line)) {
-      const cleanText = line.replace(/^\d+\.\s*/, '').replace(/\*\*/g, '').replace(/`/g, '').replace(/\$/g, '');
+      const numPrefix = line.match(/^\d+\.\s*/)[0];
+      const rawNumbered = line.substring(numPrefix.length);
       docChildren.push(new Paragraph({
         spacing: { before: 50, after: 50, line: 300 },
         children: [
           new TextRun({
-            text: line.match(/^\d+\.\s*/)[0] + ' ',
+            text: numPrefix,
             font: FONT_FAMILY,
             size: 26,
             bold: true,
             color: COLOR_SECONDARY
           }),
-          new TextRun({
-            text: cleanText,
-            font: FONT_FAMILY,
-            size: 26,
-            color: COLOR_TEXT
-          })
+          ...parseInlineFormatting(rawNumbered)
         ]
       }));
       continue;
@@ -392,8 +470,7 @@ async function buildDocx() {
 
     // Normal paragraph
     if (line.length > 0) {
-      const cleanText = line.replace(/\*\*/g, '').replace(/`/g, '').replace(/\$/g, '');
-      docChildren.push(createPara(cleanText));
+      docChildren.push(createPara(line));
     }
   }
 
