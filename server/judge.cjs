@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { execSync, spawn } = require('child_process');
+const { execSync, spawn, exec } = require('child_process');
 const os = require('os');
 const crypto = require('crypto');
 
@@ -32,6 +32,18 @@ class JudgeEngine {
       fs.mkdirSync(this.tempDir, { recursive: true });
     }
     this._compilerInfo = null; // lazy
+
+    // Clean up any stale judge containers from previous runs or sudden restarts
+    try {
+      exec('docker ps -q --filter "name=umt_"', (err, stdout) => {
+        if (!err && stdout && stdout.trim()) {
+          const ids = stdout.trim().split(/\s+/).filter(Boolean).join(' ');
+          if (ids) {
+            exec(`docker rm -f ${ids}`, () => {});
+          }
+        }
+      });
+    } catch (e) {}
   }
 
   // ── Compiler detection ────────────────────────────────────────────────────
@@ -297,8 +309,10 @@ class JudgeEngine {
     const sourcePath = path.join(subFolder, 'solution.cpp');
     fs.writeFileSync(sourcePath, code, 'utf8');
 
+    const containerName = `umt_cmp_${subId}_${crypto.randomBytes(4).toString('hex')}`;
     const compileArgs = [
       'run', '--rm',
+      `--name=${containerName}`,
       '--network=none',
       '--read-only',
       `--tmpfs=/tmp:size=64m`,
@@ -321,8 +335,13 @@ class JudgeEngine {
         stdio: ['ignore', 'ignore', 'pipe']
       });
 
-      const timer = setTimeout(() => {
+      const cleanup = () => {
         try { child.kill('SIGKILL'); } catch (e) {}
+        try { exec(`docker rm -f ${containerName}`, () => {}); } catch (e) {}
+      };
+
+      const timer = setTimeout(() => {
+        cleanup();
         fs.rmSync(subFolder, { recursive: true, force: true });
         resolve({ success: false, error: 'Compile timeout (10 000 ms)' });
       }, 10000);
@@ -333,12 +352,14 @@ class JudgeEngine {
 
       child.on('error', (err) => {
         clearTimeout(timer);
+        cleanup();
         fs.rmSync(subFolder, { recursive: true, force: true });
         resolve({ success: false, error: `docker spawn failed: ${err.message}` });
       });
 
       child.on('close', (code) => {
         clearTimeout(timer);
+        cleanup();
         const binaryPath = path.join(subFolder, 'solution');
         if (code !== 0 || !fs.existsSync(binaryPath)) {
           fs.rmSync(subFolder, { recursive: true, force: true });
@@ -590,8 +611,10 @@ class JudgeEngine {
       writeInp(`${name}.INP`);
     }
 
+    const containerName = `umt_run_${crypto.randomBytes(6).toString('hex')}`;
     const runArgs = [
       'run', '--rm', '-i',
+      `--name=${containerName}`,
       '--network=none',
       '--read-only',
       `--tmpfs=/tmp:size=32m`,
@@ -618,9 +641,14 @@ class JudgeEngine {
         stdio: ['pipe', 'pipe', 'pipe']
       });
 
+      const cleanup = () => {
+        try { child.kill('SIGKILL'); } catch (e) {}
+        try { exec(`docker rm -f ${containerName}`, () => {}); } catch (e) {}
+      };
+
       const timer = setTimeout(() => {
         isTimeout = true;
-        try { child.kill('SIGKILL'); } catch (e) {}
+        cleanup();
       }, timeLimitMs + 1000); // +1s for Docker overhead
 
       try {
@@ -638,12 +666,14 @@ class JudgeEngine {
 
       child.on('error', (err) => {
         clearTimeout(timer);
+        cleanup();
         const durationMs = Number((process.hrtime.bigint() - startTime) / 1000000n);
         resolve({ status: 'RE', error: err.message, time: durationMs, memory: 0, output: stdout });
       });
 
       child.on('close', (code) => {
         clearTimeout(timer);
+        cleanup();
         const durationMs = Math.max(1, Number((process.hrtime.bigint() - startTime) / 1000000n));
 
         // Read freopen .out file if present (check all candidate files or any file ending in .out)
