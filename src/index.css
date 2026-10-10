@@ -962,8 +962,48 @@ textarea.input-field {
 .desktop-workspace {
   flex: 1;
   display: flex;
+  flex-direction: column;
   overflow: hidden;
   position: relative;
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.desktop-workspace > * {
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Custom Sleek Scrollbars for Problem Bank Views */
+.problems-view-container,
+.problem-manager-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(124, 92, 255, 0.45) rgba(0, 0, 0, 0.1);
+}
+
+.problems-view-container::-webkit-scrollbar,
+.problem-manager-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.problems-view-container::-webkit-scrollbar-track,
+.problem-manager-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.problems-view-container::-webkit-scrollbar-thumb,
+.problem-manager-container::-webkit-scrollbar-thumb {
+  background: rgba(124, 92, 255, 0.35);
+  border-radius: 4px;
+}
+
+.problems-view-container::-webkit-scrollbar-thumb:hover,
+.problem-manager-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 92, 255, 0.65);
 }
 
 /* 26px Desktop Status Bar */

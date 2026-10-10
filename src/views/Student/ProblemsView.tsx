@@ -229,7 +229,21 @@ export const ProblemsView: React.FC<Props> = ({ onSelectProblem }) => {
   };
 
   return (
-    <div style={{ flex: 1, padding: '24px 32px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <div 
+      className="problems-view-container"
+      style={{ 
+        width: '100%', 
+        height: '100%', 
+        minHeight: 0, 
+        padding: '24px 32px 80px 32px', 
+        overflowY: 'auto', 
+        overflowX: 'hidden',
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '20px',
+        boxSizing: 'border-box'
+      }}
+    >
       {/* Page Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
         <div>

@@ -681,7 +681,18 @@ export const ProblemManager: React.FC = () => {
   };
 
   return (
-    <div style={{ flex: 1, padding: '28px 36px', overflowY: 'auto' }}>
+    <div 
+      className="problem-manager-container"
+      style={{ 
+        width: '100%', 
+        height: '100%', 
+        minHeight: 0, 
+        padding: '28px 36px 80px 36px', 
+        overflowY: 'auto',
+        overflowX: 'hidden',
+        boxSizing: 'border-box'
+      }}
+    >
       {/* Title */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
         <div>
