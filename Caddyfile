@@ -1,0 +1,20 @@
+# ==============================================================================
+# ChauCaoJudge — Caddy Reverse Proxy & Auto HTTPS (SSL) cho chaucaojudge.xyz
+# ==============================================================================
+
+chaucaojudge.xyz {
+    # Reverse proxy tới container app cổng 4000 (hỗ trợ cả REST API và Socket.IO WebSockets)
+    reverse_proxy app:4000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    encode gzip zstd
+
+    # Giới hạn dung lượng tải lên (hỗ trợ đề thi và testcase lớn lên tới 500MB)
+    request_body {
+        max_size 500MB
+    }
+}

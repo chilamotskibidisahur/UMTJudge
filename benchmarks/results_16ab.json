@@ -1,0 +1,63 @@
+{
+  "system": {
+    "platform": "win32",
+    "release": "10.0.26300",
+    "cpus": "Intel(R) Core(TM) i5-14400",
+    "cpuCores": 16,
+    "totalRamGb": "15.77",
+    "nodeVersion": "v24.19.0"
+  },
+  "resA": {
+    "compileTimes": [
+      3448.921,
+      535.6535,
+      544.7159,
+      495.459,
+      535.4881
+    ],
+    "runTimes": [
+      286.0457,
+      90.5225,
+      79.5703,
+      78.9927,
+      84.9055
+    ],
+    "avgCompile": 1112.0475,
+    "avgRun": 124.00734
+  },
+  "resB": {
+    "testDetails": [
+      {
+        "test": 1,
+        "totalTestMs": 1845.3326,
+        "waitBeforeKillMs": 1500,
+        "killOverheadMs": 267.6805
+      },
+      {
+        "test": 2,
+        "totalTestMs": 1702.2383,
+        "waitBeforeKillMs": 1500,
+        "killOverheadMs": 192.2421
+      },
+      {
+        "test": 3,
+        "totalTestMs": 1708.0337,
+        "waitBeforeKillMs": 1500,
+        "killOverheadMs": 203.8005
+      },
+      {
+        "test": 4,
+        "totalTestMs": 1750.1809,
+        "waitBeforeKillMs": 1500,
+        "killOverheadMs": 236.4135
+      },
+      {
+        "test": 5,
+        "totalTestMs": 1696.7712,
+        "waitBeforeKillMs": 1500,
+        "killOverheadMs": 190.2756
+      }
+    ],
+    "grandTotalMs": 8703.0489
+  }
+}

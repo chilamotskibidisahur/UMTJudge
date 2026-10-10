@@ -1,0 +1,441 @@
+/* ==========================================================================
+   SCHOOLJUDGE LAN — MODERN DESIGN SYSTEM & TOKENS (UMT TECH AESTHETIC)
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  /* Color Palette - Dark Mode (Default) */
+  --bg: #0B0F1E;
+  --surface: #141A33;
+  --surface-2: #1D2547;
+  --primary: #7C5CFF;         /* Electric Violet */
+  --primary-hover: #9074FF;
+  --secondary: #2DD4BF;       /* Teal */
+  --secondary-hover: #40E3CE;
+  --accent: #FFB547;          /* Amber */
+  --accent-hover: #FFC46A;
+  --text: #EEF1FF;
+  --text-muted: #9AA3C7;
+  --success: #34D399;         /* Emerald */
+  --warning: #FBBF24;         /* Amber warning */
+  --error: #FF5C7A;           /* Rose-red */
+
+  /* Surface & Border Alpha Tokens */
+  --surface-glass: rgba(20, 26, 51, 0.78);
+  --surface-glass-subtle: rgba(29, 37, 71, 0.55);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-bright: rgba(124, 92, 255, 0.45);
+  --border-teal: rgba(45, 212, 191, 0.4);
+
+  /* Glow Shadows */
+  --glow-primary: 0 0 24px rgba(124, 92, 255, 0.28);
+  --glow-secondary: 0 0 20px rgba(45, 212, 191, 0.22);
+  --glow-accent: 0 0 20px rgba(255, 181, 71, 0.25);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 36px -8px rgba(0, 0, 0, 0.65), 0 0 20px rgba(124, 92, 255, 0.12);
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #7C5CFF 0%, #2DD4BF 100%);
+  --grad-primary-vibrant: linear-gradient(135deg, #9074FF 0%, #38E0CB 100%);
+  --grad-card: linear-gradient(180deg, rgba(29, 37, 71, 0.6) 0%, rgba(20, 26, 51, 0.85) 100%);
+  --grad-surface: linear-gradient(180deg, #141A33 0%, #0B0F1E 100%);
+  --grad-hero-rays: radial-gradient(circle at 50% 35%, rgba(124, 92, 255, 0.22) 0%, rgba(45, 212, 191, 0.08) 45%, transparent 70%);
+
+  /* Backward Compatibility Aliases for Existing Views */
+  --bg-app: var(--bg);
+  --bg-surface: var(--surface);
+  --bg-surface-elevated: var(--surface-2);
+  --bg-surface-hover: #232D57;
+  --bg-glass: var(--surface-glass);
+  --text-main: var(--text);
+  --text-secondary: var(--text-muted);
+  --primary-light: #9C85FF;
+  --primary-dark: #6343E8;
+  --primary-glow: rgba(124, 92, 255, 0.28);
+  --accent-cyan: var(--secondary);
+  --accent-cyan-glow: rgba(45, 212, 191, 0.22);
+  --accent-emerald: var(--success);
+  --accent-rose: var(--error);
+  --accent-amber: var(--accent);
+  --accent-purple: var(--primary);
+  --border-glow: rgba(124, 92, 255, 0.45);
+
+  /* Verdict Colors */
+  --verdict-ac: var(--success);
+  --verdict-wa: var(--error);
+  --verdict-tle: var(--warning);
+  --verdict-mle: #A78BFA;
+  --verdict-re: #F43F5E;
+  --verdict-ce: var(--text-muted);
+
+  /* Theme Switcher Meta */
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  /* Color Palette - Light Mode */
+  --bg: #F6F7FD;
+  --surface: #FFFFFF;
+  --surface-2: #EBEFFA;
+  --primary: #6944FF;         /* Calibrated for AA 4.5:1 on light */
+  --primary-hover: #552FE8;
+  --secondary: #0D9488;       /* Deep teal for contrast */
+  --secondary-hover: #0F766E;
+  --accent: #D97706;          /* Deep amber for contrast */
+  --accent-hover: #B45309;
+  --text: #0E152D;            /* Deep obsidian blue */
+  --text-muted: #576384;       /* Balanced slate */
+  --success: #059669;
+  --warning: #D97706;
+  --error: #E11D48;
+
+  /* Surface & Border Alpha Tokens */
+  --surface-glass: rgba(255, 255, 255, 0.88);
+  --surface-glass-subtle: rgba(235, 239, 250, 0.7);
+  --border-subtle: rgba(14, 21, 45, 0.08);
+  --border-medium: rgba(14, 21, 45, 0.16);
+  --border-bright: rgba(105, 68, 255, 0.4);
+  --border-teal: rgba(13, 148, 136, 0.35);
+
+  /* Soft Glow Shadows */
+  --glow-primary: 0 0 20px rgba(105, 68, 255, 0.16);
+  --glow-secondary: 0 0 16px rgba(13, 148, 136, 0.15);
+  --glow-accent: 0 0 16px rgba(217, 119, 6, 0.15);
+  --shadow-sm: 0 2px 5px rgba(14, 21, 45, 0.06);
+  --shadow-md: 0 6px 16px rgba(14, 21, 45, 0.08);
+  --shadow-lg: 0 16px 36px -8px rgba(14, 21, 45, 0.14), 0 0 16px rgba(105, 68, 255, 0.08);
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #6944FF 0%, #0D9488 100%);
+  --grad-primary-vibrant: linear-gradient(135deg, #7C5CFF 0%, #14B8A6 100%);
+  --grad-card: linear-gradient(180deg, #FFFFFF 0%, #F5F7FD 100%);
+  --grad-surface: linear-gradient(180deg, #FFFFFF 0%, #F6F7FD 100%);
+  --grad-hero-rays: radial-gradient(circle at 50% 35%, rgba(105, 68, 255, 0.1) 0%, rgba(13, 148, 136, 0.05) 45%, transparent 70%);
+
+  /* Backward Compatibility Aliases */
+  --bg-app: var(--bg);
+  --bg-surface: var(--surface);
+  --bg-surface-elevated: var(--surface-2);
+  --bg-surface-hover: #DFE5F5;
+  --bg-glass: var(--surface-glass);
+  --text-main: var(--text);
+  --text-secondary: var(--text-muted);
+  --primary-light: #7C5CFF;
+  --primary-dark: #552FE8;
+  --primary-glow: rgba(105, 68, 255, 0.16);
+  --accent-cyan: var(--secondary);
+  --accent-cyan-glow: rgba(13, 148, 136, 0.15);
+  --accent-emerald: var(--success);
+  --accent-rose: var(--error);
+  --accent-amber: var(--accent);
+  --accent-purple: var(--primary);
+  --border-glow: rgba(105, 68, 255, 0.35);
+
+  --verdict-ac: var(--success);
+  --verdict-wa: var(--error);
+  --verdict-tle: var(--warning);
+  --verdict-mle: #7C3AED;
+  --verdict-re: #E11D48;
+  --verdict-ce: var(--text-muted);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   GLOBAL GEOMETRY, TYPOGRAPHY & ANIMATION TOKENS
+   ========================================================================== */
+:root {
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+
+  /* Shapes & Radii (12-20px as instructed) */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-full: 9999px;
+
+  /* Spring Physics & Motion Durations (150-400ms) */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur-normal: 260ms;
+  --dur-slow: 380ms;
+}
+
+/* ==========================================================================
+   SIGNATURE MOTIF: CORNER-BRACKET SHAPES & TECH ELEMENTS
+   ========================================================================== */
+
+/* Interlocking Dual-Bracket Motif for Cards & Panels */
+.bracket-corners {
+  position: relative;
+}
+
+.bracket-corners::before,
+.bracket-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  transition: all var(--dur-normal) var(--ease-spring);
+  z-index: 2;
+}
+
+/* Top-Left Corner Bracket (Electric Violet) */
+.bracket-corners::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+  border-top-left-radius: 4px;
+}
+
+/* Bottom-Right Corner Bracket (Teal) */
+.bracket-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--secondary);
+  border-right: 2px solid var(--secondary);
+  border-bottom-right-radius: 4px;
+}
+
+/* Interactive Hover expansion on bracket corners */
+.bracket-corners:hover::before {
+  width: 20px;
+  height: 20px;
+  border-color: var(--primary-hover);
+  filter: drop-shadow(0 0 6px var(--primary));
+}
+
+.bracket-corners:hover::after {
+  width: 20px;
+  height: 20px;
+  border-color: var(--secondary-hover);
+  filter: drop-shadow(0 0 6px var(--secondary));
+}
+
+/* Section Divider with Central Corner Bracket Crosshair */
+.bracket-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin: 24px 0;
+  color: var(--text-muted);
+}
+
+.bracket-divider::before,
+.bracket-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+}
+
+.bracket-divider-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+/* Focus Marker with Corner Brackets */
+.bracket-focus:focus-visible {
+  outline: none;
+  position: relative;
+}
+
+.bracket-focus:focus-visible::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 1px dashed var(--primary);
+  border-radius: calc(var(--radius-md) + 4px);
+  pointer-events: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 12px var(--primary-glow);
+}
+
+/* ==========================================================================
+   HEADINGS: WIDE-TRACKED BOLD UPPERCASE (UMT GEOMETRIC STYLE)
+   ========================================================================== */
+.umt-title,
+.tracking-wide-title,
+.view-header-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.umt-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* ==========================================================================
+   ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* 1. Page Load Staggered Fade & Slide-Up */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp var(--dur-normal) var(--ease-spring) forwards;
+}
+
+.stagger-1 { animation: fadeSlideUp var(--dur-normal) var(--ease-spring) 40ms forwards; }
+.stagger-2 { animation: fadeSlideUp var(--dur-normal) var(--ease-spring) 90ms forwards; }
+.stagger-3 { animation: fadeSlideUp var(--dur-normal) var(--ease-spring) 150ms forwards; }
+.stagger-4 { animation: fadeSlideUp var(--dur-normal) var(--ease-spring) 210ms forwards; }
+.stagger-5 { animation: fadeSlideUp var(--dur-normal) var(--ease-spring) 270ms forwards; }
+
+/* 2. Self-Drawing Corner Bracket (SVG Stroke Animation) */
+@keyframes bracketStrokeDraw {
+  0% {
+    stroke-dashoffset: 80;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.animate-bracket-draw path,
+.animate-bracket-draw polyline {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: bracketStrokeDraw 600ms var(--ease-out) forwards;
+}
+
+/* 3. Hero Ambient Floating Robot & Shapes */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+.animate-float-hero {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+/* 4. Radial Rays Rotation Animation */
+@keyframes rotateRaysSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rays-spin {
+  animation: rotateRaysSlow 40s linear infinite;
+  transform-origin: center;
+}
+
+/* 5. Error Shake Interaction */
+@keyframes errorShakeKeyframes {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-error-shake {
+  animation: errorShakeKeyframes 320ms var(--ease-spring);
+}
+
+/* 6. Success Checkmark Pulse */
+@keyframes successCheckScale {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-success-check {
+  animation: successCheckScale 350ms var(--ease-spring) forwards;
+}
+
+/* 7. Loading Shimmer Skeleton */
+@keyframes shimmerWave {
+  0% {
+    background-position: -250% 0;
+  }
+  100% {
+    background-position: 250% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--surface-2) 0%,
+    color-mix(in srgb, var(--surface-2) 75%, var(--primary) 25%) 50%,
+    var(--surface-2) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerWave 1.6s infinite ease-in-out;
+  border-radius: var(--radius-sm);
+}
+
+/* 8. Pulse Glow Loop */
+@keyframes glowPulseLoop {
+  0%, 100% {
+    box-shadow: 0 0 14px var(--primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(124, 92, 255, 0.45), 0 0 16px rgba(45, 212, 191, 0.3);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulseLoop 2.8s infinite ease-in-out;
+}
+
+/* Respect Accessibility Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

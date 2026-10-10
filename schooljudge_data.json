@@ -1,0 +1,2661 @@
+{
+  "settings": {
+    "serverName": "UMTJudge LAN",
+    "port": 4000,
+    "compilerPath": "g++",
+    "useDocker": false,
+    "dockerImage": "gcc:latest",
+    "globalMemoryLimit": 256,
+    "contestMode": false,
+    "contestEndTime": null,
+    "freezeScoreboard": false,
+    "allowCustomRun": true,
+    "submissionMode": "direct",
+    "submissionsClosed": false
+  },
+  "classes": [
+    {
+      "id": "class-10tin",
+      "name": "Lớp 10 Tin",
+      "grade": 10,
+      "joinCode": "TIN10",
+      "teacher": "Thầy Hùng",
+      "studentCount": 35
+    },
+    {
+      "id": "class-11tin",
+      "name": "Lớp 11 Tin",
+      "grade": 11,
+      "joinCode": "TIN11",
+      "teacher": "Cô Mai",
+      "studentCount": 32
+    },
+    {
+      "id": "class-12ctin",
+      "name": "Lớp 12 Chuyên Tin",
+      "grade": 12,
+      "joinCode": "CHUYENTIN12",
+      "teacher": "Thầy Hùng",
+      "studentCount": 28
+    },
+    {
+      "id": "class-hsg",
+      "name": "Đội Tuyển HSG Tin Học",
+      "grade": 12,
+      "joinCode": "HSG2026",
+      "teacher": "Thầy Hùng",
+      "studentCount": 15
+    }
+  ],
+  "users": [
+    {
+      "id": "usr-admin-umt",
+      "username": "admin",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$UC5fdnzSW/da88IEOhzoHg$nIPHvUBKCNVJDigR2Saa/fOTHHlYGQOOOQAJFKhWtuU",
+      "fullName": "UMT Admin",
+      "role": "host",
+      "isAdmin": true,
+      "classId": "admin-class",
+      "classes": [
+        "admin-class"
+      ],
+      "createdAt": "2026-10-10T09:20:00.446Z",
+      "mustChangePassword": false,
+      "contestRating": 1500,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-746869656e646570",
+      "username": "thiendepzai",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$k1d+nCMOwQmrr08kytenSQ$XBiGdM3mdIwq+siGdzLHodFnSSsIjYkBhwtf0VYNlUA",
+      "fullName": "Nguyễn Hồng Gia Thiên",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.247Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-64696e686e677579",
+      "username": "dinhnguyen39",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$VIPeHIoA1SRsk+5FY/heDw$vYWWGLu7mgE1Im9Y4NU/irbnLiLPjHSqibQKQOPoPac",
+      "fullName": "Nguyễn Đình Nguyên",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.271Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-6170706c65776869",
+      "username": "applewhite",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$QJWtq2IRTTGf3PYMxKcVpQ$oxRSDb7sB23z+wZzLKPnEw7xBIzXlZRz+AvMhAgi5j4",
+      "fullName": "Phạm Đăng Khoa",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.292Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-7469616d6174",
+      "username": "tiamat",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$iO25eUM3a3nS83iEcxXgkA$LfGjfIo5Folzm1dltnOSc4MdOGJEyOXVAfEgt63CYbo",
+      "fullName": "Phạm Minh Trung",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.314Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-68696575",
+      "username": "hieu",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$FlAyL+gmwkxdeHxE94aJlA$125Kumfou0oEB/RFSfXzQTglHgFaDG2Pnw4jZWdKujs",
+      "fullName": "Trần Quốc Hiếu",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.337Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-6d696e6874726965",
+      "username": "minhtrieu@",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$qdRdJog4HS0q/Pm9dKhLmg$fcNysoMg+zx0Rob44qik3ESCeF3kO+T5DdjvbOrW3X4",
+      "fullName": "Hominhtrieu",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.356Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-6e6768696170726f",
+      "username": "nghiapro135s",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$bfA3qv74/hiyTdbnbt83MQ$Z75SdglwjqEjT8JTcC+eAN7tL9d2ua4aCNKjfV2oyqc",
+      "fullName": "Quách Trọng Nghĩa",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.376Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-7065707369",
+      "username": "pepsi",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$ESJbANQo8QVo6IZNG/rXUw$3BPW4yt/p/HyNwNf9RMZjbxSFwxaXtP0PhygnVJsQ8w",
+      "fullName": "Nguyễn Gia Thiều",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.399Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    },
+    {
+      "id": "usr-6c65686f616e67",
+      "username": "lehoang",
+      "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$u42sy9zIr9llYyMdUl+k6A$8T46+Vt4DzbxPgmWtus1/+0SZZQ12d36s12vb/6UW/c",
+      "fullName": "Trương Đỗ Lê Hoàng",
+      "role": "user",
+      "classId": "class-11tin",
+      "classes": [
+        "class-11tin"
+      ],
+      "createdAt": "2026-10-10T09:20:00.421Z",
+      "mustChangePassword": false,
+      "contestRating": 1200,
+      "ratingHistory": [],
+      "points": 0,
+      "arenaWins": 0,
+      "arenaLosses": 0,
+      "arenaDraws": 0
+    }
+  ],
+  "problems": [
+    {
+      "id": "prob-067c740e-85c2-41f5-aa55-7aa0c8c67e45",
+      "code": "CAU3",
+      "title": "Xếp hạng cuộc thi",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "C++ Cơ bản",
+      "description": "BÀI 3: XẾP HẠNG CUỘC THI (7.0 Điểm) Để lựa chọn học sinh tham gia đội tuyển Tin học, nhà trường tổ chức hai bài thi: Bài 1 (trắc nghiệm) và Bài 2 (thực hành). Gọi điểm bài 1 là X và điểm bài 2 là Y. Tổng điểm là S = X + Y. Dựa vào điểm số, học sinh được phân loại như sau: Đạt hạng XUAT SAC: Nếu tổng...",
+      "statement": "BÀI 3: XẾP HẠNG CUỘC THI (7.0 Điểm) Để lựa chọn học sinh tham gia đội tuyển Tin học, nhà trường tổ chức hai bài thi: Bài 1 (trắc nghiệm) và Bài 2 (thực hành). Gọi điểm bài 1 là X và điểm bài 2 là Y. Tổng điểm là S = X + Y. Dựa vào điểm số, học sinh được phân loại như sau: Đạt hạng XUAT SAC: Nếu tổng điểm S &gt;= 180 VÀ cả hai bài thi đều phải có điểm từ 80 trở lên. Đạt hạng GIOI: Nếu không đủ điều kiện xuất sắc, nhưng có tổng điểm S &gt;= 150 VÀ không có bài thi nào bị dưới 60 điểm. Đạt hạng DAT : Dành cho các trường hợp học sinh có tổng điểm S &gt;= 100 HOẶC có ít nhất một bài thi đạt điểm tuyệt đối (100 điểm). Các trường hợp còn lại in ra KHONG DAT. Input: Nhập từ file CAU3.INP Hai số nguyên không âm X và Y (0 ≤ X, Y ≤ 100) lần lượt là điểm bài 1 và bài 2. Output: Xuất ra file CAU2.OUT In ra một trong các từ khóa xếp hạng tương ứng: XUAT SAC, GIOI, DAT, hoặc KHONG DAT. Ví dụ CAU3.INP CAU3.OUT Giải thích 90 95 XUAT SAC Tổng là 185 (&gt;= 180) và cả hai bài đều &gt;= 80. 100 70 GIOI Tổng là 170. Không đủ Xuất sắc do có bài &lt; 80, nhưng tổng &gt;= 150 và không bài nào &lt; 60. 40 100 DAT Tổng là 140. Tuy nhiên bài 2 đạt 100 điểm nên thuộc diện DAT. 50 40 KHONG DAT Tổng là 90, không thỏa mãn bất kỳ điều kiện nào ở trên.",
+      "statementHtml": "<p><strong>BÀI 3: XẾP HẠNG CUỘC THI (7.0 Điểm)</strong></p><p>Để lựa chọn học sinh tham gia đội tuyển Tin học, nhà trường tổ chức hai bài thi: Bài 1 (trắc nghiệm) và Bài 2 (thực hành). Gọi điểm bài 1 là X và điểm bài 2 là Y. Tổng điểm là S = X + Y.</p><p>Dựa vào điểm số, học sinh được phân loại như sau:</p><ul><li>Đạt hạng <strong>XUAT SAC:</strong> Nếu tổng điểm S &gt;= 180 VÀ cả hai bài thi đều phải có điểm từ 80 trở lên.</li><li>Đạt hạng <strong>GIOI:</strong> Nếu không đủ điều kiện xuất sắc, nhưng có tổng điểm S &gt;= 150 VÀ không có bài thi nào bị dưới 60 điểm.</li><li>Đạt hạng <strong>DAT</strong>: Dành cho các trường hợp học sinh có tổng điểm S &gt;= 100 HOẶC có ít nhất một bài thi đạt điểm tuyệt đối (100 điểm).</li><li>Các trường hợp còn lại in ra KHONG DAT.</li></ul><p><strong>Input: </strong>Nhập từ file CAU3.INP</p><ul><li>Hai số nguyên không âm <strong>X</strong> và <strong>Y</strong> (0 ≤  X, Y ≤  100) lần lượt là điểm bài 1 và bài 2.</li></ul><p><strong>Output: </strong>Xuất ra file CAU2.OUT</p><ul><li>In ra một trong các từ khóa xếp hạng tương ứng: XUAT SAC, GIOI, DAT, hoặc KHONG DAT.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>CAU3.INP</strong></p></td><td><p><strong>CAU3.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>90 95</p></td><td><p>XUAT SAC</p></td><td><p>Tổng là 185 (&gt;= 180) và cả hai bài đều &gt;= 80.</p></td></tr><tr><td><p>100 70</p></td><td><p>GIOI</p></td><td><p>Tổng là 170. Không đủ Xuất sắc do có bài &lt; 80, nhưng tổng &gt;= 150 và không bài nào &lt; 60.</p></td></tr><tr><td><p>40 100</p></td><td><p>DAT</p></td><td><p>Tổng là 140. Tuy nhiên bài 2 đạt 100 điểm nên thuộc diện DAT.</p></td></tr><tr><td><p>50 40</p></td><td><p>KHONG DAT</p></td><td><p>Tổng là 90, không thỏa mãn bất kỳ điều kiện nào ở trên.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "90 95",
+          "output": "XUAT SAC",
+          "explanation": "Tổng là 185 (>= 180) và cả hai bài đều >= 80."
+        },
+        {
+          "input": "100 70",
+          "output": "GIOI",
+          "explanation": "Tổng là 170 (>= 150) và không bài nào < 60."
+        },
+        {
+          "input": "40 100",
+          "output": "DAT",
+          "explanation": "Tổng là 140, bài 2 đạt 100 điểm nên thuộc diện DAT."
+        },
+        {
+          "input": "50 40",
+          "output": "KHONG DAT",
+          "explanation": "Tổng là 90, không thỏa mãn điều kiện nào ở trên."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-db42e584-1d87-4e8d-9de5-aa3a9df4488f",
+      "code": "CAU2",
+      "title": "Trò chơi số",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "C++ Cơ bản",
+      "description": "BÀI 2: TRÒ CHƠI SỐ (7.0 Điểm) An và Bình cùng chơi một trò chơi với các con số. Ban giám khảo sẽ đưa ra hai số nguyên A và B. Nhiệm vụ của học sinh là tìm ra số lớn hơn trong hai số đó. Trong trường hợp hai số bằng nhau, học sinh không cần in ra số nào cả, mà phải kiểm tra xem giá trị đó là số chẵn ...",
+      "statement": "BÀI 2: TRÒ CHƠI SỐ (7.0 Điểm) An và Bình cùng chơi một trò chơi với các con số. Ban giám khảo sẽ đưa ra hai số nguyên A và B. Nhiệm vụ của học sinh là tìm ra số lớn hơn trong hai số đó. Trong trường hợp hai số bằng nhau, học sinh không cần in ra số nào cả, mà phải kiểm tra xem giá trị đó là số chẵn hay số lẻ. Nếu là số chẵn in ra CHAN , nếu là số lẻ in ra LE . Yêu cầu: Hãy tính tổng năng lượng của tất cả N phiến đá. Input: Nhập từ file CAU2.INP Hai số nguyên A và B cách nhau một khoảng trắng (-10⁶ ≤ A, B ≤ 10⁶) Output: Xuất ra file CAU2.OUT In ra số lớn hơn nếu A khác B. Nếu A = B, in ra chữ CHAN hoặc LE tương ứng với tính chất của con số đó. Ví dụ CAU2.INP CAU2.OUT Giải thích 15 9 15 15 lớn hơn 9 nên kết quả là 15. 8 8 CHAN Hai số bằng nhau (8). Vì 8 là số chẵn nên in ra CHAN 7 7 LE Hai số bằng nhau (7). Vì 7 là số lẻ nên in ra LE",
+      "statementHtml": "<p><strong>BÀI 2:  TRÒ CHƠI SỐ (7.0 Điểm)</strong></p><p>An và Bình cùng chơi một trò chơi với các con số. Ban giám khảo sẽ đưa ra hai số nguyên A và B.</p><ul><li>Nhiệm vụ của học sinh là tìm ra số lớn hơn trong hai số đó.</li><li>Trong trường hợp hai số bằng nhau, học sinh không cần in ra số nào cả, mà phải kiểm tra xem giá trị đó là số chẵn hay số lẻ. Nếu là số chẵn in ra <strong>CHAN</strong>, nếu là số lẻ in ra <strong>LE</strong>.</li></ul><p><strong>Yêu cầu:</strong> Hãy tính tổng năng lượng của tất cả N phiến đá.</p><p><strong>Input: </strong>Nhập từ file CAU2.INP</p><ul><li>Hai số nguyên <strong>A</strong> và <strong>B</strong> cách nhau một khoảng trắng (-10⁶ ≤  A, B ≤  10⁶)</li></ul><p><strong>Output: </strong>Xuất ra file CAU2.OUT</p><ul><li>In ra số lớn hơn nếu A khác B.</li><li>Nếu A = B, in ra chữ CHAN hoặc LE tương ứng với tính chất của con số đó.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>CAU2.INP</strong></p></td><td><p><strong>CAU2.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>15 9</p></td><td><p>15</p></td><td><p>15 lớn hơn 9 nên kết quả là 15.</p></td></tr><tr><td><p>8 8</p></td><td><p>CHAN</p></td><td><p>Hai số bằng nhau (8). Vì 8 là số chẵn nên in ra CHAN</p></td></tr><tr><td><p>7 7</p></td><td><p>LE</p></td><td><p>Hai số bằng nhau (7). Vì 7 là số lẻ nên in ra LE</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "15 9",
+          "output": "15",
+          "explanation": "15 lớn hơn 9 nên in ra 15."
+        },
+        {
+          "input": "8 8",
+          "output": "CHAN",
+          "explanation": "Hai số bằng nhau và là số chẵn nên in ra CHAN."
+        },
+        {
+          "input": "7 7",
+          "output": "LE",
+          "explanation": "Hai số bằng nhau và là số lẻ nên in ra LE."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-a6e98388-6cc1-4ca4-9d1d-536564bfd32a",
+      "code": "CAU1",
+      "title": "Chia kẹo",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "C++ Cơ bản",
+      "description": "BÀI 1: CHIA KẸO (6.0 Điểm) Lớp 6C có M bạn học sinh. Nhân dịp sinh nhật, bạn lớp trưởng mang đến lớp N viên kẹo để chia đều cho các bạn. Hãy giúp bạn lớp trưởng tính xem mỗi bạn sẽ nhận được nhiều nhất bao nhiêu viên kẹo, và sau khi chia đều thì lớp trưởng còn cất lại bao nhiêu viên kẹo dư. Yêu cầu:...",
+      "statement": "BÀI 1: CHIA KẸO (6.0 Điểm) Lớp 6C có M bạn học sinh. Nhân dịp sinh nhật, bạn lớp trưởng mang đến lớp N viên kẹo để chia đều cho các bạn. Hãy giúp bạn lớp trưởng tính xem mỗi bạn sẽ nhận được nhiều nhất bao nhiêu viên kẹo, và sau khi chia đều thì lớp trưởng còn cất lại bao nhiêu viên kẹo dư. Yêu cầu: Hãy tính tổng năng lượng của tất cả N phiến đá. Input: Nhập từ file CAU1.INP Chứa hai số nguyên dương N (số kẹo) và M (số học sinh), hai số cách nhau một khoảng trắng (1 ≤ M ≤ N ≤ 10⁴). Output: Xuất ra file CAU1.OUT In ra màn hình hai số nguyên cách nhau một khoảng trắng: Số thứ nhất là số kẹo mỗi bạn nhận được. Số thứ hai là số kẹo còn dư lại. Ví dụ CAU1.INP CAU1.OUT Giải thích 25 7 3 4 Có 25 viên kẹo chia cho 7 bạn. Mỗi bạn nhận 3 viên (7 x 3 = 21). Còn dư 4 viên.",
+      "statementHtml": "<p><strong>BÀI 1:  CHIA KẸO (6.0 Điểm)</strong></p><p>Lớp 6C có <strong>M</strong> bạn học sinh. Nhân dịp sinh nhật, bạn lớp trưởng mang đến lớp <strong>N</strong> viên kẹo để chia đều cho các bạn. Hãy giúp bạn lớp trưởng tính xem mỗi bạn sẽ nhận được nhiều nhất bao nhiêu viên kẹo, và sau khi chia đều thì lớp trưởng còn cất lại bao nhiêu viên kẹo dư.</p><p><strong>Yêu cầu:</strong> Hãy tính tổng năng lượng của tất cả N phiến đá.</p><p><strong>Input: </strong>Nhập từ file CAU1.INP</p><ul><li>Chứa hai số nguyên dương N (số kẹo) và M (số học sinh), hai số cách nhau một khoảng trắng (1 ≤ M ≤ N ≤ 10⁴).</li></ul><p><strong>Output: </strong>Xuất ra file CAU1.OUT</p><ul><li>In ra màn hình hai số nguyên cách nhau một khoảng trắng:<ul><li>Số thứ nhất là số kẹo mỗi bạn nhận được.</li><li>Số thứ hai là số kẹo còn dư lại.</li></ul></li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>CAU1.INP</strong></p></td><td><p><strong>CAU1.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>25 7</p></td><td><p>3 4</p></td><td><p>Có 25 viên kẹo chia cho 7 bạn. Mỗi bạn nhận 3 viên (7 x 3 = 21). Còn dư 4 viên.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "25 7",
+          "output": "3 4",
+          "explanation": "Có 25 viên kẹo chia cho 7 bạn. Mỗi bạn nhận 3 viên, còn dư 4 viên."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-4668cd60-7113-455e-89af-64be47f3043c",
+      "code": "MUASAM",
+      "title": "Mua sắm",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "C++ Cơ bản",
+      "description": "BÀI 1: MUA SẮM (6.0 Điểm) Đầu năm học mới, bạn Bảo được mẹ đưa đi nhà sách để mua đồ dùng học tập. Mẹ đưa cho Bảo danh sách cần mua gồm vở và bút. Yêu cầu: Hãy tính tổng số tiền Bảo cần phải trả cho cửa hàng biết Bảo mua A quyển vở (mỗi quyển giá X đồng) và B cây bút (mỗi cây giá Y đồng). Input: Nhậ...",
+      "statement": "BÀI 1: MUA SẮM (6.0 Điểm) Đầu năm học mới, bạn Bảo được mẹ đưa đi nhà sách để mua đồ dùng học tập. Mẹ đưa cho Bảo danh sách cần mua gồm vở và bút. Yêu cầu: Hãy tính tổng số tiền Bảo cần phải trả cho cửa hàng biết Bảo mua A quyển vở (mỗi quyển giá X đồng) và B cây bút (mỗi cây giá Y đồng). Input: Nhập từ file MUASAM.INP Một dòng duy nhất chứa 4 số nguyên không âm A, X, B, Y cách nhau bởi khoảng trắng. Output: Xuất ra file MUASAM.OUT Một số nguyên duy nhất là tổng số tiền cần thanh toán. Subtack: Subtack1: 50% điểm với A, B ≤ 100; X, Y ≤ 10 4 ; Subtack2: 30% điểm với A, B ≤ 10 4 ; X, Y ≤ 10 5 ; Subtack3: 20% điểm với A, B ≤ 10 6 ; X, Y ≤ 10 6 ; Ví dụ MUASAM.INP MUASAM.OUT Giải thích 10 8000 5 5000 105000 Mua 10 quyển vở giá 8000 (80.000) và 5 bút giá 5000 (25.000). Tổng là 105.000",
+      "statementHtml": "<p><strong>BÀI 1: MUA SẮM (6.0 Điểm)</strong></p><p>Đầu năm học mới, bạn Bảo được mẹ đưa đi nhà sách để mua đồ dùng học tập. Mẹ đưa cho Bảo danh sách cần mua gồm vở và bút.</p><p><strong>Yêu cầu:</strong> Hãy tính tổng số tiền Bảo cần phải trả cho cửa hàng biết Bảo mua A quyển vở (mỗi quyển giá X đồng) và B cây bút (mỗi cây giá Y đồng).</p><p><strong>Input: </strong>Nhập từ file MUASAM.INP</p><ul><li>Một dòng duy nhất chứa 4 số nguyên không âm A, X, B, Y cách nhau bởi khoảng trắng.</li></ul><p><strong>Output: </strong>Xuất ra file MUASAM.OUT</p><ul><li>Một số nguyên duy nhất là tổng số tiền cần thanh toán.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  A, B ≤ 100; X, Y ≤ 10<sup>4</sup>;</li><li>Subtack2: 30% điểm với  A, B ≤ 10<sup>4</sup>; X, Y ≤ 10<sup>5</sup>;</li><li>Subtack3: 20% điểm với  A, B ≤ 10<sup>6</sup>; X, Y ≤ 10<sup>6</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>MUASAM.INP</strong></p></td><td><p><strong>MUASAM.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>10 8000 5 5000</p></td><td><p>105000</p></td><td><p>Mua 10 quyển vở giá 8000 (80.000) và 5 bút giá 5000 (25.000). Tổng là 105.000</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "10 8000 5 5000",
+          "output": "105000",
+          "explanation": "Mua 10 quyển vở giá 8000 (80.000) và 5 bút giá 5000 (25.000). Tổng là 105.000"
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-fd4fa748-3204-44b4-9598-f1265c8d131d",
+      "code": "GIAVE",
+      "title": "Vé xem phim",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "C++ Cơ bản",
+      "description": "BÀI 2: VÉ XEM PHIM (7.0 Điểm) Rạp chiếu phim \"Trí Đức Cinema\" đang có chương trình khuyến mãi cho khách hàng. Giá vé gốc của một bộ phim là K đồng. Tuy nhiên, rạp có chính sách ưu đãi: Trẻ em (dưới 12 tuổi) hoặc người cao tuổi (từ 60 tuổi trở lên) sẽ được giảm giá 50% (giảm một nửa). Những độ tuổi k...",
+      "statement": "BÀI 2: VÉ XEM PHIM (7.0 Điểm) Rạp chiếu phim \"Trí Đức Cinema\" đang có chương trình khuyến mãi cho khách hàng. Giá vé gốc của một bộ phim là K đồng. Tuy nhiên, rạp có chính sách ưu đãi: Trẻ em (dưới 12 tuổi) hoặc người cao tuổi (từ 60 tuổi trở lên) sẽ được giảm giá 50% (giảm một nửa). Những độ tuổi khác sẽ phải mua vé với đúng giá gốc. Yêu cầu: Cho biết số tuổi T của khách hàng và giá vé gốc K (đảm bảo K luôn là số chẵn). Hãy tính số tiền thực tế khách hàng phải trả. Input: Nhập từ file GIAVE.INP Một dòng chứa 2 số nguyên T (tuổi) và K (giá vé gốc), cách nhau bởi khoảng trắng. Output: Xuất ra file GIAVE.OUT Một số nguyên duy nhất là số tiền vé khách hàng phải trả. Subtack: Subtack1: 50% điểm với 0 ≤ T ≤ 100; K ≤ 10 5 ; Subtack2: 30% điểm với 0 ≤ T ≤ 200; K ≤ 10 9 ; Subtack3: 20% điểm với 0 ≤ T ≤ 10 4 ; K ≤ 10 12 ; Ví dụ GIAVE.INP GIAVE.OUT Giải thích 10 80000 40000 Khách hàng 10 tuổi (dưới 12), giảm 50% của 80000. 25 100000 100000 Khách hàng 25 tuổi, không ưu đãi, trả đủ 100000.",
+      "statementHtml": "<p><strong>BÀI 2:  VÉ XEM PHIM (7.0 Điểm)</strong></p><p>Rạp chiếu phim \"Trí Đức Cinema\" đang có chương trình khuyến mãi cho khách hàng. Giá vé gốc của một bộ phim là K đồng. Tuy nhiên, rạp có chính sách ưu đãi: Trẻ em (dưới 12 tuổi) hoặc người cao tuổi (từ 60 tuổi trở lên) sẽ được giảm giá 50% (giảm một nửa). Những độ tuổi khác sẽ phải mua vé với đúng giá gốc.</p><p><strong>Yêu cầu:</strong> Cho biết số tuổi T của khách hàng và giá vé gốc K (đảm bảo K luôn là số chẵn). Hãy tính số tiền thực tế khách hàng phải trả.</p><p><strong>Input: </strong>Nhập từ file GIAVE.INP</p><ul><li>Một dòng chứa 2 số nguyên T (tuổi) và K (giá vé gốc), cách nhau bởi khoảng trắng.</li></ul><p><strong>Output: </strong>Xuất ra file GIAVE.OUT</p><ul><li>Một số nguyên duy nhất là số tiền vé khách hàng phải trả.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  0 ≤ T ≤ 100; K ≤ 10<sup>5</sup>;</li><li>Subtack2: 30% điểm với  0 ≤ T ≤ 200; K ≤ 10<sup>9</sup>;</li><li>Subtack3: 20% điểm với  0 ≤ T ≤ 10<sup>4</sup>; K ≤ 10<sup>12</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>GIAVE.INP</strong></p></td><td><p><strong>GIAVE.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>10 80000</p></td><td><p>40000</p></td><td><p>Khách hàng 10 tuổi (dưới 12), giảm 50% của 80000.</p></td></tr><tr><td><p>25 100000</p></td><td><p>100000</p></td><td><p>Khách hàng 25 tuổi, không ưu đãi, trả đủ 100000.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "10 80000",
+          "output": "40000",
+          "explanation": "Khách hàng 10 tuổi (dưới 12), giảm 50% của 80000."
+        },
+        {
+          "input": "25 100000",
+          "output": "100000",
+          "explanation": "Khách hàng 25 tuổi, không ưu đãi, trả đủ 100000."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-d561f7a5-2f4b-415b-a5e6-4cca8b6a1d52",
+      "code": "DIEMTHUONG",
+      "title": "Tính điểm thưởng",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "Số học",
+      "description": "BÀI 3: TÍNH ĐIỂM THƯỞNG (7.0 Điểm) Trong đợt thi đua chào mừng ngày Nhà giáo Việt Nam, nhà trường phát động phong trào \"Hoa điểm mười\". Học sinh đi học chuyên cần sẽ được cộng điểm thưởng theo quy luật: Ngày thứ i của đợt thi đua sẽ được cộng đúng i điểm. Tuy nhiên, nhà trường quy định những ngày ch...",
+      "statement": "BÀI 3: TÍNH ĐIỂM THƯỞNG (7.0 Điểm) Trong đợt thi đua chào mừng ngày Nhà giáo Việt Nam, nhà trường phát động phong trào \"Hoa điểm mười\". Học sinh đi học chuyên cần sẽ được cộng điểm thưởng theo quy luật: Ngày thứ i của đợt thi đua sẽ được cộng đúng i điểm. Tuy nhiên, nhà trường quy định những ngày chia hết cho 5 (ngày 5, 10, 15...) là ngày rà soát sổ đầu bài nên sẽ không được tính điểm thưởng. Yêu cầu: Hãy tính tổng số điểm thưởng mà một học sinh đạt được sau N ngày đi học đầu tiên của đợt thi đua. Input: Nhập từ file DIEMTHUONG.INP Gồm một dòng duy nhất chứa số nguyên dương N là tổng số ngày thi đua. Output: Xuất ra file DIEMTHUONG.OUT Một dòng duy nhất in ra tổng số điểm thưởng. Subtack: Subtack1: 50% điểm với N ≤ 10 3 ; Subtack2: 30% điểm với N ≤ 10 6 ; Subtack3: 20% điểm với N ≤ 10 8 ; Ví dụ DIEMTHUONG.INP DIEMTHUONG.OUT Giải thích 6 16 Các ngày được cộng điểm là 1, 2, 3, 4, 6. (Ngày thứ 5 chia hết cho 5 nên bị bỏ qua). Tổng điểm = 1 + 2 + 3 + 4 + 6 = 16.",
+      "statementHtml": "<p><strong>BÀI 3: TÍNH ĐIỂM THƯỞNG (7.0 Điểm)</strong></p><p>Trong đợt thi đua chào mừng ngày Nhà giáo Việt Nam, nhà trường phát động phong trào \"Hoa điểm mười\". Học sinh đi học chuyên cần sẽ được cộng điểm thưởng theo quy luật: Ngày thứ <strong>i </strong>của đợt thi đua sẽ được cộng đúng <strong>i </strong>điểm. Tuy nhiên, nhà trường quy định những ngày chia hết cho 5 (ngày 5, 10, 15...) là ngày rà soát sổ đầu bài nên sẽ không được tính điểm thưởng.</p><p><strong>Yêu cầu:</strong> Hãy tính tổng số điểm thưởng mà một học sinh đạt được sau N ngày đi học đầu tiên của đợt thi đua.</p><p><strong>Input: </strong>Nhập từ file DIEMTHUONG.INP</p><ul><li>Gồm một dòng duy nhất chứa số nguyên dương N là tổng số ngày thi đua.</li></ul><p><strong>Output: </strong>Xuất ra file DIEMTHUONG.OUT</p><ul><li>Một dòng duy nhất in ra tổng số điểm thưởng.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  N ≤ 10<sup>3</sup>;</li><li>Subtack2: 30% điểm với  N ≤ 10<sup>6</sup>;</li><li>Subtack3: 20% điểm với  N ≤ 10<sup>8</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>DIEMTHUONG.INP</strong></p></td><td><p><strong>DIEMTHUONG.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>6</p></td><td><p>16</p></td><td><p>Các ngày được cộng điểm là 1, 2, 3, 4, 6. </p><p>(Ngày thứ 5 chia hết cho 5 nên bị bỏ qua). </p><p>Tổng điểm = 1 + 2 + 3 + 4 + 6 = 16.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "6",
+          "output": "16",
+          "explanation": "Các ngày được cộng điểm là 1, 2, 3, 4, 6 (ngày thứ 5 chia hết cho 5 bị bỏ qua). Tổng = 1 + 2 + 3 + 4 + 6 = 16."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-6dadaddf-ea4d-4749-afcb-09bfbce022da",
+      "code": "TONGCHAN",
+      "title": "Tổng chẵn",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "Vòng lặp",
+      "description": "BÀI 1: TỔNG CHẴN (6.0 Điểm) Bạn An được thầy giáo giao một bài tập rèn luyện kỹ năng lập trình. Khác với cấp tiểu học, ở lớp 7, các bạn bắt đầu làm quen với việc dùng máy tính để tự động hóa các phép tính lặp đi lặp lại một cách nhanh chóng. Yêu cầu: Cho một số nguyên dương N. Hãy tính tổng tất cả c...",
+      "statement": "BÀI 1: TỔNG CHẴN (6.0 Điểm) Bạn An được thầy giáo giao một bài tập rèn luyện kỹ năng lập trình. Khác với cấp tiểu học, ở lớp 7, các bạn bắt đầu làm quen với việc dùng máy tính để tự động hóa các phép tính lặp đi lặp lại một cách nhanh chóng. Yêu cầu: Cho một số nguyên dương N. Hãy tính tổng tất cả các số tự nhiên chẵn từ 1 đến N. Input: Nhập từ file TONGCHAN.INP Gồm một dòng duy nhất chứa số nguyên dương N. Output: Xuất ra file TONGCHAN.OUT Gồm một dòng duy nhất chứa kết quả là tổng các số chẵn tìm được. Subtack: Subtack1: 50% điểm với N ≤ 10 3 ; Subtack2: 30% điểm với N ≤ 10 6 ; Subtack3: 20% điểm với N ≤ 10 9 ; Ví dụ TONGCHAN.INP TONGCHAN.OUT Giải thích 10 30 Các số chẵn từ 1 đến 10 là 2, 4, 6, 8, 10. Tổng = 2+4+6+8+10 = 30.",
+      "statementHtml": "<p><strong>BÀI 1:  TỔNG CHẴN (6.0 Điểm)</strong></p><p>Bạn An được thầy giáo giao một bài tập rèn luyện kỹ năng lập trình. Khác với cấp tiểu học, ở lớp 7, các bạn bắt đầu làm quen với việc dùng máy tính để tự động hóa các phép tính lặp đi lặp lại một cách nhanh chóng. </p><p><strong>Yêu cầu:</strong> Cho một số nguyên dương N. Hãy tính tổng tất cả các số tự nhiên chẵn từ 1 đến N.</p><p><strong>Input: </strong>Nhập từ file TONGCHAN.INP</p><ul><li>Gồm một dòng duy nhất chứa số nguyên dương N.</li></ul><p><strong>Output: </strong>Xuất ra file TONGCHAN.OUT</p><ul><li>Gồm một dòng duy nhất chứa kết quả là tổng các số chẵn tìm được.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  N ≤ 10<sup>3</sup>;</li><li>Subtack2: 30% điểm với  N ≤ 10<sup>6</sup>;</li><li>Subtack3: 20% điểm với  N ≤ 10<sup>9</sup>; </li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>TONGCHAN.INP</strong></p></td><td><p><strong>TONGCHAN.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>10</p></td><td><p>30</p></td><td><p>Các số chẵn từ 1 đến 10 là 2, 4, 6, 8, 10. </p><p>Tổng = 2+4+6+8+10 = 30.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "10",
+          "output": "30",
+          "explanation": "Các số chẵn từ 1 đến 10 là 2, 4, 6, 8, 10. Tổng = 30."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-4972f6d9-8c39-4c50-9124-68fd1d7f2b31",
+      "code": "SODEP",
+      "title": "Số đẹp",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "Số học",
+      "description": "BÀI 2: SỐ ĐẸP (7.0 Điểm) Trong buổi sinh hoạt câu lạc bộ Tin học, các bạn học sinh được chơi một trò chơi phân loại các con số. Thầy giáo định nghĩa: Một số nguyên dương được gọi là \"Số đẹp\" nếu nó chia hết cho 3 VÀ không chia hết cho 5. Yêu cầu: Cho hai số nguyên dương A và B. Hãy đếm xem trong đoạ...",
+      "statement": "BÀI 2: SỐ ĐẸP (7.0 Điểm) Trong buổi sinh hoạt câu lạc bộ Tin học, các bạn học sinh được chơi một trò chơi phân loại các con số. Thầy giáo định nghĩa: Một số nguyên dương được gọi là \"Số đẹp\" nếu nó chia hết cho 3 VÀ không chia hết cho 5. Yêu cầu: Cho hai số nguyên dương A và B. Hãy đếm xem trong đoạn từ A đến B (bao gồm cả A và B) có bao nhiêu \"Số đẹp\". Input: Nhập từ file SODEP.INP Gồm một dòng chứa hai số nguyên dương A và B cách nhau một khoảng trắng (A &lt;= B). Output: Xuất ra file SODEP.OUT In ra một số nguyên duy nhất là số lượng \"Số đẹp\" tìm được. Subtack: Subtack1: 50% điểm với A ≤ B ≤ 10 4 ; Subtack2: 30% điểm với A ≤ B ≤ 10 7 ; Subtack3: 20% điểm với A ≤ B ≤ 10 12 ; Ví dụ SODEP.INP SODEP.OUT Giải thích 1 15 4 Các số chia hết cho 3 là: 3, 6, 9, 12, 15. Số 15 chia hết cho 5 nên bị loại. Kết quả: 3, 6, 9, 12.",
+      "statementHtml": "<p><strong>BÀI 2:  SỐ ĐẸP (7.0 Điểm)</strong></p><p>Trong buổi sinh hoạt câu lạc bộ Tin học, các bạn học sinh được chơi một trò chơi phân loại các con số. Thầy giáo định nghĩa: Một số nguyên dương được gọi là \"Số đẹp\" nếu nó chia hết cho 3 VÀ không chia hết cho 5. </p><p><strong>Yêu cầu:</strong> Cho hai số nguyên dương A và B. Hãy đếm xem trong đoạn từ A đến B (bao gồm cả A và B) có bao nhiêu \"Số đẹp\".</p><p><strong>Input: </strong>Nhập từ file SODEP.INP</p><ul><li>Gồm một dòng chứa hai số nguyên dương A và B cách nhau một khoảng trắng (A &lt;= B).</li></ul><p><strong>Output: </strong>Xuất ra file SODEP.OUT</p><ul><li>In ra một số nguyên duy nhất là số lượng \"Số đẹp\" tìm được.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  A ≤ B ≤ 10<sup>4</sup>;</li><li>Subtack2: 30% điểm với  A ≤ B ≤ 10<sup>7</sup>;</li><li>Subtack3: 20% điểm với  A ≤ B ≤ 10<sup>12</sup>; </li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>SODEP.INP</strong></p></td><td><p><strong>SODEP.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>1 15</p></td><td><p>4</p></td><td><p>Các số chia hết cho 3 là: 3, 6, 9, 12, 15. Số 15 chia hết cho 5 nên bị loại. Kết quả: 3, 6, 9, 12.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "1 15",
+          "output": "4",
+          "explanation": "Các số chia hết cho 3 trong khoảng [1, 15] không chia hết cho 5: 3, 6, 9, 12 (4 số)."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-4869db58-da6a-410b-9816-c3ae75652f77",
+      "code": "NHAYECH",
+      "title": "Nhảy ếch",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "Quy hoạch động",
+      "description": "BÀI 3: NHẢY ẾCH (7.0 Điểm) Một chú ếch đồ chơi được lập trình di chuyển trên một đường thẳng, xuất phát từ vị trí số 0. Chú ếch di chuyển theo quy luật sau: Ở những lần nhảy thứ lẻ (lần 1, 3, 5...), ếch tiến về phía trước X bước. Ở những lần nhảy thứ chẵn (lần 2, 4, 6...), ếch lùi về phía sau Y bước...",
+      "statement": "BÀI 3: NHẢY ẾCH (7.0 Điểm) Một chú ếch đồ chơi được lập trình di chuyển trên một đường thẳng, xuất phát từ vị trí số 0. Chú ếch di chuyển theo quy luật sau: Ở những lần nhảy thứ lẻ (lần 1, 3, 5...), ếch tiến về phía trước X bước. Ở những lần nhảy thứ chẵn (lần 2, 4, 6...), ếch lùi về phía sau Y bước. Yêu cầu: Cho 3 số nguyên dương X, Y và N. Hỏi sau đúng N lần nhảy, chú ếch đang ở vị trí số mấy trên trục đường thẳng? Input: Nhập từ file NHAYECH.INP Gồm một dòng chứa ba số nguyên dương X, Y, N cách nhau bởi khoảng trắng. Output: Xuất ra file NHAYECH.OUT Gồm một dòng duy nhất in ra vị trí cuối cùng của chú ếch. Subtack: Subtack1: 50% điểm với N ≤ 10 4 ; Subtack2: 30% điểm với N ≤ 10 9 ; X, Y ≤ 10 5 ; Subtack3: 20% điểm với N ≤ 10 12 ; X, Y ≤ 10 9 ; Ví dụ NHAYECH.INP NHAYECH.OUT Giải thích 5 2 4 6 Lần 1: +5 (vị trí 5). Lần 2: -2 (vị trí 3). Lần 3: +5 (vị trí 8). Lần 4: -2 (vị trí 6).",
+      "statementHtml": "<p><strong>BÀI 3: NHẢY ẾCH (7.0 Điểm)</strong></p><p>Một chú ếch đồ chơi được lập trình di chuyển trên một đường thẳng, xuất phát từ vị trí số 0. Chú ếch di chuyển theo quy luật sau:</p><ul><li>Ở những lần nhảy thứ lẻ (lần 1, 3, 5...), ếch tiến về phía trước X bước.</li><li>Ở những lần nhảy thứ chẵn (lần 2, 4, 6...), ếch lùi về phía sau Y bước. </li></ul><p><strong>Yêu cầu:</strong> Cho 3 số nguyên dương X, Y và N. Hỏi sau đúng N lần nhảy, chú ếch đang ở vị trí số mấy trên trục đường thẳng?</p><p><strong>Input: </strong>Nhập từ file NHAYECH.INP</p><ul><li>Gồm một dòng chứa ba số nguyên dương X, Y, N cách nhau bởi khoảng trắng.</li></ul><p><strong>Output: </strong>Xuất ra file NHAYECH.OUT</p><ul><li>Gồm một dòng duy nhất in ra vị trí cuối cùng của chú ếch.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  N ≤ 10<sup>4</sup>;</li><li>Subtack2: 30% điểm với  N ≤ 10<sup>9</sup>; X, Y ≤ 10<sup>5</sup>;</li><li>Subtack3: 20% điểm với  N ≤ 10<sup>12</sup>; X, Y ≤ 10<sup>9</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>NHAYECH.INP</strong></p></td><td><p><strong>NHAYECH.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>5 2 4</p></td><td><p>6</p></td><td><p>Lần 1: +5 (vị trí 5). Lần 2: -2 (vị trí 3). Lần 3: +5 (vị trí 8). Lần 4: -2 (vị trí 6).</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "5 2 4",
+          "output": "6",
+          "explanation": "Lần 1: +5 (5). Lần 2: -2 (3). Lần 3: +5 (8). Lần 4: -2 (6)."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-d19134b4-f495-46c3-a515-a520bc7d3d23",
+      "code": "TRANGTRI",
+      "title": "Trang trí",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "Quy hoạch động",
+      "description": "BÀI 1: TRANG TRÍ (7.0 Điểm) Nhân dịp chào mừng ngày Nhà giáo Việt Nam 20/11, lớp 11A được giao nhiệm vụ trang trí một khu vực trưng bày sản phẩm của lớp. Lớp được phát đúng N viên gạch hình vuông có kích thước 1x1. Ban cán sự lớp quyết định sẽ xếp toàn bộ N viên gạch này sát vào nhau để tạo thành mộ...",
+      "statement": "BÀI 1: TRANG TRÍ (7.0 Điểm) Nhân dịp chào mừng ngày Nhà giáo Việt Nam 20/11, lớp 11A được giao nhiệm vụ trang trí một khu vực trưng bày sản phẩm của lớp. Lớp được phát đúng N viên gạch hình vuông có kích thước 1x1. Ban cán sự lớp quyết định sẽ xếp toàn bộ N viên gạch này sát vào nhau để tạo thành một hình chữ nhật đặc hoàn chỉnh (không thừa, không thiếu viên nào). Để làm nổi bật khu vực này, các bạn dự định mua dây đèn LED để viền xung quanh mép ngoài của hình chữ nhật. Do kinh phí của lớp có hạn, các bạn muốn xếp hình chữ nhật sao cho chu vi của nó là nhỏ nhất có thể. Yêu cầu: Cho trước số nguyên dương N. Em hãy vận dụng các kỹ năng lập trình và toán học cơ bản để lập trình tính chu vi nhỏ nhất của hình chữ nhật được tạo thành từ đúng N viên gạch. Input: Nhập từ file TRANGTRI.INP Gồm một dòng duy nhất chứa một số nguyên dương N (1 ≤ N ≤ 10 12 ). Output: Xuất ra file TRANGTRI.OUT In ra một số nguyên duy nhất là chu vi nhỏ nhất của hình chữ nhật tìm được. Subtasks Subtask 1 (25%): N ≤ 10 4 . Subtask 2 (25%): N ≤ 10 6 . Subtask 3 (25%): N ≤ 10 9 . Subtask 4 (25%): N ≤ 10 12 . Ví dụ TRANGTRI.INP TRANGTRI.OUT Giải thích 12 14 Với N = 12, ta có thể tạo các hình chữ nhật có kích thước: 1x12 (chu vi 26), 2x6 (chu vi 16), 3x4 (chu vi 14). Hình chữ nhật 3x4 có chu vi nhỏ nhất là (3 + 4) * 2 = 14.",
+      "statementHtml": "<p><strong>BÀI 1:  TRANG TRÍ (7.0 Điểm)</strong></p><p>Nhân dịp chào mừng ngày Nhà giáo Việt Nam 20/11, lớp 11A được giao nhiệm vụ trang trí một khu vực trưng bày sản phẩm của lớp. Lớp được phát đúng N viên gạch hình vuông có kích thước 1x1. Ban cán sự lớp quyết định sẽ xếp toàn bộ N viên gạch này sát vào nhau để tạo thành một hình chữ nhật đặc hoàn chỉnh (không thừa, không thiếu viên nào). Để làm nổi bật khu vực này, các bạn dự định mua dây đèn LED để viền xung quanh mép ngoài của hình chữ nhật. Do kinh phí của lớp có hạn, các bạn muốn xếp hình chữ nhật sao cho chu vi của nó là nhỏ nhất có thể.</p><p><strong>Yêu cầu:</strong> Cho trước số nguyên dương N. Em hãy vận dụng các kỹ năng lập trình và toán học cơ bản để lập trình tính chu vi nhỏ nhất của hình chữ nhật được tạo thành từ đúng N viên gạch.</p><p><strong>Input: </strong>Nhập từ file TRANGTRI.INP </p><ul><li>Gồm một dòng duy nhất chứa một số nguyên dương N (1 ≤ N ≤ 10<sup>12</sup>).</li></ul><p><strong>Output: </strong>Xuất ra file<strong> </strong>TRANGTRI.OUT</p><ul><li>In ra một số nguyên duy nhất là chu vi nhỏ nhất của hình chữ nhật tìm được.</li></ul><p><strong>Subtasks</strong></p><ul><li><strong>Subtask 1 (25%):</strong> N ≤ 10<sup>4</sup>.</li><li><strong>Subtask 2 (25%):</strong> N ≤ 10<sup>6</sup>.</li><li><strong>Subtask 3 (25%):</strong> N ≤ 10<sup>9</sup>.</li><li><strong>Subtask 4 (25%):</strong> N ≤ 10<sup>12</sup>.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>TRANGTRI.INP</strong></p></td><td><p><strong>TRANGTRI.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>12</p></td><td><p>14</p></td><td><p>Với N = 12, ta có thể tạo các hình chữ nhật có kích thước: 1x12 (chu vi 26), 2x6 (chu vi 16), 3x4 (chu vi 14). Hình chữ nhật 3x4 có chu vi nhỏ nhất là (3 + 4) * 2 = 14.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "12",
+          "output": "14",
+          "explanation": "Với N = 12, hình chữ nhật 3x4 có chu vi nhỏ nhất là (3 + 4) * 2 = 14."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-596c1c6a-48c8-4f4f-b59a-3b46b3c8cfe8",
+      "code": "KYYEU",
+      "title": "Chụp ảnh kỷ yếu",
+      "difficulty": "Nâng cao",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "Hai con trỏ",
+      "description": "BÀI 2: CHỤP ẢNH KỶ YẾU (7.0 Điểm) Để chuẩn bị cho cuốn kỷ yếu của trường, một nhiếp ảnh gia cần chụp một bức ảnh nhóm cho các bạn học sinh khối 11. Có N học sinh đang xếp thành một hàng dài, học sinh thứ i có chiều cao là Hi. Để bức ảnh trông hài hòa và nghệ thuật, nhiếp ảnh gia quyết định chọn ra m...",
+      "statement": "BÀI 2: CHỤP ẢNH KỶ YẾU (7.0 Điểm) Để chuẩn bị cho cuốn kỷ yếu của trường, một nhiếp ảnh gia cần chụp một bức ảnh nhóm cho các bạn học sinh khối 11. Có N học sinh đang xếp thành một hàng dài, học sinh thứ i có chiều cao là Hi. Để bức ảnh trông hài hòa và nghệ thuật, nhiếp ảnh gia quyết định chọn ra một nhóm học sinh sao cho chênh lệch chiều cao giữa bạn cao nhất và bạn thấp nhất trong nhóm được chọn không vượt quá giá trị D cho trước Yêu cầu: Em hãy giúp nhiếp ảnh gia tính xem có thể chọn ra một nhóm gồm nhiều nhất bao nhiêu học sinh thỏa mãn điều kiện chênh lệch chiều cao trên. Input: Nhập vào từ file KYYEU.INP Dòng đầu tiên chứa hai số nguyên dương N và D (1 ≤ N ≤ 2 × 10 5 , 0 ≤ D ≤ 10 9 ) cách nhau một khoảng trắng. Dòng thứ hai chứa N số nguyên dương H 1 , H 2 , ..., H N (1 ≤ H i ≤ 10 9 ) là chiều cao của các học sinh. Output: Xuất ra file KYYEU.OUT In ra một số nguyên duy nhất là số lượng học sinh nhiều nhất có thể chọn. Subtasks: Subtask 1 (25%): N ≤ 100. Subtask 2 (25%): N ≤ 1000. Subtask 3 (25%): N ≤ 10 5 Và D = 0. Subtask 4 (25%): N ≤ 2*10 5 , H i ≤ 10 9 Ví dụ KYYEU.INP KYYEU.OUT Giải thích 5 3 1 7 2 5 4 3 Có 5 học sinh với chiều cao lần lượt là {1, 7, 2, 5, 4}. Với D = 3, nhiếp ảnh gia có thể chọn nhóm gồm 3 học sinh có chiều cao {2, 4, 5}. Chênh lệch là 5 - 2 = 3 ≤ D. Không có cách nào chọn 4 học sinh thỏa mãn.",
+      "statementHtml": "<p><strong>BÀI 2:  CHỤP ẢNH KỶ YẾU (7.0 Điểm)</strong></p><p>Để chuẩn bị cho cuốn kỷ yếu của trường, một nhiếp ảnh gia cần chụp một bức ảnh nhóm cho các bạn học sinh khối 11. Có N học sinh đang xếp thành một hàng dài, học sinh thứ i có chiều cao là Hi. Để bức ảnh trông hài hòa và nghệ thuật, nhiếp ảnh gia quyết định chọn ra một nhóm học sinh sao cho chênh lệch chiều cao giữa bạn cao nhất và bạn thấp nhất trong nhóm được chọn không vượt quá giá trị D cho trước</p><p><strong>Yêu cầu:</strong> Em hãy giúp nhiếp ảnh gia tính xem có thể chọn ra một nhóm gồm nhiều nhất bao nhiêu học sinh thỏa mãn điều kiện chênh lệch chiều cao trên.</p><p><strong>Input: </strong>Nhập vào từ file KYYEU.INP</p><ul><li>Dòng đầu tiên chứa hai số nguyên dương N và D (1 ≤ N ≤ 2 × 10<sup>5</sup>, 0 ≤ D ≤ 10<sup>9</sup>) cách nhau một khoảng trắng.</li><li>Dòng thứ hai chứa N số nguyên dương H<sub>1</sub>, H<sub>2</sub>, ..., H<sub>N</sub> (1 ≤ H<sub>i</sub> ≤ 10<sup>9</sup>) là chiều cao của các học sinh.</li></ul><p><strong>Output: </strong>Xuất ra file<strong> </strong>KYYEU.OUT</p><ul><li>In ra một số nguyên duy nhất là số lượng học sinh nhiều nhất có thể chọn.</li></ul><p><strong>Subtasks: </strong></p><ul><li><strong>Subtask 1 (25%):</strong> N ≤ 100.</li><li><strong>Subtask 2 (25%):</strong> N ≤ 1000.</li><li><strong>Subtask 3 (25%):</strong> N ≤ 10<sup>5</sup> Và D = 0.</li><li><strong>Subtask 4 (25%):</strong> N ≤ 2*10<sup>5</sup>, H<sub>i</sub> ≤ 10<sup>9</sup></li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>KYYEU.INP</strong></p></td><td><p><strong>KYYEU.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>5 3</p><p>1 7 2 5 4</p></td><td><p>3</p></td><td><p>Có 5 học sinh với chiều cao lần lượt là {1, 7, 2, 5, 4}. Với D = 3, nhiếp ảnh gia có thể chọn nhóm gồm 3 học sinh có chiều cao {2, 4, 5}. Chênh lệch là 5 - 2 = 3 ≤ D. Không có cách nào chọn 4 học sinh thỏa mãn.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "5 3\n1 7 2 5 4",
+          "output": "3",
+          "explanation": "Chọn nhóm gồm 3 học sinh có chiều cao {2, 4, 5}. Chênh lệch 5 - 2 = 3 <= 3."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    },
+    {
+      "id": "prob-ccb9ee86-92af-4df4-9f75-9ba6999ae69f",
+      "code": "HANHTRINH",
+      "title": "Hành trình khám phá",
+      "difficulty": "Nâng cao",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "category": "Đồ thị",
+      "description": "BÀI 3: HÀNH TRÌNH KHÁM PHÁ (6.0 Điểm) Trong một trò chơi thực tế ảo, người chơi phải điều khiển nhân vật thám hiểm một vùng đất hình chữ nhật được chia thành lưới M hàng và N cột. Hàng được đánh số từ 1 đến M từ trên xuống dưới, cột được đánh số từ 1 đến N từ trái qua phải. Tại ô (i, j) có chứa A ij...",
+      "statement": "BÀI 3: HÀNH TRÌNH KHÁM PHÁ (6.0 Điểm) Trong một trò chơi thực tế ảo, người chơi phải điều khiển nhân vật thám hiểm một vùng đất hình chữ nhật được chia thành lưới M hàng và N cột. Hàng được đánh số từ 1 đến M từ trên xuống dưới, cột được đánh số từ 1 đến N từ trái qua phải. Tại ô (i, j) có chứa A ij đồng tiền vàng. Nhân vật bắt đầu từ ô (1, 1) ở góc trên bên trái và cần đi đến đích tại ô (M, N) ở góc dưới bên phải. Tại mỗi bước, nhân vật chỉ có thể di chuyển sang phải một ô hoặc xuống dưới một ô. Tuy nhiên, bản đồ có một số ô là vực thẳm nguy hiểm (được đánh dấu bằng giá trị -1), nhân vật tuyệt đối không được đi vào các ô này. Yêu cầu: Tìm tổng số đồng tiền vàng lớn nhất mà người chơi có thể thu thập được trên đường đi từ (1, 1) đến (M, N). Nếu không tồn tại bất kỳ con đường nào để đến đích, hãy in ra -1. Input: Nhập từ file HANHTRINH.INP Dòng đầu tiên chứa hai số nguyên dương M và N (1 ≤ M, N ≤ 1000). M dòng tiếp theo, mỗi dòng chứa N số nguyên A ij (-1 ≤ A ij ≤ 10 4 ). Dữ liệu đảm bảo ô (1, 1) và ô (M, N) không bao giờ là vực thẳm (khác -1). Output: Xuất ra file HANHTRINH.OUT In ra một số nguyên duy nhất là số tiền vàng lớn nhất thu được. Nếu không thể đến đích, in ra -1. Subtasks Subtask 1 (25%): M, N ≤ 10. Subtask 2 (25%): M = 1, N ≤ 10 5 . Subtask 3 (25%): M,N ≤ 100, A ij ≥ 0. Subtask 4 (25%): M, N ≤ 1000. Ví dụ HANHTRINH.INP HANHTRINH.OUT Giải thích 3 4 2 1 5 2 4 -1 1 6 1 3 2 1 16 Đường đi tối ưu để nhặt được nhiều tiền vàng nhất và không rơi vào vực (-1): Lưu ý: Nhân vật không được đi chéo, chỉ đi phải và xuống. Đường đi (1,1) → (1,2) → (1,3) → (2,3) → (2,4) → (3,4) có tổng là 2+1+5+1+6+1 = 16. (Phù hợp với luật chơi). 2 2 1 -1 -1 2 -1 Từ (1,1) không có đường đi hợp lệ nào để qua (1,2) hoặc (2,1) vì đều bị chặn bởi vực thẳm (-1). Do đó in ra -1.",
+      "statementHtml": "<p><strong>BÀI 3: HÀNH TRÌNH KHÁM PHÁ (6.0 Điểm)</strong></p><p>Trong một trò chơi thực tế ảo, người chơi phải điều khiển nhân vật thám hiểm một vùng đất hình chữ nhật được chia thành lưới M hàng và N cột. Hàng được đánh số từ 1 đến M từ trên xuống dưới, cột được đánh số từ 1 đến N từ trái qua phải. Tại ô (i, j) có chứa A<sub>ij</sub> đồng tiền vàng. Nhân vật bắt đầu từ ô (1, 1) ở góc trên bên trái và cần đi đến đích tại ô (M, N) ở góc dưới bên phải. Tại mỗi bước, nhân vật chỉ có thể di chuyển sang phải một ô hoặc xuống dưới một ô. Tuy nhiên, bản đồ có một số ô là vực thẳm nguy hiểm (được đánh dấu bằng giá trị -1), nhân vật tuyệt đối không được đi vào các ô này.</p><p><strong>Yêu cầu:</strong> Tìm tổng số đồng tiền vàng lớn nhất mà người chơi có thể thu thập được trên đường đi từ (1, 1) đến (M, N). Nếu không tồn tại bất kỳ con đường nào để đến đích, hãy in ra -1.</p><p><strong>Input: </strong>Nhập từ file HANHTRINH.INP</p><ul><li>Dòng đầu tiên chứa hai số nguyên dương M và N (1 ≤ M, N ≤ 1000).</li><li>M dòng tiếp theo, mỗi dòng chứa N số nguyên A<sub>ij</sub> (-1 ≤ A<sub>ij</sub> ≤ 10<sup>4</sup>). Dữ liệu đảm bảo ô (1, 1) và ô (M, N) không bao giờ là vực thẳm (khác -1).</li></ul><p><strong>Output: </strong>Xuất ra file HANHTRINH.OUT</p><ul><li>In ra một số nguyên duy nhất là số tiền vàng lớn nhất thu được. Nếu không thể đến đích, in ra -1.</li></ul><p><strong>Subtasks</strong></p><ul><li><strong>Subtask 1 (25%):</strong> M, N ≤ 10.</li><li><strong>Subtask 2 (25%):</strong> M = 1, N ≤ 10<sup>5</sup>.</li><li><strong>Subtask 3 (25%):</strong> M,N ≤ 100, A<sub>ij</sub> ≥ 0.</li><li><strong>Subtask 4 (25%):</strong> M, N ≤ 1000.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>HANHTRINH.INP</strong></p></td><td><p><strong>HANHTRINH.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>3 4</p><p>2  1  5  2</p><p>4 -1  1  6</p><p>1  3  2  1</p></td><td><p>16</p></td><td><p>Đường đi tối ưu để nhặt được nhiều tiền vàng nhất và không rơi vào vực (-1):</p><p>Lưu ý: Nhân vật không được đi chéo, chỉ đi phải và xuống. Đường đi (1,1) → (1,2) → (1,3) → (2,3) → (2,4) → (3,4) có tổng là 2+1+5+1+6+1 = 16. (Phù hợp với luật chơi).</p></td></tr><tr><td><p>2 2</p><p>1 -1</p><p>-1 2</p></td><td><p>-1</p></td><td><p>Từ (1,1) không có đường đi hợp lệ nào để qua (1,2) hoặc (2,1) vì đều bị chặn bởi vực thẳm (-1). Do đó in ra -1.</p></td></tr></table>",
+      "samples": [
+        {
+          "input": "3 4\n2 1 5 2\n4 -1 1 6\n1 3 2 1",
+          "output": "16",
+          "explanation": "Đường đi (1,1) -> (1,2) -> (1,3) -> (2,3) -> (2,4) -> (3,4) tổng là 2+1+5+1+6+1 = 16."
+        },
+        {
+          "input": "2 2\n1 -1\n-1 2",
+          "output": "-1",
+          "explanation": "Không có đường đi hợp lệ nào vì đều bị chặn bởi vực thẳm (-1)."
+        }
+      ],
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Code C++11\n    return 0;\n}\n",
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "testCount": 40
+    }
+  ],
+  "submissions": [],
+  "contests": [
+    {
+      "id": "cnt-c112e7ec-e345-450d-b051-da98f4c4f7b6",
+      "title": "class eleven",
+      "description": "",
+      "mode": "offline",
+      "scopeType": "ALL",
+      "targetGrades": [],
+      "targetClasses": [],
+      "targetStudents": [],
+      "totalScore": 100,
+      "memoryLimit": 256,
+      "category": "regular",
+      "classIds": [],
+      "candidateIds": [],
+      "problemIds": [
+        "prob-d19134b4-f495-46c3-a515-a520bc7d3d23",
+        "prob-596c1c6a-48c8-4f4f-b59a-3b46b3c8cfe8",
+        "prob-ccb9ee86-92af-4df4-9f75-9ba6999ae69f"
+      ],
+      "pdfUrl": "/api/contests/cnt-c112e7ec-e345-450d-b051-da98f4c4f7b6/pdf",
+      "pdfFileName": "T11_Test_Olympic_lan_1_19.09.2026.docx",
+      "statementHtml": "<table><tr><td><table><tr><td><p><a id=\"_Hlk190469976\"></a>SỞ GD-ĐT THÀNH PHỐ HỒ CHÍ MINH</p><p><strong>TRƯỜNG TiH, THCS VÀ THPT TRÍ ĐỨC</strong></p><p>ĐỀ CHÍNH THỨC</p><p><em>(Đề có 02 trang)</em></p></td><td><p><strong>KHẢO SÁT CHẤT LƯỢNG HSG OLYMPIC LẦN 1</strong></p><p><strong>NĂM HỌC: 2026-2027</strong></p><p><strong>Môn: TIN HỌC - KHỐI 11</strong></p><p><em>Thời gian làm bài: 120 phút, không kể thời gian phát đề</em></p></td></tr></table></td><td></td></tr></table><p><strong>TỔNG QUAN ĐỀ THI</strong></p><table><tr><td><p><strong>BÀI</strong></p></td><td><p><strong>Tên bài</strong></p></td><td><p><strong>Tên file CT</strong></p></td><td><p><strong>Input</strong></p></td><td><p><strong>Output</strong></p></td><td><p><strong>Điểm</strong></p></td></tr><tr><td><p>1</p></td><td><p>TRANG TRÍ</p></td><td><p>TRANGTRI.CPP</p></td><td><p>TRANGTRI.INP</p></td><td><p>TRANGTRI.OUT</p></td><td><p>7</p></td></tr><tr><td><p>2</p></td><td><p>CHỤP ẢNH KỶ YẾU</p></td><td><p>KYYEU.CPP</p></td><td><p>KYYEU.INP</p></td><td><p>KYYEU.OUT</p></td><td><p>7</p></td></tr><tr><td><p>3</p></td><td><p>HÀNH TRÌNH KHÁM PHÁ</p></td><td><p>HANHTRINH.CPP</p></td><td><p>HANHTRINH.INP</p></td><td><p>HANHTRINH.OUT</p></td><td><p>6</p></td></tr></table><p><em>Lưu bài vào thư mục với tên file theo cấu trúc “</em><strong><em>T11Ten01</em></strong><em>”, ví dụ học sinh có tên Nam thì lưu vào thư mục “</em><strong><em>T11Nam01</em></strong><em>”.</em></p><p><strong>BÀI 1: TRANG TRÍ (7.0 Điểm)</strong></p><p>Nhân dịp chào mừng ngày Nhà giáo Việt Nam 20/11, lớp 11A được giao nhiệm vụ trang trí một khu vực trưng bày sản phẩm của lớp. Lớp được phát đúng N viên gạch hình vuông có kích thước 1x1. Ban cán sự lớp quyết định sẽ xếp toàn bộ N viên gạch này sát vào nhau để tạo thành một hình chữ nhật đặc hoàn chỉnh (không thừa, không thiếu viên nào). Để làm nổi bật khu vực này, các bạn dự định mua dây đèn LED để viền xung quanh mép ngoài của hình chữ nhật. Do kinh phí của lớp có hạn, các bạn muốn xếp hình chữ nhật sao cho chu vi của nó là nhỏ nhất có thể.</p><p><strong>Yêu cầu:</strong> Cho trước số nguyên dương N. Em hãy vận dụng các kỹ năng lập trình và toán học cơ bản để lập trình tính chu vi nhỏ nhất của hình chữ nhật được tạo thành từ đúng N viên gạch.</p><p><strong>Input: </strong>Nhập từ file TRANGTRI.INP </p><ul><li>Gồm một dòng duy nhất chứa một số nguyên dương N (1 ≤ N ≤ 10<sup>12</sup>).</li></ul><p><strong>Output: </strong>Xuất ra file<strong> </strong>TRANGTRI.OUT</p><ul><li>In ra một số nguyên duy nhất là chu vi nhỏ nhất của hình chữ nhật tìm được.</li></ul><p><strong>Subtasks</strong></p><ul><li><strong>Subtask 1 (25%):</strong> N ≤ 10<sup>4</sup>.</li><li><strong>Subtask 2 (25%):</strong> N ≤ 10<sup>6</sup>.</li><li><strong>Subtask 3 (25%):</strong> N ≤ 10<sup>9</sup>.</li><li><strong>Subtask 4 (25%):</strong> N ≤ 10<sup>12</sup>.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>TRANGTRI.INP</strong></p></td><td><p><strong>TRANGTRI.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>12</p></td><td><p>14</p></td><td><p>Với N = 12, ta có thể tạo các hình chữ nhật có kích thước: 1x12 (chu vi 26), 2x6 (chu vi 16), 3x4 (chu vi 14). Hình chữ nhật 3x4 có chu vi nhỏ nhất là (3 + 4) * 2 = 14.</p></td></tr></table><p><strong>BÀI 2: CHỤP ẢNH KỶ YẾU (7.0 Điểm)</strong></p><p>Để chuẩn bị cho cuốn kỷ yếu của trường, một nhiếp ảnh gia cần chụp một bức ảnh nhóm cho các bạn học sinh khối 11. Có N học sinh đang xếp thành một hàng dài, học sinh thứ i có chiều cao là Hi. Để bức ảnh trông hài hòa và nghệ thuật, nhiếp ảnh gia quyết định chọn ra một nhóm học sinh sao cho chênh lệch chiều cao giữa bạn cao nhất và bạn thấp nhất trong nhóm được chọn không vượt quá giá trị D cho trước</p><p><strong>Yêu cầu:</strong> Em hãy giúp nhiếp ảnh gia tính xem có thể chọn ra một nhóm gồm nhiều nhất bao nhiêu học sinh thỏa mãn điều kiện chênh lệch chiều cao trên.</p><p><strong>Input: </strong>Nhập vào từ file KYYEU.INP</p><ul><li>Dòng đầu tiên chứa hai số nguyên dương N và D (1 ≤ N ≤ 2 × 10<sup>5</sup>, 0 ≤ D ≤ 10<sup>9</sup>) cách nhau một khoảng trắng.</li><li>Dòng thứ hai chứa N số nguyên dương H<sub>1</sub>, H<sub>2</sub>, ..., H<sub>N</sub> (1 ≤ H<sub>i</sub> ≤ 10<sup>9</sup>) là chiều cao của các học sinh.</li></ul><p><strong>Output: </strong>Xuất ra file<strong> </strong>KYYEU.OUT</p><ul><li>In ra một số nguyên duy nhất là số lượng học sinh nhiều nhất có thể chọn.</li></ul><p><strong>Subtasks: </strong></p><ul><li><strong>Subtask 1 (25%):</strong> N ≤ 100.</li><li><strong>Subtask 2 (25%):</strong> N ≤ 1000.</li><li><strong>Subtask 3 (25%):</strong> N ≤ 10<sup>5</sup> Và D = 0.</li><li><strong>Subtask 4 (25%):</strong> N ≤ 2*10<sup>5</sup>, H<sub>i</sub> ≤ 10<sup>9</sup></li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>KYYEU.INP</strong></p></td><td><p><strong>KYYEU.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>5 3</p><p>1 7 2 5 4</p></td><td><p>3</p></td><td><p>Có 5 học sinh với chiều cao lần lượt là {1, 7, 2, 5, 4}. Với D = 3, nhiếp ảnh gia có thể chọn nhóm gồm 3 học sinh có chiều cao {2, 4, 5}. Chênh lệch là 5 - 2 = 3 ≤ D. Không có cách nào chọn 4 học sinh thỏa mãn.</p></td></tr></table><p><strong>BÀI 3: HÀNH TRÌNH KHÁM PHÁ (6.0 Điểm)</strong></p><p>Trong một trò chơi thực tế ảo, người chơi phải điều khiển nhân vật thám hiểm một vùng đất hình chữ nhật được chia thành lưới M hàng và N cột. Hàng được đánh số từ 1 đến M từ trên xuống dưới, cột được đánh số từ 1 đến N từ trái qua phải. Tại ô (i, j) có chứa A<sub>ij</sub> đồng tiền vàng. Nhân vật bắt đầu từ ô (1, 1) ở góc trên bên trái và cần đi đến đích tại ô (M, N) ở góc dưới bên phải. Tại mỗi bước, nhân vật chỉ có thể di chuyển sang phải một ô hoặc xuống dưới một ô. Tuy nhiên, bản đồ có một số ô là vực thẳm nguy hiểm (được đánh dấu bằng giá trị -1), nhân vật tuyệt đối không được đi vào các ô này.</p><p><strong>Yêu cầu:</strong> Tìm tổng số đồng tiền vàng lớn nhất mà người chơi có thể thu thập được trên đường đi từ (1, 1) đến (M, N). Nếu không tồn tại bất kỳ con đường nào để đến đích, hãy in ra -1.</p><p><strong>Input: </strong>Nhập từ file HANHTRINH.INP</p><ul><li>Dòng đầu tiên chứa hai số nguyên dương M và N (1 ≤ M, N ≤ 1000).</li><li>M dòng tiếp theo, mỗi dòng chứa N số nguyên A<sub>ij</sub> (-1 ≤ A<sub>ij</sub> ≤ 10<sup>4</sup>). Dữ liệu đảm bảo ô (1, 1) và ô (M, N) không bao giờ là vực thẳm (khác -1).</li></ul><p><strong>Output: </strong>Xuất ra file HANHTRINH.OUT</p><ul><li>In ra một số nguyên duy nhất là số tiền vàng lớn nhất thu được. Nếu không thể đến đích, in ra -1.</li></ul><p><strong>Subtasks</strong></p><ul><li><strong>Subtask 1 (25%):</strong> M, N ≤ 10.</li><li><strong>Subtask 2 (25%):</strong> M = 1, N ≤ 10<sup>5</sup>.</li><li><strong>Subtask 3 (25%):</strong> M,N ≤ 100, A<sub>ij</sub> ≥ 0.</li><li><strong>Subtask 4 (25%):</strong> M, N ≤ 1000.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>HANHTRINH.INP</strong></p></td><td><p><strong>HANHTRINH.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>3 4</p><p>2  1  5  2</p><p>4 -1  1  6</p><p>1  3  2  1</p></td><td><p>16</p></td><td><p>Đường đi tối ưu để nhặt được nhiều tiền vàng nhất và không rơi vào vực (-1):</p><p>Lưu ý: Nhân vật không được đi chéo, chỉ đi phải và xuống. Đường đi (1,1) → (1,2) → (1,3) → (2,3) → (2,4) → (3,4) có tổng là 2+1+5+1+6+1 = 16. (Phù hợp với luật chơi).</p></td></tr><tr><td><p>2 2</p><p>1 -1</p><p>-1 2</p></td><td><p>-1</p></td><td><p>Từ (1,1) không có đường đi hợp lệ nào để qua (1,2) hoặc (2,1) vì đều bị chặn bởi vực thẳm (-1). Do đó in ra -1.</p></td></tr></table><p>----------- HẾT / THE END ----------</p>",
+      "_pdfDiskPath": "C:\\Users\\PhatTT\\AppData\\Roaming\\chaucaojudge\\data\\uploads\\pdfs\\contest_cnt-c112e7ec-e345-450d-b051-da98f4c4f7b6_1791034819408_T11_Test_Olympic_lan_1_19.09.2026.docx",
+      "startTime": "2026-10-03T13:39:00.000Z",
+      "endTime": "2026-10-04T14:39:00.000Z",
+      "durationMinutes": 45,
+      "status": "running",
+      "gradingMode": "direct",
+      "freezeScoreboardMinutes": 15,
+      "pinCode": "",
+      "hideTestDetailsForStudents": true,
+      "requireFreopen": false,
+      "allowReopen": true,
+      "ioMode": "stdin",
+      "scoringMode": "LIVE_BEST",
+      "ipWhitelist": "",
+      "antiCheat": {
+        "preventTabSwitch": true,
+        "maxTabViolations": 3,
+        "preventCopyPaste": true
+      },
+      "createdAt": "2026-10-03T13:40:19.375Z"
+    },
+    {
+      "id": "cnt-ba26d5e9-1da0-4ec0-b82f-2fef97de75a7",
+      "title": "love eight",
+      "description": "",
+      "mode": "offline",
+      "scopeType": "ALL",
+      "targetGrades": [],
+      "targetClasses": [],
+      "targetStudents": [],
+      "totalScore": 100,
+      "memoryLimit": 256,
+      "category": "regular",
+      "classIds": [],
+      "candidateIds": [],
+      "problemIds": [
+        "prob-6dadaddf-ea4d-4749-afcb-09bfbce022da",
+        "prob-4972f6d9-8c39-4c50-9124-68fd1d7f2b31",
+        "prob-4869db58-da6a-410b-9816-c3ae75652f77"
+      ],
+      "pdfUrl": "/api/contests/cnt-ba26d5e9-1da0-4ec0-b82f-2fef97de75a7/pdf",
+      "pdfFileName": "T8_De_test_HSG_lan_1.docx",
+      "statementHtml": "<table><tr><td><table><tr><td><p><a id=\"_Hlk190469976\"></a>SỞ GD-ĐT THÀNH PHỐ HỒ CHÍ MINH</p><p><strong>TRƯỜNG TiH, THCS VÀ THPT TRÍ ĐỨC</strong></p><p>ĐỀ CHÍNH THỨC</p><p><em>(Đề có 03 trang)</em></p></td><td><p><strong>KHẢO SÁT CHẤT LƯỢNG HỌC SINH GIỎI LẦN 1</strong></p><p><strong>NĂM HỌC: 2026-2027</strong></p><p><strong>Môn: TIN HỌC - KHỐI 8</strong></p><p><em>Thời gian làm bài: 90 phút, không kể thời gian phát đề</em></p></td></tr></table></td><td></td></tr></table><p><strong>TỔNG QUAN ĐỀ THI</strong></p><table><tr><td><p><strong>BÀI</strong></p></td><td><p><strong>Tên bài</strong></p></td><td><p><strong>Tên file CT</strong></p></td><td><p><strong>Input</strong></p></td><td><p><strong>Output</strong></p></td><td><p><strong>Điểm</strong></p></td></tr><tr><td><p>1</p></td><td><p>TÍNH TỔNG CHẴN</p></td><td><p>TONGCHAN.CPP</p></td><td><p>TONGCHAN.INP</p></td><td><p>TONGCHAN.OUT</p></td><td><p>6</p></td></tr><tr><td><p>2</p></td><td><p>SỐ ĐẸP</p></td><td><p>SODEP.CPP</p></td><td><p>SODEP.INP</p></td><td><p>SODEP.OUT</p></td><td><p>7</p></td></tr><tr><td><p>3</p></td><td><p>NHẢY ẾCH</p></td><td><p>NHAYECH.CPP</p></td><td><p>NHAYECH.INP</p></td><td><p>NHAYECH.OUT</p></td><td><p>7</p></td></tr></table><p><em>Lưu bài vào thư mục với tên file theo cấu trúc “</em><strong><em>T8Ten01</em></strong><em>”, ví dụ học sinh có tên Nam thì lưu vào thư mục “</em><strong><em>T8Nam01</em></strong><em>”.</em></p><p><strong>BÀI 1: TỔNG CHẴN (6.0 Điểm)</strong></p><p>Bạn An được thầy giáo giao một bài tập rèn luyện kỹ năng lập trình. Khác với cấp tiểu học, ở lớp 7, các bạn bắt đầu làm quen với việc dùng máy tính để tự động hóa các phép tính lặp đi lặp lại một cách nhanh chóng. </p><p><strong>Yêu cầu:</strong> Cho một số nguyên dương N. Hãy tính tổng tất cả các số tự nhiên chẵn từ 1 đến N.</p><p><strong>Input: </strong>Nhập từ file TONGCHAN.INP</p><ul><li>Gồm một dòng duy nhất chứa số nguyên dương N.</li></ul><p><strong>Output: </strong>Xuất ra file TONGCHAN.OUT</p><ul><li>Gồm một dòng duy nhất chứa kết quả là tổng các số chẵn tìm được.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  N ≤ 10<sup>3</sup>;</li><li>Subtack2: 30% điểm với  N ≤ 10<sup>6</sup>;</li><li>Subtack3: 20% điểm với  N ≤ 10<sup>9</sup>; </li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>TONGCHAN.INP</strong></p></td><td><p><strong>TONGCHAN.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>10</p></td><td><p>30</p></td><td><p>Các số chẵn từ 1 đến 10 là 2, 4, 6, 8, 10. </p><p>Tổng = 2+4+6+8+10 = 30.</p></td></tr></table><p><strong>BÀI 2: SỐ ĐẸP (7.0 Điểm)</strong></p><p>Trong buổi sinh hoạt câu lạc bộ Tin học, các bạn học sinh được chơi một trò chơi phân loại các con số. Thầy giáo định nghĩa: Một số nguyên dương được gọi là \"Số đẹp\" nếu nó chia hết cho 3 VÀ không chia hết cho 5. </p><p><strong>Yêu cầu:</strong> Cho hai số nguyên dương A và B. Hãy đếm xem trong đoạn từ A đến B (bao gồm cả A và B) có bao nhiêu \"Số đẹp\".</p><p><strong>Input: </strong>Nhập từ file SODEP.INP</p><ul><li>Gồm một dòng chứa hai số nguyên dương A và B cách nhau một khoảng trắng (A &lt;= B).</li></ul><p><strong>Output: </strong>Xuất ra file SODEP.OUT</p><ul><li>In ra một số nguyên duy nhất là số lượng \"Số đẹp\" tìm được.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  A ≤ B ≤ 10<sup>4</sup>;</li><li>Subtack2: 30% điểm với  A ≤ B ≤ 10<sup>7</sup>;</li><li>Subtack3: 20% điểm với  A ≤ B ≤ 10<sup>12</sup>; </li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>SODEP.INP</strong></p></td><td><p><strong>SODEP.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>1 15</p></td><td><p>4</p></td><td><p>Các số chia hết cho 3 là: 3, 6, 9, 12, 15. Số 15 chia hết cho 5 nên bị loại. Kết quả: 3, 6, 9, 12.</p></td></tr></table><p><strong>BÀI 3: NHẢY ẾCH (7.0 Điểm)</strong></p><p>Một chú ếch đồ chơi được lập trình di chuyển trên một đường thẳng, xuất phát từ vị trí số 0. Chú ếch di chuyển theo quy luật sau:</p><ul><li>Ở những lần nhảy thứ lẻ (lần 1, 3, 5...), ếch tiến về phía trước X bước.</li><li>Ở những lần nhảy thứ chẵn (lần 2, 4, 6...), ếch lùi về phía sau Y bước. </li></ul><p><strong>Yêu cầu:</strong> Cho 3 số nguyên dương X, Y và N. Hỏi sau đúng N lần nhảy, chú ếch đang ở vị trí số mấy trên trục đường thẳng?</p><p><strong>Input: </strong>Nhập từ file NHAYECH.INP</p><ul><li>Gồm một dòng chứa ba số nguyên dương X, Y, N cách nhau bởi khoảng trắng.</li></ul><p><strong>Output: </strong>Xuất ra file NHAYECH.OUT</p><ul><li>Gồm một dòng duy nhất in ra vị trí cuối cùng của chú ếch.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  N ≤ 10<sup>4</sup>;</li><li>Subtack2: 30% điểm với  N ≤ 10<sup>9</sup>; X, Y ≤ 10<sup>5</sup>;</li><li>Subtack3: 20% điểm với  N ≤ 10<sup>12</sup>; X, Y ≤ 10<sup>9</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>NHAYECH.INP</strong></p></td><td><p><strong>NHAYECH.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>5 2 4</p></td><td><p>6</p></td><td><p>Lần 1: +5 (vị trí 5). Lần 2: -2 (vị trí 3). Lần 3: +5 (vị trí 8). Lần 4: -2 (vị trí 6).</p></td></tr></table><p>----------- HẾT / THE END ----------</p><p>\t</p>",
+      "_pdfDiskPath": "C:\\Users\\PhatTT\\AppData\\Roaming\\chaucaojudge\\data\\uploads\\pdfs\\contest_cnt-ba26d5e9-1da0-4ec0-b82f-2fef97de75a7_1791034743517_T8_De_test_HSG_lan_1.docx",
+      "startTime": "2026-10-03T13:38:00.000Z",
+      "endTime": "2026-10-03T14:38:00.000Z",
+      "durationMinutes": 45,
+      "status": "running",
+      "gradingMode": "direct",
+      "freezeScoreboardMinutes": 15,
+      "pinCode": "",
+      "hideTestDetailsForStudents": true,
+      "requireFreopen": false,
+      "allowReopen": true,
+      "ioMode": "stdin",
+      "scoringMode": "LIVE_BEST",
+      "ipWhitelist": "",
+      "antiCheat": {
+        "preventTabSwitch": true,
+        "maxTabViolations": 3,
+        "preventCopyPaste": true
+      },
+      "createdAt": "2026-10-03T13:39:03.505Z"
+    },
+    {
+      "id": "cnt-b5f49643-61d0-4b11-be40-16be4a64447f",
+      "title": "love 7",
+      "description": "",
+      "mode": "offline",
+      "scopeType": "ALL",
+      "targetGrades": [],
+      "targetClasses": [],
+      "targetStudents": [],
+      "totalScore": 100,
+      "memoryLimit": 256,
+      "category": "regular",
+      "classIds": [],
+      "candidateIds": [],
+      "problemIds": [
+        "prob-4668cd60-7113-455e-89af-64be47f3043c",
+        "prob-fd4fa748-3204-44b4-9598-f1265c8d131d",
+        "prob-d561f7a5-2f4b-415b-a5e6-4cca8b6a1d52"
+      ],
+      "pdfUrl": "/api/contests/cnt-b5f49643-61d0-4b11-be40-16be4a64447f/pdf",
+      "pdfFileName": "T7_De_test_HSG_lan_1.docx",
+      "statementHtml": "<table><tr><td><table><tr><td><p><a id=\"_Hlk190469976\"></a>SỞ GD-ĐT THÀNH PHỐ HỒ CHÍ MINH</p><p><strong>TRƯỜNG TiH, THCS VÀ THPT TRÍ ĐỨC</strong></p><p>ĐỀ CHÍNH THỨC</p><p><em>(Đề có 03 trang)</em></p></td><td><p><strong>KHẢO SÁT CHẤT LƯỢNG HỌC SINH GIỎI LẦN 1</strong></p><p><strong>NĂM HỌC: 2026-2027</strong></p><p><strong>Môn: TIN HỌC - KHỐI 7</strong></p><p><em>Thời gian làm bài: 90 phút, không kể thời gian phát đề</em></p></td></tr></table></td><td></td></tr></table><p><strong>TỔNG QUAN ĐỀ THI</strong></p><table><tr><td><p><strong>BÀI</strong></p></td><td><p><strong>Tên bài</strong></p></td><td><p><strong>Tên file CT</strong></p></td><td><p><strong>Input</strong></p></td><td><p><strong>Output</strong></p></td><td><p><strong>Điểm</strong></p></td></tr><tr><td><p>1</p></td><td><p>MUA SẮM</p></td><td><p>MUASAM.CPP</p></td><td><p>MUASAM.INP</p></td><td><p>MUASAM.OUT</p></td><td><p>6</p></td></tr><tr><td><p>2</p></td><td><p>VÉ XEM PHIM</p></td><td><p>GIAVE.CPP</p></td><td><p>GIAVE.INP</p></td><td><p>GIAVE.OUT</p></td><td><p>7</p></td></tr><tr><td><p>3</p></td><td><p>TÍNH ĐIỂM THƯỞNG</p></td><td><p>DIEMTHUONG.CPP</p></td><td><p>DIEMTHUONG.INP</p></td><td><p>DIEMTHUONG.OUT</p></td><td><p>7</p></td></tr></table><p><em>Lưu bài vào thư mục với tên file theo cấu trúc “</em><strong><em>T7Ten01</em></strong><em>”, ví dụ học sinh có tên Nam thì lưu vào thư mục “</em><strong><em>T7Nam01</em></strong><em>”.</em></p><p><strong>BÀI 1: CHIA KẸO (6.0 Điểm)</strong></p><p>Đầu năm học mới, bạn Bảo được mẹ đưa đi nhà sách để mua đồ dùng học tập. Mẹ đưa cho Bảo danh sách cần mua gồm vở và bút.</p><p><strong>Yêu cầu:</strong> Hãy tính tổng số tiền Bảo cần phải trả cho cửa hàng biết Bảo mua A quyển vở (mỗi quyển giá X đồng) và B cây bút (mỗi cây giá Y đồng).</p><p><strong>Input: </strong>Nhập từ file MUASAM.INP</p><ul><li>Một dòng duy nhất chứa 4 số nguyên không âm A, X, B, Y cách nhau bởi khoảng trắng.</li></ul><p><strong>Output: </strong>Xuất ra file MUASAM.OUT</p><ul><li>Một số nguyên duy nhất là tổng số tiền cần thanh toán.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  A, B ≤ 100; X, Y ≤ 10<sup>4</sup>;</li><li>Subtack2: 30% điểm với  A, B ≤ 10<sup>4</sup>; X, Y ≤ 10<sup>5</sup>;</li><li>Subtack3: 20% điểm với  A, B ≤ 10<sup>6</sup>; X, Y ≤ 10<sup>6</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>MUASAM.INP</strong></p></td><td><p><strong>MUASAM.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>10 8000 5 5000</p></td><td><p>105000</p></td><td><p>Mua 10 quyển vở giá 8000 (80.000) và 5 bút giá 5000 (25.000). Tổng là 105.000</p></td></tr></table><p><strong>BÀI 2: VÉ XEM PHIM (7.0 Điểm)</strong></p><p>Rạp chiếu phim \"Trí Đức Cinema\" đang có chương trình khuyến mãi cho khách hàng. Giá vé gốc của một bộ phim là K đồng. Tuy nhiên, rạp có chính sách ưu đãi: Trẻ em (dưới 12 tuổi) hoặc người cao tuổi (từ 60 tuổi trở lên) sẽ được giảm giá 50% (giảm một nửa). Những độ tuổi khác sẽ phải mua vé với đúng giá gốc.</p><p><strong>Yêu cầu:</strong> Cho biết số tuổi T của khách hàng và giá vé gốc K (đảm bảo K luôn là số chẵn). Hãy tính số tiền thực tế khách hàng phải trả.</p><p><strong>Input: </strong>Nhập từ file GIAVE.INP</p><ul><li>Một dòng chứa 2 số nguyên T (tuổi) và K (giá vé gốc), cách nhau bởi khoảng trắng.</li></ul><p><strong>Output: </strong>Xuất ra file GIAVE.OUT</p><ul><li>Một số nguyên duy nhất là số tiền vé khách hàng phải trả.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  0 ≤ T ≤ 100; K ≤ 10<sup>5</sup>;</li><li>Subtack2: 30% điểm với  0 ≤ T ≤ 200; K ≤ 10<sup>9</sup>;</li><li>Subtack3: 20% điểm với  0 ≤ T ≤ 10<sup>4</sup>; K ≤ 10<sup>12</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>GIAVE.INP</strong></p></td><td><p><strong>GIAVE.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>10 80000</p></td><td><p>40000</p></td><td><p>Khách hàng 10 tuổi (dưới 12), giảm 50% của 80000.</p></td></tr><tr><td><p>25 100000</p></td><td><p>100000</p></td><td><p>Khách hàng 25 tuổi, không ưu đãi, trả đủ 100000.</p></td></tr></table><p><strong>BÀI 3: TÍNH ĐIỂM THƯỞNG (7.0 Điểm)</strong></p><p>Trong đợt thi đua chào mừng ngày Nhà giáo Việt Nam, nhà trường phát động phong trào \"Hoa điểm mười\". Học sinh đi học chuyên cần sẽ được cộng điểm thưởng theo quy luật: Ngày thứ <strong>i </strong>của đợt thi đua sẽ được cộng đúng <strong>i </strong>điểm. Tuy nhiên, nhà trường quy định những ngày chia hết cho 5 (ngày 5, 10, 15...) là ngày rà soát sổ đầu bài nên sẽ không được tính điểm thưởng.</p><p><strong>Yêu cầu:</strong> Hãy tính tổng số điểm thưởng mà một học sinh đạt được sau N ngày đi học đầu tiên của đợt thi đua.</p><p><strong>Input: </strong>Nhập từ file DIEMTHUONG.INP</p><ul><li>Gồm một dòng duy nhất chứa số nguyên dương N là tổng số ngày thi đua.</li></ul><p><strong>Output: </strong>Xuất ra file DIEMTHUONG.OUT</p><ul><li>Một dòng duy nhất in ra tổng số điểm thưởng.</li></ul><p><strong>Subtack:</strong></p><ul><li>Subtack1: 50% điểm với  N ≤ 10<sup>3</sup>;</li><li>Subtack2: 30% điểm với  N ≤ 10<sup>6</sup>;</li><li>Subtack3: 20% điểm với  N ≤ 10<sup>8</sup>;</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>DIEMTHUONG.INP</strong></p></td><td><p><strong>DIEMTHUONG.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>6</p></td><td><p>16</p></td><td><p>Các ngày được cộng điểm là 1, 2, 3, 4, 6. </p><p>(Ngày thứ 5 chia hết cho 5 nên bị bỏ qua). </p><p>Tổng điểm = 1 + 2 + 3 + 4 + 6 = 16.</p></td></tr></table><p>----------- HẾT / THE END ----------</p><p>\t</p>",
+      "_pdfDiskPath": "C:\\Users\\PhatTT\\AppData\\Roaming\\chaucaojudge\\data\\uploads\\pdfs\\contest_cnt-b5f49643-61d0-4b11-be40-16be4a64447f_1791034723972_T7_De_test_HSG_lan_1.docx",
+      "startTime": "2026-10-03T13:38:00.000Z",
+      "endTime": "2026-10-03T14:38:00.000Z",
+      "durationMinutes": 45,
+      "status": "running",
+      "gradingMode": "direct",
+      "freezeScoreboardMinutes": 15,
+      "pinCode": "",
+      "hideTestDetailsForStudents": true,
+      "requireFreopen": false,
+      "allowReopen": true,
+      "ioMode": "stdin",
+      "scoringMode": "LIVE_BEST",
+      "ipWhitelist": "",
+      "antiCheat": {
+        "preventTabSwitch": true,
+        "maxTabViolations": 3,
+        "preventCopyPaste": true
+      },
+      "createdAt": "2026-10-03T13:38:43.963Z"
+    },
+    {
+      "id": "cnt-13ddbaf2-d925-4eab-a3d0-7b86474f56ca",
+      "title": "lop six",
+      "description": "",
+      "mode": "offline",
+      "scopeType": "ALL",
+      "targetGrades": [],
+      "targetClasses": [],
+      "targetStudents": [],
+      "totalScore": 100,
+      "memoryLimit": 256,
+      "category": "regular",
+      "classIds": [],
+      "candidateIds": [],
+      "problemIds": [
+        "prob-067c740e-85c2-41f5-aa55-7aa0c8c67e45",
+        "prob-db42e584-1d87-4e8d-9de5-aa3a9df4488f",
+        "prob-a6e98388-6cc1-4ca4-9d1d-536564bfd32a"
+      ],
+      "pdfUrl": "/api/contests/cnt-13ddbaf2-d925-4eab-a3d0-7b86474f56ca/pdf",
+      "pdfFileName": "T6_De_test_HSG_lan_1.docx",
+      "statementHtml": "<table><tr><td><table><tr><td><p><a id=\"_Hlk190469976\"></a>SỞ GD-ĐT THÀNH PHỐ HỒ CHÍ MINH</p><p><strong>TRƯỜNG TiH, THCS VÀ THPT TRÍ ĐỨC</strong></p><p>ĐỀ CHÍNH THỨC</p><p><em>(Đề có 03 trang)</em></p></td><td><p><strong>KHẢO SÁT CHẤT LƯỢNG HỌC SINH GIỎI LẦN 1</strong></p><p><strong>NĂM HỌC: 2026-2027</strong></p><p><strong>Môn: TIN HỌC - KHỐI 6</strong></p><p><em>Thời gian làm bài: 120 phút, không kể thời gian phát đề</em></p></td></tr></table></td><td></td></tr></table><p><strong>TỔNG QUAN ĐỀ THI</strong></p><table><tr><td><p><strong>BÀI</strong></p></td><td><p><strong>Tên bài</strong></p></td><td><p><strong>Tên file CT</strong></p></td><td><p><strong>Input</strong></p></td><td><p><strong>Output</strong></p></td><td><p><strong>Điểm</strong></p></td></tr><tr><td><p>1</p></td><td><p>CHIA KẸO</p></td><td><p>CAU1.CPP</p></td><td><p>CAU1.INP</p></td><td><p>CAU1.OUT</p></td><td><p>6</p></td></tr><tr><td><p>2</p></td><td><p>TRÒ CHƠI SỐ</p></td><td><p>CAU2.CPP</p></td><td><p>CAU2.INP</p></td><td><p>CAU2.OUT</p></td><td><p>7</p></td></tr><tr><td><p>3</p></td><td><p>XẾP HẠNG</p></td><td><p>CAU3.CPP</p></td><td><p>CAU3.INP</p></td><td><p>CAU3.OUT</p></td><td><p>7</p></td></tr></table><p><em>Lưu bài vào thư mục với tên file theo cấu trúc “</em><strong><em>T6Ten01</em></strong><em>”, ví dụ học sinh có tên Nam thì lưu vào thư mục “</em><strong><em>T6Nam01</em></strong><em>”.</em></p><p><strong>BÀI 1: CHIA KẸO (6.0 Điểm)</strong></p><p>Lớp 6C có <strong>M</strong> bạn học sinh. Nhân dịp sinh nhật, bạn lớp trưởng mang đến lớp <strong>N</strong> viên kẹo để chia đều cho các bạn. Hãy giúp bạn lớp trưởng tính xem mỗi bạn sẽ nhận được nhiều nhất bao nhiêu viên kẹo, và sau khi chia đều thì lớp trưởng còn cất lại bao nhiêu viên kẹo dư.</p><p><strong>Yêu cầu:</strong> Hãy tính tổng năng lượng của tất cả N phiến đá.</p><p><strong>Input: </strong>Nhập từ file CAU1.INP</p><ul><li>Chứa hai số nguyên dương N (số kẹo) và M (số học sinh), hai số cách nhau một khoảng trắng (1 ≤ M ≤ N ≤ 10⁴).</li></ul><p><strong>Output: </strong>Xuất ra file CAU1.OUT</p><ul><li>In ra màn hình hai số nguyên cách nhau một khoảng trắng:<ul><li>Số thứ nhất là số kẹo mỗi bạn nhận được.</li><li>Số thứ hai là số kẹo còn dư lại.</li></ul></li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>CAU1.INP</strong></p></td><td><p><strong>CAU1.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>25 7</p></td><td><p>3 4</p></td><td><p>Có 25 viên kẹo chia cho 7 bạn. Mỗi bạn nhận 3 viên (7 x 3 = 21). Còn dư 4 viên.</p></td></tr></table><p><strong>BÀI 2: TRÒ CHƠI SỐ (7.0 Điểm)</strong></p><p>An và Bình cùng chơi một trò chơi với các con số. Ban giám khảo sẽ đưa ra hai số nguyên A và B.</p><ul><li>Nhiệm vụ của học sinh là tìm ra số lớn hơn trong hai số đó.</li><li>Trong trường hợp hai số bằng nhau, học sinh không cần in ra số nào cả, mà phải kiểm tra xem giá trị đó là số chẵn hay số lẻ. Nếu là số chẵn in ra <strong>CHAN</strong>, nếu là số lẻ in ra <strong>LE</strong>.</li></ul><p><strong>Yêu cầu:</strong> Hãy tính tổng năng lượng của tất cả N phiến đá.</p><p><strong>Input: </strong>Nhập từ file CAU2.INP</p><ul><li>Hai số nguyên <strong>A</strong> và <strong>B</strong> cách nhau một khoảng trắng (-10⁶ ≤  A, B ≤  10⁶)</li></ul><p><strong>Output: </strong>Xuất ra file CAU2.OUT</p><ul><li>In ra số lớn hơn nếu A khác B.</li><li>Nếu A = B, in ra chữ CHAN hoặc LE tương ứng với tính chất của con số đó.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>CAU2.INP</strong></p></td><td><p><strong>CAU2.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>15 9</p></td><td><p>15</p></td><td><p>15 lớn hơn 9 nên kết quả là 15.</p></td></tr><tr><td><p>8 8</p></td><td><p>CHAN</p></td><td><p>Hai số bằng nhau (8). Vì 8 là số chẵn nên in ra CHAN</p></td></tr><tr><td><p>7 7</p></td><td><p>LE</p></td><td><p>Hai số bằng nhau (7). Vì 7 là số lẻ nên in ra LE</p></td></tr></table><p><strong>BÀI 3: XẾP HẠNG CUỘC THI (7.0 Điểm)</strong></p><p>Để lựa chọn học sinh tham gia đội tuyển Tin học, nhà trường tổ chức hai bài thi: Bài 1 (trắc nghiệm) và Bài 2 (thực hành). Gọi điểm bài 1 là X và điểm bài 2 là Y. Tổng điểm là S = X + Y.</p><p>Dựa vào điểm số, học sinh được phân loại như sau:</p><ul><li>Đạt hạng <strong>XUAT SAC:</strong> Nếu tổng điểm S &gt;= 180 VÀ cả hai bài thi đều phải có điểm từ 80 trở lên.</li><li>Đạt hạng <strong>GIOI:</strong> Nếu không đủ điều kiện xuất sắc, nhưng có tổng điểm S &gt;= 150 VÀ không có bài thi nào bị dưới 60 điểm.</li><li>Đạt hạng <strong>DAT</strong>: Dành cho các trường hợp học sinh có tổng điểm S &gt;= 100 HOẶC có ít nhất một bài thi đạt điểm tuyệt đối (100 điểm).</li><li>Các trường hợp còn lại in ra KHONG DAT.</li></ul><p><strong>Input: </strong>Nhập từ file CAU3.INP</p><ul><li>Hai số nguyên không âm <strong>X</strong> và <strong>Y</strong> (0 ≤  X, Y ≤  100) lần lượt là điểm bài 1 và bài 2.</li></ul><p><strong>Output: </strong>Xuất ra file CAU2.OUT</p><ul><li>In ra một trong các từ khóa xếp hạng tương ứng: XUAT SAC, GIOI, DAT, hoặc KHONG DAT.</li></ul><p><strong>Ví dụ</strong></p><table><tr><td><p><strong>CAU3.INP</strong></p></td><td><p><strong>CAU3.OUT</strong></p></td><td><p><strong>Giải thích</strong></p></td></tr><tr><td><p>90 95</p></td><td><p>XUAT SAC</p></td><td><p>Tổng là 185 (&gt;= 180) và cả hai bài đều &gt;= 80.</p></td></tr><tr><td><p>100 70</p></td><td><p>GIOI</p></td><td><p>Tổng là 170. Không đủ Xuất sắc do có bài &lt; 80, nhưng tổng &gt;= 150 và không bài nào &lt; 60.</p></td></tr><tr><td><p>40 100</p></td><td><p>DAT</p></td><td><p>Tổng là 140. Tuy nhiên bài 2 đạt 100 điểm nên thuộc diện DAT.</p></td></tr><tr><td><p>50 40</p></td><td><p>KHONG DAT</p></td><td><p>Tổng là 90, không thỏa mãn bất kỳ điều kiện nào ở trên.</p></td></tr></table><p>----------- HẾT / THE END ----------</p><p>\t</p>",
+      "_pdfDiskPath": "C:\\Users\\PhatTT\\AppData\\Roaming\\chaucaojudge\\data\\uploads\\pdfs\\contest_cnt-13ddbaf2-d925-4eab-a3d0-7b86474f56ca_1791034695924_T6_De_test_HSG_lan_1.docx",
+      "startTime": "2026-10-03T13:37:00.000Z",
+      "endTime": "2026-10-04T14:37:00.000Z",
+      "durationMinutes": 45,
+      "status": "running",
+      "gradingMode": "direct",
+      "freezeScoreboardMinutes": 15,
+      "pinCode": "",
+      "hideTestDetailsForStudents": true,
+      "requireFreopen": false,
+      "allowReopen": true,
+      "ioMode": "stdin",
+      "scoringMode": "LIVE_BEST",
+      "ipWhitelist": "",
+      "antiCheat": {
+        "preventTabSwitch": true,
+        "maxTabViolations": 3,
+        "preventCopyPaste": true
+      },
+      "createdAt": "2026-10-03T13:38:15.899Z"
+    }
+  ],
+  "virtual_sessions": [
+    {
+      "id": "vs-10f7c849-15af-435a-bbbf-303b73e939d4",
+      "userId": "test-student-vs",
+      "userName": "hocsinh_vs",
+      "contestId": "cnt-81359008-d46c-4f34-a397-d921a557b8ca",
+      "contestTitle": "Kỳ thi thử Virtual",
+      "startTime": "2026-10-03T13:42:40.377Z",
+      "endTime": "2026-10-03T14:27:40.377Z",
+      "durationMinutes": 45,
+      "status": "completed",
+      "allowReopen": true,
+      "score": 0,
+      "problemsSolved": 0,
+      "totalSubmissions": 0,
+      "lastActiveAt": "2026-10-03T13:42:40.378Z",
+      "createdAt": "2026-10-03T13:42:40.377Z",
+      "endReason": "manual",
+      "endedAt": "2026-10-03T13:42:40.378Z"
+    },
+    {
+      "id": "vs-22528e29-3fd7-448a-a31a-05f5da051c3c",
+      "userId": "test-student-noreopen",
+      "userName": "hocsinh_noreopen",
+      "contestId": "cnt-1197912e-d3ee-41a1-a618-9ccdbcbf747c",
+      "contestTitle": "Kỳ thi khóa Reopen",
+      "startTime": "2026-10-03T13:42:40.381Z",
+      "endTime": "2026-10-03T14:12:40.381Z",
+      "durationMinutes": 30,
+      "status": "left",
+      "allowReopen": false,
+      "score": 0,
+      "problemsSolved": 0,
+      "totalSubmissions": 0,
+      "lastActiveAt": "2026-10-03T13:42:40.381Z",
+      "createdAt": "2026-10-03T13:42:40.381Z"
+    },
+    {
+      "id": "vs-36b0700f-5eaf-4287-b584-61c5a58af3ce",
+      "userId": "usr-70b06ad2-fc1b-4c23-b2df-2e0b0c8d3c8c",
+      "userName": "Cao Van Chau",
+      "contestId": "cnt-1197912e-d3ee-41a1-a618-9ccdbcbf747c",
+      "contestTitle": "Kỳ thi khóa Reopen",
+      "startTime": "2026-10-03T13:50:20.836Z",
+      "endTime": "2026-10-03T14:20:20.836Z",
+      "durationMinutes": 30,
+      "status": "completed",
+      "allowReopen": false,
+      "score": 0,
+      "problemsSolved": 0,
+      "totalSubmissions": 0,
+      "lastActiveAt": "2026-10-03T13:50:26.596Z",
+      "createdAt": "2026-10-03T13:50:20.837Z",
+      "endReason": "manual",
+      "endedAt": "2026-10-03T13:50:26.596Z"
+    },
+    {
+      "id": "vs-ecaeac64-58ef-47bf-8e54-06f382e46688",
+      "userId": "test-student-vs",
+      "userName": "hocsinh_vs",
+      "contestId": "cnt-5cc84a18-24c0-4035-ac56-34976b5db354",
+      "contestTitle": "Kỳ thi thử Virtual",
+      "startTime": "2026-10-03T13:58:00.467Z",
+      "endTime": "2026-10-03T14:43:00.467Z",
+      "durationMinutes": 45,
+      "status": "completed",
+      "allowReopen": true,
+      "score": 0,
+      "problemsSolved": 0,
+      "totalSubmissions": 0,
+      "lastActiveAt": "2026-10-03T13:58:00.468Z",
+      "createdAt": "2026-10-03T13:58:00.468Z",
+      "endReason": "manual",
+      "endedAt": "2026-10-03T13:58:00.468Z"
+    },
+    {
+      "id": "vs-6e599a7e-daca-4913-b876-ffa7e6d86f15",
+      "userId": "test-student-noreopen",
+      "userName": "hocsinh_noreopen",
+      "contestId": "cnt-4dafe113-1d17-460d-92d3-bbad1e7960c4",
+      "contestTitle": "Kỳ thi khóa Reopen",
+      "startTime": "2026-10-03T13:58:00.471Z",
+      "endTime": "2026-10-03T14:28:00.471Z",
+      "durationMinutes": 30,
+      "status": "left",
+      "allowReopen": false,
+      "score": 0,
+      "problemsSolved": 0,
+      "totalSubmissions": 0,
+      "lastActiveAt": "2026-10-03T13:58:00.472Z",
+      "createdAt": "2026-10-03T13:58:00.471Z"
+    }
+  ],
+  "contest_attendance": {
+    "cnt-ba0ea5a8-d606-4fbf-b359-b57a1d34811a": {},
+    "cnt-05a0ca16-6d19-40cf-a9e7-a710db4b0587": {
+      "usr-f70d7ec8-5145-4a15-9c2f-0e977086a4a9": {
+        "status": "present",
+        "extraMinutes": 0,
+        "reason": "",
+        "reopened": false,
+        "ip": "127.0.0.1",
+        "lastActive": "2026-10-03T11:16:56.304Z"
+      }
+    },
+    "contest-khoi-dong-2026": {
+      "usr-70b06ad2-fc1b-4c23-b2df-2e0b0c8d3c8c": {
+        "status": "present",
+        "extraMinutes": 0,
+        "reason": "",
+        "reopened": false,
+        "ip": "127.0.0.1",
+        "lastActive": "2026-10-03T13:29:09.586Z"
+      }
+    },
+    "cnt-c112e7ec-e345-450d-b051-da98f4c4f7b6": {
+      "usr-1790907260059": {
+        "status": "present",
+        "reopened": true,
+        "extraMinutes": 0,
+        "reason": "",
+        "joinedAt": "2026-10-10T01:15:20.996Z",
+        "lastActive": "2026-10-10T01:15:20.996Z"
+      }
+    },
+    "cnt-ba26d5e9-1da0-4ec0-b82f-2fef97de75a7": {
+      "usr-1790907260059": {
+        "status": "present",
+        "reopened": true,
+        "extraMinutes": 0,
+        "reason": "",
+        "joinedAt": "2026-10-10T01:15:20.996Z",
+        "lastActive": "2026-10-10T01:15:20.996Z"
+      }
+    },
+    "cnt-b5f49643-61d0-4b11-be40-16be4a64447f": {
+      "usr-1790907260059": {
+        "status": "present",
+        "reopened": true,
+        "extraMinutes": 0,
+        "reason": "",
+        "joinedAt": "2026-10-10T01:15:20.996Z",
+        "lastActive": "2026-10-10T01:15:20.996Z"
+      }
+    },
+    "cnt-13ddbaf2-d925-4eab-a3d0-7b86474f56ca": {
+      "usr-1790907260059": {
+        "status": "present",
+        "reopened": true,
+        "extraMinutes": 0,
+        "reason": "",
+        "joinedAt": "2026-10-10T01:15:20.996Z",
+        "lastActive": "2026-10-10T01:15:20.996Z"
+      }
+    }
+  },
+  "achievements": [
+    {
+      "id": "ACH_BEG_01",
+      "code": "FIRST_SUBMIT",
+      "name": "Bước Chân Đầu Tiên",
+      "description": "Thực hiện lần nộp bài đầu tiên trên hệ thống",
+      "icon": "🌱",
+      "category": "BEGINNER",
+      "conditionType": "FIRST_SUBMISSION",
+      "conditionValue": 1,
+      "points": 10,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_02",
+      "code": "FIRST_AC",
+      "name": "Phát Súng Đầu Tiên",
+      "description": "Đạt điểm tuyệt đối (Accepted) đầu tiên",
+      "icon": "🎯",
+      "category": "BEGINNER",
+      "conditionType": "FIRST_AC",
+      "conditionValue": 1,
+      "points": 20,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_03",
+      "code": "SOLVE_3",
+      "name": "Vượt Ải Nhẹ Nhàng",
+      "description": "Giải chính xác 3 bài toán khác nhau",
+      "icon": "🥉",
+      "category": "BEGINNER",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 3,
+      "points": 25,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_04",
+      "code": "SOLVE_5",
+      "name": "Khởi Động Lập Trình",
+      "description": "Giải chính xác 5 bài toán trên hệ thống",
+      "icon": "🚀",
+      "category": "BEGINNER",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 5,
+      "points": 30,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_05",
+      "code": "SUBMIT_5",
+      "name": "Làm Quen Bàn Phím",
+      "description": "Thực hiện tổng cộng 5 lần nộp bài",
+      "icon": "⌨️",
+      "category": "BEGINNER",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 5,
+      "points": 15,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_06",
+      "code": "SUBMIT_10",
+      "name": "Chăm Chỉ Ban Đầu",
+      "description": "Thực hiện tổng cộng 10 lần nộp bài",
+      "icon": "📝",
+      "category": "BEGINNER",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 10,
+      "points": 20,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_07",
+      "code": "SUBMIT_15",
+      "name": "Kiên Trì Không Bỏ Cuộc",
+      "description": "Thực hiện tổng cộng 15 lần nộp bài để tìm ra lời giải",
+      "icon": "💪",
+      "category": "BEGINNER",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 15,
+      "points": 25,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_08",
+      "code": "SOLVE_8",
+      "name": "Tân Binh Tiềm Năng",
+      "description": "Giải thành công 8 bài toán",
+      "icon": "⭐",
+      "category": "BEGINNER",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 8,
+      "points": 35,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_09",
+      "code": "SOLVE_10",
+      "name": "Vượt Mốc Số 10",
+      "description": "Chạm mốc 10 bài toán được AC",
+      "icon": "🌟",
+      "category": "BEGINNER",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 10,
+      "points": 50,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_BEG_10",
+      "code": "FIRST_CONTEST",
+      "name": "Chào Sân Thi Đấu",
+      "description": "Tham gia một kỳ thi chính thức lần đầu tiên",
+      "icon": "🏁",
+      "category": "BEGINNER",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 1,
+      "points": 30,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_01",
+      "code": "SOLVE_15",
+      "name": "Khám Phá Thuật Toán",
+      "description": "Giải quyết thành công 15 bài toán",
+      "icon": "🧩",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 15,
+      "points": 60,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_02",
+      "code": "SOLVE_20",
+      "name": "Thợ Rèn Thuật Toán",
+      "description": "Giải quyết thành công 20 bài toán",
+      "icon": "⚒️",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 20,
+      "points": 80,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_03",
+      "code": "SOLVE_25",
+      "name": "Càng Học Càng Hay",
+      "description": "Giải quyết thành công 25 bài toán",
+      "icon": "📚",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 25,
+      "points": 100,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_04",
+      "code": "SOLVE_30",
+      "name": "Nhà Thám Hiểm Code",
+      "description": "Giải quyết thành công 30 bài toán",
+      "icon": "🧭",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 30,
+      "points": 120,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_05",
+      "code": "SOLVE_35",
+      "name": "Bộ Não Sắc Bén",
+      "description": "Giải quyết thành công 35 bài toán",
+      "icon": "🧠",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 35,
+      "points": 140,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_06",
+      "code": "SOLVE_40",
+      "name": "Chiến Binh Logic",
+      "description": "Giải quyết thành công 40 bài toán",
+      "icon": "🛡️",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 40,
+      "points": 160,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_07",
+      "code": "SOLVE_45",
+      "name": "Người Giải Đố Xuất Sắc",
+      "description": "Giải quyết thành công 45 bài toán",
+      "icon": "💡",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 45,
+      "points": 180,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_08",
+      "code": "SOLVE_50",
+      "name": "Nửa Trăm Bài AC",
+      "description": "Chạm mốc ấn tượng 50 bài AC trên bảng vàng",
+      "icon": "🏅",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 50,
+      "points": 200,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_09",
+      "code": "SOLVE_60",
+      "name": "Cao Thủ C++ Cấp 1",
+      "description": "Giải quyết thành công 60 bài toán",
+      "icon": "🎖️",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 60,
+      "points": 240,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_10",
+      "code": "SOLVE_70",
+      "name": "Cao Thủ C++ Cấp 2",
+      "description": "Giải quyết thành công 70 bài toán",
+      "icon": "⚡",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 70,
+      "points": 280,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_11",
+      "code": "SOLVE_80",
+      "name": "Đại Sư Lập Trình",
+      "description": "Giải quyết thành công 80 bài toán",
+      "icon": "🧙",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 80,
+      "points": 320,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_12",
+      "code": "SOLVE_90",
+      "name": "Tiệm Cận Cột Mốc 100",
+      "description": "Giải quyết thành công 90 bài toán",
+      "icon": "🔮",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 90,
+      "points": 360,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_13",
+      "code": "SOLVE_100",
+      "name": "Trăm Bài Vang Dội",
+      "description": "Chạm mốc 100 bài toán được AC!",
+      "icon": "👑",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 100,
+      "points": 500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_14",
+      "code": "SOLVE_120",
+      "name": "Thợ Săn AC Thượng Thừa",
+      "description": "Giải quyết thành công 120 bài toán",
+      "icon": "💎",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 120,
+      "points": 600,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SOL_15",
+      "code": "SOLVE_150",
+      "name": "Đại Kiện Tướng Thuật Toán",
+      "description": "Chạm mốc 150 bài toán được giải trọn vẹn",
+      "icon": "🏆",
+      "category": "PROBLEM_SOLVING",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 150,
+      "points": 800,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_01",
+      "code": "CONTEST_2",
+      "name": "Kinh Nghiệm Thực Chiến",
+      "description": "Tham gia thi đấu 2 kỳ thi chính thức",
+      "icon": "⚔️",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 2,
+      "points": 40,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_02",
+      "code": "CONTEST_3",
+      "name": "Tam Trận Liên Tiếp",
+      "description": "Tham gia thi đấu 3 kỳ thi chính thức",
+      "icon": "🎪",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 3,
+      "points": 60,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_03",
+      "code": "CONTEST_5",
+      "name": "Đấu Thủ Dạn Dày",
+      "description": "Tham gia thi đấu 5 kỳ thi chính thức",
+      "icon": "🛡️",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 5,
+      "points": 100,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_04",
+      "code": "CONTEST_7",
+      "name": "Chiến Binh Phòng Máy",
+      "description": "Tham gia thi đấu 7 kỳ thi chính thức",
+      "icon": "🏹",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 7,
+      "points": 140,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_05",
+      "code": "CONTEST_10",
+      "name": "Kỳ Cựu Đấu Trường",
+      "description": "Hoàn thành 10 kỳ thi trên hệ thống",
+      "icon": "🎖️",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 10,
+      "points": 200,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_06",
+      "code": "CONTEST_15",
+      "name": "Bền Bỉ Mọi Cuộc Thi",
+      "description": "Hoàn thành 15 kỳ thi trên hệ thống",
+      "icon": "🏵️",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 15,
+      "points": 300,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_07",
+      "code": "CONTEST_20",
+      "name": "Trăm Trận Không Sờn",
+      "description": "Hoàn thành 20 kỳ thi chính thức",
+      "icon": "🔱",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 20,
+      "points": 400,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_08",
+      "code": "CONTEST_25",
+      "name": "Huyền Thoại Đấu Trường",
+      "description": "Tham gia 25 kỳ thi",
+      "icon": "⚜️",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 25,
+      "points": 500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_09",
+      "code": "PERFECT_1",
+      "name": "Điểm Số Tuyệt Đối",
+      "description": "Đạt 100% điểm tối đa trong một kỳ thi",
+      "icon": "💯",
+      "category": "CONTEST",
+      "conditionType": "PERFECT_SCORE",
+      "conditionValue": 1,
+      "points": 100,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_10",
+      "code": "PERFECT_2",
+      "name": "Cú Đúp Hoàn Hảo",
+      "description": "Đạt điểm tuyệt đối trong 2 kỳ thi khác nhau",
+      "icon": "🔥",
+      "category": "CONTEST",
+      "conditionType": "PERFECT_SCORE",
+      "conditionValue": 2,
+      "points": 200,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_11",
+      "code": "PERFECT_3",
+      "name": "Tam Tuyệt Đỉnh Cao",
+      "description": "Đạt điểm tuyệt đối trong 3 kỳ thi khác nhau",
+      "icon": "🌟",
+      "category": "CONTEST",
+      "conditionType": "PERFECT_SCORE",
+      "conditionValue": 3,
+      "points": 300,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_12",
+      "code": "PERFECT_5",
+      "name": "Bất Khả Chiến Bại",
+      "description": "Đạt điểm tuyệt đối trong 5 kỳ thi",
+      "icon": "👑",
+      "category": "CONTEST",
+      "conditionType": "PERFECT_SCORE",
+      "conditionValue": 5,
+      "points": 500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_13",
+      "code": "CONTEST_TOP1",
+      "name": "Ngôi Quán Quân",
+      "description": "Đứng vị trí số 1 trên Bảng Xếp Hạng của kỳ thi",
+      "icon": "🥇",
+      "category": "CONTEST",
+      "conditionType": "PERFECT_SCORE",
+      "conditionValue": 1,
+      "points": 150,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_14",
+      "code": "CONTEST_TOP2",
+      "name": "Á Quân Xuất Sắc",
+      "description": "Đạt vị trí Top 2 trong kỳ thi chính thức",
+      "icon": "🥈",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 2,
+      "points": 80,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_CON_15",
+      "code": "CONTEST_TOP3",
+      "name": "Top 3 Bảng Vàng",
+      "description": "Đứng trong Top 3 Bảng Xếp Hạng",
+      "icon": "🥉",
+      "category": "CONTEST",
+      "conditionType": "CONTEST_COUNT",
+      "conditionValue": 3,
+      "points": 60,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_01",
+      "code": "STREAK_2",
+      "name": "Giữ Vững Nhịp Độ",
+      "description": "Duy trì chuỗi luyện tập 2 ngày liên tục",
+      "icon": "🌱",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 2,
+      "points": 20,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_02",
+      "code": "STREAK_3",
+      "name": "Thói Quen Tích Cực",
+      "description": "Duy trì chuỗi luyện tập 3 ngày liên tục",
+      "icon": "🔥",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 3,
+      "points": 35,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_03",
+      "code": "STREAK_4",
+      "name": "Không Bỏ Lỡ Ngày Nào",
+      "description": "Duy trì chuỗi luyện tập 4 ngày liên tục",
+      "icon": "⚡",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 4,
+      "points": 50,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_04",
+      "code": "STREAK_5",
+      "name": "5 Ngày Say Mê",
+      "description": "Duy trì chuỗi luyện tập 5 ngày liên tục",
+      "icon": "💥",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 5,
+      "points": 70,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_05",
+      "code": "STREAK_7",
+      "name": "Một Tuần Siêu Đẳng",
+      "description": "Duy trì chuỗi luyện tập suốt 7 ngày liên tục",
+      "icon": "📅",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 7,
+      "points": 100,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_06",
+      "code": "STREAK_10",
+      "name": "10 Ngày Cháy Bỏng",
+      "description": "Duy trì chuỗi luyện tập 10 ngày liên tục",
+      "icon": "🌟",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 10,
+      "points": 150,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_07",
+      "code": "STREAK_14",
+      "name": "Nửa Tháng Kiên Định",
+      "description": "Duy trì chuỗi luyện tập 14 ngày liên tục",
+      "icon": "🏅",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 14,
+      "points": 200,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_08",
+      "code": "STREAK_21",
+      "name": "3 Tuần Thành Thói Quen",
+      "description": "Lập trình liên tục trong 21 ngày",
+      "icon": "💎",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 21,
+      "points": 300,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_09",
+      "code": "STREAK_30",
+      "name": "Một Tháng Huyền Thoại",
+      "description": "Duy trì streak tròn 30 ngày liên tục",
+      "icon": "👑",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 30,
+      "points": 500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_STR_10",
+      "code": "STREAK_60",
+      "name": "Kỷ Lục Gia Bền Bỉ",
+      "description": "Duy trì chuỗi luyện tập 60 ngày không ngừng nghỉ",
+      "icon": "🏆",
+      "category": "STREAK",
+      "conditionType": "STREAK",
+      "conditionValue": 60,
+      "points": 1000,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_01",
+      "code": "FAST_1",
+      "name": "Tốc Độ Ánh Sáng",
+      "description": "Nộp bài đạt AC trong vòng 5 phút đầu tiên sau khi mở đề",
+      "icon": "⚡",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 1,
+      "points": 50,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_02",
+      "code": "FAST_2",
+      "name": "Hai Nháy Chớp Nhoáng",
+      "description": "Nộp bài AC cực nhanh 2 lần",
+      "icon": "🏃",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 2,
+      "points": 80,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_03",
+      "code": "FAST_3",
+      "name": "Tia Chớp Phòng Máy",
+      "description": "Nộp bài AC cực nhanh 3 lần",
+      "icon": "🐆",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 3,
+      "points": 110,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_04",
+      "code": "FAST_5",
+      "name": "Bàn Tay Nhanh Nhất",
+      "description": "Nộp bài AC cực nhanh 5 lần",
+      "icon": "🌪️",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 5,
+      "points": 160,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_05",
+      "code": "FAST_8",
+      "name": "Siêu Thanh Lập Trình",
+      "description": "Nộp bài AC cực nhanh 8 lần",
+      "icon": "🚀",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 8,
+      "points": 220,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_06",
+      "code": "FAST_10",
+      "name": "Vua Tốc Độ",
+      "description": "Nộp bài AC cực nhanh 10 lần",
+      "icon": "🏎️",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 10,
+      "points": 300,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_07",
+      "code": "FAST_15",
+      "name": "Phản Xạ Vô Song",
+      "description": "Nộp bài AC cực nhanh 15 lần",
+      "icon": "🦅",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 15,
+      "points": 400,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_08",
+      "code": "FAST_20",
+      "name": "Đỉnh Cao Tốc Độ",
+      "description": "Nộp bài AC cực nhanh 20 lần",
+      "icon": "☄️",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 20,
+      "points": 500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_09",
+      "code": "TIME_LIMIT_PRO",
+      "name": "Tối Ưu Thời Gian Chạy",
+      "description": "Bài làm đạt AC với thời gian chạy dưới 10ms",
+      "icon": "⏱️",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 1,
+      "points": 40,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPD_10",
+      "code": "MEM_OPTIMIZER",
+      "name": "Tiết Kiệm Bộ Nhớ",
+      "description": "Bài nộp dùng dưới 5MB RAM đạt trọn vẹn điểm",
+      "icon": "💾",
+      "category": "SPEED",
+      "conditionType": "FAST_SOLVE",
+      "conditionValue": 1,
+      "points": 40,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_01",
+      "code": "ACC_ONE_SHOT_1",
+      "name": "Một Phát Ăn Ngay",
+      "description": "Nộp bài đầu tiên là AC ngay không qua lần sửa lỗi nào",
+      "icon": "🎯",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 1,
+      "points": 30,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_02",
+      "code": "ACC_ONE_SHOT_3",
+      "name": "Thiện Xạ Lập Trình",
+      "description": "3 bài liên tiếp nộp 1 lần là AC ngay",
+      "icon": "🏹",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 3,
+      "points": 70,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_03",
+      "code": "ACC_ONE_SHOT_5",
+      "name": "Trăm Phát Trăm Trúng",
+      "description": "5 bài liên tiếp nộp 1 lần là AC ngay",
+      "icon": "🔫",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 5,
+      "points": 120,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_04",
+      "code": "ACC_ONE_SHOT_10",
+      "name": "Không Tì Vết",
+      "description": "10 bài nộp đạt AC ngay lần thử đầu tiên",
+      "icon": "💎",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 10,
+      "points": 250,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_05",
+      "code": "NO_WA_3",
+      "name": "Né Bẫy Thành Công",
+      "description": "Vượt qua 3 bài có test bẫy mà không dính Wrong Answer",
+      "icon": "🕸️",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 3,
+      "points": 50,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_06",
+      "code": "NO_TLE_5",
+      "name": "Khắc Tinh TLE",
+      "description": "Giải 5 bài tập lớn không bị vượt quá thời gian",
+      "icon": "⌛",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 5,
+      "points": 60,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_07",
+      "code": "CLEAN_CODE",
+      "name": "Code Sạch Chuẩn Mực",
+      "description": "Hoàn thành bài tập không bị lỗi biên dịch Compile Error",
+      "icon": "✨",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 2,
+      "points": 30,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_08",
+      "code": "BUG_HUNTER",
+      "name": "Thợ Săn Bug",
+      "description": "Sửa bài từ trạng thái WA/TLE thành AC thành công",
+      "icon": "🐛",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 2,
+      "points": 40,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_09",
+      "code": "MASTER_TRAP",
+      "name": "Phá Bẫy Đại Tài",
+      "description": "Vượt qua 10 test case hiểm hóc",
+      "icon": "🕵️",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 10,
+      "points": 150,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_ACC_10",
+      "code": "PERFECTIONIST",
+      "name": "Người Theo Đuổi Hoàn Hảo",
+      "description": "Tỉ lệ AC trên tổng nộp bài đạt trên 80%",
+      "icon": "🏅",
+      "category": "ACCURACY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 20,
+      "points": 200,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_01",
+      "code": "SUB_25",
+      "name": "Nỗ Lực Không Ngừng",
+      "description": "Đạt mốc 25 lượt nộp bài",
+      "icon": "🔨",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 25,
+      "points": 30,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_02",
+      "code": "SUB_50",
+      "name": "Miệt Mài Rèn Luyện",
+      "description": "Đạt mốc 50 lượt nộp bài",
+      "icon": "📚",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 50,
+      "points": 50,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_03",
+      "code": "SUB_75",
+      "name": "Người Thợ Chăm Chỉ",
+      "description": "Đạt mốc 75 lượt nộp bài",
+      "icon": "🛠️",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 75,
+      "points": 75,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_04",
+      "code": "SUB_100",
+      "name": "Trăm Lần Thử Thách",
+      "description": "Cán mốc 100 lượt nộp bài thử sức",
+      "icon": "💯",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 100,
+      "points": 100,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_05",
+      "code": "SUB_150",
+      "name": "Tinh Thần Thép",
+      "description": "Đạt mốc 150 lượt nộp bài",
+      "icon": "🛡️",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 150,
+      "points": 150,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_06",
+      "code": "SUB_200",
+      "name": "Ý Chí Bất Diệt",
+      "description": "Đạt mốc 200 lượt nộp bài",
+      "icon": "🔥",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 200,
+      "points": 200,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_07",
+      "code": "SUB_250",
+      "name": "Khai Phá Tiềm Năng",
+      "description": "Đạt mốc 250 lượt nộp bài",
+      "icon": "⛏️",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 250,
+      "points": 250,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_08",
+      "code": "SUB_300",
+      "name": "Ba Trăm Lần Nộp",
+      "description": "Đạt mốc 300 lượt nộp bài",
+      "icon": "⚔️",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 300,
+      "points": 300,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_09",
+      "code": "SUB_400",
+      "name": "Chiến Binh Bền Bỉ",
+      "description": "Đạt mốc 400 lượt nộp bài",
+      "icon": "🦁",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 400,
+      "points": 400,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_10",
+      "code": "SUB_500",
+      "name": "Nửa Ngàn Lần Cố Gắng",
+      "description": "Cán mốc 500 lượt nộp bài đầy ấn tượng",
+      "icon": "🌟",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 500,
+      "points": 500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_11",
+      "code": "SUB_600",
+      "name": "Không Ngại Khó Khăn",
+      "description": "Đạt mốc 600 lượt nộp bài",
+      "icon": "🏔️",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 600,
+      "points": 600,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_12",
+      "code": "SUB_700",
+      "name": "Bàn Phím Rực Lửa",
+      "description": "Đạt mốc 700 lượt nộp bài",
+      "icon": "💥",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 700,
+      "points": 700,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_13",
+      "code": "SUB_800",
+      "name": "Chiến Tích Vang Lừng",
+      "description": "Đạt mốc 800 lượt nộp bài",
+      "icon": "🏰",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 800,
+      "points": 800,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_14",
+      "code": "SUB_900",
+      "name": "Tiệm Cận Ngàn Lần",
+      "description": "Đạt mốc 900 lượt nộp bài",
+      "icon": "🪐",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 900,
+      "points": 900,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_DED_15",
+      "code": "SUB_1000",
+      "name": "Huyền Thoại 1000 Lần Nộp",
+      "description": "Cán mốc vĩ đại 1000 lượt nộp bài!",
+      "icon": "🌌",
+      "category": "DEDICATION",
+      "conditionType": "SUBMISSION_COUNT",
+      "conditionValue": 1000,
+      "points": 1500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_01",
+      "code": "NIGHT_OWL",
+      "name": "Cú Đêm Lập Trình",
+      "description": "Nộp bài và đạt AC vào khung giờ từ 22h đến 6h sáng",
+      "icon": "🦉",
+      "category": "SPECIAL",
+      "conditionType": "CUSTOM",
+      "conditionValue": 1,
+      "points": 50,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_02",
+      "code": "EARLY_BIRD",
+      "name": "Chú Chim Sớm",
+      "description": "Nộp bài giải bài thành công trước 7h sáng",
+      "icon": "🌅",
+      "category": "SPECIAL",
+      "conditionType": "CUSTOM",
+      "conditionValue": 1,
+      "points": 50,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_03",
+      "code": "COMEBACK_KID",
+      "name": "Cú Lội Ngược Dòng",
+      "description": "Đạt AC sau hơn 5 lần nộp bài thất bại liên tiếp",
+      "icon": "🔄",
+      "category": "SPECIAL",
+      "conditionType": "CUSTOM",
+      "conditionValue": 1,
+      "points": 60,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_04",
+      "code": "CUSTOM_RUNNER",
+      "name": "Nhà Thử Nghiệm",
+      "description": "Sử dụng tính năng Chạy thử (Custom Input) hơn 10 lần",
+      "icon": "🧪",
+      "category": "SPECIAL",
+      "conditionType": "CUSTOM",
+      "conditionValue": 10,
+      "points": 30,
+      "rarity": "COMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_05",
+      "code": "SUNDAY_WARRIOR",
+      "name": "Chiến Binh Cuối Tuần",
+      "description": "Chăm chỉ giải bài vào ngày Thứ 7 hoặc Chủ Nhật",
+      "icon": "🏖️",
+      "category": "SPECIAL",
+      "conditionType": "CUSTOM",
+      "conditionValue": 1,
+      "points": 40,
+      "rarity": "UNCOMMON",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_06",
+      "code": "DIFF_CONQUEROR",
+      "name": "Thử Thách Khó Nhằn",
+      "description": "Giải bài toán có độ khó 'Khó' thành công",
+      "icon": "🧗",
+      "category": "SPECIAL",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 1,
+      "points": 80,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_07",
+      "code": "TRIPLE_DIFF",
+      "name": "Tam Trận Khó",
+      "description": "Chinh phục 3 bài tập độ khó 'Khó'",
+      "icon": "🐲",
+      "category": "SPECIAL",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 3,
+      "points": 150,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_SPE_08",
+      "code": "LUCKY_SEVEN",
+      "name": "Con Số May Mắn",
+      "description": "Đạt AC đúng vào lần nộp thứ 7 của một bài",
+      "icon": "🍀",
+      "category": "SPECIAL",
+      "conditionType": "CUSTOM",
+      "conditionValue": 1,
+      "points": 77,
+      "rarity": "RARE",
+      "isActive": true
+    },
+    {
+      "id": "ACH_MAS_01",
+      "code": "ALGO_MASTER",
+      "name": "Bậc Thầy Thuật Toán",
+      "description": "Đạt trên 500 điểm tích lũy thành tích",
+      "icon": "🔮",
+      "category": "MASTERY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 50,
+      "points": 200,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_MAS_02",
+      "code": "GRANDMASTER",
+      "name": "Đại Sư C++ Trường Học",
+      "description": "Đạt trên 1000 điểm tích lũy và giải hơn 80 bài",
+      "icon": "👑",
+      "category": "MASTERY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 80,
+      "points": 500,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_MAS_03",
+      "code": "PROFESSOR",
+      "name": "Giáo Sư Phòng Máy",
+      "description": "Hoàn thành hơn 10 kỳ thi và trên 100 bài AC",
+      "icon": "🎓",
+      "category": "MASTERY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 100,
+      "points": 600,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_MAS_04",
+      "code": "HALL_OF_FAME",
+      "name": "Ngôi Đền Danh Vọng",
+      "description": "Sở hữu hơn 30 danh hiệu thành tựu khác nhau",
+      "icon": "🏛️",
+      "category": "MASTERY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 30,
+      "points": 400,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    },
+    {
+      "id": "ACH_MAS_05",
+      "code": "UNSTOPPABLE",
+      "name": "Chiến Thần Không Thể Cản Phá",
+      "description": "Đạt chuỗi AC và streak trên 15 ngày",
+      "icon": "⚡",
+      "category": "MASTERY",
+      "conditionType": "STREAK",
+      "conditionValue": 15,
+      "points": 350,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_MAS_06",
+      "code": "ALL_ROUNDER",
+      "name": "Toàn Năng Xuất Chúng",
+      "description": "Giải đủ bài ở mọi mức độ: Dễ, Trung bình và Khó",
+      "icon": "⭐",
+      "category": "MASTERY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 20,
+      "points": 250,
+      "rarity": "EPIC",
+      "isActive": true
+    },
+    {
+      "id": "ACH_MAS_07",
+      "code": "LEGEND_OF_SCHOOL",
+      "name": "Huyền Thoại Trường Học",
+      "description": "Đạt thành tích cao nhất được vinh danh toàn trường",
+      "icon": "🏆",
+      "category": "MASTERY",
+      "conditionType": "AC_COUNT",
+      "conditionValue": 120,
+      "points": 1000,
+      "rarity": "LEGENDARY",
+      "isActive": true
+    }
+  ],
+  "rewards": [
+    {
+      "id": "RWD_01",
+      "name": "Ly Nước Ngọt Mát Lạnh",
+      "description": "Đổi 1 ly nước ngọt tự chọn tại căng tin trường học",
+      "icon": "🥤",
+      "pointsRequired": 150,
+      "stock": 50,
+      "isActive": true
+    },
+    {
+      "id": "RWD_02",
+      "name": "Ly Trà Sữa Trân Châu",
+      "description": "1 ly trà sữa thơm ngon nạp năng lượng sau giờ lập trình",
+      "icon": "🧋",
+      "pointsRequired": 300,
+      "stock": 20,
+      "isActive": true
+    },
+    {
+      "id": "RWD_03",
+      "name": "Bịch Bánh Snack Giòn Rụm",
+      "description": "1 bịch bánh snack thơm ngon cho giờ giải lao",
+      "icon": "🍪",
+      "pointsRequired": 100,
+      "stock": 60,
+      "isActive": true
+    },
+    {
+      "id": "RWD_04",
+      "name": "Thanh Chocolate Năng Lượng",
+      "description": "Thanh chocolate giúp tỉnh táo tư duy thuật toán",
+      "icon": "🍫",
+      "pointsRequired": 120,
+      "stock": 40,
+      "isActive": true
+    },
+    {
+      "id": "RWD_05",
+      "name": "Cây Bút Bi Chuyên Dụng",
+      "description": "Cây bút bi mực xanh cao cấp ghi chép bài học",
+      "icon": "🖊️",
+      "pointsRequired": 80,
+      "stock": 100,
+      "isActive": true
+    },
+    {
+      "id": "RWD_06",
+      "name": "Cuốn Tập Học Sinh 96 Trang",
+      "description": "Tập vở ô ly dày dặn cho học kỳ mới",
+      "icon": "📚",
+      "pointsRequired": 90,
+      "stock": 80,
+      "isActive": true
+    },
+    {
+      "id": "RWD_07",
+      "name": "Vé Miễn Trực Nhật 1 Buổi",
+      "description": "Đặc quyền miễn trực nhật phòng máy hoặc lớp học 1 buổi",
+      "icon": "🎫",
+      "pointsRequired": 250,
+      "stock": 15,
+      "isActive": true
+    },
+    {
+      "id": "RWD_08",
+      "name": "Huy Hiệu Ngôi Sao Lập Trình",
+      "description": "Huy hiệu kim loại cài áo vinh danh lập trình viên xuất sắc",
+      "icon": "⭐",
+      "pointsRequired": 200,
+      "stock": 30,
+      "isActive": true
+    },
+    {
+      "id": "RWD_09",
+      "name": "Balo Học Sinh Năng Động",
+      "description": "Balo vải cao cấp chống nước in logo trường học",
+      "icon": "🎒",
+      "pointsRequired": 800,
+      "stock": 5,
+      "isActive": true
+    },
+    {
+      "id": "RWD_10",
+      "name": "Tràng Pháo Tay Toàn Trường",
+      "description": "Được tuyên dương và nhận tràng pháo tay trước toàn thể lớp",
+      "icon": "👏",
+      "pointsRequired": 50,
+      "stock": 999,
+      "isActive": true
+    }
+  ],
+  "student_achievements": [],
+  "reward_redemptions": [],
+  "roadmap_topics": [
+    {
+      "id": "topic-1",
+      "title": "Programming Fundamentals & C++ Structure",
+      "description": "Cấu trúc chương trình C++, các kiểu dữ liệu cơ bản (int, long long, double, char), khai báo biến và kỹ thuật nhập/xuất chuẩn tốc độ cao (cin, cout).",
+      "level": "Cơ bản",
+      "icon": "Terminal",
+      "order": 1,
+      "problemCodes": [
+        "CAU1"
+      ],
+      "phase": "Phase 0 — Programming Fundamentals",
+      "difficulty": "Beginner",
+      "estimatedMinutes": 60,
+      "prerequisites": [],
+      "guide": "### 1. Cấu Trúc Chương Trình C++ Chuẩn\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    // Tối ưu hóa tốc độ I/O cho Competitive Programming\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    long long a, b;\n    if (cin >> a >> b) {\n        cout << a + b << \"\\n\";\n    }\n    return 0;\n}\n```\n\n### 2. Các Kiểu Dữ Liệu & Giới Hạn Cần Nhớ\n- `int`: 32-bit có dấu, phạm vi khoảng $-2 \\cdot 10^9$ đến $2 \\cdot 10^9$ (chính xác $-2^{31} \\dots 2^{31}-1$).\n- `long long`: 64-bit có dấu, phạm vi khoảng $-9 \\cdot 10^{18}$ đến $9 \\cdot 10^{18}$. Dùng khi giá trị vượt quá $2 \\cdot 10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15-17 chữ số có nghĩa).\n- `char`, `bool`: Ký tự và giá trị logic (`true` / `false`).\n\n### 3. Lưu Ý & Bẫy Thường Gặp\n- **Tràn số nguyên (Integer Overflow)**: Phép nhân hai số `int` (vd: `100000 * 100000`) sẽ bị tràn số trước khi gán vào `long long`. Cần ép kiểu: `1LL * a * b`.\n- **Phép chia số nguyên**: `5 / 2 = 2` (mất phần thập phân). Muốn lấy số thực: `5.0 / 2` hoặc `(double)a / b`.\n- Dùng `\\n` thay cho `endl` vì `endl` ép xả bộ đệm (flush), làm chậm chương trình.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-2",
+      "title": "Conditional Statements & Logical Decisions",
+      "description": "Cấu trúc rẽ nhánh if - else, switch-case, toán tử so sánh (==, !=, <, >), toán tử logic (&&, ||, !) và kỹ thuật xử lý điều kiện phức hợp.",
+      "level": "Cơ bản",
+      "icon": "GitFork",
+      "order": 2,
+      "problemCodes": [
+        "CAU2",
+        "CAU3",
+        "GIAVE"
+      ],
+      "phase": "Phase 0 — Programming Fundamentals",
+      "difficulty": "Beginner",
+      "estimatedMinutes": 60,
+      "prerequisites": [
+        "topic-1"
+      ],
+      "guide": "### 1. Kiến Thức Trọng Tâm\n- Cấu trúc rẽ nhánh điều khiển luồng thực thi:\n```cpp\nif (condition1) {\n    // Thực thi khi condition1 đúng\n} else if (condition2) {\n    // Thực thi khi condition1 sai và condition2 đúng\n} else {\n    // Trường hợp còn lại\n}\n```\n- Toán tử logic:\n  - `&&` (AND): Đúng khi cả hai vế đều đúng.\n  - `||` (OR): Đúng khi ít nhất một vế đúng.\n  - `!` (NOT): Phủ định giá trị logic.\n\n### 2. Ví Dụ & Cấu Trúc Mẫu\n```cpp\n// Kiểm tra năm nhuận\nbool isLeap = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);\n\n// Toán tử 3 ngôi (Ternary Operator)\nint maxVal = (a > b) ? a : b;\n```\n\n### 3. Lưu Ý & Bẫy Thường Gặp\n- Nhầm lẫn giữa toán tử gán `=` và so sánh bằng `==`.\n- So sánh số thực: Không so sánh trực tiếp `a == b`, hãy dùng `fabs(a - b) < 1e-9`.\n- Rút gọn điều kiện (Short-circuit evaluation): C++ dừng đánh giá biểu thức `A && B` nếu `A` đã sai.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-3",
+      "title": "Loops & Iteration (For & While)",
+      "description": "Vòng lặp for, while, do-while, lặp lồng nhau, biến đếm và điều khiển vòng lặp với break, continue.",
+      "level": "Cơ bản",
+      "icon": "Repeat",
+      "order": 3,
+      "problemCodes": [
+        "TONGCHAN"
+      ],
+      "phase": "Phase 0 — Programming Fundamentals",
+      "difficulty": "Beginner",
+      "estimatedMinutes": 75,
+      "prerequisites": [
+        "topic-2"
+      ],
+      "guide": "### 1. Các Cấu Trúc Lặp Cơ Bản\n- **Vòng lặp `for`**: Thích hợp khi biết trước số lần lặp:\n```cpp\nfor (int i = 1; i <= n; ++i) {\n    sum += i;\n}\n```\n- **Vòng lặp `while`**: Thích hợp khi lặp phụ thuộc điều kiện biến đổi:\n```cpp\nwhile (n > 0) {\n    int digit = n % 10;\n    n /= 10;\n}\n```\n\n### 2. Độ Phức Tạp Thời Gian Cơ Bản\n- Vòng lặp đơn chạy $N$ bước: Độ phức tạp $O(N)$.\n- Vòng lặp lồng $N \\times M$ bước: Độ phức tạp $O(N \\times M)$.\n- Máy chấm trung bình thực hiện được khoảng $10^7 - 10^8$ phép tính/giây. Với thời gian giới hạn 1.0s, $N \\le 10^7$ là an toàn cho $O(N)$.\n\n### 3. Lưu Ý & Bẫy Thường Gặp\n- Lặp vô tận (Infinite loop) do quên cập nhật biến điều kiện dừng trong `while`.\n- Lỗi lệch 1 (Off-by-one error): Dùng `< n` thay vì `<= n` hoặc ngược lại.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-4",
+      "title": "Basic Math & Number Theory Foundations",
+      "description": "Ước số, bội số, số nguyên tố, ước chung lớn nhất (GCD), bội chung nhỏ nhất (LCM) và thuật toán Euclid.",
+      "level": "Cơ bản",
+      "icon": "Cpu",
+      "order": 4,
+      "problemCodes": [
+        "DIEMTHUONG"
+      ],
+      "phase": "Phase 1 — Basic Problem Solving",
+      "difficulty": "Easy",
+      "estimatedMinutes": 90,
+      "prerequisites": [
+        "topic-3"
+      ],
+      "guide": "### 1. Kiến Thức Trọng Tâm\n- **Tìm ước số của số nguyên $N$**: Duyệt $i$ từ $1$ đến $\\sqrt{N}$, nếu $N \\% i == 0$ thì $i$ và $N / i$ là hai ước. Độ phức tạp $O(\\sqrt{N})$.\n- **Kiểm tra số nguyên tố**:\n```cpp\nbool isPrime(long long n) {\n    if (n < 2) return false;\n    if (n == 2 || n == 3) return true;\n    if (n % 2 == 0 || n % 3 == 0) return false;\n    for (long long i = 5; i * i <= n; i += 6) {\n        if (n % i == 0 || n % (i + 2) == 0) return false;\n    }\n    return true;\n}\n```\n- **Thuật toán Euclid tìm GCD**:\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước nhân sau để tránh tràn số\n}\n```\n\n### 2. Độ Phức Tạp\n- Kiểm tra nguyên tố / đếm ước: $O(\\sqrt{N})$.\n- Thuật toán Euclid: $O(\\log(\\min(a, b)))$.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-5",
+      "title": "One-dimensional Arrays & Frequency Counting",
+      "description": "Kỹ thuật lưu trữ mảng 1 chiều, duyệt tuần tự, tìm max/min, kỹ thuật mảng đếm phân phối (Frequency Array / Counting Array).",
+      "level": "Trung cấp",
+      "icon": "Layers",
+      "order": 5,
+      "problemCodes": [],
+      "phase": "Phase 2 — Arrays and Strings",
+      "difficulty": "Easy",
+      "estimatedMinutes": 90,
+      "prerequisites": [
+        "topic-4"
+      ],
+      "guide": "### 1. Kiến Thức Trọng Tâm\n- Khai báo mảng tĩnh: `int a[MAXN];` (nên khai báo biến toàn cục ngoài hàm main nếu kích thước mảng $> 10^5$ để tránh tràn bộ đệm stack).\n- **Mảng đếm tần số (Frequency Array)**:\n```cpp\nconst int MAXV = 1000000;\nint cnt[MAXV + 1] = {0};\n\nfor (int i = 0; i < n; ++i) {\n    cnt[a[i]]++; // Ghi nhận số lần a[i] xuất hiện\n}\n```\n- Duyệt tìm phần tử lớn nhất và vị trí:\n```cpp\nint maxVal = a[0], maxPos = 0;\nfor (int i = 1; i < n; ++i) {\n    if (a[i] > maxVal) {\n        maxVal = a[i];\n        maxPos = i;\n    }\n}\n```\n\n### 2. Lưu Ý & Bẫy Thường Gặp\n- Truy cập ngoài phạm vi mảng: Mảng `int a[100]` chỉ có chỉ số từ `0` đến `99`. Truy cập `a[100]` gây lỗi Undefined Behavior hoặc Runtime Error (SIGSEGV).\n- Giới hạn kích thước mảng cục bộ: Khai báo mảng lớn bên trong hàm `main()` dễ gây lỗi tràn bộ nhớ ngăn xếp (Stack Overflow).",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-6",
+      "title": "Prefix Sum & Range Queries",
+      "description": "Mảng cộng dồn Prefix Sum để tính tổng đoạn [L, R] trong O(1), mảng hiệu (Difference Array) để cập nhật đoạn.",
+      "level": "Trung cấp",
+      "icon": "Sparkles",
+      "order": 6,
+      "problemCodes": [],
+      "phase": "Phase 2 — Arrays and Strings",
+      "difficulty": "Intermediate",
+      "estimatedMinutes": 75,
+      "prerequisites": [
+        "topic-5"
+      ],
+      "guide": "### 1. Nguyên Lý Mảng Cộng Dồn (Prefix Sum)\n- Cho mảng $A$ có $N$ phần tử (1-indexed). Mảng tiền tố $P$ được định nghĩa:\n  $$P[0] = 0, \\quad P[i] = P[i - 1] + A[i] \\quad (1 \\le i \\le N)$$\n- Khi đó, tổng các phần tử từ chỉ số $L$ đến $R$:\n  $$\\sum_{i=L}^{R} A[i] = P[R] - P[L - 1]$$\n- **Thời gian xử lý**: Tiền xử lý $O(N)$, mỗi truy vấn trả về kết quả trong $O(1)$.\n\n### 2. Code Mẫu\n```cpp\nvector<long long> pref(n + 1, 0);\nfor (int i = 1; i <= n; ++i) {\n    pref[i] = pref[i - 1] + a[i];\n}\n\nwhile (q--) {\n    int L, R;\n    cin >> L >> R;\n    long long sumRange = pref[R] - pref[L - 1];\n    cout << sumRange << \"\\n\";\n}\n```\n\n### 3. Lưu Ý\n- Luôn sử dụng `long long` cho mảng tiền tố để tránh tràn số khi tính tổng nhiều phần tử.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-7",
+      "order": 7,
+      "phase": "Phase 2 — Arrays and Strings",
+      "title": "Two-dimensional Arrays & Matrix Processing",
+      "description": "Ma trận, mảng 2 chiều, duyệt theo hàng/cột/đường chéo, kỹ thuật mảng toạ độ hướng (dx, dy) và thao tác biên lưới.",
+      "level": "Trung cấp",
+      "difficulty": "Intermediate",
+      "icon": "Layers",
+      "estimatedMinutes": 80,
+      "prerequisites": [
+        "topic-5"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Duyệt Ma Trận & Tọa Độ Hướng\n```cpp\nint a[MAXN][MAXM];\n// Duyệt ma trận\nfor (int i = 1; i <= n; ++i) {\n    for (int j = 1; j <= m; ++j) {\n        cin >> a[i][j];\n    }\n}\n\n// Mảng hướng di chuyển 4 hướng (Trên, Phải, Dưới, Trái)\nconst int dx[4] = {-1, 0, 1, 0};\nconst int dy[4] = {0, 1, 0, -1};\n\nbool isValid(int x, int y, int n, int m) {\n    return (x >= 1 && x <= n && y >= 1 && y <= m);\n}\n```\n\n### 2. Ứng Dụng\n- Các bài toán mô phỏng bản đồ, tính toán đường đi, tìm kiếm vật cản, xử lý ảnh pixel.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-8",
+      "order": 8,
+      "phase": "Phase 2 — Arrays and Strings",
+      "title": "String Processing & Character Analysis",
+      "description": "Thao tác với chuỗi std::string, trích xuất chuỗi con, chuyển đổi số - chuỗi, phân tích cú pháp ký tự và xâu đối xứng.",
+      "level": "Trung cấp",
+      "difficulty": "Easy",
+      "icon": "Code2",
+      "estimatedMinutes": 75,
+      "prerequisites": [
+        "topic-5"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Các Thao Tác Chuỗi Cần Nắm\n```cpp\nstring s;\ncin >> s; // Đọc chuỗi không chứa dấu cách\n// getline(cin, s); // Đọc cả dòng chứa dấu cách\n\n// Kiểm tra ký tự\nif (isdigit(s[i])) { ... } // Ký tự số '0'-'9'\nif (isalpha(s[i])) { ... } // Ký tự chữ cái\n\n// Chuyển ký tự số sang giá trị số\nint val = s[i] - '0';\n\n// Cắt chuỗi con\nstring sub = s.substr(pos, length);\n```\n\n### 2. Kiểm Tra Xâu Đối Xứng (Palindrome)\n- Dùng kỹ thuật hai con trỏ so sánh từ hai đầu `l = 0, r = s.length() - 1` cho đến khi gặp nhau. Thời gian $O(N)$, bộ nhớ $O(1)$.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-9",
+      "order": 9,
+      "phase": "Phase 3 — Core Algorithms",
+      "title": "Sorting & Standard Library Algorithms",
+      "description": "Thuật toán sắp xếp O(N log N), std::sort, custom comparator với struct/pair, binary search STL (lower_bound, upper_bound).",
+      "level": "Trung cấp",
+      "difficulty": "Intermediate",
+      "icon": "Search",
+      "estimatedMinutes": 90,
+      "prerequisites": [
+        "topic-5"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Sử Dụng std::sort và Custom Comparator\n```cpp\n#include <algorithm>\n#include <vector>\n\nstruct Item {\n    int id;\n    int weight;\n    int value;\n};\n\n// Sắp xếp giảm dần theo giá trị, nếu bằng nhau thì tăng dần theo trọng lượng\nbool cmp(const Item& a, const Item& b) {\n    if (a.value != b.value) return a.value > b.value;\n    return a.weight < b.weight;\n}\n\nvector<Item> items;\n// ...\nsort(items.begin(), items.end(), cmp);\n```\n\n### 2. Tìm Kiếm Nhị Phân Trong C++ STL\n- `lower_bound(v.begin(), v.end(), x)`: Con trỏ tới phần tử đầu tiên $\\ge x$.\n- `upper_bound(v.begin(), v.end(), x)`: Con trỏ tới phần tử đầu tiên $> x$.\n- Lưu ý: Dãy phải được sắp xếp tăng dần trước khi gọi lower_bound/upper_bound.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-10",
+      "order": 10,
+      "phase": "Phase 3 — Core Algorithms",
+      "title": "Two Pointers & Sliding Window",
+      "description": "Kỹ thuật hai con trỏ đối xứng, hai con trỏ cùng chiều và cửa sổ trượt (Sliding Window) để tối ưu độ phức tạp từ O(N^2) xuống O(N).",
+      "level": "Trung cấp",
+      "difficulty": "Intermediate",
+      "icon": "ArrowRight",
+      "estimatedMinutes": 90,
+      "prerequisites": [
+        "topic-9"
+      ],
+      "problemCodes": [
+        "KYYEU"
+      ],
+      "guide": "### 1. Mẫu Cửa Sổ Trượt (Sliding Window)\n```cpp\nint l = 0;\nlong long currentSum = 0;\nint maxLen = 0;\n\nfor (int r = 0; r < n; ++r) {\n    currentSum += a[r];\n    while (currentSum > S && l <= r) {\n        currentSum -= a[l];\n        l++;\n    }\n    if (currentSum <= S) {\n        maxLen = max(maxLen, r - l + 1);\n    }\n}\n```\n- Độ phức tạp: $O(N)$ vì mỗi con trỏ `l` và `r` chỉ di chuyển về phía trước tối đa $N$ bước.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-11",
+      "order": 11,
+      "phase": "Phase 3 — Core Algorithms",
+      "title": "Greedy Algorithms & Interval Scheduling",
+      "description": "Tư duy tham lam (Greedy Choice), chứng minh tính tối ưu cục bộ, bài toán phân bổ tài nguyên và sắp xếp lịch trình không giao nhau.",
+      "level": "Trung cấp",
+      "difficulty": "Intermediate",
+      "icon": "Target",
+      "estimatedMinutes": 90,
+      "prerequisites": [
+        "topic-9"
+      ],
+      "problemCodes": [
+        "MUASAM"
+      ],
+      "guide": "### 1. Bài Toán Sắp Xếp Lịch Trình (Interval Scheduling)\n- Cho $N$ công việc với thời gian bắt đầu $s_i$ và kết thúc $e_i$. Chọn số lượng công việc nhiều nhất không giao nhau.\n- **Chiến lược tham lam**: Sắp xếp các đoạn theo thời điểm kết thúc $e_i$ tăng dần. Luôn ưu tiên chọn công việc kết thúc sớm nhất để chừa lại nhiều thời gian nhất cho các công việc sau.\n\n```cpp\nstruct Interval {\n    int start, end;\n};\n\nbool cmp(const Interval& a, const Interval& b) {\n    return a.end < b.end;\n}\n\nint countJobs(vector<Interval>& jobs) {\n    sort(jobs.begin(), jobs.end(), cmp);\n    int cnt = 0, lastEnd = -1;\n    for (const auto& job : jobs) {\n        if (job.start >= lastEnd) {\n            cnt++;\n            lastEnd = job.end;\n        }\n    }\n    return cnt;\n}\n```",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-12",
+      "order": 12,
+      "phase": "Phase 4 — Recursion and Backtracking",
+      "title": "Recursion & Backtracking (Permutations & Subsets)",
+      "description": "Đệ quy, ngăn xếp gọi hàm (Call Stack), điều kiện dừng (Base Case), kỹ thuật quay lui duyệt toàn bộ không gian nghiệm (Hoán vị, Tổ hợp).",
+      "level": "Trung cấp",
+      "difficulty": "Intermediate",
+      "icon": "Repeat",
+      "estimatedMinutes": 100,
+      "prerequisites": [
+        "topic-3"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Khung Mẫu Thuật Toán Quay Lui (Backtracking)\n```cpp\nvoid backtrack(int i) {\n    for (int v = 1; v <= n; ++v) {\n        if (!used[v]) {\n            x[i] = v;\n            used[v] = true;\n\n            if (i == n) {\n                // Đạt lời giải hoàn chỉnh, in hoặc xử lý\n                printSolution();\n            } else {\n                backtrack(i + 1);\n            }\n\n            // Hoàn tác trạng thái (Backtrack step)\n            used[v] = false;\n        }\n    }\n}\n```\n\n### 2. Giới Hạn Cần Chú Ý\n- Sinh hoán vị: $O(N!)$, chỉ áp dụng khi $N \\le 10$.\n- Sinh tập con: $O(2^N)$, chỉ áp dụng khi $N \\le 20$.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-13",
+      "order": 13,
+      "phase": "Phase 5 — Data Structures",
+      "title": "Standard Data Structures (Vector, Stack, Queue, Set & Map)",
+      "description": "Cấu trúc dữ liệu chuẩn trong C++ STL: vector, stack (LIFO), queue (FIFO), deque, set (Red-Black Tree), map, unordered_map (Hash Table) và priority_queue.",
+      "level": "Trung cấp",
+      "difficulty": "Intermediate",
+      "icon": "Layers",
+      "estimatedMinutes": 120,
+      "prerequisites": [
+        "topic-9"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Bảng Tra Cứu STL Containers & Độ Phức Tạp\n| Cấu trúc | Thao tác chính | Độ phức tạp | Ứng dụng tiêu biểu |\n| :--- | :--- | :---: | :--- |\n| `std::vector` | `push_back`, `[]` | $O(1)$ | Mảng động, danh sách kề |\n| `std::stack` | `push`, `pop`, `top` | $O(1)$ | LIFO, khử đệ quy, Monotonic Stack |\n| `std::queue` | `push`, `pop`, `front` | $O(1)$ | FIFO, duyệt đồ thị BFS |\n| `std::deque` | Thêm/xóa ở cả 2 đầu | $O(1)$ | Cửa sổ trượt min/max |\n| `std::priority_queue` | `push`, `pop`, `top` | $O(\\log N)$ | Heap, thuật toán Dijkstra |\n| `std::set` / `std::map` | Chèn, tìm kiếm, xóa | $O(\\log N)$ | Tập hợp có thứ tự, cây đỏ đen |\n| `std::unordered_map` | Chèn, tìm kiếm | $O(1)$ tb | Bảng băm đếm nhanh |\n\n### 2. Khuyến Nghị Sử Dụng\n- Dùng `priority_queue<int, vector<int>, greater<int>>` để tạo min-heap.\n- Cẩn thận với `unordered_map` trong Competitive Programming vì có thể bị anti-hash testcase đưa độ phức tạp về $O(N)$. Dùng custom hash nếu cần thiết.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-14",
+      "order": 14,
+      "phase": "Phase 6 — Intermediate Algorithms",
+      "title": "Binary Search on Answer & Sieve of Eratosthenes",
+      "description": "Tìm kiếm nhị phân trên không gian nghiệm (Binary Search on Answer), tính đơn điệu của hàm kiểm tra check(mid) và sàng nguyên tố Eratosthenes.",
+      "level": "Trung cấp",
+      "difficulty": "Intermediate",
+      "icon": "Search",
+      "estimatedMinutes": 100,
+      "prerequisites": [
+        "topic-4",
+        "topic-9"
+      ],
+      "problemCodes": [
+        "SODEP"
+      ],
+      "guide": "### 1. Tìm Kiếm Nhị Phân Trên Tập Kết Quả (Binary Search on Answer)\nÁp dụng khi: Không thể tính trực tiếp đáp án, nhưng với một giá trị $X$ giả định, ta dễ dàng kiểm tra xem $X$ có thỏa mãn điều kiện hay không trong thời gian nhanh ($O(N)$), và hàm kiểm tra có tính đơn điệu (Monotonic).\n\n```cpp\nlong long low = 1, high = MAX_ANS, ans = -1;\nwhile (low <= high) {\n    long long mid = low + (high - low) / 2;\n    if (check(mid)) {\n        ans = mid;\n        low = mid + 1; // Hoặc high = mid - 1 tùy bài toán tìm min hay max\n    } else {\n        high = mid - 1;\n    }\n}\n```\n\n### 2. Sàng Nguyên Tố Eratosthenes\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP + 2, isP + MAXN + 1, true);\n    for (int p = 2; p * p <= MAXN; ++p) {\n        if (isP[p]) {\n            for (int i = p * p; i <= MAXN; i += p) {\n                isP[i] = false;\n            }\n        }\n    }\n}\n```",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-15",
+      "order": 15,
+      "phase": "Phase 7 — Dynamic Programming",
+      "title": "Introduction to Dynamic Programming & 1D State Transitions",
+      "description": "Tư duy Quy hoạch động: Trạng thái (State), Hệ thức truy hồi (Transition), bài toán con gối nhau, Memoization vs Tabulation.",
+      "level": "Nâng cao",
+      "difficulty": "Advanced",
+      "icon": "Sparkles",
+      "estimatedMinutes": 120,
+      "prerequisites": [
+        "topic-6",
+        "topic-12"
+      ],
+      "problemCodes": [
+        "NHAYECH",
+        "TRANGTRI"
+      ],
+      "guide": "### 1. Bốn Bước Thiết Kế Thuật Toán Quy Hoạch Động (DP)\n1. **Định nghĩa trạng thái**: `dp[i]` đại diện cho điều gì? (Ví dụ: chi phí nhỏ nhất để nhảy đến bậc $i$).\n2. **Hệ thức truy hồi (State Transition)**: Giá trị của `dp[i]` được tính như thế nào từ các trạng thái trước đó (`dp[i-1]`, `dp[i-2]`).\n3. **Bài toán cơ sở (Base Cases)**: Các giá trị khởi tạo (`dp[0] = 0`, `dp[1] = ...`).\n4. **Thứ tự tính toán**: Tính theo chiều tăng dần của chỉ số để đảm bảo trạng thái phụ thuộc đã được giải quyết xong.\n\n### 2. Ví Dụ Bài Toán Ếch Nhảy\n```cpp\ndp[1] = 0;\ndp[2] = abs(h[2] - h[1]);\nfor (int i = 3; i <= n; ++i) {\n    dp[i] = min(dp[i - 1] + abs(h[i] - h[i - 1]),\n                dp[i - 2] + abs(h[i] - h[i - 2]));\n}\n```",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-16",
+      "order": 16,
+      "phase": "Phase 7 — Dynamic Programming",
+      "title": "Knapsack DP & Longest Increasing Subsequence (LIS)",
+      "description": "Bài toán Cái túi 0/1 Knapsack, Unbounded Knapsack, tối ưu hóa bộ nhớ 1 chiều và bài toán Dãy con tăng dài nhất (LIS).",
+      "level": "Nâng cao",
+      "difficulty": "Advanced",
+      "icon": "Trophy",
+      "estimatedMinutes": 120,
+      "prerequisites": [
+        "topic-15"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. 0/1 Knapsack (Tối Ưu Mảng 1 Chiều)\n```cpp\nvector<long long> dp(W + 1, 0);\n\nfor (int i = 0; i < n; ++i) {\n    // Duyệt ngược để mỗi đồ vật chỉ được chọn tối đa 1 lần\n    for (int w = W; w >= weight[i]; --w) {\n        dp[w] = max(dp[w], dp[w - weight[i]] + value[i]);\n    }\n}\n```\n\n### 2. Dãy Con Tăng Dài Nhất (LIS) O(N log N)\n```cpp\nvector<int> tails;\nfor (int x : a) {\n    auto it = lower_bound(tails.begin(), tails.end(), x);\n    if (it == tails.end()) {\n        tails.push_back(x);\n    } else {\n        *it = x;\n    }\n}\nint lisLength = tails.size();\n```",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-17",
+      "order": 17,
+      "phase": "Phase 7 — Dynamic Programming",
+      "title": "Grid Dynamic Programming & Tiling Problems",
+      "description": "Quy hoạch động trên lưới 2 chiều, tìm đường đi thu hoạch cực trị và các bài toán lát gạch (Tiling DP).",
+      "level": "Nâng cao",
+      "difficulty": "Advanced",
+      "icon": "Sparkles",
+      "estimatedMinutes": 120,
+      "prerequisites": [
+        "topic-7",
+        "topic-15"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Quy Hoạch Động Trên Lưới Ma Trận\n- Gọi `dp[i][j]` là giá trị thu hoạch lớn nhất khi đi từ ô $(1,1)$ đến ô $(i,j)$ chỉ bằng các bước đi xuống hoặc sang phải:\n  $$\\text{dp}[i][j] = a[i][j] + \\max(\\text{dp}[i - 1][j], \\text{dp}[i][j - 1])$$\n- Xử lý ô cấm: Nếu $(i,j)$ là chướng ngại vật thì đặt `dp[i][j] = -INF`.\n\n### 2. Bài Toán Lát Gạch (Tiling DP)\n- Số cách lát gạch chữ nhật kích thước $2 \\times N$ bằng các viên gạch $2 \\times 1$:\n  $$\\text{dp}[n] = \\text{dp}[n - 1] + \\text{dp}[n - 2]$$\n- Ma trận chuyển trạng thái và nhân ma trận $O(\\log N)$ khi $N$ lên tới $10^{18}$.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-18",
+      "order": 18,
+      "phase": "Phase 8 — Graph Algorithms",
+      "title": "Graph Representation, Traversal (BFS/DFS) & Shortest Paths",
+      "description": "Biểu diễn đồ thị bằng danh sách kề (Adjacency List), duyệt BFS/DFS, thuật toán Dijkstra tìm đường đi ngắn nhất trên đồ thị có trọng số không âm.",
+      "level": "Nâng cao",
+      "difficulty": "Advanced",
+      "icon": "Compass",
+      "estimatedMinutes": 150,
+      "prerequisites": [
+        "topic-13"
+      ],
+      "problemCodes": [
+        "HANHTRINH"
+      ],
+      "guide": "### 1. Biểu Diễn Đồ Thị Trọng Số\n```cpp\nconst int MAXN = 100005;\nvector<pair<int, int>> adj[MAXN]; // adj[u] chứa các cặp {v, weight}\n```\n\n### 2. Thuật Toán Dijkstra (Tìm Đường Đi Ngắn Nhất)\n```cpp\nvector<long long> dist(n + 1, 1e18);\npriority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<>> pq;\n\ndist[startNode] = 0;\npq.push({0, startNode});\n\nwhile (!pq.empty()) {\n    auto [d, u] = pq.top();\n    pq.pop();\n    if (d > dist[u]) continue;\n\n    for (auto [v, w] : adj[u]) {\n        if (dist[u] + w < dist[v]) {\n            dist[v] = dist[u] + w;\n            pq.push({dist[v], v});\n        }\n    }\n}\n```\n- Độ phức tạp: $O((V + E) \\log V)$.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-19",
+      "order": 19,
+      "phase": "Phase 8 — Graph Algorithms",
+      "title": "Minimum Spanning Tree (MST) & Network Optimization",
+      "description": "Cây khung nhỏ nhất (MST) với thuật toán Kruskal và Prim, cấu trúc dữ liệu Disjoint Set Union (DSU / DSN) tối ưu gộp tập hợp.",
+      "level": "Nâng cao",
+      "difficulty": "Advanced",
+      "icon": "GitFork",
+      "estimatedMinutes": 120,
+      "prerequisites": [
+        "topic-18"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Cấu Trúc Disjoint Set Union (DSU) Tối Ưu\n```cpp\nstruct DSU {\n    vector<int> parent;\n    DSU(int n) : parent(n + 1) {\n        iota(parent.begin(), parent.end(), 0);\n    }\n    int find(int u) {\n        return parent[u] == u ? u : parent[u] = find(parent[u]);\n    }\n    bool unite(int u, int v) {\n        int rootU = find(u), rootV = find(v);\n        if (rootU == rootV) return false;\n        parent[rootU] = rootV;\n        return true;\n    }\n};\n```\n\n### 2. Thuật Toán Kruskal Tìm Cây Khung Nhỏ Nhất\n- Sắp xếp tất cả các cạnh theo trọng số tăng dần.\n- Duyệt qua từng cạnh, nếu hai đỉnh chưa thuộc cùng thành phần liên thông (kiểm tra bằng DSU), thêm cạnh đó vào cây khung và gộp hai đỉnh.\n- Dừng lại khi đã chọn đủ $V - 1$ cạnh. Độ phức tạp: $O(E \\log E)$.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    },
+    {
+      "id": "topic-20",
+      "order": 20,
+      "phase": "Phase 9 — Advanced Competitive Programming",
+      "title": "Monotonic Stack/Queue, Segment Tree & Advanced Techniques",
+      "description": "Ngăn xếp/Hàng đợi đơn điệu (Monotonic Stack/Queue), cây phân đoạn Segment Tree, Fenwick Tree (BIT), cây tiền tố Trie.",
+      "level": "Nâng cao",
+      "difficulty": "Advanced",
+      "icon": "Cpu",
+      "estimatedMinutes": 180,
+      "prerequisites": [
+        "topic-13",
+        "topic-16"
+      ],
+      "problemCodes": [],
+      "guide": "### 1. Kỹ Thuật Ngăn Xếp Đơn Điệu (Monotonic Stack)\n- Sử dụng stack duy trì các phần tử tăng dần hoặc giảm dần để tìm phần tử lớn hơn/nhỏ hơn gần nhất bên trái hoặc bên phải trong thời gian $O(N)$.\n- Ứng dụng xóa $K$ chữ số để được số lớn nhất (`DELNUM`), tìm hình chữ nhật lớn nhất trong biểu đồ cột, bài toán nhìn thấy tòa nhà cao tầng.\n\n### 2. Cây Phân Đoạn (Segment Tree) Cơ Bản\n- Cấu trúc cây quản lý mảng kích thước $N$:\n  - Cập nhật một phần tử tại vị trí $p$: $O(\\log N)$.\n  - Truy vấn min/max/sum trên đoạn $[L, R]$ bất kỳ: $O(\\log N)$.\n- Xây dựng cây trong $O(N)$, bộ nhớ sử dụng $4N$.",
+      "updatedAt": "2026-10-09T07:16:01.333Z"
+    }
+  ],
+  "student_custom_contests": []
+}

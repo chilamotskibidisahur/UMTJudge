@@ -1,0 +1,80 @@
+{
+  "5": [
+    {
+      "subCount": 5,
+      "round": 1,
+      "avgWait": 1232.14968,
+      "maxWait": 1975.7798,
+      "minWait": 714.6393,
+      "totalBatchMs": 1992.4636
+    },
+    {
+      "subCount": 5,
+      "round": 2,
+      "avgWait": 1281.5824,
+      "maxWait": 2011.9614,
+      "minWait": 752.7168,
+      "totalBatchMs": 2025.9638
+    },
+    {
+      "subCount": 5,
+      "round": 3,
+      "avgWait": 1163.75768,
+      "maxWait": 1884.241,
+      "minWait": 650.6623,
+      "totalBatchMs": 1897.3209
+    }
+  ],
+  "20": [
+    {
+      "subCount": 20,
+      "round": 1,
+      "avgWait": 4139.944875000001,
+      "maxWait": 7854.5056,
+      "minWait": 617.0467,
+      "totalBatchMs": 7866.4379
+    },
+    {
+      "subCount": 20,
+      "round": 2,
+      "avgWait": 3954.611565,
+      "maxWait": 7202.5298,
+      "minWait": 770.5501,
+      "totalBatchMs": 7214.8913
+    },
+    {
+      "subCount": 20,
+      "round": 3,
+      "avgWait": 3957.50956,
+      "maxWait": 7364.4843,
+      "minWait": 647.3384,
+      "totalBatchMs": 7376.6484
+    }
+  ],
+  "40": [
+    {
+      "subCount": 40,
+      "round": 1,
+      "avgWait": 8828.107557500003,
+      "maxWait": 16493.3358,
+      "minWait": 966.8358,
+      "totalBatchMs": 16507.5041
+    },
+    {
+      "subCount": 40,
+      "round": 2,
+      "avgWait": 8953.9656925,
+      "maxWait": 17518.3891,
+      "minWait": 828.5101,
+      "totalBatchMs": 17532.6547
+    },
+    {
+      "subCount": 40,
+      "round": 3,
+      "avgWait": 11844.271157499998,
+      "maxWait": 21578.2434,
+      "minWait": 867.7155,
+      "totalBatchMs": 21591.9531
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+# ==============================================================================
+# UMTJudge — Docker Compose Full Stack (PostgreSQL 16 + App + Nginx/Caddy SSL)
+# ==============================================================================
+# Khởi chạy trên VPS:
+#   docker compose up -d
+# ==============================================================================
+
+services:
+  # 1. Cơ sở dữ liệu PostgreSQL 16
+  postgres:
+    image: postgres:16-alpine
+    container_name: umtjudge_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PG_DATABASE:-umtjudge}
+      POSTGRES_USER: ${PG_USER:-umtjudge_admin}
+      POSTGRES_PASSWORD: ${PG_PASSWORD:-umtjudge_secret_2026}
+    ports:
+      - "127.0.0.1:${PG_PORT:-5432}:5432"
+    volumes:
+      - umtjudge_postgres_data:/var/lib/postgresql/data
+      - ./server/database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USER:-umtjudge_admin} -d ${PG_DATABASE:-umtjudge}"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  # 2. Ứng dụng UMTJudge Server & Web
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: umtjudge_app
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4000:4000"
+    environment:
+      - PORT=4000
+      - NODE_ENV=production
+      - SCHOOLJUDGE_DB_MODE=postgres
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_DATABASE=${PG_DATABASE:-umtjudge}
+      - PG_USER=${PG_USER:-umtjudge_admin}
+      - PG_PASSWORD=${PG_PASSWORD:-umtjudge_secret_2026}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-phatt123}
+      - JUDGE_WORKERS=${JUDGE_WORKERS:-2}
+      - DOMAIN=${DOMAIN:-localhost}
+    volumes:
+      # Mount Docker socket để container có thể gọi Docker Sandbox chấm bài
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/testcases:/app/data/testcases
+      - ./uploads:/app/uploads
+      - ./storage:/app/storage
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  umtjudge_postgres_data:
+    driver: local

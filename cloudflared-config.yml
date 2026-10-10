@@ -1,0 +1,9 @@
+tunnel: 0ced22d4-b31c-48ec-af4f-ea5f9627d623
+credentials-file: C:\Users\qkhai\.cloudflared\0ced22d4-b31c-48ec-af4f-ea5f9627d623.json
+
+ingress:
+  - hostname: chaucaojudge.xyz
+    service: http://localhost:4000
+  - hostname: www.chaucaojudge.xyz
+    service: http://localhost:4000
+  - service: http_status:404

@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+.superpowers/
+
+# Build outputs
+dist/
+dist-electron/
+release/
+
+# Temp files and judge runners
+.temp_runner/
+toolchain/
+*.tmp
+*.exe
+*.o
+*.obj
+*.log
+
+# Uploads & local data
+uploads/pdfs/*
+!uploads/pdfs/.gitkeep
+testcases/*
+!testcases/.gitkeep
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Large local test archives & reports
+T11_Test_Olympic_chuyen_lan_1/
+*.csv
+current_tunnel_url.txt
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Local storage (testcases & statements)
+storage/testcases/*
+!storage/testcases/.gitkeep
+storage/statements/*
+!storage/statements/.gitkeep
+
+# Sample test files and reform test data
+test/
+
+# Temporary artifacts
+output/
+docx_dump.txt
