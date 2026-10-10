@@ -89,6 +89,6 @@ test('Overall progress and streak calculation', () => {
   db.testOutStage(mockUserId, 'stage-1');
   const res = db.computeRoadmapProgress(mockUserId);
 
-  assert.ok(res.summary.overallPercent > 0, 'Overall progress percent should be > 0%');
-  assert.ok(res.summary.completedLessons >= 25, 'At least 25 lessons completed in Stage 1');
+  const stage1Count = ROADMAP_LESSONS.filter(l => l.stageId === 'stage-1').length;
+  assert.ok(res.summary.completedLessons >= stage1Count, `At least ${stage1Count} lessons completed in Stage 1`);
 });

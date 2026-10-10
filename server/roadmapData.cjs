@@ -15,11 +15,9 @@ const ROADMAP_STAGES = [
     "skillGained": "Nắm vững nền tảng lập trình hướng thủ tục trong C++, giải quyết trơn tru các bài toán cơ bản.",
     "checkpoint": {
       "problemIds": [
-        "RM_FASTIO",
-        "RM_COMPARE",
-        "RM_LOGIC",
-        "RM_TICKET",
-        "RM_LOOPSUM"
+        "RM_CP1_EXAMSTAT",
+        "RM_CP1_BILLING",
+        "RM_CP1_ZIGZAG"
       ],
       "passScore": 70
     }
@@ -169,13 +167,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-1"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-rectarea",
+    "problemCode": "RM_RECTAREA",
     "shortTheory": "### Các kiểu dữ liệu thường dùng trong C++\n- `int`: 32-bit có dấu, giá trị từ $-2 \\times 10^9$ đến $2 \\times 10^9$.\n- `long long`: 64-bit có dấu, từ $-9 \\times 10^{18}$ đến $9 \\times 10^{18}$. Dùng khi kết quả vượt quá $2 \\times 10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15 chữ số có nghĩa).\n- `char`: Ký tự đơn trong bảng mã ASCII (1 byte).\n- `bool`: Giá trị logic (`true` hoặc `false`).\n\n> **Cảnh báo tràn số (Overflow)**: Khi nhân hai biến `int` (ví dụ: `100000 * 100000`), C++ sẽ tính trên kiểu `int` rồi mới ép kiểu. Cần viết: `1LL * a * b` để tránh tràn số!",
     "hints": [
-      "Nếu giá trị có thể vượt quá 2 * 10^9, bắt buộc dùng long long.",
-      "Khi nhân hai số nguyên, cẩn thận ép kiểu: 1LL * a * b.",
-      "Để in số thực với K chữ số thập phân, dùng cout << fixed << setprecision(K) << x;"
+      "Công thức chu vi = 2 * (A + B), diện tích = A * B.",
+      "Vì A và B có thể lên tới 10^9 nên diện tích có thể đạt 10^18, bắt buộc dùng kiểu long long trong C++.",
+      "Dùng cin >> a >> b; và in ra trên 2 dòng bằng cout << perimeter << \"\\n\" << area << \"\\n\";"
     ]
   },
   {
@@ -188,13 +186,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-2"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-candydiv",
+    "problemCode": "RM_CANDYDIV",
     "shortTheory": "### Toán tử số học & Chia lấy dư\n- Các phép toán: `+`, `-`, `*`, `/`, `%`.\n- **Phép chia nguyên**: `7 / 2 = 3`. Để lấy số thực: `7.0 / 2` hoặc `(double)a / b`.\n- **Phép chia dư**: `7 % 2 = 1`. Chú ý với số âm trong C++: `-7 % 2 = -1`. Để đưa về số dư dương trong $[0, m-1]$:\n```cpp\nlong long mod = (a % m + m) % m;\n```",
     "hints": [
-      "Toán tử % chỉ áp dụng cho số nguyên.",
-      "Muốn lấy phần thập phân, ít nhất một trong hai toán hạng phải là kiểu số thực.",
-      "Với số âm, áp dụng công thức (a % m + m) % m để luôn nhận kết quả dương."
+      "Sử dụng phép chia nguyên n / k để tìm số kẹo mỗi bạn nhận được.",
+      "Sử dụng phép chia lấy dư n % k để tìm số kẹo còn dư.",
+      "Lưu ý n và k có thể lên tới 10^18, hãy dùng kiểu long long."
     ]
   },
   {
@@ -264,13 +262,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-6"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-digitsum",
+    "problemCode": "RM_DIGITSUM",
     "shortTheory": "### Vòng lặp while\nLặp lại một khối lệnh khi điều kiện còn thỏa mãn:\n```cpp\nint n; cin >> n;\nint sumDigits = 0;\nwhile (n > 0) {\n    sumDigits += n % 10;\n    n /= 10;\n}\n```\nThích hợp cho các bài toán không biết trước số lần lặp, như phân tích chữ số của một số nguyên.",
     "hints": [
-      "Nhớ cập nhật biến điều kiện bên trong vòng lặp để tránh lặp vô tận.",
-      "Xử lý trường hợp n = 0 riêng biệt nếu vòng lặp chỉ chạy khi n > 0.",
-      "Sử dụng biến tạm nếu cần giữ lại giá trị ban đầu của n."
+      "Sử dụng vòng lặp while (n > 0) để tách lần lượt từng chữ số.",
+      "Ở mỗi bước: lấy chữ số cuối bằng n % 10 cộng dồn vào tổng, tăng biến đếm số chữ số lên 1, sau đó loại bỏ chữ số cuối bằng n = n / 10.",
+      "Lưu ý trường hợp đặc biệt: nếu N = 0 thì số chữ số là 1 và tổng là 0."
     ]
   },
   {
@@ -302,13 +300,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-8"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-printpattern",
+    "problemCode": "RM_PRINTPATTERN",
     "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N \\le 5000$, $O(N^2)$ chạy trong ~1 giây.",
     "hints": [
-      "Xác định số dòng (vòng lặp ngoài) và số cột trên mỗi dòng (vòng lặp trong).",
-      "Quan sát quy luật của phần tử tại vị trí (i, j).",
-      "In dấu xuống dòng \\n sau khi kết thúc vòng lặp trong."
+      "Dùng 2 vòng lặp for lồng nhau: vòng lặp ngoài duyệt dòng i từ 1 đến R, vòng lặp trong duyệt cột j từ 1 đến C.",
+      "Nếu ô đang xét nằm trên viền: i == 1, i == R, j == 1 hoặc j == C thì in ra ký tự \"*\".",
+      "Ngược lại in ra ký tự \".\". Sau khi in hết một dòng thì xuống dòng \"\\n\"."
     ]
   },
   {
@@ -321,13 +319,14 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-9"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-firsteven",
+    "problemCode": "RM_FIRSTEVEN",
     "shortTheory": "### break và continue\n- `break`: Lập tức thoát khỏi vòng lặp gần nhất.\n- `continue`: Bỏ qua phần còn lại của lần lặp hiện tại và chuyển sang lần lặp tiếp theo.\n```cpp\nbool hasZero = false;\nfor (int i = 0; i < n; i++) {\n    if (a[i] == 0) {\n        hasZero = true;\n        break; // Dừng sớm khi tìm thấy\n    }\n}\n```",
     "hints": [
-      "Dùng break để tối ưu hóa thời gian khi đã đạt được mục tiêu tìm kiếm.",
-      "Dùng continue để lọc bỏ các phần tử không thỏa mãn ngay từ đầu vòng lặp.",
-      "Cẩn thận không dùng nhầm break thay vì continue."
+      "Duyệt lần lượt từng phần tử từ vị trí 1 đến N.",
+      "Một số x là số chẵn khi và chỉ khi x % 2 == 0 (hoặc abs(x) % 2 == 0 với số âm).",
+      "Khi gặp phần tử chẵn đầu tiên, in ra vị trí (1-based) và giá trị của nó, sau đó dùng lệnh break để dừng vòng lặp ngay lập tức.",
+      "Nếu duyệt hết mảng mà không tìm thấy số chẵn nào, in ra -1."
     ]
   },
   {
@@ -340,13 +339,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-10"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-arrayquery",
+    "problemCode": "RM_ARRAYQUERY",
     "shortTheory": "### Mảng 1 chiều (1D Static Array)\nTập hợp các phần tử cùng kiểu dữ liệu lưu trữ liên tiếp trong bộ nhớ:\n```cpp\nconst int MAXN = 100005;\nint a[MAXN]; // Khai báo toàn cục để mảng tự động gán giá trị 0 và không tràn stack\n\nint main() {\n    int n; cin >> n;\n    for (int i = 0; i < n; i++) cin >> a[i];\n}\n```\n- Chỉ số mảng trong C++ chạy từ `0` đến `N - 1` (hoặc `1` đến `N`).\n- Tránh khai báo mảng kích thước lớn ($> 10^5$) bên trong hàm `main` vì dễ tràn Stack.",
     "hints": [
-      "Nên khai báo mảng lớn ngoài hàm main (biến toàn cục).",
-      "Chỉ số mảng bắt đầu từ 0 hoặc 1, thống nhất trong toàn bộ bài.",
-      "Đảm bảo kích thước mảng MAXN lớn hơn giá trị N tối đa của đề bài."
+      "Khai báo mảng chứa N phần tử hoặc đọc lần lượt vào mảng.",
+      "Cộng dồn tất cả các phần tử vào biến tổng sum kiểu long long.",
+      "Phần tử tại vị trí P (1-based) tương ứng với chỉ số A[P - 1] trong mảng 0-based của C++."
     ]
   },
   {
@@ -359,13 +358,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-11"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-minmaxpos",
+    "problemCode": "RM_MINMAXPOS",
     "shortTheory": "### Tìm Min/Max trên mảng\n```cpp\nint minVal = a[0], maxVal = a[0];\nfor (int i = 1; i < n; i++) {\n    if (a[i] < minVal) minVal = a[i];\n    if (a[i] > maxVal) maxVal = a[i];\n}\n```\n- Hoặc dùng hàm có sẵn trong C++: `*min_element(a, a + n)` và `*max_element(a, a + n)`.",
     "hints": [
-      "Khởi tạo minVal bằng phần tử đầu tiên a[0] hoặc INF lớn.",
-      "Duyệt một vòng for từ đầu đến cuối mảng O(N).",
-      "Cập nhật giá trị min/max và vị trí nếu cần."
+      "Khởi tạo maxVal = A[0], maxPos = 1; minVal = A[0], minPos = 1.",
+      "Duyệt từ i = 2 đến N. Sử dụng dấu so sánh nghiêm ngặt: nếu A[i] > maxVal thì mới cập nhật maxVal và maxPos. Tương tự nếu A[i] < minVal thì cập nhật minVal và minPos.",
+      "Việc dùng dấu > và < đảm bảo khi có nhiều phần tử bằng nhau, vị trí xuất hiện ĐẦU TIÊN (earliest index) luôn được giữ nguyên."
     ]
   },
   {
@@ -378,13 +377,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-12"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-reversearr",
+    "problemCode": "RM_REVERSEARR",
     "shortTheory": "### Thao tác biến đổi mảng\n- Đảo ngược mảng: Sử dụng 2 biến chỉ số chạy từ 2 đầu hoặc dùng `reverse(a, a + n)`.\n```cpp\nint l = 0, r = n - 1;\nwhile (l < r) {\n    swap(a[l], a[r]);\n    l++; r--;\n}\n```\n- Xóa phần tử tại vị trí $k$: Dịch tất cả phần tử từ $k + 1$ sang trái 1 bước và giảm $N$.",
     "hints": [
-      "Kỹ thuật hai đầu chạy vào giữa giúp đảo ngược mảng trong O(N/2).",
-      "Hàm swap(a, b) trong thư viện utility đổi chỗ 2 biến nhanh chóng.",
-      "Khi xóa phần tử, chú ý giảm biến đếm số lượng n."
+      "Lưu mảng vào std::vector hoặc mảng tĩnh.",
+      "Duyệt vòng for ngược: for (int i = n - 1; i >= 0; i--) cout << a[i] << \" \";",
+      "Hoặc sử dụng hàm thư viện sẵn có: reverse(a.begin(), a.end());"
     ]
   },
   {
@@ -397,13 +396,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-13"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-gradefreq",
+    "problemCode": "RM_GRADEFREQ",
     "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i \\le 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
     "hints": [
-      "Dùng giá trị của phần tử a[i] làm chỉ số cho mảng cnt[].",
-      "Nếu giá trị có thể là số âm, cộng một lượng offset dương để đưa về chỉ số không âm.",
-      "Độ phức tạp chỉ là O(N + MaxVal), nhanh hơn sắp xếp O(N log N)."
+      "Khai báo mảng đếm cnt[11] khởi tạo toàn bộ bằng 0.",
+      "Khi đọc vào từng điểm số score (0 <= score <= 10), thực hiện tăng cnt[score]++.",
+      "Dùng vòng lặp for từ 0 đến 10 để in ra theo đúng định dạng: cout << \"Diem \" << score << \": \" << cnt[score] << \"\\n\";"
     ]
   },
   {
@@ -416,13 +415,14 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-14"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-charshift",
+    "problemCode": "RM_CHARSHIFT",
     "shortTheory": "### Ký tự và mã ASCII\nMỗi ký tự là một số nguyên trong bảng mã ASCII:\n- `'0'` có mã 48, `'A'` có mã 65, `'a'` có mã 97.\n- Chuyển ký tự số sang giá trị nguyên: `int digit = ch - '0';`\n- Chuyển chữ hoa sang chữ thường: `char lower = ch + 32;` hoặc dùng `tolower(ch)`.\n- Kiểm tra loại ký tự: `isdigit(ch)`, `isalpha(ch)`, `isupper(ch)`, `islower(ch)`.",
     "hints": [
-      "Lấy mã ASCII của ký tự bằng cách ép kiểu (int)ch.",
-      "Chuyển chữ số ký tự sang số nguyên: ch - '0'.",
-      "Khoảng cách giữa chữ thường và chữ hoa là 'a' - 'A' = 32."
+      "Đọc chuỗi bằng cin >> s hoặc getline.",
+      "Duyệt từng ký tự c: Nếu \"a\" <= c && c <= \"z\" thì đổi thành chữ hoa: c = c - \"a\" + \"A\".",
+      "Nếu \"A\" <= c && c <= \"Z\" thì dịch sang ký tự kế tiếp vòng tròn: c = (c - \"A\" + 1) % 26 + \"A\" (đặc biệt Z trở thành A).",
+      "Các ký tự khác (chữ số, dấu cách, dấu câu) giữ nguyên không đổi."
     ]
   },
   {
@@ -435,13 +435,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-15"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-palindrome",
+    "problemCode": "RM_PALINDROME",
     "shortTheory": "### std::string trong C++\n```cpp\n#include <string>\nstring s;\ncin >> s; // Đọc chuỗi không chứa khoảng trắng\ngetline(cin, s); // Đọc cả dòng có khoảng trắng\n\ncout << s.length() << \"\\n\"; // Độ dài chuỗi\ncout << s[0] << \"\\n\"; // Ký tự đầu tiên\n```\n> **Lưu ý khi dùng getline**: Nếu trước đó có dùng `cin >> n;`, cần gọi `cin.ignore();` để bỏ qua ký tự xuống dòng còn sót lại trong bộ đệm.",
     "hints": [
-      "Dùng s.length() hoặc s.size() để lấy độ dài.",
-      "Duyệt từng ký tự bằng vòng lặp for (char c : s) hoặc for (int i = 0; i < s.size(); i++).",
-      "Nhớ cin.ignore() trước getline nếu vừa đọc số."
+      "Một chuỗi là đối xứng nếu đọc từ trái sang phải cũng giống đọc từ phải sang trái.",
+      "Sử dụng 2 con trỏ: left = 0 và right = s.length() - 1.",
+      "So sánh s[left] và s[right]. Nếu khác nhau kết luận NO ngay lập tức. Nếu duyệt hết mà luôn bằng nhau thì kết luận YES."
     ]
   },
   {
@@ -454,13 +454,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-16"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-countvowels",
+    "problemCode": "RM_COUNTVOWELS",
     "shortTheory": "### Các thao tác phổ biến trên string\n- `s.substr(pos, len)`: Cắt chuỗi con từ vị trí `pos` với độ dài `len`.\n- `s.find(sub)`: Tìm vị trí đầu tiên của `sub` trong `s`. Trả về `string::npos` nếu không tìm thấy.\n- Nối chuỗi: `s1 + s2`.\n- `reverse(s.begin(), s.end())`: Đảo ngược chuỗi.\n- Chuyển đổi: `to_string(num)` và `stoll(str)`.",
     "hints": [
-      "s.substr(0, k) lấy k ký tự đầu tiên của chuỗi.",
-      "Kiểm tra chuỗi đối xứng (palindrome) bằng cách so sánh s với chuỗi đảo ngược của nó.",
-      "Hàm stoll(s) chuyển đổi an toàn chuỗi sang long long."
+      "Dùng getline(cin, s) để đọc toàn bộ dòng văn bản có chứa dấu cách.",
+      "Chuyển từng ký tự sang chữ thường tolower(c) để kiểm tra thuận tiện.",
+      "Kiểm tra xem ký tự có phải là một trong các nguyên âm \"a\", \"e\", \"i\", \"o\", \"u\" hay không và tăng biến đếm."
     ]
   },
   {
@@ -473,13 +473,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-17"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-squarecheck",
+    "problemCode": "RM_SQUARECHECK",
     "shortTheory": "### Hàm trong C++\nTái sử dụng code và module hóa logic bài toán:\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n```\n- Kiểu trả về: `int`, `long long`, `bool`, `void` (không trả về giá trị).",
     "hints": [
-      "Tách các phần việc lặp lại ra thành hàm riêng.",
-      "Đặt tên hàm rõ nghĩa thể hiện chức năng.",
-      "Nhớ lệnh return ở tất cả các nhánh điều kiện."
+      "Số chính phương là số có dạng k * k với k là số nguyên không âm.",
+      "Khi N lên tới 10^18, hàm sqrt(double) trong C++ có thể bị sai số dấu chấm động. Ví dụ: sqrt(999999999999999999) có thể làm tròn thành 10^9.",
+      "Để chính xác tuyệt đối: tính r = round(sqrt((double)n)), sau đó hiệu chỉnh bằng vòng lặp: while ((r + 1) * (r + 1) <= n && r < 1000000000LL) r++; while (r * r > n) r--; rồi kiểm tra r * r == n."
     ]
   },
   {
@@ -492,13 +492,13 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-18"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-reducerate",
+    "problemCode": "RM_REDUCERATE",
     "shortTheory": "### Tham trị vs Tham chiếu\n- **Tham trị (Pass by Value)**: Tạo ra bản sao mới, thay đổi bên trong hàm không ảnh hưởng biến ban đầu.\n- **Tham chiếu (Pass by Reference `&`)**: Thao tác trực tiếp trên biến gốc.\n```cpp\nvoid mySwap(int &x, int &y) {\n    int temp = x;\n    x = y;\n    y = temp;\n}\n// Tránh sao chép mảng/vector/string lớn:\nvoid process(const string &s) { ... }\n```",
     "hints": [
-      "Dùng & khi muốn hàm thay đổi giá trị của biến truyền vào.",
-      "Với string hoặc vector lớn, dùng const Type & để tránh tốn thời gian sao chép O(N).",
-      "Mảng C-style khi truyền vào hàm luôn mặc định là truyền con trỏ/tham chiếu."
+      "Để rút gọn phân số A/B, ta chia cả tử và mẫu cho ước chung lớn nhất g = gcd(A, B).",
+      "Thuật toán tìm GCD bằng vòng lặp đơn giản: int gcd(int x, int y) { while (y != 0) { int r = x % y; x = y; y = r; } return x; }",
+      "Định nghĩa hàm rút gọn sử dụng truyền tham chiếu: void reduce(int &a, int &b) { int g = gcd(a, b); a /= g; b /= g; } để thay đổi trực tiếp giá trị của a và b."
     ]
   },
   {
@@ -518,7 +518,8 @@ const ROADMAP_LESSONS = [
       "Khai báo mảng lớn ngoài hàm main.",
       "Tránh đặt tên biến cục bộ trùng với biến toàn cục gây nhầm lẫn biến bị che (shadowing).",
       "Biến toàn cục tự động mang giá trị 0."
-    ]
+    ],
+    "readToComplete": true
   },
   {
     "id": "les-1-21",
@@ -530,13 +531,14 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-20"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-diagonal",
+    "problemCode": "RM_DIAGONAL",
     "shortTheory": "### Ma trận trong C++\n```cpp\nint a[1005][1005];\nint n, m; cin >> n >> m;\nfor (int i = 0; i < n; i++) {\n    for (int j = 0; j < m; j++) {\n        cin >> a[i][j];\n    }\n}\n```\n- Duyệt hàng, duyệt cột, tính tổng đường chéo chính (`i == j`), đường chéo phụ (`i + j == n - 1`).",
     "hints": [
-      "Chỉ số dòng i chạy từ 0 đến n - 1, chỉ số cột j chạy từ 0 đến m - 1.",
-      "Trên đường chéo chính: i == j; đường chéo phụ: i + j == n - 1 (với 0-indexed).",
-      "Cẩn thận thứ tự n dòng, m cột trong vòng lặp nhập xuất."
+      "Trong ma trận vuông N x N với chỉ số từ 0 đến N - 1:",
+      "Phần tử thuộc đường chéo chính có chỉ số dòng và cột bằng nhau: i == j.",
+      "Phần tử thuộc đường chéo phụ có tổng chỉ số dòng và cột thỏa mãn: i + j == N - 1.",
+      "Tính tổng bằng vòng for đơn O(N) bằng cách cộng a[i][i] và a[i][N - 1 - i], chú ý dùng kiểu long long."
     ]
   },
   {
@@ -549,24 +551,24 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-21"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-studentrank",
+    "problemCode": "RM_STUDENTRANK",
     "shortTheory": "### Struct trong C++\nGom nhóm các thuộc tính liên quan vào một kiểu dữ liệu duy nhất:\n```cpp\nstruct ThiSinh {\n    string id;\n    string ten;\n    double toan, tin;\n    double tongDiem() const {\n        return toan + tin;\n    }\n};\nThiSinh ds[1000];\n```",
     "hints": [
-      "Tạo struct để quản lý các đối tượng có nhiều thuộc tính (ví dụ thí sinh, tọa độ điểm).",
-      "Truy cập các trường bên trong struct bằng dấu chấm .",
-      "Có thể khai báo mảng các struct như mảng thông thường."
+      "Định nghĩa cấu trúc struct Student { string name; int math; int lit; int total; int order; };",
+      "Tổng điểm được tính bằng math + lit.",
+      "Quy tắc xử lý bằng nhau (Tie-breaker): Khi duyệt tìm max, sử dụng điều kiện nghiêm ngặt if (s.total > maxTotal) để luôn giữ học sinh xuất hiện sớm hơn trong danh sách nhập vào."
     ]
   },
   {
     "id": "les-1-23",
-    "stageId": "stage-1",
-    "order": 23,
+    "stageId": "stage-5",
+    "order": 1,
     "title": "Sắp xếp Struct với hàm so sánh tự định nghĩa (Custom Comparator)",
     "difficulty": 2,
     "estimatedMinutes": 45,
     "prerequisiteLessonIds": [
-      "les-1-22"
+      "les-5-1"
     ],
     "problemId": null,
     "problemCode": null,
@@ -580,7 +582,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-1-24",
     "stageId": "stage-1",
-    "order": 24,
+    "order": 23,
     "title": "Đọc ghi tệp (File I/O) cho các kỳ thi HSG (freopen)",
     "difficulty": 1,
     "estimatedMinutes": 25,
@@ -594,12 +596,13 @@ const ROADMAP_LESSONS = [
       "freopen chuyển hướng chuẩn stdin và stdout sang tệp.",
       "Giữ nguyên lệnh cin và cout thông thường mà không cần sửa code.",
       "Kiểm tra chính xác tên tệp INP và OUT (chữ hoa/chữ thường)."
-    ]
+    ],
+    "readToComplete": true
   },
   {
     "id": "les-1-25",
     "stageId": "stage-1",
-    "order": 25,
+    "order": 24,
     "title": "Tổng kết Chặng 1: Đánh giá độ phức tạp thuật toán O(N)",
     "difficulty": 2,
     "estimatedMinutes": 40,
@@ -613,7 +616,8 @@ const ROADMAP_LESSONS = [
       "Đọc giới hạn N trước khi viết thuật toán.",
       "Nếu N = 10^5 mà dùng 2 vòng lặp lồng nhau O(N^2) = 10^10 phép tính sẽ bị TLE.",
       "Kiểm tra tràn số long long và tối ưu fast I/O."
-    ]
+    ],
+    "readToComplete": true
   },
   {
     "id": "les-2-1",
@@ -2043,7 +2047,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-1",
     "stageId": "stage-5",
-    "order": 1,
+    "order": 2,
     "title": "Mảng cộng dồn 1D (Prefix Sum): Truy vấn tổng đoạn O(1)",
     "difficulty": 2,
     "estimatedMinutes": 35,
@@ -2062,7 +2066,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-2",
     "stageId": "stage-5",
-    "order": 2,
+    "order": 3,
     "title": "Mảng cộng dồn Modulo & Đếm số đoạn con có tổng chia hết cho K",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2081,7 +2085,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-3",
     "stageId": "stage-5",
-    "order": 3,
+    "order": 4,
     "title": "Mảng cộng dồn 2D (2D Prefix Sum): Truy vấn hình chữ nhật O(1)",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2100,7 +2104,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-4",
     "stageId": "stage-5",
-    "order": 4,
+    "order": 5,
     "title": "Mảng hiệu 1D (Difference Array): Cộng dồn trên đoạn O(1)",
     "difficulty": 2,
     "estimatedMinutes": 40,
@@ -2119,7 +2123,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-5",
     "stageId": "stage-5",
-    "order": 5,
+    "order": 6,
     "title": "Kỹ thuật Hai con trỏ (Two Pointers): Hai đầu đối diện",
     "difficulty": 2,
     "estimatedMinutes": 40,
@@ -2138,7 +2142,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-6",
     "stageId": "stage-5",
-    "order": 6,
+    "order": 7,
     "title": "Hai con trỏ: Cùng chiều (Con trỏ nhanh - Con trỏ chậm)",
     "difficulty": 2,
     "estimatedMinutes": 40,
@@ -2157,7 +2161,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-7",
     "stageId": "stage-5",
-    "order": 7,
+    "order": 8,
     "title": "Cửa sổ trượt (Sliding Window): Kích thước cố định K",
     "difficulty": 2,
     "estimatedMinutes": 35,
@@ -2176,7 +2180,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-8",
     "stageId": "stage-5",
-    "order": 8,
+    "order": 9,
     "title": "Cửa sổ trượt: Kích thước biến thiên (Co giãn điều kiện)",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2195,7 +2199,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-9",
     "stageId": "stage-5",
-    "order": 9,
+    "order": 10,
     "title": "Cửa sổ trượt với Hàng đợi đơn điệu (Monotonic Deque)",
     "difficulty": 3,
     "estimatedMinutes": 50,
@@ -2214,7 +2218,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-10",
     "stageId": "stage-5",
-    "order": 10,
+    "order": 11,
     "title": "Chiến lược Tham lam (Greedy): Nguyên lý lựa chọn tham lam",
     "difficulty": 2,
     "estimatedMinutes": 40,
@@ -2233,7 +2237,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-11",
     "stageId": "stage-5",
-    "order": 11,
+    "order": 12,
     "title": "Bài toán lập lịch & Chọn các đoạn không giao nhau",
     "difficulty": 2,
     "estimatedMinutes": 40,
@@ -2252,7 +2256,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-12",
     "stageId": "stage-5",
-    "order": 12,
+    "order": 13,
     "title": "Bài toán cái túi phân số (Fractional Knapsack)",
     "difficulty": 2,
     "estimatedMinutes": 35,
@@ -2271,7 +2275,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-13",
     "stageId": "stage-5",
-    "order": 13,
+    "order": 14,
     "title": "Kỹ thuật tráo đổi (Exchange Arguments) chứng minh tham lam",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2290,7 +2294,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-14",
     "stageId": "stage-5",
-    "order": 14,
+    "order": 15,
     "title": "Mã hóa Huffman & Ghép nối chi phí tối thiểu",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2309,7 +2313,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-15",
     "stageId": "stage-5",
-    "order": 15,
+    "order": 16,
     "title": "Chặt nhị phân kết quả (Binary Search on Answer): Hàm đơn điệu",
     "difficulty": 3,
     "estimatedMinutes": 50,
@@ -2328,7 +2332,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-16",
     "stageId": "stage-5",
-    "order": 16,
+    "order": 17,
     "title": "Chặt nhị phân kết quả: Bài toán chia việc / Phân phối sách",
     "difficulty": 3,
     "estimatedMinutes": 50,
@@ -2347,7 +2351,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-17",
     "stageId": "stage-5",
-    "order": 17,
+    "order": 18,
     "title": "Chặt nhị phân trên số thực: Độ chính xác Epsilon",
     "difficulty": 3,
     "estimatedMinutes": 40,
@@ -2366,7 +2370,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-18",
     "stageId": "stage-5",
-    "order": 18,
+    "order": 19,
     "title": "Chặt tam phân (Ternary Search): Cực trị hàm đơn đỉnh",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2385,7 +2389,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-19",
     "stageId": "stage-5",
-    "order": 19,
+    "order": 20,
     "title": "Đệ quy: Trường hợp cơ sở & Cây đệ quy gọi hàm",
     "difficulty": 2,
     "estimatedMinutes": 35,
@@ -2404,7 +2408,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-20",
     "stageId": "stage-5",
-    "order": 20,
+    "order": 21,
     "title": "Chia để trị: Thuật toán sắp xếp trộn (Merge Sort)",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2423,7 +2427,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-21",
     "stageId": "stage-5",
-    "order": 21,
+    "order": 22,
     "title": "Đếm số nghịch thế (Inversion Count) bằng Merge Sort",
     "difficulty": 3,
     "estimatedMinutes": 50,
@@ -2442,7 +2446,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-22",
     "stageId": "stage-5",
-    "order": 22,
+    "order": 23,
     "title": "Thuật toán Quick Select: Tìm phần tử nhỏ thứ K trong O(N)",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2461,7 +2465,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-23",
     "stageId": "stage-5",
-    "order": 23,
+    "order": 24,
     "title": "Quay lui (Backtracking): Không gian trạng thái & Nhánh cận",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2480,7 +2484,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-24",
     "stageId": "stage-5",
-    "order": 24,
+    "order": 25,
     "title": "Quay lui sinh tất cả tập con (Subsets)",
     "difficulty": 2,
     "estimatedMinutes": 35,
@@ -2499,7 +2503,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-25",
     "stageId": "stage-5",
-    "order": 25,
+    "order": 26,
     "title": "Quay lui sinh tất cả hoán vị (Permutations)",
     "difficulty": 2,
     "estimatedMinutes": 35,
@@ -2518,7 +2522,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-26",
     "stageId": "stage-5",
-    "order": 26,
+    "order": 27,
     "title": "Bài toán N quân hậu (N-Queens) & Tối ưu bằng mảng/bit",
     "difficulty": 3,
     "estimatedMinutes": 50,
@@ -2537,7 +2541,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-27",
     "stageId": "stage-5",
-    "order": 27,
+    "order": 28,
     "title": "Giải Sudoku bằng quay lui & Cắt tỉa điều kiện",
     "difficulty": 3,
     "estimatedMinutes": 55,
@@ -2556,7 +2560,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-28",
     "stageId": "stage-5",
-    "order": 28,
+    "order": 29,
     "title": "Kỹ thuật Gặp nhau ở giữa (Meet in the Middle) 2^(N/2)",
     "difficulty": 4,
     "estimatedMinutes": 60,
@@ -2575,7 +2579,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-29",
     "stageId": "stage-5",
-    "order": 29,
+    "order": 30,
     "title": "Tổng kết kỹ thuật hai con trỏ & Chặt nhị phân",
     "difficulty": 3,
     "estimatedMinutes": 45,
@@ -2594,7 +2598,7 @@ const ROADMAP_LESSONS = [
   {
     "id": "les-5-30",
     "stageId": "stage-5",
-    "order": 30,
+    "order": 31,
     "title": "Tổng kết Chặng 5: Bộ vũ khí thuật toán cốt lõi",
     "difficulty": 3,
     "estimatedMinutes": 50,
@@ -4902,14 +4906,30 @@ const ALGORITHM_ROADMAP_TOPICS = [
     "level": "Cơ bản",
     "difficulty": "Beginner",
     "icon": "Terminal",
-    "estimatedMinutes": 835,
+    "estimatedMinutes": 790,
     "prerequisites": [],
     "problemCodes": [
       "RM_FASTIO",
+      "RM_RECTAREA",
+      "RM_CANDYDIV",
       "RM_COMPARE",
       "RM_LOGIC",
       "RM_TICKET",
-      "RM_LOOPSUM"
+      "RM_DIGITSUM",
+      "RM_LOOPSUM",
+      "RM_PRINTPATTERN",
+      "RM_FIRSTEVEN",
+      "RM_ARRAYQUERY",
+      "RM_MINMAXPOS",
+      "RM_REVERSEARR",
+      "RM_GRADEFREQ",
+      "RM_CHARSHIFT",
+      "RM_PALINDROME",
+      "RM_COUNTVOWELS",
+      "RM_SQUARECHECK",
+      "RM_REDUCERATE",
+      "RM_DIAGONAL",
+      "RM_STUDENTRANK"
     ],
     "guide": "Nắm vững nền tảng lập trình hướng thủ tục trong C++, giải quyết trơn tru các bài toán cơ bản."
   },
@@ -4973,7 +4993,7 @@ const ALGORITHM_ROADMAP_TOPICS = [
     "level": "Trung bình",
     "difficulty": "Intermediate",
     "icon": "Layers",
-    "estimatedMinutes": 1315,
+    "estimatedMinutes": 1360,
     "prerequisites": [
       "topic-4"
     ],
