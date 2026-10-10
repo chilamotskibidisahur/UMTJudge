@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const possiblePaths = [
+  path.join(__dirname, '..', 'cloudflared.exe'),
   'cloudflared',
   'C:\\Program Files (x86)\\cloudflared\\cloudflared.exe',
   'C:\\Program Files\\cloudflared\\cloudflared.exe',
@@ -18,16 +19,23 @@ for (const p of possiblePaths) {
 }
 
 const configPath = path.join(__dirname, '..', 'cloudflared-config.yml');
+const hasValidConfig = fs.existsSync(configPath) && (() => {
+  try {
+    const raw = fs.readFileSync(configPath, 'utf8');
+    const m = raw.match(/credentials-file:\s*(.+)/);
+    return m && fs.existsSync(m[1].trim());
+  } catch {
+    return false;
+  }
+})();
 
 console.log('======================================================');
-console.log('🎉 ĐANG KHỞI CHẠY ĐƯỜNG HẦM TÊN MIỀN CỐ ĐỊNH VĨNH VIỄN:');
-console.log('👉 https://chaucaojudge.xyz');
-console.log('👉 https://www.chaucaojudge.xyz');
+console.log('🌐 ĐANG KHỞI CHẠY ĐƯỜNG HẦM CLOUDFLARE CHO UMTJUDGE...');
 console.log('======================================================');
 
-const args = fs.existsSync(configPath)
+const args = hasValidConfig
   ? ['tunnel', '--config', configPath, 'run', 'chaucaojudge']
-  : ['tunnel', 'run', 'chaucaojudge'];
+  : ['tunnel', '--url', 'http://localhost:4000'];
 
 const child = spawn(binPath, args, {
   stdio: ['ignore', 'pipe', 'pipe']
@@ -35,13 +43,20 @@ const child = spawn(binPath, args, {
 
 child.stdout.on('data', (d) => {
   const text = d.toString().trim();
-  if (text) console.log(`[Cloudflare] ${text}`);
+  if (text) console.log(text);
 });
 
 child.stderr.on('data', (d) => {
-  const text = d.toString().trim();
+  const text = d.toString();
+  const match = text.match(/https:\/\/[a-z0-9-]+\.trycloudflare\.com/i);
+  if (match) {
+    console.log('\n======================================================');
+    console.log('🎉 LINK INTERNET CHO MÁY TỪ XA TRUY CẬP (KHÔNG CẦN PASSWORD):');
+    console.log(`👉 ${match[0]}`);
+    console.log('======================================================\n');
+  }
   if (text.includes('Registered tunnel connection') || text.includes('INF')) {
-    console.log(`[Cloudflare Tunnel] ${text}`);
+    // Silent progress logs
   }
 });
 
