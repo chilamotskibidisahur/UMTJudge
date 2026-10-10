@@ -45,6 +45,26 @@
       "joinCode": "HSG2026",
       "teacher": "Thầy Hùng",
       "studentCount": 15
+    },
+    {
+      "id": "class-olp",
+      "name": "Lớp Olympic Tin Học Sinh Viên",
+      "grade": 13,
+      "joinCode": "OLP2026",
+      "teacher": "Thầy Hùng (Chuyên Tin / Huấn luyện ICPC)",
+      "studentCount": 28,
+      "track": "olympic",
+      "description": "Chuyên bồi dưỡng sinh viên tham gia Olympic Tin học sinh viên toàn quốc (OLP) và kỳ thi lập trình quốc tế ICPC."
+    },
+    {
+      "id": "class-career",
+      "name": "Lớp Lập Trình Phỏng Vấn & Đi Làm",
+      "grade": 14,
+      "joinCode": "DEV2026",
+      "teacher": "Thầy Minh (Senior Software Engineer)",
+      "studentCount": 35,
+      "track": "career",
+      "description": "Đào tạo kỹ năng C++ thực chiến, thuật toán phỏng vấn LeetCode Top 150, quản lý bộ nhớ, Clean Code và thiết kế hệ thống."
     }
   ],
   "users": [

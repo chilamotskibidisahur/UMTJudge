@@ -5,7 +5,10 @@ const { ROADMAP_STAGES, ROADMAP_LESSONS } = require('../server/roadmapData.cjs')
 const db = require('../server/db.cjs');
 
 test('Roadmap structure validation', () => {
-  assert.equal(ROADMAP_STAGES.length, 9, 'Should have exactly 9 stages');
+  const olympicStages = ROADMAP_STAGES.filter(s => !s.track || s.track === 'all' || s.track === 'olympic');
+  const careerStages = ROADMAP_STAGES.filter(s => !s.track || s.track === 'all' || s.track === 'career');
+  assert.equal(olympicStages.length, 9, 'Should have exactly 9 stages for Olympic track');
+  assert.equal(careerStages.length, 9, 'Should have exactly 9 stages for Career track');
   assert.ok(ROADMAP_LESSONS.length >= 240, 'Should have ~250 lessons');
 
   // Verify all lessons belong to valid stages
@@ -91,4 +94,38 @@ test('Overall progress and streak calculation', () => {
 
   const stage1Count = ROADMAP_LESSONS.filter(l => l.stageId === 'stage-1').length;
   assert.ok(res.summary.completedLessons >= stage1Count, `At least ${stage1Count} lessons completed in Stage 1`);
+});
+
+test('Multi-track roadmap: Olympic vs Career tracks and class auto-detection', () => {
+  // 1. Explicit track query
+  const olpProg = db.computeRoadmapProgress(null, 'olympic');
+  assert.equal(olpProg.activeTrack, 'olympic');
+  assert.equal(olpProg.stages.length, 9);
+  assert.equal(olpProg.stages[0].id, 'stage-1');
+
+  const careerProg = db.computeRoadmapProgress(null, 'career');
+  assert.equal(careerProg.activeTrack, 'career');
+  assert.equal(careerProg.stages.length, 9);
+  assert.equal(careerProg.stages[0].id, 'stage-c1');
+
+  // 2. Class auto-detection
+  const mockCareerUser = {
+    id: 'user-dev-' + crypto.randomUUID(),
+    username: 'dev_student',
+    classes: ['class-career']
+  };
+  db.data.users.push(mockCareerUser);
+  const detectedCareer = db.computeRoadmapProgress(mockCareerUser.id);
+  assert.equal(detectedCareer.activeTrack, 'career');
+  assert.equal(detectedCareer.stages[0].id, 'stage-c1');
+
+  const mockOlpUser = {
+    id: 'user-olp-' + crypto.randomUUID(),
+    username: 'olp_student',
+    classes: ['class-olp']
+  };
+  db.data.users.push(mockOlpUser);
+  const detectedOlp = db.computeRoadmapProgress(mockOlpUser.id);
+  assert.equal(detectedOlp.activeTrack, 'olympic');
+  assert.equal(detectedOlp.stages[0].id, 'stage-1');
 });

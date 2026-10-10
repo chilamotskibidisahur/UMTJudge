@@ -1,8 +1,10 @@
-'use strict';
-
-// ==============================================================================
-// UMTJudge — Full Roadmap Structure & Lesson Curriculum (ZERO to ADVANCED)
-// ==============================================================================
+/**
+ * ROADMAP CURRICULUM SEED DATA (CHAUCAOJUDGE / UMTJUDGE)
+ * Multi-track Architecture:
+ * - track: 'olympic' (Olympic Tin Học Sinh Viên / ICPC)
+ * - track: 'career'  (Lập Trình Phỏng Vấn & Đi Làm / Software Engineer)
+ * - track: 'all'     (Nền tảng C++ cơ bản dùng chung)
+ */
 
 const ROADMAP_STAGES = [
   {
@@ -20,7 +22,8 @@ const ROADMAP_STAGES = [
         "RM_CP1_ZIGZAG"
       ],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-2",
@@ -36,7 +39,8 @@ const ROADMAP_STAGES = [
         "RM_PRIME"
       ],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-3",
@@ -49,7 +53,8 @@ const ROADMAP_STAGES = [
     "checkpoint": {
       "problemIds": [],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-4",
@@ -62,7 +67,8 @@ const ROADMAP_STAGES = [
     "checkpoint": {
       "problemIds": [],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-5",
@@ -78,7 +84,8 @@ const ROADMAP_STAGES = [
         "RM_GREEDY"
       ],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-6",
@@ -94,7 +101,8 @@ const ROADMAP_STAGES = [
         "RM_MAXSUBARRAY"
       ],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-7",
@@ -109,7 +117,8 @@ const ROADMAP_STAGES = [
         "RM_DIJKSTRA"
       ],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-8",
@@ -122,7 +131,8 @@ const ROADMAP_STAGES = [
     "checkpoint": {
       "problemIds": [],
       "passScore": 70
-    }
+    },
+    "track": "olympic"
   },
   {
     "id": "stage-9",
@@ -135,6 +145,147 @@ const ROADMAP_STAGES = [
     "checkpoint": {
       "problemIds": [],
       "passScore": 70
+    },
+    "track": "olympic"
+  },
+  {
+    "id": "stage-c1",
+    "order": 1,
+    "track": "career",
+    "title": "Chặng 1: C++ Căn Bản & Tư Duy Lập Trình Sạch (Clean Code)",
+    "monthRange": "Tháng 1",
+    "goal": "Làm quen cú pháp C++ chuẩn, cấu trúc điều khiển, mảng và quy tắc đặt tên, viết code dễ đọc, chuẩn mực doanh nghiệp.",
+    "estimatedHoursPerWeek": 6,
+    "skillGained": "Viết code C++ đúng chuẩn, tư duy phân rã bài toán và tối ưu luồng thực thi cơ bản.",
+    "checkpoint": {
+      "problemIds": [
+        "RM_FASTIO",
+        "RM_BIGSUM",
+        "RM_MAX3"
+      ],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c2",
+    "order": 2,
+    "track": "career",
+    "title": "Chặng 2: Quản Lý Bộ Nhớ, Con Trỏ & Modern C++",
+    "monthRange": "Tháng 2",
+    "goal": "Nắm vững Con trỏ (Pointers), Cấp phát động (Heap/Stack), Tránh Memory Leak, Con trỏ thông minh (Smart Pointers) và RAII.",
+    "estimatedHoursPerWeek": 8,
+    "skillGained": "Hiểu sâu bản chất kiến trúc bộ nhớ RAM, con trỏ unique_ptr/shared_ptr và quản lý tài nguyên an toàn.",
+    "checkpoint": {
+      "problemIds": [
+        "RM_SWAPDIGITS",
+        "RM_TIMECONV"
+      ],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c3",
+    "order": 3,
+    "track": "career",
+    "title": "Chặng 3: Cấu Trúc Dữ Liệu Tuyến Tính & Phỏng Vấn Cơ Bản",
+    "monthRange": "Tháng 2 - Tháng 3",
+    "goal": "Cài đặt và ứng dụng Danh sách liên kết (Linked List), Ngăn xếp (Stack), Hàng đợi (Queue) trong các bài toán phỏng vấn thực tế.",
+    "estimatedHoursPerWeek": 8,
+    "skillGained": "Cài đặt thành thạo Singly/Doubly Linked List, giải quyết bài toán ngoặc hợp lệ và hàng đợi tác vụ.",
+    "checkpoint": {
+      "problemIds": [],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c4",
+    "order": 4,
+    "track": "career",
+    "title": "Chặng 4: Bảng Băm (Hash Table) & Tối Ưu Tra Cứu O(1)",
+    "monthRange": "Tháng 3",
+    "goal": "std::unordered_map, std::unordered_set, kỹ thuật băm dữ liệu, giải quyết va chạm (Collision Resolution) và cơ chế Caching.",
+    "estimatedHoursPerWeek": 8,
+    "skillGained": "Tối ưu độ phức tạp tìm kiếm từ O(N) xuống O(1) trung bình, thiết kế cache bộ nhớ đệm.",
+    "checkpoint": {
+      "problemIds": [],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c5",
+    "order": 5,
+    "track": "career",
+    "title": "Chặng 5: Mẫu Thuật Toán Phỏng Vấn Kinh Điển (LeetCode Patterns)",
+    "monthRange": "Tháng 4",
+    "goal": "Thành thạo Two Pointers, Sliding Window co giãn, Prefix Sum và Binary Search trên mảng trong phỏng vấn kỹ thuật.",
+    "estimatedHoursPerWeek": 10,
+    "skillGained": "Giải quyết trơn tru 80% câu hỏi thuật toán vòng phỏng vấn Coding Interview của các công ty công nghệ.",
+    "checkpoint": {
+      "problemIds": [
+        "RM_TWOPOINTERS"
+      ],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c6",
+    "order": 6,
+    "track": "career",
+    "title": "Chặng 6: Cây Nhị Phân & Cây Tìm Kiếm Nhị Phân (Binary Tree & BST)",
+    "monthRange": "Tháng 4 - Tháng 5",
+    "goal": "Cấu trúc cây nhị phân, duyệt cây theo thứ tự (Inorder, Preorder, Postorder, Level-order BFS) và kiểm tra cây BST.",
+    "estimatedHoursPerWeek": 8,
+    "skillGained": "Hiểu cấu trúc dữ liệu phân cấp, giải quyết bài toán cây nhị phân phổ biến trong phỏng vấn.",
+    "checkpoint": {
+      "problemIds": [],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c7",
+    "order": 7,
+    "track": "career",
+    "title": "Chặng 7: Đồ Thị Thực Tế & Thuật Toán Tìm Đường Đi Ngắn Nhất",
+    "monthRange": "Tháng 5",
+    "goal": "Biểu diễn đồ thị mạng lưới, tìm kiếm theo chiều rộng (BFS), chiều sâu (DFS), Dijkstra và sắp xếp Topo (Topological Sort).",
+    "estimatedHoursPerWeek": 8,
+    "skillGained": "Áp dụng đồ thị mô phỏng mạng máy tính, quản lý luồng phụ thuộc công việc (Task Scheduling).",
+    "checkpoint": {
+      "problemIds": [
+        "RM_DIJKSTRA"
+      ],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c8",
+    "order": 8,
+    "track": "career",
+    "title": "Chặng 8: Quy Hoạch Động Thực Chiến & Lập Trình Hướng Đối Tượng (OOP)",
+    "monthRange": "Tháng 5 - Tháng 6",
+    "goal": "Quy hoạch động mức độ phỏng vấn (Climbing Stairs, Coin Change, LCS, Buy/Sell Stock) kết hợp OOP Class Design và Đa luồng (std::thread).",
+    "estimatedHoursPerWeek": 10,
+    "skillGained": "Thiết kế lớp hướng đối tượng vững chắc, tối ưu bộ nhớ DP và hiểu khái niệm đa luồng cơ bản.",
+    "checkpoint": {
+      "problemIds": [
+        "RM_FROGJUMP",
+        "RM_MAXSUBARRAY"
+      ],
+      "passScore": 100
+    }
+  },
+  {
+    "id": "stage-c9",
+    "order": 9,
+    "track": "career",
+    "title": "Chặng 9: Mô Phỏng Phỏng Vấn Kỹ Thuật (Mock Technical Interview)",
+    "monthRange": "Tháng 6+",
+    "goal": "Rèn luyện kỹ năng giải đề phỏng vấn 45 phút, trình bày tư duy thuật toán (Thinking out loud) và phân tích Time/Space Complexity.",
+    "estimatedHoursPerWeek": 8,
+    "skillGained": "Tự tin vượt qua vòng phỏng vấn kỹ thuật trực tiếp tại các công ty công nghệ hàng đầu.",
+    "checkpoint": {
+      "problemIds": [],
+      "passScore": 100
     }
   }
 ];
@@ -155,7 +306,8 @@ const ROADMAP_LESSONS = [
       "Đọc vào 2 số nguyên bằng cú pháp cin >> a >> b;",
       "Tính tổng hoặc giá trị biểu thức theo yêu cầu và in ra bằng cout << ans << \"\\n\";",
       "Nhớ thêm ios_base::sync_with_stdio(false); cin.tie(NULL); ở đầu hàm main."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-2",
@@ -169,12 +321,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-rectarea",
     "problemCode": "RM_RECTAREA",
-    "shortTheory": "### Các kiểu dữ liệu thường dùng trong C++\n- `int`: 32-bit có dấu, giá trị từ $-2 \ ×  10^9$ đến $2 \ ×  10^9$.\n- `long long`: 64-bit có dấu, từ $-9 \ ×  10^{18}$ đến $9 \ ×  10^{18}$. Dùng khi kết quả vượt quá $2 \ ×  10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15 chữ số có nghĩa).\n- `char`: Ký tự đơn trong bảng mã ASCII (1 byte).\n- `bool`: Giá trị logic (`true` hoặc `false`).\n\n> **Cảnh báo tràn số (Overflow)**: Khi nhân hai biến `int` (ví dụ: `100000 * 100000`), C++ sẽ tính trên kiểu `int` rồi mới ép kiểu. Cần viết: `1LL * a * b` để tránh tràn số!",
+    "shortTheory": "### Các kiểu dữ liệu thường dùng trong C++\n- `int`: 32-bit có dấu, giá trị từ $-2  ×  10^9$ đến $2  ×  10^9$.\n- `long long`: 64-bit có dấu, từ $-9  ×  10^{18}$ đến $9  ×  10^{18}$. Dùng khi kết quả vượt quá $2  ×  10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15 chữ số có nghĩa).\n- `char`: Ký tự đơn trong bảng mã ASCII (1 byte).\n- `bool`: Giá trị logic (`true` hoặc `false`).\n\n> **Cảnh báo tràn số (Overflow)**: Khi nhân hai biến `int` (ví dụ: `100000 * 100000`), C++ sẽ tính trên kiểu `int` rồi mới ép kiểu. Cần viết: `1LL * a * b` để tránh tràn số!",
     "hints": [
       "Công thức chu vi = 2 * (A + B), diện tích = A * B.",
       "Vì A và B có thể lên tới 10^9 nên diện tích có thể đạt 10^18, bắt buộc dùng kiểu long long trong C++.",
       "Dùng cin >> a >> b; và in ra trên 2 dòng bằng cout << perimeter << \"\\n\" << area << \"\\n\";"
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-3",
@@ -193,7 +346,8 @@ const ROADMAP_LESSONS = [
       "Sử dụng phép chia nguyên n / k để tìm số kẹo mỗi bạn nhận được.",
       "Sử dụng phép chia lấy dư n % k để tìm số kẹo còn dư.",
       "Lưu ý n và k có thể lên tới 10^18, hãy dùng kiểu long long."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-4",
@@ -212,7 +366,8 @@ const ROADMAP_LESSONS = [
       "Xác định rõ các điều kiện biên của đề bài.",
       "Dùng if (a > b) hoặc các phép so sánh tương ứng.",
       "In ra kết quả tương ứng theo từng nhánh rẽ."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-5",
@@ -231,7 +386,8 @@ const ROADMAP_LESSONS = [
       "Toán tử && có độ ưu tiên cao hơn ||, dùng ngoặc đơn ( ) để phân định rõ ràng.",
       "Đọc kỹ các trường hợp ngoại lệ trong đề bài.",
       "Kiểm tra lại nhánh else cuối cùng xem đã bao quát hết chưa."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-6",
@@ -250,7 +406,8 @@ const ROADMAP_LESSONS = [
       "Xếp các khoảng điều kiện theo thứ tự tăng dần hoặc giảm dần để tránh sót trường hợp.",
       "Kiểm tra kỹ xem các mốc có bao gồm dấu bằng (<=, >=) hay không.",
       "Tính tổng hoặc áp dụng mức chiết khấu theo đúng đề bài."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-7",
@@ -269,7 +426,8 @@ const ROADMAP_LESSONS = [
       "Sử dụng vòng lặp while (n > 0) để tách lần lượt từng chữ số.",
       "Ở mỗi bước: lấy chữ số cuối bằng n % 10 cộng dồn vào tổng, tăng biến đếm số chữ số lên 1, sau đó loại bỏ chữ số cuối bằng n = n / 10.",
       "Lưu ý trường hợp đặc biệt: nếu N = 0 thì số chữ số là 1 và tổng là 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-8",
@@ -288,7 +446,8 @@ const ROADMAP_LESSONS = [
       "Duyệt từ 1 đến n (hoặc bước nhảy i += 2 để chỉ duyệt số chẵn).",
       "Cộng dồn vào biến sum kiểu long long.",
       "In kết quả ra màn hình."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-9",
@@ -302,12 +461,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-printpattern",
     "problemCode": "RM_PRINTPATTERN",
-    "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N \≤ 5000$, $O(N^2)$ chạy trong ~1 giây.",
+    "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N ≤ 5000$, $O(N^2)$ chạy trong ~1 giây.",
     "hints": [
       "Dùng 2 vòng lặp for lồng nhau: vòng lặp ngoài duyệt dòng i từ 1 đến R, vòng lặp trong duyệt cột j từ 1 đến C.",
       "Nếu ô đang xét nằm trên viền: i == 1, i == R, j == 1 hoặc j == C thì in ra ký tự \"*\".",
       "Ngược lại in ra ký tự \".\". Sau khi in hết một dòng thì xuống dòng \"\\n\"."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-10",
@@ -327,7 +487,8 @@ const ROADMAP_LESSONS = [
       "Một số x là số chẵn khi và chỉ khi x % 2 == 0 (hoặc abs(x) % 2 == 0 với số âm).",
       "Khi gặp phần tử chẵn đầu tiên, in ra vị trí (1-based) và giá trị của nó, sau đó dùng lệnh break để dừng vòng lặp ngay lập tức.",
       "Nếu duyệt hết mảng mà không tìm thấy số chẵn nào, in ra -1."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-11",
@@ -346,7 +507,8 @@ const ROADMAP_LESSONS = [
       "Khai báo mảng chứa N phần tử hoặc đọc lần lượt vào mảng.",
       "Cộng dồn tất cả các phần tử vào biến tổng sum kiểu long long.",
       "Phần tử tại vị trí P (1-based) tương ứng với chỉ số A[P - 1] trong mảng 0-based của C++."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-12",
@@ -365,7 +527,8 @@ const ROADMAP_LESSONS = [
       "Khởi tạo maxVal = A[0], maxPos = 1; minVal = A[0], minPos = 1.",
       "Duyệt từ i = 2 đến N. Sử dụng dấu so sánh nghiêm ngặt: nếu A[i] > maxVal thì mới cập nhật maxVal và maxPos. Tương tự nếu A[i] < minVal thì cập nhật minVal và minPos.",
       "Việc dùng dấu > và < đảm bảo khi có nhiều phần tử bằng nhau, vị trí xuất hiện ĐẦU TIÊN (earliest index) luôn được giữ nguyên."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-13",
@@ -384,7 +547,8 @@ const ROADMAP_LESSONS = [
       "Lưu mảng vào std::vector hoặc mảng tĩnh.",
       "Duyệt vòng for ngược: for (int i = n - 1; i >= 0; i--) cout << a[i] << \" \";",
       "Hoặc sử dụng hàm thư viện sẵn có: reverse(a.begin(), a.end());"
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-14",
@@ -398,12 +562,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-gradefreq",
     "problemCode": "RM_GRADEFREQ",
-    "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i \≤ 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
+    "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i ≤ 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
     "hints": [
       "Khai báo mảng đếm cnt[11] khởi tạo toàn bộ bằng 0.",
       "Khi đọc vào từng điểm số score (0 <= score <= 10), thực hiện tăng cnt[score]++.",
       "Dùng vòng lặp for từ 0 đến 10 để in ra theo đúng định dạng: cout << \"Diem \" << score << \": \" << cnt[score] << \"\\n\";"
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-15",
@@ -423,7 +588,8 @@ const ROADMAP_LESSONS = [
       "Duyệt từng ký tự c: Nếu \"a\" <= c && c <= \"z\" thì đổi thành chữ hoa: c = c - \"a\" + \"A\".",
       "Nếu \"A\" <= c && c <= \"Z\" thì dịch sang ký tự kế tiếp vòng tròn: c = (c - \"A\" + 1) % 26 + \"A\" (đặc biệt Z trở thành A).",
       "Các ký tự khác (chữ số, dấu cách, dấu câu) giữ nguyên không đổi."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-16",
@@ -442,7 +608,8 @@ const ROADMAP_LESSONS = [
       "Một chuỗi là đối xứng nếu đọc từ trái sang phải cũng giống đọc từ phải sang trái.",
       "Sử dụng 2 con trỏ: left = 0 và right = s.length() - 1.",
       "So sánh s[left] và s[right]. Nếu khác nhau kết luận NO ngay lập tức. Nếu duyệt hết mà luôn bằng nhau thì kết luận YES."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-17",
@@ -461,7 +628,8 @@ const ROADMAP_LESSONS = [
       "Dùng getline(cin, s) để đọc toàn bộ dòng văn bản có chứa dấu cách.",
       "Chuyển từng ký tự sang chữ thường tolower(c) để kiểm tra thuận tiện.",
       "Kiểm tra xem ký tự có phải là một trong các nguyên âm \"a\", \"e\", \"i\", \"o\", \"u\" hay không và tăng biến đếm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-18",
@@ -480,7 +648,8 @@ const ROADMAP_LESSONS = [
       "Số chính phương là số có dạng k * k với k là số nguyên không âm.",
       "Khi N lên tới 10^18, hàm sqrt(double) trong C++ có thể bị sai số dấu chấm động. Ví dụ: sqrt(999999999999999999) có thể làm tròn thành 10^9.",
       "Để chính xác tuyệt đối: tính r = round(sqrt((double)n)), sau đó hiệu chỉnh bằng vòng lặp: while ((r + 1) * (r + 1) <= n && r < 1000000000LL) r++; while (r * r > n) r--; rồi kiểm tra r * r == n."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-19",
@@ -499,7 +668,8 @@ const ROADMAP_LESSONS = [
       "Để rút gọn phân số A/B, ta chia cả tử và mẫu cho ước chung lớn nhất g = gcd(A, B).",
       "Thuật toán tìm GCD bằng vòng lặp đơn giản: int gcd(int x, int y) { while (y != 0) { int r = x % y; x = y; y = r; } return x; }",
       "Định nghĩa hàm rút gọn sử dụng truyền tham chiếu: void reduce(int &a, int &b) { int g = gcd(a, b); a /= g; b /= g; } để thay đổi trực tiếp giá trị của a và b."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-20",
@@ -519,7 +689,8 @@ const ROADMAP_LESSONS = [
       "Tránh đặt tên biến cục bộ trùng với biến toàn cục gây nhầm lẫn biến bị che (shadowing).",
       "Biến toàn cục tự động mang giá trị 0."
     ],
-    "readToComplete": true
+    "readToComplete": true,
+    "track": "olympic"
   },
   {
     "id": "les-1-21",
@@ -539,7 +710,8 @@ const ROADMAP_LESSONS = [
       "Phần tử thuộc đường chéo chính có chỉ số dòng và cột bằng nhau: i == j.",
       "Phần tử thuộc đường chéo phụ có tổng chỉ số dòng và cột thỏa mãn: i + j == N - 1.",
       "Tính tổng bằng vòng for đơn O(N) bằng cách cộng a[i][i] và a[i][N - 1 - i], chú ý dùng kiểu long long."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-22",
@@ -558,7 +730,8 @@ const ROADMAP_LESSONS = [
       "Định nghĩa cấu trúc struct Student { string name; int math; int lit; int total; int order; };",
       "Tổng điểm được tính bằng math + lit.",
       "Quy tắc xử lý bằng nhau (Tie-breaker): Khi duyệt tìm max, sử dụng điều kiện nghiêm ngặt if (s.total > maxTotal) để luôn giữ học sinh xuất hiện sớm hơn trong danh sách nhập vào."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-23",
@@ -577,7 +750,8 @@ const ROADMAP_LESSONS = [
       "Hàm so sánh cmp(a, b) trả về true khi a đứng TRƯỚC b.",
       "Xử lý tiêu chí chính trước; nếu tiêu chí chính bằng nhau mới so tiêu chí phụ.",
       "Tránh dùng <= hoặc >= trong cmp để không vi phạm Strict Weak Ordering."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-1-24",
@@ -597,7 +771,8 @@ const ROADMAP_LESSONS = [
       "Giữ nguyên lệnh cin và cout thông thường mà không cần sửa code.",
       "Kiểm tra chính xác tên tệp INP và OUT (chữ hoa/chữ thường)."
     ],
-    "readToComplete": true
+    "readToComplete": true,
+    "track": "olympic"
   },
   {
     "id": "les-1-25",
@@ -611,13 +786,14 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy tắc ước lượng thời gian chạy\nTrong 1 giây, máy tính chấm bài thực hiện được khoảng $10^8$ phép tính cơ bản.\n- $N \≤ 20$: $O(2^N)$ hoặc $O(N!)$\n- $N \≤ 500$: $O(N^3)$\n- $N \≤ 5000$: $O(N^2)$\n- $N \≤ 10^6$: $O(N \log N)$ hoặc $O(N)$\n- $N \≤ 10^{18}$: $O(\log N)$ hoặc $O(1)$",
+    "shortTheory": "### Quy tắc ước lượng thời gian chạy\nTrong 1 giây, máy tính chấm bài thực hiện được khoảng $10^8$ phép tính cơ bản.\n- $N ≤ 20$: $O(2^N)$ hoặc $O(N!)$\n- $N ≤ 500$: $O(N^3)$\n- $N ≤ 5000$: $O(N^2)$\n- $N ≤ 10^6$: $O(N log N)$ hoặc $O(N)$\n- $N ≤ 10^{18}$: $O(log N)$ hoặc $O(1)$",
     "hints": [
       "Đọc giới hạn N trước khi viết thuật toán.",
       "Nếu N = 10^5 mà dùng 2 vòng lặp lồng nhau O(N^2) = 10^10 phép tính sẽ bị TLE.",
       "Kiểm tra tràn số long long và tối ưu fast I/O."
     ],
-    "readToComplete": true
+    "readToComplete": true,
+    "track": "olympic"
   },
   {
     "id": "les-2-1",
@@ -631,12 +807,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tính chất đồng dư (Congruence)\nNếu $a \≡ b \ (mod m)$ và $c \≡ d \ (mod m)$:\n- $(a + c) \≡ (b + d) \ (mod m)$\n- $(a \ ×  c) \≡ (b \ ×  d) \ (mod m)$\n- $(a - c) \≡ (b - d) \ (mod m)$\n\nCông thức an toàn khi tính toán có modulo:\n```cpp\nlong long add(long long a, long long b, long long m) {\n    return (a % m + b % m) % m;\n}\nlong long mul(long long a, long long b, long long m) {\n    return ((a % m) * (b % m)) % m;\n}\n```",
+    "shortTheory": "### Tính chất đồng dư (Congruence)\nNếu $a ≡ b  (mod m)$ và $c ≡ d  (mod m)$:\n- $(a + c) ≡ (b + d)  (mod m)$\n- $(a  ×  c) ≡ (b  ×  d)  (mod m)$\n- $(a - c) ≡ (b - d)  (mod m)$\n\nCông thức an toàn khi tính toán có modulo:\n```cpp\nlong long add(long long a, long long b, long long m) {\n    return (a % m + b % m) % m;\n}\nlong long mul(long long a, long long b, long long m) {\n    return ((a % m) * (b % m)) % m;\n}\n```",
     "hints": [
       "Lấy modulo sau mỗi phép cộng hoặc nhân.",
       "Phép trừ có thể ra số âm, cần cộng thêm modulo m trước khi lấy dư.",
       "Dùng kiểu long long khi nhân 2 số trước khi lấy modulo để tránh tràn số."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-2",
@@ -650,12 +827,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-divisors",
     "problemCode": "RM_DIVISORS",
-    "shortTheory": "### Tìm ước trong $O(\√N)$\nNếu $d$ là ước của $N$ thì $\(N / d)$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $\√N$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
+    "shortTheory": "### Tìm ước trong $O(√N)$\nNếu $d$ là ước của $N$ thì $(N / d)$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $√N$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
     "hints": [
       "Điều kiện dừng là i * i <= n để đạt độ phức tạp O(sqrt(N)).",
       "Nếu i * i == n thì chỉ thêm i một lần (tránh trùng khi n là số chính phương).",
       "Sắp xếp lại vector các ước nếu bài toán yêu cầu thứ tự tăng dần."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-3",
@@ -669,12 +847,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Công thức số lượng & Tổng ước\nNếu $N = p_1^{e_1} \ ×  p_2^{e_2} \… p_k^{e_k}$ (phân tích thừa số nguyên tố):\n- Số lượng ước: $d(N) = (e_1 + 1)(e_2 + 1) \… (e_k + 1)$\n- Tổng các ước: $\\sigma(N) = \\prod_{i=1}^k \\frac{p_i^{e_i + 1} - 1}{p_i - 1}$",
+    "shortTheory": "### Công thức số lượng & Tổng ước\nNếu $N = p_1^{e_1}  ×  p_2^{e_2} … p_k^{e_k}$ (phân tích thừa số nguyên tố):\n- Số lượng ước: $d(N) = (e_1 + 1)(e_2 + 1) … (e_k + 1)$\n- Tổng các ước: $\\sigma(N) = \\prod_{i=1}^k \\frac{p_i^{e_i + 1} - 1}{p_i - 1}$",
     "hints": [
       "Phân tích N ra thừa số nguyên tố.",
       "Số lượng ước là tích của (số mũ + 1).",
       "Áp dụng công thức cấp số nhân để tính tổng ước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-4",
@@ -688,12 +867,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Thuật toán Euclid\nDựa trên tính chất: $\gcd(a, b) = \gcd(b, a \ (mod b))$ với $\gcd(a, 0) = a$.\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n// C++17 có hàm có sẵn trong thư viện <numeric>: std::gcd(a, b)\n```\nĐộ phức tạp: $O(\log(\\min(a, b)))$.",
+    "shortTheory": "### Thuật toán Euclid\nDựa trên tính chất: $gcd(a, b) = gcd(b, a  (mod b))$ với $gcd(a, 0) = a$.\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n// C++17 có hàm có sẵn trong thư viện <numeric>: std::gcd(a, b)\n```\nĐộ phức tạp: $O(log(\\min(a, b)))$.",
     "hints": [
       "Hàm lặp while (b != 0) an toàn và không lo tràn stack.",
       "std::gcd(a, b) có sẵn từ C++17.",
       "gcd(a, b) không đổi khi đổi chỗ a và b."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-5",
@@ -707,12 +887,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bội chung nhỏ nhất (LCM)\nCông thức liên hệ: $a \ ×  b = \gcd(a, b) \ ×  \lcm(a, b)$.\nDo đó:\n```cpp\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước rồi mới nhân để tránh tràn số!\n}\n```",
+    "shortTheory": "### Bội chung nhỏ nhất (LCM)\nCông thức liên hệ: $a  ×  b = gcd(a, b)  ×  lcm(a, b)$.\nDo đó:\n```cpp\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước rồi mới nhân để tránh tràn số!\n}\n```",
     "hints": [
       "Thực hiện phép chia a / gcd(a, b) trước để giảm kích thước số.",
       "Sau đó nhân với b để tránh tràn số long long.",
       "Kiểm tra trường hợp a = 0 hoặc b = 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-6",
@@ -731,7 +912,8 @@ const ROADMAP_LESSONS = [
       "Loại bỏ ngay n < 2 và các số chẵn > 2.",
       "Bước nhảy i += 6 kiểm tra i và i + 2 giúp giảm số phép chia đi 3 lần.",
       "Chỉ cần duyệt đến căn bậc 2 của n."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-7",
@@ -745,12 +927,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Sàng Eratosthenes\nTìm tất cả số nguyên tố từ $1$ đến $N$ (thường $N \≤ 10^7$):\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP, isP + MAXN + 1, true);\n    isP[0] = isP[1] = false;\n    for (int i = 2; i * i <= MAXN; i++) {\n        if (isP[i]) {\n            for (int j = i * i; j <= MAXN; j += i) {\n                isP[j] = false;\n            }\n        }\n    }\n}\n```",
+    "shortTheory": "### Sàng Eratosthenes\nTìm tất cả số nguyên tố từ $1$ đến $N$ (thường $N ≤ 10^7$):\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP, isP + MAXN + 1, true);\n    isP[0] = isP[1] = false;\n    for (int i = 2; i * i <= MAXN; i++) {\n        if (isP[i]) {\n            for (int j = i * i; j <= MAXN; j += i) {\n                isP[j] = false;\n            }\n        }\n    }\n}\n```",
     "hints": [
       "Khởi tạo mảng bool đánh dấu tất cả ban đầu là true.",
       "Gán isP[0] = isP[1] = false.",
       "Vòng lặp trong bắt đầu từ j = i * i để tránh làm lại các bội nhỏ đã duyệt."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-8",
@@ -769,7 +952,8 @@ const ROADMAP_LESSONS = [
       "Mỗi hợp số được gạch đúng 1 lần duy nhất bởi ước nguyên tố nhỏ nhất.",
       "Mảng spf[x] lưu thừa số nguyên tố nhỏ nhất của x.",
       "Dừng vòng lặp khi p == spf[i] để đảm bảo độ phức tạp tuyến tính O(N)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-9",
@@ -788,7 +972,8 @@ const ROADMAP_LESSONS = [
       "Chia kiệt cho d để d tiếp theo luôn đảm bảo là số nguyên tố.",
       "Sau vòng lặp, nếu n > 1 thì số n còn lại chính là thừa số nguyên tố cuối cùng.",
       "Lưu lại dưới dạng cặp {cơ số, số mũ}."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-10",
@@ -802,12 +987,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Phân tích trong $O(\log N)$ với SPF\nKhi cần phân tích nhiều số ($Q \≤ 10^5$, mỗi số $N \≤ 10^7$), ta tiền xử lý mảng `spf[]` bằng sàng tuyến tính:\n```cpp\nvector<int> quickFactorize(int n) {\n    vector<int> factors;\n    while (n > 1) {\n        factors.push_back(spf[n]);\n        n /= spf[n];\n    }\n    return factors;\n}\n```",
+    "shortTheory": "### Phân tích trong $O(log N)$ với SPF\nKhi cần phân tích nhiều số ($Q ≤ 10^5$, mỗi số $N ≤ 10^7$), ta tiền xử lý mảng `spf[]` bằng sàng tuyến tính:\n```cpp\nvector<int> quickFactorize(int n) {\n    vector<int> factors;\n    while (n > 1) {\n        factors.push_back(spf[n]);\n        n /= spf[n];\n    }\n    return factors;\n}\n```",
     "hints": [
       "Tiền xử lý sàng một lần duy nhất trước mọi truy vấn.",
       "Mỗi phép chia chỉ mất O(1), toàn bộ quá trình mất O(log N).",
       "Thích hợp với các bài toán có nhiều truy vấn kiểm tra/phân tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-11",
@@ -826,7 +1012,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-12",
@@ -845,7 +1032,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-13",
@@ -864,7 +1052,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-14",
@@ -883,7 +1072,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-15",
@@ -902,7 +1092,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-16",
@@ -921,7 +1112,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-17",
@@ -940,7 +1132,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-18",
@@ -959,7 +1152,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-19",
@@ -978,7 +1172,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-20",
@@ -997,7 +1192,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-21",
@@ -1016,7 +1212,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-22",
@@ -1035,7 +1232,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-23",
@@ -1054,7 +1252,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-24",
@@ -1073,7 +1272,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-25",
@@ -1092,7 +1292,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-26",
@@ -1111,7 +1312,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-27",
@@ -1130,7 +1332,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-28",
@@ -1149,7 +1352,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-29",
@@ -1168,7 +1372,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-2-30",
@@ -1187,7 +1392,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-1",
@@ -1206,7 +1412,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-2",
@@ -1225,7 +1432,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-3",
@@ -1244,7 +1452,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-4",
@@ -1263,7 +1472,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-5",
@@ -1282,7 +1492,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-6",
@@ -1301,7 +1512,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-7",
@@ -1320,7 +1532,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-8",
@@ -1339,7 +1552,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-9",
@@ -1358,7 +1572,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-10",
@@ -1377,7 +1592,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-11",
@@ -1396,7 +1612,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-12",
@@ -1415,7 +1632,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-13",
@@ -1434,7 +1652,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-14",
@@ -1453,7 +1672,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-15",
@@ -1472,7 +1692,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-16",
@@ -1491,7 +1712,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-17",
@@ -1510,7 +1732,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-18",
@@ -1529,7 +1752,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-19",
@@ -1548,7 +1772,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-3-20",
@@ -1567,7 +1792,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-1",
@@ -1586,7 +1812,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-2",
@@ -1605,7 +1832,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-3",
@@ -1624,7 +1852,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-4",
@@ -1643,7 +1872,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-5",
@@ -1662,7 +1892,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-6",
@@ -1681,7 +1912,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-7",
@@ -1700,7 +1932,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-8",
@@ -1719,7 +1952,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-9",
@@ -1738,7 +1972,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-10",
@@ -1757,7 +1992,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-11",
@@ -1776,7 +2012,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-12",
@@ -1795,7 +2032,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-13",
@@ -1814,7 +2052,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-14",
@@ -1833,7 +2072,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-15",
@@ -1852,7 +2092,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-16",
@@ -1871,7 +2112,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-17",
@@ -1890,7 +2132,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-18",
@@ -1909,7 +2152,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-19",
@@ -1928,7 +2172,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-20",
@@ -1947,7 +2192,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-21",
@@ -1966,7 +2212,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-22",
@@ -1985,7 +2232,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-23",
@@ -2004,7 +2252,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-24",
@@ -2023,7 +2272,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-4-25",
@@ -2042,7 +2292,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Xác định các thao tác cần thực hiện nhiều nhất (tìm kiếm, chèn, xóa, lấy min/max).",
       "Gợi ý 2: Chọn container tương ứng: set/map cho O(log N), priority_queue cho lấy max O(1), unordered cho băm O(1).",
       "Gợi ý 3: Cẩn thận khi xóa phần tử trong multiset (dùng s.erase(s.find(val)) thay vì s.erase(val))."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-1",
@@ -2056,12 +2307,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng cộng dồn 1D (Prefix Sum): Truy vấn tổng đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng cộng dồn 1D (Prefix Sum): Truy vấn tổng đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-2",
@@ -2075,12 +2327,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng cộng dồn Modulo & Đếm số đoạn con có tổng chia hết cho K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng cộng dồn Modulo & Đếm số đoạn con có tổng chia hết cho K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-3",
@@ -2094,12 +2347,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng cộng dồn 2D (2D Prefix Sum): Truy vấn hình chữ nhật O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng cộng dồn 2D (2D Prefix Sum): Truy vấn hình chữ nhật O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-4",
@@ -2113,12 +2367,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng hiệu 1D (Difference Array): Cộng dồn trên đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng hiệu 1D (Difference Array): Cộng dồn trên đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-5",
@@ -2132,12 +2387,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-twopointers",
     "problemCode": "RM_TWOPOINTERS",
-    "shortTheory": "### Kỹ thuật Hai con trỏ (Two Pointers): Hai đầu đối diện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Kỹ thuật Hai con trỏ (Two Pointers): Hai đầu đối diện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-6",
@@ -2151,12 +2407,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Hai con trỏ: Cùng chiều (Con trỏ nhanh - Con trỏ chậm)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Hai con trỏ: Cùng chiều (Con trỏ nhanh - Con trỏ chậm)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-7",
@@ -2170,12 +2427,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cửa sổ trượt (Sliding Window): Kích thước cố định K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Cửa sổ trượt (Sliding Window): Kích thước cố định K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-8",
@@ -2189,12 +2447,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cửa sổ trượt: Kích thước biến thiên (Co giãn điều kiện)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Cửa sổ trượt: Kích thước biến thiên (Co giãn điều kiện)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-9",
@@ -2208,12 +2467,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cửa sổ trượt với Hàng đợi đơn điệu (Monotonic Deque)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Cửa sổ trượt với Hàng đợi đơn điệu (Monotonic Deque)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-10",
@@ -2227,12 +2487,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-greedy",
     "problemCode": "RM_GREEDY",
-    "shortTheory": "### Chiến lược Tham lam (Greedy): Nguyên lý lựa chọn tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chiến lược Tham lam (Greedy): Nguyên lý lựa chọn tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-11",
@@ -2246,12 +2507,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán lập lịch & Chọn các đoạn không giao nhau\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Bài toán lập lịch & Chọn các đoạn không giao nhau\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-12",
@@ -2265,12 +2527,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi phân số (Fractional Knapsack)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Bài toán cái túi phân số (Fractional Knapsack)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-13",
@@ -2284,12 +2547,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Kỹ thuật tráo đổi (Exchange Arguments) chứng minh tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Kỹ thuật tráo đổi (Exchange Arguments) chứng minh tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-14",
@@ -2303,12 +2567,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mã hóa Huffman & Ghép nối chi phí tối thiểu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mã hóa Huffman & Ghép nối chi phí tối thiểu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-15",
@@ -2322,12 +2587,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt nhị phân kết quả (Binary Search on Answer): Hàm đơn điệu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt nhị phân kết quả (Binary Search on Answer): Hàm đơn điệu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-16",
@@ -2341,12 +2607,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt nhị phân kết quả: Bài toán chia việc / Phân phối sách\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt nhị phân kết quả: Bài toán chia việc / Phân phối sách\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-17",
@@ -2360,12 +2627,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt nhị phân trên số thực: Độ chính xác Epsilon\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt nhị phân trên số thực: Độ chính xác Epsilon\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-18",
@@ -2379,12 +2647,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt tam phân (Ternary Search): Cực trị hàm đơn đỉnh\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt tam phân (Ternary Search): Cực trị hàm đơn đỉnh\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-19",
@@ -2398,12 +2667,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Đệ quy: Trường hợp cơ sở & Cây đệ quy gọi hàm\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Đệ quy: Trường hợp cơ sở & Cây đệ quy gọi hàm\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-20",
@@ -2417,12 +2687,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chia để trị: Thuật toán sắp xếp trộn (Merge Sort)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chia để trị: Thuật toán sắp xếp trộn (Merge Sort)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-21",
@@ -2436,12 +2707,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Đếm số nghịch thế (Inversion Count) bằng Merge Sort\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Đếm số nghịch thế (Inversion Count) bằng Merge Sort\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-22",
@@ -2455,12 +2727,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Thuật toán Quick Select: Tìm phần tử nhỏ thứ K trong O(N)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Thuật toán Quick Select: Tìm phần tử nhỏ thứ K trong O(N)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-23",
@@ -2474,12 +2747,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quay lui (Backtracking): Không gian trạng thái & Nhánh cận\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Quay lui (Backtracking): Không gian trạng thái & Nhánh cận\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-24",
@@ -2493,12 +2767,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quay lui sinh tất cả tập con (Subsets)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Quay lui sinh tất cả tập con (Subsets)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-25",
@@ -2512,12 +2787,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quay lui sinh tất cả hoán vị (Permutations)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Quay lui sinh tất cả hoán vị (Permutations)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-26",
@@ -2531,12 +2807,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán N quân hậu (N-Queens) & Tối ưu bằng mảng/bit\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Bài toán N quân hậu (N-Queens) & Tối ưu bằng mảng/bit\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-27",
@@ -2550,12 +2827,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Giải Sudoku bằng quay lui & Cắt tỉa điều kiện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Giải Sudoku bằng quay lui & Cắt tỉa điều kiện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-28",
@@ -2569,12 +2847,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Kỹ thuật Gặp nhau ở giữa (Meet in the Middle) 2^(N/2)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Kỹ thuật Gặp nhau ở giữa (Meet in the Middle) 2^(N/2)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-29",
@@ -2588,12 +2867,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng kết kỹ thuật hai con trỏ & Chặt nhị phân\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Tổng kết kỹ thuật hai con trỏ & Chặt nhị phân\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-5-30",
@@ -2607,12 +2887,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng kết Chặng 5: Bộ vũ khí thuật toán cốt lõi\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Tổng kết Chặng 5: Bộ vũ khí thuật toán cốt lõi\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
       "Gợi ý 3: Lưu ý các chỉ số mảng 1-based khi tính prefix sum để tránh kiểm tra điều kiện i - 1 < 0."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-1",
@@ -2626,12 +2907,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bản chất Quy hoạch động: Bài toán con gối nhau & Cấu trúc tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bản chất Quy hoạch động: Bài toán con gối nhau & Cấu trúc tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-2",
@@ -2645,12 +2927,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động Top-down (Đệ quy có nhớ) vs Bottom-up (Bảng phương án)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động Top-down (Đệ quy có nhớ) vs Bottom-up (Bảng phương án)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-3",
@@ -2664,12 +2947,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-frogjump",
     "problemCode": "RM_FROGJUMP",
-    "shortTheory": "### Quy hoạch động 1D: Bài toán bước nhảy tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động 1D: Bài toán bước nhảy tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-4",
@@ -2683,12 +2967,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-maxsubarray",
     "problemCode": "RM_MAXSUBARRAY",
-    "shortTheory": "### Quy hoạch động 1D: Trang trí dãy số & Phân bổ trạng thái\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động 1D: Trang trí dãy số & Phân bổ trạng thái\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-5",
@@ -2702,12 +2987,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán đổi tiền xu (Coin Change): Số đồng xu tối thiểu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán đổi tiền xu (Coin Change): Số đồng xu tối thiểu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-6",
@@ -2721,12 +3007,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán đổi tiền xu: Số cách tạo thành tổng S\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán đổi tiền xu: Số cách tạo thành tổng S\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-7",
@@ -2740,12 +3027,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng đoạn con lớn nhất: Thuật toán Kadane trong O(N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tổng đoạn con lớn nhất: Thuật toán Kadane trong O(N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-8",
@@ -2759,12 +3047,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N^2)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N^2)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-9",
@@ -2778,12 +3067,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N log N) bằng Chặt nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N log N) bằng Chặt nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-10",
@@ -2797,12 +3087,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động lưới 2D: Đếm số đường đi có vật cản\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động lưới 2D: Đếm số đường đi có vật cản\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-11",
@@ -2816,12 +3107,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động lưới 2D: Đường đi có chi phí nhỏ nhất\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động lưới 2D: Đường đi có chi phí nhỏ nhất\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-12",
@@ -2835,12 +3127,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động tam giác số / Hình thoi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động tam giác số / Hình thoi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-13",
@@ -2854,12 +3147,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi 0/1 (0/1 Knapsack): Bảng phương án 2D\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán cái túi 0/1 (0/1 Knapsack): Bảng phương án 2D\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-14",
@@ -2873,12 +3167,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cái túi 0/1: Kỹ thuật nén mảng xuống 1D chạy ngược\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Cái túi 0/1: Kỹ thuật nén mảng xuống 1D chạy ngược\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-15",
@@ -2892,12 +3187,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi không giới hạn (Unbounded Knapsack) chạy xuôi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán cái túi không giới hạn (Unbounded Knapsack) chạy xuôi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-16",
@@ -2911,12 +3207,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi giới hạn (Bounded Knapsack): Tách nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán cái túi giới hạn (Bounded Knapsack): Tách nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-17",
@@ -2930,12 +3227,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán tập con có tổng bằng S (Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán tập con có tổng bằng S (Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-18",
@@ -2949,12 +3247,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chia mảng thành 2 phần có tổng bằng nhau (Partition Equal Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Chia mảng thành 2 phần có tổng bằng nhau (Partition Equal Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-19",
@@ -2968,12 +3267,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Xâu con chung dài nhất (LCS) giữa 2 xâu ký tự\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Xâu con chung dài nhất (LCS) giữa 2 xâu ký tự\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-20",
@@ -2987,12 +3287,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Truy vết và in ra nghiệm xâu con chung LCS\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Truy vết và in ra nghiệm xâu con chung LCS\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-21",
@@ -3006,12 +3307,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Khoảng cách biên tập (Edit Distance / Levenshtein Distance)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Khoảng cách biên tập (Edit Distance / Levenshtein Distance)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-22",
@@ -3025,12 +3327,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Xâu con đối xứng dài nhất (Longest Palindromic Substring)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Xâu con đối xứng dài nhất (Longest Palindromic Substring)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-23",
@@ -3044,12 +3347,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Dãy con đối xứng dài nhất (Longest Palindromic Subsequence)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Dãy con đối xứng dài nhất (Longest Palindromic Subsequence)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-24",
@@ -3063,12 +3367,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động đoạn (Interval DP): Nhân chuỗi ma trận\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động đoạn (Interval DP): Nhân chuỗi ma trận\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-25",
@@ -3082,12 +3387,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Interval DP: Nối que tính chi phí nhỏ nhất / Bắn bóng\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Interval DP: Nối que tính chi phí nhỏ nhất / Bắn bóng\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-26",
@@ -3101,12 +3407,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động Bitmask: Khởi đầu với trạng thái nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động Bitmask: Khởi đầu với trạng thái nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-27",
@@ -3120,12 +3427,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bitmask DP: Bài toán người du lịch (TSP) trong O(N^2 * 2^N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bitmask DP: Bài toán người du lịch (TSP) trong O(N^2 * 2^N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-28",
@@ -3139,12 +3447,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bitmask DP: Ghép cặp công việc / Phân bổ tài nguyên\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bitmask DP: Ghép cặp công việc / Phân bổ tài nguyên\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-29",
@@ -3158,12 +3467,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động trên cây (Tree DP): Tập độc lập cực đại trên cây\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động trên cây (Tree DP): Tập độc lập cực đại trên cây\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-30",
@@ -3177,12 +3487,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tree DP: Đường kính cây (Tree Diameter)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tree DP: Đường kính cây (Tree Diameter)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-31",
@@ -3196,12 +3507,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tree DP: Kỹ thuật đổi gốc cây (All-nodes Distance Re-rooting)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tree DP: Kỹ thuật đổi gốc cây (All-nodes Distance Re-rooting)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-32",
@@ -3215,12 +3527,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động chữ số (Digit DP): Giới hạn cận chặt\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động chữ số (Digit DP): Giới hạn cận chặt\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-33",
@@ -3234,12 +3547,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Digit DP: Đếm số có tổng chữ số thỏa mãn trong đoạn [L, R]\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Digit DP: Đếm số có tổng chữ số thỏa mãn trong đoạn [L, R]\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-34",
@@ -3253,12 +3567,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tối ưu hóa quy hoạch động: Chia để trị (Divide and Conquer Optimization)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tối ưu hóa quy hoạch động: Chia để trị (Divide and Conquer Optimization)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-6-35",
@@ -3272,12 +3587,13 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng kết Chặng 6: Thành thạo tư duy Quy hoạch động\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tổng kết Chặng 6: Thành thạo tư duy Quy hoạch động\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
       "Gợi ý 3: Khởi tạo giá trị ban đầu thật chuẩn (0, 1 hoặc vô cùng INF)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-1",
@@ -3296,7 +3612,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-2",
@@ -3315,7 +3632,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-3",
@@ -3334,7 +3652,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-4",
@@ -3353,7 +3672,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-5",
@@ -3372,7 +3692,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-6",
@@ -3391,7 +3712,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-7",
@@ -3410,7 +3732,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-8",
@@ -3429,7 +3752,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-9",
@@ -3448,7 +3772,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-10",
@@ -3467,7 +3792,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-11",
@@ -3486,7 +3812,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-12",
@@ -3505,7 +3832,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-13",
@@ -3524,7 +3852,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-14",
@@ -3543,7 +3872,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-15",
@@ -3562,7 +3892,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-16",
@@ -3581,7 +3912,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-17",
@@ -3600,7 +3932,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-18",
@@ -3619,7 +3952,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-19",
@@ -3638,7 +3972,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-20",
@@ -3657,7 +3992,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-21",
@@ -3676,7 +4012,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-22",
@@ -3695,7 +4032,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-23",
@@ -3714,7 +4052,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-24",
@@ -3733,7 +4072,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-25",
@@ -3752,7 +4092,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-26",
@@ -3771,7 +4112,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-27",
@@ -3790,7 +4132,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-28",
@@ -3809,7 +4152,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-29",
@@ -3828,7 +4172,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-30",
@@ -3847,7 +4192,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-31",
@@ -3866,7 +4212,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-32",
@@ -3885,7 +4232,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-33",
@@ -3904,7 +4252,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-34",
@@ -3923,7 +4272,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-7-35",
@@ -3942,7 +4292,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
       "Gợi ý 2: Luôn kiểm tra đồ thị có trọng số âm hay không trước khi chọn Dijkstra.",
       "Gợi ý 3: Khởi tạo mảng khoảng cách dist[] bằng INF lớn (ví dụ 1e18 với long long)."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-1",
@@ -3961,7 +4312,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-2",
@@ -3980,7 +4332,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-3",
@@ -3999,7 +4352,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-4",
@@ -4018,7 +4372,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-5",
@@ -4037,7 +4392,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-6",
@@ -4056,7 +4412,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-7",
@@ -4075,7 +4432,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-8",
@@ -4094,7 +4452,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-9",
@@ -4113,7 +4472,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-10",
@@ -4132,7 +4492,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-11",
@@ -4151,7 +4512,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-12",
@@ -4170,7 +4532,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-13",
@@ -4189,7 +4552,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-14",
@@ -4208,7 +4572,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-15",
@@ -4227,7 +4592,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-16",
@@ -4246,7 +4612,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-17",
@@ -4265,7 +4632,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-18",
@@ -4284,7 +4652,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-19",
@@ -4303,7 +4672,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-20",
@@ -4322,7 +4692,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-21",
@@ -4341,7 +4712,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-22",
@@ -4360,7 +4732,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-23",
@@ -4379,7 +4752,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-24",
@@ -4398,7 +4772,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-25",
@@ -4417,7 +4792,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-26",
@@ -4436,7 +4812,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-27",
@@ -4455,7 +4832,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-28",
@@ -4474,7 +4852,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-29",
@@ -4493,7 +4872,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-30",
@@ -4512,7 +4892,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-31",
@@ -4531,7 +4912,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-32",
@@ -4550,7 +4932,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-33",
@@ -4569,7 +4952,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-34",
@@ -4588,7 +4972,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-8-35",
@@ -4607,7 +4992,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Vẽ cấu trúc cây hoặc sơ đồ hình học ra nháp để nắm rõ kích thước mảng 4*N.",
       "Gợi ý 2: Tách biệt rõ hàm build, update, query để dễ kiểm thử và debug.",
       "Gợi ý 3: Chú ý kiểu dữ liệu trả về của query có thể là long long nếu tính tổng hoặc tích."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-1",
@@ -4626,7 +5012,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-2",
@@ -4645,7 +5032,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-3",
@@ -4664,7 +5052,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-4",
@@ -4683,7 +5072,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-5",
@@ -4702,7 +5092,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-6",
@@ -4721,7 +5112,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-7",
@@ -4740,7 +5132,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-8",
@@ -4759,7 +5152,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-9",
@@ -4778,7 +5172,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-10",
@@ -4797,7 +5192,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-11",
@@ -4816,7 +5212,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-12",
@@ -4835,7 +5232,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-13",
@@ -4854,7 +5252,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-14",
@@ -4873,7 +5272,8 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
-    ]
+    ],
+    "track": "olympic"
   },
   {
     "id": "les-9-15",
@@ -4892,6 +5292,95 @@ const ROADMAP_LESSONS = [
       "Gợi ý 1: Đọc qua toàn bộ các bài trong 15 phút đầu tiên trước khi bắt tay vào gõ code.",
       "Gợi ý 2: Ưu tiên làm bài dễ nhất trước để tạo đà tâm lý và chắc chắn có điểm cơ bản.",
       "Gợi ý 3: Dành 15 phút cuối cùng để kiểm tra lại tên tệp INP/OUT, kiểu dữ liệu long long và xóa code debug."
+    ],
+    "track": "olympic"
+  },
+  {
+    "id": "les-c1-1",
+    "stageId": "stage-c1",
+    "order": 1,
+    "track": "career",
+    "title": "Cú pháp C++ Hiện đại & Quy chuẩn Đặt tên Clean Code",
+    "difficulty": 1,
+    "estimatedMinutes": 45,
+    "prerequisiteLessonIds": [],
+    "problemCode": "RM_FASTIO",
+    "shortTheory": "### Quy tắc Lập trình Sạch (Clean Code) trong C++\n- **Đặt tên biến & hàm**: Đặt tên có ý nghĩa theo phong cách camelCase (`studentCount`) hoặc snake_case (`student_count`), không dùng biến vô nghĩa như `a1`, `xyz`.\n- **Hằng số**: Đặt tên UPPER_CASE (ví dụ: `MAX_BUFFER_SIZE = 1024`).\n- **Hạn chế biến toàn cục**: Ưu tiên truyền biến qua tham số hàm.\n- **Khối lệnh rõ ràng**: Luôn dùng ngoặc nhọn `{}` cho `if`, `for` ngay cả khi chỉ có 1 dòng lệnh.",
+    "hints": [
+      "Đọc đề bài cẩn thận và đặt tên biến mô tả đúng nghiệp vụ.",
+      "Sử dụng Fast I/O để chương trình đạt hiệu năng cao nhất."
+    ]
+  },
+  {
+    "id": "les-c1-2",
+    "stageId": "stage-c1",
+    "order": 2,
+    "track": "career",
+    "title": "Kiểu dữ liệu số học, Tràn số nguyên & Định dạng I/O",
+    "difficulty": 1,
+    "estimatedMinutes": 45,
+    "prerequisiteLessonIds": [
+      "les-c1-1"
+    ],
+    "problemCode": "RM_BIGSUM",
+    "shortTheory": "### Kiểu dữ liệu & Giới hạn trong Hệ thống thực tế\n- Trong các hệ thống giao dịch tài chính, số lượng có thể vượt quá 2 tỷ. Bắt buộc dùng `long long` hoặc thư viện số lớn.\n- Sử dụng `int64_t` từ thư viện `<cstdint>` để đảm bảo kích thước chính xác 64-bit trên mọi hệ điều hành.",
+    "hints": [
+      "Khai báo kiểu long long cho cả hai số hạng.",
+      "Kiểm tra kết quả tổng có thể đạt tới 2*10^18."
+    ]
+  },
+  {
+    "id": "les-c1-3",
+    "stageId": "stage-c1",
+    "order": 3,
+    "track": "career",
+    "title": "Cấu trúc Điều kiện, Bẫy logic & Kỹ thuật Guard Clauses",
+    "difficulty": 1,
+    "estimatedMinutes": 45,
+    "prerequisiteLessonIds": [
+      "les-c1-2"
+    ],
+    "problemCode": "RM_MAX3",
+    "shortTheory": "### Kỹ thuật Guard Clauses (Thoát sớm)\nThay vì viết `if-else` lồng nhau nhiều cấp (Arrow Anti-pattern), lập trình viên chuyên nghiệp áp dụng kỹ thuật Guard Clauses:\n```cpp\nif (!isValid) return -1; // Thoát sớm nếu dữ liệu sai\n// Tiếp tục xử lý luồng chính tại đây\n```",
+    "hints": [
+      "So sánh tuần tự và cập nhật giá trị cực trị.",
+      "Viết mã nguồn ngắn gọn, dễ bảo trì."
+    ]
+  },
+  {
+    "id": "les-c2-1",
+    "stageId": "stage-c2",
+    "order": 1,
+    "track": "career",
+    "title": "Bản chất Bộ nhớ RAM: Stack vs Heap & Địa chỉ biến (&)",
+    "difficulty": 2,
+    "estimatedMinutes": 60,
+    "prerequisiteLessonIds": [
+      "les-c1-3"
+    ],
+    "problemCode": "RM_SWAPDIGITS",
+    "shortTheory": "### Phân biệt Stack và Heap trong C++\n- **Stack Memory**: Cấp phát tĩnh, tự động thu hồi khi ra khỏi phạm vi (scope). Rất nhanh nhưng kích thước hạn chế (thường 1MB - 8MB).\n- **Heap Memory**: Cấp phát động bằng toán tử `new`. Kích thước lớn (bằng RAM trống), nhưng cần người lập trình chủ động thu hồi bằng `delete` để tránh rò rỉ bộ nhớ (Memory Leak).\n- **Toán tử lấy địa chỉ `&`**: Cho biết ô nhớ thực tế của biến trên RAM.",
+    "hints": [
+      "Phân biệt rõ biến con trỏ và giá trị mà con trỏ trỏ tới.",
+      "Tập thói quen giải phóng bộ nhớ sau khi cấp phát động."
+    ]
+  },
+  {
+    "id": "les-c2-2",
+    "stageId": "stage-c2",
+    "order": 2,
+    "track": "career",
+    "title": "Con trỏ Thông minh Modern C++: std::unique_ptr & std::shared_ptr",
+    "difficulty": 2,
+    "estimatedMinutes": 60,
+    "prerequisiteLessonIds": [
+      "les-c2-1"
+    ],
+    "problemCode": "RM_TIMECONV",
+    "shortTheory": "### Con trỏ Thông minh (Smart Pointers - C++11 trở lên)\nTrong C++ hiện đại, lập trình viên không còn dùng `new/delete` thô mà chuyển sang Smart Pointers để tự động giải phóng bộ nhớ (RAII):\n```cpp\n#include <memory>\n// Tự động thu hồi khi biến out of scope, không thể copy\nauto ptr = std::make_unique<int>(42);\n\n// Đếm tham chiếu (Reference Counting), thu hồi khi ref count = 0\nauto sharedPtr = std::make_shared<string>(\"UMT\");\n```",
+    "hints": [
+      "Áp dụng make_unique để tránh lỗi cấp phát bộ nhớ.",
+      "Nắm vững cơ chế giải phóng tự động khi biến rời khỏi hàm."
     ]
   }
 ];

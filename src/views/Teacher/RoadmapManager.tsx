@@ -85,11 +85,15 @@ export const RoadmapManager: React.FC = () => {
     setTimeout(() => setActionMessage(null), 3500);
   };
 
+  // Track filter state (Olympic vs Career)
+  const [trackFilter, setTrackFilter] = useState<'olympic' | 'career' | 'all'>('olympic');
+
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
+      const trackParam = trackFilter === 'all' ? '' : `?track=${trackFilter}`;
       const [resProgress, resProblems] = await Promise.all([
-        apiFetch(`${serverUrl}/api/roadmap/progress`),
+        apiFetch(`${serverUrl}/api/roadmap/progress${trackParam}`),
         apiFetch(`${serverUrl}/api/problems`)
       ]);
 
@@ -107,7 +111,7 @@ export const RoadmapManager: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [serverUrl]);
+  }, [serverUrl, trackFilter]);
 
   useEffect(() => {
     fetchData();
@@ -494,6 +498,88 @@ export const RoadmapManager: React.FC = () => {
             <Plus size={15} /> Thêm Bài Học Mới
           </button>
         </div>
+      </div>
+
+      {/* Track Selection Switcher */}
+      <div 
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: '8px',
+          background: 'var(--surface-2)',
+          padding: '5px',
+          borderRadius: '12px',
+          border: '1px solid var(--border-subtle)',
+          marginBottom: '20px',
+          width: 'fit-content'
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => setTrackFilter('olympic')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 16px',
+            borderRadius: '9px',
+            border: 'none',
+            background: trackFilter === 'olympic' ? 'var(--grad-primary)' : 'transparent',
+            color: trackFilter === 'olympic' ? '#fff' : 'var(--text-muted)',
+            fontWeight: 700,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            boxShadow: trackFilter === 'olympic' ? 'var(--glow-primary)' : 'none',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <Trophy size={16} />
+          <span>🏆 Lớp Olympic Tin Học (ICPC)</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setTrackFilter('career')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 16px',
+            borderRadius: '9px',
+            border: 'none',
+            background: trackFilter === 'career' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'transparent',
+            color: trackFilter === 'career' ? '#fff' : 'var(--text-muted)',
+            fontWeight: 700,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            boxShadow: trackFilter === 'career' ? '0 0 15px rgba(16, 185, 129, 0.4)' : 'none',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <Code2 size={16} />
+          <span>💼 Lớp Lập Trình Phỏng Vấn & Đi Làm</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setTrackFilter('all')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 16px',
+            borderRadius: '9px',
+            border: 'none',
+            background: trackFilter === 'all' ? 'var(--surface-3)' : 'transparent',
+            color: trackFilter === 'all' ? 'var(--text)' : 'var(--text-muted)',
+            fontWeight: 700,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <Layers size={16} />
+          <span>🌐 Toàn bộ lộ trình (Tất cả chặng)</span>
+        </button>
       </div>
 
       {/* Stats Summary Cards */}

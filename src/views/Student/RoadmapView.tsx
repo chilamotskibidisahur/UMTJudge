@@ -399,14 +399,30 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
   const [attachingProblemCode, setAttachingProblemCode] = useState<{ [lessonId: string]: string }>({});
   const [actionMessage, setActionMessage] = useState<string | null>(null);
 
+  // Track state with auto-detection from student's classes
+  const defaultTrack = useMemo<'olympic' | 'career'>(() => {
+    const userClasses = Array.isArray((user as any)?.classes) ? (user as any).classes : [];
+    if (userClasses.includes('class-career') && !userClasses.includes('class-olp')) {
+      return 'career';
+    }
+    return 'olympic';
+  }, [user]);
+
+  const [activeTrack, setActiveTrack] = useState<'olympic' | 'career'>(defaultTrack);
+
+  useEffect(() => {
+    setActiveTrack(defaultTrack);
+  }, [defaultTrack]);
+
   // Fetch full roadmap data
-  const fetchRoadmapData = useCallback(async (isSilent = false) => {
+  const fetchRoadmapData = useCallback(async (isSilent = false, trackOverride?: 'olympic' | 'career') => {
     try {
       if (!isSilent) setLoading(true);
       else setRefreshing(true);
 
+      const targetTrack = trackOverride || activeTrack;
       const [resProgress, resProblems] = await Promise.all([
-        apiFetch(`${serverUrl}/api/roadmap/progress`),
+        apiFetch(`${serverUrl}/api/roadmap/progress?track=${targetTrack}`),
         apiFetch(`${serverUrl}/api/problems`)
       ]);
 
@@ -443,11 +459,11 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
       setLoading(false);
       setRefreshing(false);
     }
-  }, [serverUrl]);
+  }, [serverUrl, activeTrack]);
 
   useEffect(() => {
-    fetchRoadmapData();
-  }, [fetchRoadmapData]);
+    fetchRoadmapData(false, activeTrack);
+  }, [fetchRoadmapData, activeTrack]);
 
   // Map problems for quick lookup
   const problemMap = useMemo(() => {
@@ -520,7 +536,7 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
   // Mark lesson as understood / done (especially for theory lessons)
   const handleMarkLessonDone = async (lessonId: string) => {
     try {
-      const res = await apiFetch(`${serverUrl}/api/roadmap/lessons/${lessonId}/mark-done`, {
+      const res = await apiFetch(`${serverUrl}/api/roadmap/lessons/${lessonId}/mark-done?track=${activeTrack}`, {
         method: 'POST'
       });
       if (res.ok) {
@@ -538,7 +554,7 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
   // Take Stage Test-Out
   const handleTestOutStage = async (stageId: string) => {
     try {
-      const res = await apiFetch(`${serverUrl}/api/roadmap/stages/${stageId}/test-out`, {
+      const res = await apiFetch(`${serverUrl}/api/roadmap/stages/${stageId}/test-out?track=${activeTrack}`, {
         method: 'POST'
       });
       if (res.ok) {
@@ -698,7 +714,7 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
       )}
 
       {/* HEADER SECTION */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', marginBottom: '28px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', marginBottom: '20px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
             <div 
@@ -706,21 +722,23 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
                 width: '38px', 
                 height: '38px', 
                 borderRadius: '10px', 
-                background: 'var(--grad-primary)', 
+                background: activeTrack === 'career' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'var(--grad-primary)', 
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
-                boxShadow: 'var(--glow-primary)'
+                boxShadow: activeTrack === 'career' ? '0 0 15px rgba(16, 185, 129, 0.4)' : 'var(--glow-primary)'
               }}
             >
-              <Compass size={22} color="#fff" />
+              {activeTrack === 'career' ? <Code2 size={22} color="#fff" /> : <Trophy size={22} color="#fff" />}
             </div>
             <div>
-              <h1 style={{ fontSize: '1.65rem', fontWeight: 900, margin: 0, letterSpacing: '-0.02em', background: 'var(--grad-primary-vibrant)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Lộ Trình Thuật Toán C++
+              <h1 style={{ fontSize: '1.65rem', fontWeight: 900, margin: 0, letterSpacing: '-0.02em', background: activeTrack === 'career' ? 'linear-gradient(135deg, #34d399 0%, #059669 100%)' : 'var(--grad-primary-vibrant)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                {activeTrack === 'career' ? 'Lộ Trình C++ Phỏng Vấn & Đi Làm' : 'Lộ Trình Thuật Toán C++ Olympic'}
               </h1>
               <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                Hành trình từ ZERO đến ADVANCED — 9 chặng bài bản theo chuẩn Olympic Tin học
+                {activeTrack === 'career' 
+                  ? 'Hành trình C++ thực chiến doanh nghiệp — 9 chặng làm chủ Clean Code, bộ nhớ RAM & LeetCode Top 150' 
+                  : 'Hành trình từ ZERO đến ADVANCED — 9 chặng bài bản theo chuẩn Olympic Tin học sinh viên & ICPC'}
               </span>
             </div>
           </div>
@@ -791,6 +809,81 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
             Làm mới
           </button>
         </div>
+      </div>
+
+      {/* TRACK SWITCHER (OLYMPIC vs ĐI LÀM) */}
+      <div 
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: '8px',
+          background: 'var(--surface-2)',
+          padding: '5px',
+          borderRadius: '14px',
+          border: '1px solid var(--border-subtle)',
+          marginBottom: '22px',
+          width: 'fit-content'
+        }}
+      >
+        <button
+          onClick={() => setActiveTrack('olympic')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 18px',
+            borderRadius: '10px',
+            border: 'none',
+            background: activeTrack === 'olympic' ? 'var(--grad-primary)' : 'transparent',
+            color: activeTrack === 'olympic' ? '#fff' : 'var(--text-muted)',
+            fontWeight: 800,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            boxShadow: activeTrack === 'olympic' ? 'var(--glow-primary)' : 'none',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <Trophy size={16} />
+          <span>🏆 Lớp Olympic Tin Học (ICPC)</span>
+          <span style={{ 
+            fontSize: '0.72rem', 
+            background: activeTrack === 'olympic' ? 'rgba(255,255,255,0.22)' : 'var(--surface-glass)', 
+            padding: '2px 8px', 
+            borderRadius: '6px' 
+          }}>
+            9 Chặng
+          </span>
+        </button>
+        <button
+          onClick={() => setActiveTrack('career')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 18px',
+            borderRadius: '10px',
+            border: 'none',
+            background: activeTrack === 'career' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'transparent',
+            color: activeTrack === 'career' ? '#fff' : 'var(--text-muted)',
+            fontWeight: 800,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            boxShadow: activeTrack === 'career' ? '0 0 16px rgba(16, 185, 129, 0.4)' : 'none',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <Code2 size={16} />
+          <span>💼 Lớp Lập Trình Phỏng Vấn & Đi Làm</span>
+          <span style={{ 
+            fontSize: '0.72rem', 
+            background: activeTrack === 'career' ? 'rgba(255,255,255,0.22)' : 'var(--surface-glass)', 
+            padding: '2px 8px', 
+            borderRadius: '6px' 
+          }}>
+            9 Chặng
+          </span>
+        </button>
       </div>
 
       {activeViewTab === 'journey' ? (

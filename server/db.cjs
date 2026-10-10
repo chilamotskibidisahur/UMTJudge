@@ -294,9 +294,27 @@ class Database {
     if (!parsed.reward_redemptions) parsed.reward_redemptions = [];
     if (!parsed.roadmap_stages || !Array.isArray(parsed.roadmap_stages) || parsed.roadmap_stages.length === 0) {
       parsed.roadmap_stages = JSON.parse(JSON.stringify(ROADMAP_STAGES));
+    } else {
+      ROADMAP_STAGES.forEach(seedStage => {
+        const existing = parsed.roadmap_stages.find(s => s.id === seedStage.id);
+        if (existing) {
+          existing.track = seedStage.track || existing.track;
+        } else {
+          parsed.roadmap_stages.push(JSON.parse(JSON.stringify(seedStage)));
+        }
+      });
     }
     if (!parsed.roadmap_lessons || !Array.isArray(parsed.roadmap_lessons) || parsed.roadmap_lessons.length === 0) {
       parsed.roadmap_lessons = JSON.parse(JSON.stringify(ROADMAP_LESSONS));
+    } else {
+      ROADMAP_LESSONS.forEach(seedLesson => {
+        const existing = parsed.roadmap_lessons.find(l => l.id === seedLesson.id);
+        if (existing) {
+          existing.track = seedLesson.track || existing.track;
+        } else {
+          parsed.roadmap_lessons.push(JSON.parse(JSON.stringify(seedLesson)));
+        }
+      });
     }
     if (!parsed.roadmap_user_progress || typeof parsed.roadmap_user_progress !== 'object') {
       parsed.roadmap_user_progress = {};
@@ -2135,19 +2153,23 @@ class Database {
     return red;
   }
   // ─── ROADMAP METHODS (STAGES, LESSONS, CHECKPOINTS & PROGRESS) ──────────────
-  getRoadmapStages() {
+  getRoadmapStages(track = null) {
     if (!this.data.roadmap_stages || !Array.isArray(this.data.roadmap_stages) || this.data.roadmap_stages.length === 0) {
       this.data.roadmap_stages = JSON.parse(JSON.stringify(ROADMAP_STAGES));
       this.save();
     }
-    return (this.data.roadmap_stages || []).sort((a, b) => (a.order || 0) - (b.order || 0));
+    let list = this.data.roadmap_stages || [];
+    if (track && track !== 'all') {
+      list = list.filter(s => !s.track || s.track === 'all' || s.track === track);
+    }
+    return list.sort((a, b) => (a.order || 0) - (b.order || 0));
   }
 
   getRoadmapStage(id) {
     return this.getRoadmapStages().find(s => s.id === id) || null;
   }
 
-  getRoadmapLessons(stageId = null) {
+  getRoadmapLessons(stageId = null, track = null) {
     if (!this.data.roadmap_lessons || !Array.isArray(this.data.roadmap_lessons) || this.data.roadmap_lessons.length === 0) {
       this.data.roadmap_lessons = JSON.parse(JSON.stringify(ROADMAP_LESSONS));
       this.save();
@@ -2155,6 +2177,9 @@ class Database {
     let list = this.data.roadmap_lessons || [];
     if (stageId) {
       list = list.filter(l => l.stageId === stageId);
+    }
+    if (track && track !== 'all') {
+      list = list.filter(l => !l.track || l.track === 'all' || l.track === track);
     }
     return list.sort((a, b) => (a.order || 0) - (b.order || 0));
   }
@@ -2313,9 +2338,32 @@ class Database {
     return { stages: this.data.roadmap_stages, lessons: this.data.roadmap_lessons };
   }
 
-  computeRoadmapProgress(userId) {
-    const stages = this.getRoadmapStages();
-    const lessons = this.getRoadmapLessons();
+  computeRoadmapProgress(userId, requestedTrack = null) {
+    const user = userId ? this.getUser(userId) : null;
+
+    let activeTrack = requestedTrack;
+    if (!activeTrack || (activeTrack !== 'olympic' && activeTrack !== 'career' && activeTrack !== 'all')) {
+      if (user && Array.isArray(user.classes)) {
+        if (user.classes.includes('class-career') && !user.classes.includes('class-olp')) {
+          activeTrack = 'career';
+        } else {
+          activeTrack = 'olympic';
+        }
+      } else {
+        activeTrack = 'olympic';
+      }
+    }
+
+    const allStages = this.getRoadmapStages();
+    const allLessons = this.getRoadmapLessons();
+    const stages = activeTrack === 'all' 
+      ? allStages 
+      : allStages.filter(s => !s.track || s.track === 'all' || s.track === activeTrack);
+    const validStageIds = new Set(stages.map(s => s.id));
+    const lessons = activeTrack === 'all'
+      ? allLessons
+      : allLessons.filter(l => validStageIds.has(l.stageId) && (!l.track || l.track === 'all' || l.track === activeTrack));
+
     const problems = this.getProblems();
     const probMap = new Map();
     const probIdMap = new Map();
@@ -2324,7 +2372,6 @@ class Database {
       probIdMap.set(p.id, p);
     });
 
-    const user = userId ? this.getUser(userId) : null;
     const userSubs = userId ? this.getSubmissions().filter(s => s.userId === userId) : [];
     const bestScores = new Map();
     const isPassed = new Set();
@@ -2525,6 +2572,7 @@ class Database {
     return {
       stages: processedStages,
       lessons: finalLessons,
+      activeTrack,
       summary: {
         overallPercent,
         totalLessons,

@@ -438,10 +438,13 @@ export interface RoadmapCheckpoint {
   passScore: number;
 }
 
+export type RoadmapTrack = 'olympic' | 'career' | 'all';
+
 export interface RoadmapStage {
   id: string;
   order: number;
   title: string;
+  track?: RoadmapTrack;
   monthRange: string;
   goal: string;
   estimatedHoursPerWeek: number;
@@ -462,6 +465,7 @@ export interface RoadmapLesson {
   stageId: string;
   order: number;
   title: string;
+  track?: RoadmapTrack;
   shortTheory: string;
   difficulty: number; // 1-5
   estimatedMinutes: number;

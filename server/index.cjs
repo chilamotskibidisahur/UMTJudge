@@ -3385,7 +3385,8 @@ app.put('/api/rewards/redemptions/:id/status', requireHost, (req, res) => {
 app.get('/api/roadmap/progress', (req, res) => {
   try {
     const userId = req.user ? req.user.id : null;
-    const progress = db.computeRoadmapProgress(userId);
+    const track = req.query.track || null;
+    const progress = db.computeRoadmapProgress(userId, track);
     res.json(progress);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -3395,7 +3396,8 @@ app.get('/api/roadmap/progress', (req, res) => {
 app.get('/api/roadmap/stages', (req, res) => {
   try {
     const userId = req.user ? req.user.id : null;
-    const progress = db.computeRoadmapProgress(userId);
+    const track = req.query.track || null;
+    const progress = db.computeRoadmapProgress(userId, track);
     res.json(progress.stages);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -3405,8 +3407,12 @@ app.get('/api/roadmap/stages', (req, res) => {
 app.get('/api/roadmap/lessons/:id', (req, res) => {
   try {
     const userId = req.user ? req.user.id : null;
-    const progress = db.computeRoadmapProgress(userId);
-    const lesson = progress.lessons.find(l => l.id === req.params.id);
+    const track = req.query.track || null;
+    const progress = db.computeRoadmapProgress(userId, track);
+    let lesson = progress.lessons.find(l => l.id === req.params.id);
+    if (!lesson) {
+      lesson = db.getRoadmapLesson(req.params.id);
+    }
     if (!lesson) return res.status(404).json({ error: 'Bài học không tồn tại' });
     res.json(lesson);
   } catch (err) {
@@ -3419,7 +3425,8 @@ app.post('/api/roadmap/lessons/:id/mark-done', (req, res) => {
     if (!req.user) return res.status(401).json({ error: 'Vui lòng đăng nhập' });
     const success = db.markLessonDone(req.user.id, req.params.id);
     if (!success) return res.status(400).json({ error: 'Không thể đánh dấu hoàn thành' });
-    const updated = db.computeRoadmapProgress(req.user.id);
+    const track = req.query.track || req.body?.track || null;
+    const updated = db.computeRoadmapProgress(req.user.id, track);
     res.json({ success: true, progress: updated });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -3433,7 +3440,8 @@ app.post('/api/roadmap/stages/:id/test-out', (req, res) => {
     if (!stage) return res.status(404).json({ error: 'Chặng không tồn tại' });
 
     db.testOutStage(req.user.id, stage.id);
-    const updated = db.computeRoadmapProgress(req.user.id);
+    const track = req.query.track || req.body?.track || null;
+    const updated = db.computeRoadmapProgress(req.user.id, track);
     res.json({ success: true, message: `Chúc mừng bạn đã vượt qua chặng "${stage.title}"!`, progress: updated });
   } catch (err) {
     res.status(500).json({ error: err.message });
