@@ -28,6 +28,49 @@ interface StatementViewerProps {
   height?: string;
 }
 
+function formatMathHtml(raw: string): string {
+  if (!raw) return '';
+  let s = raw;
+
+  // Format $...$ math blocks
+  s = s.replace(/\$([^$]+)\$/g, (_match, mathContent) => {
+    let clean = mathContent.trim();
+    clean = clean.replace(/\\pmod\s*([a-zA-Z0-9_]+)/g, ' (mod $1)');
+    clean = clean.replace(/\\cdot/g, ' × ');
+    clean = clean.replace(/\\times/g, ' × ');
+    clean = clean.replace(/\\le\b/g, ' ≤ ');
+    clean = clean.replace(/\\ge\b/g, ' ≥ ');
+    clean = clean.replace(/\\ne\b|\\neq\b/g, ' ≠ ');
+    clean = clean.replace(/\\pm\b/g, ' ± ');
+    clean = clean.replace(/\\equiv\b/g, ' ≡ ');
+    clean = clean.replace(/\\sqrt\{([^}]+)\}/g, '√$1');
+    clean = clean.replace(/\\sqrt\s*([a-zA-Z0-9]+)/g, '√$1');
+    clean = clean.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)');
+    clean = clean.replace(/\\dots\b/g, '…');
+    clean = clean.replace(/\\log\b/g, 'log');
+    clean = clean.replace(/\\gcd\b/g, 'gcd');
+    clean = clean.replace(/\\text\{([^}]+)\}/g, '$1');
+    clean = clean.replace(/\\/g, '');
+    
+    // Subscripts & Superscripts
+    clean = clean.replace(/([a-zA-Z0-9\(\)]+)\^\{([^}]+)\}/g, '$1<sup>$2</sup>');
+    clean = clean.replace(/([a-zA-Z0-9\(\)]+)\^([a-zA-Z0-9]+)/g, '$1<sup>$2</sup>');
+    clean = clean.replace(/([a-zA-Z0-9]+)_\{([^}]+)\}/g, '$1<sub>$2</sub>');
+    clean = clean.replace(/([a-zA-Z0-9]+)_([a-zA-Z0-9]+)/g, '$1<sub>$2</sub>');
+
+    return `<span class="problem-math-chip" style="display:inline-block; font-family:'JetBrains Mono',Consolas,monospace; color:#0284c7; background:rgba(2,132,199,0.08); border:1px solid rgba(2,132,199,0.25); padding:1px 6px; border-radius:4px; font-weight:600; font-size:0.92em; margin:0 2px; vertical-align:baseline;">${clean}</span>`;
+  });
+
+  // Also replace any loose LaTeX symbols outside of $
+  s = s.replace(/\\le\b/g, '≤')
+       .replace(/\\ge\b/g, '≥')
+       .replace(/\\times\b/g, '×')
+       .replace(/\\neq\b/g, '≠')
+       .replace(/\\dots\b/g, '…');
+
+  return s;
+}
+
 export const StatementViewer: React.FC<StatementViewerProps> = ({
   url = '',
   src = '',
@@ -546,7 +589,7 @@ export const StatementViewer: React.FC<StatementViewerProps> = ({
                   .word-document-sheet li { margin-bottom: 6px; }
                   .word-document-sheet img { max-width: 100%; height: auto; border-radius: 4px; margin: 10px 0; }
                 `}</style>
-                <div dangerouslySetInnerHTML={{ __html: wordHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: formatMathHtml(wordHtml) }} />
               </div>
             </div>
           ) : (
@@ -608,15 +651,16 @@ export const StatementViewer: React.FC<StatementViewerProps> = ({
               ) : textError ? (
                 <div style={{ color: '#ef4444', textAlign: 'center', padding: '30px' }}>{textError}</div>
               ) : (
-                <pre style={{ 
-                  margin: 0, 
-                  fontFamily: 'inherit', 
-                  whiteSpace: 'pre-wrap', 
-                  wordBreak: 'break-word',
-                  color: '#1e293b'
-                }}>
-                  {textContent}
-                </pre>
+                <div 
+                  style={{ 
+                    margin: 0, 
+                    fontFamily: 'inherit', 
+                    whiteSpace: 'pre-wrap', 
+                    wordBreak: 'break-word',
+                    color: '#1e293b'
+                  }}
+                  dangerouslySetInnerHTML={{ __html: formatMathHtml(textContent) }}
+                />
               )}
             </div>
           </div>

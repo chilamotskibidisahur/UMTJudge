@@ -169,7 +169,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-rectarea",
     "problemCode": "RM_RECTAREA",
-    "shortTheory": "### Các kiểu dữ liệu thường dùng trong C++\n- `int`: 32-bit có dấu, giá trị từ $-2 \\times 10^9$ đến $2 \\times 10^9$.\n- `long long`: 64-bit có dấu, từ $-9 \\times 10^{18}$ đến $9 \\times 10^{18}$. Dùng khi kết quả vượt quá $2 \\times 10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15 chữ số có nghĩa).\n- `char`: Ký tự đơn trong bảng mã ASCII (1 byte).\n- `bool`: Giá trị logic (`true` hoặc `false`).\n\n> **Cảnh báo tràn số (Overflow)**: Khi nhân hai biến `int` (ví dụ: `100000 * 100000`), C++ sẽ tính trên kiểu `int` rồi mới ép kiểu. Cần viết: `1LL * a * b` để tránh tràn số!",
+    "shortTheory": "### Các kiểu dữ liệu thường dùng trong C++\n- `int`: 32-bit có dấu, giá trị từ $-2 \ ×  10^9$ đến $2 \ ×  10^9$.\n- `long long`: 64-bit có dấu, từ $-9 \ ×  10^{18}$ đến $9 \ ×  10^{18}$. Dùng khi kết quả vượt quá $2 \ ×  10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15 chữ số có nghĩa).\n- `char`: Ký tự đơn trong bảng mã ASCII (1 byte).\n- `bool`: Giá trị logic (`true` hoặc `false`).\n\n> **Cảnh báo tràn số (Overflow)**: Khi nhân hai biến `int` (ví dụ: `100000 * 100000`), C++ sẽ tính trên kiểu `int` rồi mới ép kiểu. Cần viết: `1LL * a * b` để tránh tràn số!",
     "hints": [
       "Công thức chu vi = 2 * (A + B), diện tích = A * B.",
       "Vì A và B có thể lên tới 10^9 nên diện tích có thể đạt 10^18, bắt buộc dùng kiểu long long trong C++.",
@@ -302,7 +302,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-printpattern",
     "problemCode": "RM_PRINTPATTERN",
-    "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N \\le 5000$, $O(N^2)$ chạy trong ~1 giây.",
+    "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N \≤ 5000$, $O(N^2)$ chạy trong ~1 giây.",
     "hints": [
       "Dùng 2 vòng lặp for lồng nhau: vòng lặp ngoài duyệt dòng i từ 1 đến R, vòng lặp trong duyệt cột j từ 1 đến C.",
       "Nếu ô đang xét nằm trên viền: i == 1, i == R, j == 1 hoặc j == C thì in ra ký tự \"*\".",
@@ -398,7 +398,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-gradefreq",
     "problemCode": "RM_GRADEFREQ",
-    "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i \\le 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
+    "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i \≤ 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
     "hints": [
       "Khai báo mảng đếm cnt[11] khởi tạo toàn bộ bằng 0.",
       "Khi đọc vào từng điểm số score (0 <= score <= 10), thực hiện tăng cnt[score]++.",
@@ -611,7 +611,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy tắc ước lượng thời gian chạy\nTrong 1 giây, máy tính chấm bài thực hiện được khoảng $10^8$ phép tính cơ bản.\n- $N \\le 20$: $O(2^N)$ hoặc $O(N!)$\n- $N \\le 500$: $O(N^3)$\n- $N \\le 5000$: $O(N^2)$\n- $N \\le 10^6$: $O(N \\log N)$ hoặc $O(N)$\n- $N \\le 10^{18}$: $O(\\log N)$ hoặc $O(1)$",
+    "shortTheory": "### Quy tắc ước lượng thời gian chạy\nTrong 1 giây, máy tính chấm bài thực hiện được khoảng $10^8$ phép tính cơ bản.\n- $N \≤ 20$: $O(2^N)$ hoặc $O(N!)$\n- $N \≤ 500$: $O(N^3)$\n- $N \≤ 5000$: $O(N^2)$\n- $N \≤ 10^6$: $O(N \log N)$ hoặc $O(N)$\n- $N \≤ 10^{18}$: $O(\log N)$ hoặc $O(1)$",
     "hints": [
       "Đọc giới hạn N trước khi viết thuật toán.",
       "Nếu N = 10^5 mà dùng 2 vòng lặp lồng nhau O(N^2) = 10^10 phép tính sẽ bị TLE.",
@@ -631,7 +631,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tính chất đồng dư (Congruence)\nNếu $a \\equiv b \\pmod m$ và $c \\equiv d \\pmod m$:\n- $(a + c) \\equiv (b + d) \\pmod m$\n- $(a \\times c) \\equiv (b \\times d) \\pmod m$\n- $(a - c) \\equiv (b - d) \\pmod m$\n\nCông thức an toàn khi tính toán có modulo:\n```cpp\nlong long add(long long a, long long b, long long m) {\n    return (a % m + b % m) % m;\n}\nlong long mul(long long a, long long b, long long m) {\n    return ((a % m) * (b % m)) % m;\n}\n```",
+    "shortTheory": "### Tính chất đồng dư (Congruence)\nNếu $a \≡ b \ (mod m)$ và $c \≡ d \ (mod m)$:\n- $(a + c) \≡ (b + d) \ (mod m)$\n- $(a \ ×  c) \≡ (b \ ×  d) \ (mod m)$\n- $(a - c) \≡ (b - d) \ (mod m)$\n\nCông thức an toàn khi tính toán có modulo:\n```cpp\nlong long add(long long a, long long b, long long m) {\n    return (a % m + b % m) % m;\n}\nlong long mul(long long a, long long b, long long m) {\n    return ((a % m) * (b % m)) % m;\n}\n```",
     "hints": [
       "Lấy modulo sau mỗi phép cộng hoặc nhân.",
       "Phép trừ có thể ra số âm, cần cộng thêm modulo m trước khi lấy dư.",
@@ -650,7 +650,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-divisors",
     "problemCode": "RM_DIVISORS",
-    "shortTheory": "### Tìm ước trong $O(\\sqrt{N})$\nNếu $d$ là ước của $N$ thì $\\frac{N}{d}$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $\\sqrt{N}$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
+    "shortTheory": "### Tìm ước trong $O(\√N)$\nNếu $d$ là ước của $N$ thì $\(N / d)$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $\√N$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
     "hints": [
       "Điều kiện dừng là i * i <= n để đạt độ phức tạp O(sqrt(N)).",
       "Nếu i * i == n thì chỉ thêm i một lần (tránh trùng khi n là số chính phương).",
@@ -669,7 +669,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Công thức số lượng & Tổng ước\nNếu $N = p_1^{e_1} \\times p_2^{e_2} \\dots p_k^{e_k}$ (phân tích thừa số nguyên tố):\n- Số lượng ước: $d(N) = (e_1 + 1)(e_2 + 1) \\dots (e_k + 1)$\n- Tổng các ước: $\\sigma(N) = \\prod_{i=1}^k \\frac{p_i^{e_i + 1} - 1}{p_i - 1}$",
+    "shortTheory": "### Công thức số lượng & Tổng ước\nNếu $N = p_1^{e_1} \ ×  p_2^{e_2} \… p_k^{e_k}$ (phân tích thừa số nguyên tố):\n- Số lượng ước: $d(N) = (e_1 + 1)(e_2 + 1) \… (e_k + 1)$\n- Tổng các ước: $\\sigma(N) = \\prod_{i=1}^k \\frac{p_i^{e_i + 1} - 1}{p_i - 1}$",
     "hints": [
       "Phân tích N ra thừa số nguyên tố.",
       "Số lượng ước là tích của (số mũ + 1).",
@@ -688,7 +688,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Thuật toán Euclid\nDựa trên tính chất: $\\gcd(a, b) = \\gcd(b, a \\pmod b)$ với $\\gcd(a, 0) = a$.\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n// C++17 có hàm có sẵn trong thư viện <numeric>: std::gcd(a, b)\n```\nĐộ phức tạp: $O(\\log(\\min(a, b)))$.",
+    "shortTheory": "### Thuật toán Euclid\nDựa trên tính chất: $\gcd(a, b) = \gcd(b, a \ (mod b))$ với $\gcd(a, 0) = a$.\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n// C++17 có hàm có sẵn trong thư viện <numeric>: std::gcd(a, b)\n```\nĐộ phức tạp: $O(\log(\\min(a, b)))$.",
     "hints": [
       "Hàm lặp while (b != 0) an toàn và không lo tràn stack.",
       "std::gcd(a, b) có sẵn từ C++17.",
@@ -707,7 +707,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bội chung nhỏ nhất (LCM)\nCông thức liên hệ: $a \\times b = \\gcd(a, b) \\times \\text{lcm}(a, b)$.\nDo đó:\n```cpp\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước rồi mới nhân để tránh tràn số!\n}\n```",
+    "shortTheory": "### Bội chung nhỏ nhất (LCM)\nCông thức liên hệ: $a \ ×  b = \gcd(a, b) \ ×  \lcm(a, b)$.\nDo đó:\n```cpp\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước rồi mới nhân để tránh tràn số!\n}\n```",
     "hints": [
       "Thực hiện phép chia a / gcd(a, b) trước để giảm kích thước số.",
       "Sau đó nhân với b để tránh tràn số long long.",
@@ -745,7 +745,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Sàng Eratosthenes\nTìm tất cả số nguyên tố từ $1$ đến $N$ (thường $N \\le 10^7$):\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP, isP + MAXN + 1, true);\n    isP[0] = isP[1] = false;\n    for (int i = 2; i * i <= MAXN; i++) {\n        if (isP[i]) {\n            for (int j = i * i; j <= MAXN; j += i) {\n                isP[j] = false;\n            }\n        }\n    }\n}\n```",
+    "shortTheory": "### Sàng Eratosthenes\nTìm tất cả số nguyên tố từ $1$ đến $N$ (thường $N \≤ 10^7$):\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP, isP + MAXN + 1, true);\n    isP[0] = isP[1] = false;\n    for (int i = 2; i * i <= MAXN; i++) {\n        if (isP[i]) {\n            for (int j = i * i; j <= MAXN; j += i) {\n                isP[j] = false;\n            }\n        }\n    }\n}\n```",
     "hints": [
       "Khởi tạo mảng bool đánh dấu tất cả ban đầu là true.",
       "Gán isP[0] = isP[1] = false.",
@@ -802,7 +802,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Phân tích trong $O(\\log N)$ với SPF\nKhi cần phân tích nhiều số ($Q \\le 10^5$, mỗi số $N \\le 10^7$), ta tiền xử lý mảng `spf[]` bằng sàng tuyến tính:\n```cpp\nvector<int> quickFactorize(int n) {\n    vector<int> factors;\n    while (n > 1) {\n        factors.push_back(spf[n]);\n        n /= spf[n];\n    }\n    return factors;\n}\n```",
+    "shortTheory": "### Phân tích trong $O(\log N)$ với SPF\nKhi cần phân tích nhiều số ($Q \≤ 10^5$, mỗi số $N \≤ 10^7$), ta tiền xử lý mảng `spf[]` bằng sàng tuyến tính:\n```cpp\nvector<int> quickFactorize(int n) {\n    vector<int> factors;\n    while (n > 1) {\n        factors.push_back(spf[n]);\n        n /= spf[n];\n    }\n    return factors;\n}\n```",
     "hints": [
       "Tiền xử lý sàng một lần duy nhất trước mọi truy vấn.",
       "Mỗi phép chia chỉ mất O(1), toàn bộ quá trình mất O(log N).",
@@ -2056,7 +2056,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng cộng dồn 1D (Prefix Sum): Truy vấn tổng đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng cộng dồn 1D (Prefix Sum): Truy vấn tổng đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2075,7 +2075,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng cộng dồn Modulo & Đếm số đoạn con có tổng chia hết cho K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng cộng dồn Modulo & Đếm số đoạn con có tổng chia hết cho K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2094,7 +2094,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng cộng dồn 2D (2D Prefix Sum): Truy vấn hình chữ nhật O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng cộng dồn 2D (2D Prefix Sum): Truy vấn hình chữ nhật O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2113,7 +2113,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mảng hiệu 1D (Difference Array): Cộng dồn trên đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mảng hiệu 1D (Difference Array): Cộng dồn trên đoạn O(1)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2132,7 +2132,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-twopointers",
     "problemCode": "RM_TWOPOINTERS",
-    "shortTheory": "### Kỹ thuật Hai con trỏ (Two Pointers): Hai đầu đối diện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Kỹ thuật Hai con trỏ (Two Pointers): Hai đầu đối diện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2151,7 +2151,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Hai con trỏ: Cùng chiều (Con trỏ nhanh - Con trỏ chậm)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Hai con trỏ: Cùng chiều (Con trỏ nhanh - Con trỏ chậm)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2170,7 +2170,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cửa sổ trượt (Sliding Window): Kích thước cố định K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Cửa sổ trượt (Sliding Window): Kích thước cố định K\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2189,7 +2189,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cửa sổ trượt: Kích thước biến thiên (Co giãn điều kiện)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Cửa sổ trượt: Kích thước biến thiên (Co giãn điều kiện)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2208,7 +2208,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cửa sổ trượt với Hàng đợi đơn điệu (Monotonic Deque)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Cửa sổ trượt với Hàng đợi đơn điệu (Monotonic Deque)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2227,7 +2227,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-greedy",
     "problemCode": "RM_GREEDY",
-    "shortTheory": "### Chiến lược Tham lam (Greedy): Nguyên lý lựa chọn tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chiến lược Tham lam (Greedy): Nguyên lý lựa chọn tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2246,7 +2246,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán lập lịch & Chọn các đoạn không giao nhau\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Bài toán lập lịch & Chọn các đoạn không giao nhau\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2265,7 +2265,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi phân số (Fractional Knapsack)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Bài toán cái túi phân số (Fractional Knapsack)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2284,7 +2284,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Kỹ thuật tráo đổi (Exchange Arguments) chứng minh tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Kỹ thuật tráo đổi (Exchange Arguments) chứng minh tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2303,7 +2303,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Mã hóa Huffman & Ghép nối chi phí tối thiểu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Mã hóa Huffman & Ghép nối chi phí tối thiểu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2322,7 +2322,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt nhị phân kết quả (Binary Search on Answer): Hàm đơn điệu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt nhị phân kết quả (Binary Search on Answer): Hàm đơn điệu\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2341,7 +2341,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt nhị phân kết quả: Bài toán chia việc / Phân phối sách\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt nhị phân kết quả: Bài toán chia việc / Phân phối sách\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2360,7 +2360,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt nhị phân trên số thực: Độ chính xác Epsilon\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt nhị phân trên số thực: Độ chính xác Epsilon\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2379,7 +2379,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chặt tam phân (Ternary Search): Cực trị hàm đơn đỉnh\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chặt tam phân (Ternary Search): Cực trị hàm đơn đỉnh\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2398,7 +2398,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Đệ quy: Trường hợp cơ sở & Cây đệ quy gọi hàm\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Đệ quy: Trường hợp cơ sở & Cây đệ quy gọi hàm\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2417,7 +2417,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chia để trị: Thuật toán sắp xếp trộn (Merge Sort)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Chia để trị: Thuật toán sắp xếp trộn (Merge Sort)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2436,7 +2436,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Đếm số nghịch thế (Inversion Count) bằng Merge Sort\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Đếm số nghịch thế (Inversion Count) bằng Merge Sort\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2455,7 +2455,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Thuật toán Quick Select: Tìm phần tử nhỏ thứ K trong O(N)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Thuật toán Quick Select: Tìm phần tử nhỏ thứ K trong O(N)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2474,7 +2474,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quay lui (Backtracking): Không gian trạng thái & Nhánh cận\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Quay lui (Backtracking): Không gian trạng thái & Nhánh cận\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2493,7 +2493,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quay lui sinh tất cả tập con (Subsets)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Quay lui sinh tất cả tập con (Subsets)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2512,7 +2512,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quay lui sinh tất cả hoán vị (Permutations)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Quay lui sinh tất cả hoán vị (Permutations)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2531,7 +2531,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán N quân hậu (N-Queens) & Tối ưu bằng mảng/bit\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Bài toán N quân hậu (N-Queens) & Tối ưu bằng mảng/bit\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2550,7 +2550,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Giải Sudoku bằng quay lui & Cắt tỉa điều kiện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Giải Sudoku bằng quay lui & Cắt tỉa điều kiện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2569,7 +2569,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Kỹ thuật Gặp nhau ở giữa (Meet in the Middle) 2^(N/2)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Kỹ thuật Gặp nhau ở giữa (Meet in the Middle) 2^(N/2)\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2588,7 +2588,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng kết kỹ thuật hai con trỏ & Chặt nhị phân\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Tổng kết kỹ thuật hai con trỏ & Chặt nhị phân\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2607,7 +2607,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng kết Chặng 5: Bộ vũ khí thuật toán cốt lõi\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
+    "shortTheory": "### Tổng kết Chặng 5: Bộ vũ khí thuật toán cốt lõi\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
       "Gợi ý 2: Viết hàm kiểm tra check(mid) độc lập khi làm chặt nhị phân kết quả.",
@@ -2626,7 +2626,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bản chất Quy hoạch động: Bài toán con gối nhau & Cấu trúc tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bản chất Quy hoạch động: Bài toán con gối nhau & Cấu trúc tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2645,7 +2645,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động Top-down (Đệ quy có nhớ) vs Bottom-up (Bảng phương án)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động Top-down (Đệ quy có nhớ) vs Bottom-up (Bảng phương án)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2664,7 +2664,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-frogjump",
     "problemCode": "RM_FROGJUMP",
-    "shortTheory": "### Quy hoạch động 1D: Bài toán bước nhảy tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động 1D: Bài toán bước nhảy tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2683,7 +2683,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": "prob-rm-maxsubarray",
     "problemCode": "RM_MAXSUBARRAY",
-    "shortTheory": "### Quy hoạch động 1D: Trang trí dãy số & Phân bổ trạng thái\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động 1D: Trang trí dãy số & Phân bổ trạng thái\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2702,7 +2702,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán đổi tiền xu (Coin Change): Số đồng xu tối thiểu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán đổi tiền xu (Coin Change): Số đồng xu tối thiểu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2721,7 +2721,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán đổi tiền xu: Số cách tạo thành tổng S\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán đổi tiền xu: Số cách tạo thành tổng S\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2740,7 +2740,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng đoạn con lớn nhất: Thuật toán Kadane trong O(N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tổng đoạn con lớn nhất: Thuật toán Kadane trong O(N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2759,7 +2759,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N^2)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N^2)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2778,7 +2778,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N log N) bằng Chặt nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Dãy con tăng dài nhất (LIS) trong O(N log N) bằng Chặt nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2797,7 +2797,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động lưới 2D: Đếm số đường đi có vật cản\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động lưới 2D: Đếm số đường đi có vật cản\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2816,7 +2816,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động lưới 2D: Đường đi có chi phí nhỏ nhất\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động lưới 2D: Đường đi có chi phí nhỏ nhất\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2835,7 +2835,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động tam giác số / Hình thoi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động tam giác số / Hình thoi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2854,7 +2854,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi 0/1 (0/1 Knapsack): Bảng phương án 2D\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán cái túi 0/1 (0/1 Knapsack): Bảng phương án 2D\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2873,7 +2873,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Cái túi 0/1: Kỹ thuật nén mảng xuống 1D chạy ngược\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Cái túi 0/1: Kỹ thuật nén mảng xuống 1D chạy ngược\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2892,7 +2892,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi không giới hạn (Unbounded Knapsack) chạy xuôi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán cái túi không giới hạn (Unbounded Knapsack) chạy xuôi\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2911,7 +2911,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán cái túi giới hạn (Bounded Knapsack): Tách nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán cái túi giới hạn (Bounded Knapsack): Tách nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2930,7 +2930,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bài toán tập con có tổng bằng S (Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bài toán tập con có tổng bằng S (Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2949,7 +2949,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Chia mảng thành 2 phần có tổng bằng nhau (Partition Equal Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Chia mảng thành 2 phần có tổng bằng nhau (Partition Equal Subset Sum)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2968,7 +2968,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Xâu con chung dài nhất (LCS) giữa 2 xâu ký tự\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Xâu con chung dài nhất (LCS) giữa 2 xâu ký tự\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -2987,7 +2987,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Truy vết và in ra nghiệm xâu con chung LCS\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Truy vết và in ra nghiệm xâu con chung LCS\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3006,7 +3006,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Khoảng cách biên tập (Edit Distance / Levenshtein Distance)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Khoảng cách biên tập (Edit Distance / Levenshtein Distance)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3025,7 +3025,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Xâu con đối xứng dài nhất (Longest Palindromic Substring)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Xâu con đối xứng dài nhất (Longest Palindromic Substring)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3044,7 +3044,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Dãy con đối xứng dài nhất (Longest Palindromic Subsequence)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Dãy con đối xứng dài nhất (Longest Palindromic Subsequence)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3063,7 +3063,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động đoạn (Interval DP): Nhân chuỗi ma trận\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động đoạn (Interval DP): Nhân chuỗi ma trận\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3082,7 +3082,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Interval DP: Nối que tính chi phí nhỏ nhất / Bắn bóng\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Interval DP: Nối que tính chi phí nhỏ nhất / Bắn bóng\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3101,7 +3101,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động Bitmask: Khởi đầu với trạng thái nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động Bitmask: Khởi đầu với trạng thái nhị phân\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3120,7 +3120,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bitmask DP: Bài toán người du lịch (TSP) trong O(N^2 * 2^N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bitmask DP: Bài toán người du lịch (TSP) trong O(N^2 * 2^N)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3139,7 +3139,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Bitmask DP: Ghép cặp công việc / Phân bổ tài nguyên\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Bitmask DP: Ghép cặp công việc / Phân bổ tài nguyên\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3158,7 +3158,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động trên cây (Tree DP): Tập độc lập cực đại trên cây\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động trên cây (Tree DP): Tập độc lập cực đại trên cây\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3177,7 +3177,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tree DP: Đường kính cây (Tree Diameter)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tree DP: Đường kính cây (Tree Diameter)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3196,7 +3196,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tree DP: Kỹ thuật đổi gốc cây (All-nodes Distance Re-rooting)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tree DP: Kỹ thuật đổi gốc cây (All-nodes Distance Re-rooting)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3215,7 +3215,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Quy hoạch động chữ số (Digit DP): Giới hạn cận chặt\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Quy hoạch động chữ số (Digit DP): Giới hạn cận chặt\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3234,7 +3234,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Digit DP: Đếm số có tổng chữ số thỏa mãn trong đoạn [L, R]\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Digit DP: Đếm số có tổng chữ số thỏa mãn trong đoạn [L, R]\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3253,7 +3253,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tối ưu hóa quy hoạch động: Chia để trị (Divide and Conquer Optimization)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tối ưu hóa quy hoạch động: Chia để trị (Divide and Conquer Optimization)\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",
@@ -3272,7 +3272,7 @@ const ROADMAP_LESSONS = [
     ],
     "problemId": null,
     "problemCode": null,
-    "shortTheory": "### Tổng kết Chặng 6: Thành thạo tư duy Quy hoạch động\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
+    "shortTheory": "### Tổng kết Chặng 6: Thành thạo tư duy Quy hoạch động\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\…]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
       "Gợi ý 2: Tìm mối liên hệ giữa dp[i] với các trạng thái nhỏ hơn đã tính trước đó (dp[i-1], dp[i-2]...).",

@@ -61,6 +61,49 @@ interface Props {
   scoringMode?: 'LIVE_BEST' | 'OLYMPIC_LATEST' | 'PRETEST';
 }
 
+function formatMathHtml(raw: string): string {
+  if (!raw) return '';
+  let s = raw;
+
+  // Format $...$ math blocks
+  s = s.replace(/\$([^$]+)\$/g, (_match, mathContent) => {
+    let clean = mathContent.trim();
+    clean = clean.replace(/\\pmod\s*([a-zA-Z0-9_]+)/g, ' (mod $1)');
+    clean = clean.replace(/\\cdot/g, ' × ');
+    clean = clean.replace(/\\times/g, ' × ');
+    clean = clean.replace(/\\le\b/g, ' ≤ ');
+    clean = clean.replace(/\\ge\b/g, ' ≥ ');
+    clean = clean.replace(/\\ne\b|\\neq\b/g, ' ≠ ');
+    clean = clean.replace(/\\pm\b/g, ' ± ');
+    clean = clean.replace(/\\equiv\b/g, ' ≡ ');
+    clean = clean.replace(/\\sqrt\{([^}]+)\}/g, '√$1');
+    clean = clean.replace(/\\sqrt\s*([a-zA-Z0-9]+)/g, '√$1');
+    clean = clean.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)');
+    clean = clean.replace(/\\dots\b/g, '…');
+    clean = clean.replace(/\\log\b/g, 'log');
+    clean = clean.replace(/\\gcd\b/g, 'gcd');
+    clean = clean.replace(/\\text\{([^}]+)\}/g, '$1');
+    clean = clean.replace(/\\/g, ''); // strip any rogue stray backslash
+    
+    // Subscripts & Superscripts
+    clean = clean.replace(/([a-zA-Z0-9\(\)]+)\^\{([^}]+)\}/g, '$1<sup>$2</sup>');
+    clean = clean.replace(/([a-zA-Z0-9\(\)]+)\^([a-zA-Z0-9]+)/g, '$1<sup>$2</sup>');
+    clean = clean.replace(/([a-zA-Z0-9]+)_\{([^}]+)\}/g, '$1<sub>$2</sub>');
+    clean = clean.replace(/([a-zA-Z0-9]+)_([a-zA-Z0-9]+)/g, '$1<sub>$2</sub>');
+
+    return `<span class="problem-math-chip" style="display:inline-block; font-family:'JetBrains Mono',Consolas,monospace; color:var(--accent-cyan,#38bdf8); background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:1px 6px; border-radius:4px; font-weight:600; font-size:0.92em; margin:0 2px; vertical-align:baseline;">${clean}</span>`;
+  });
+
+  // Also replace any loose LaTeX symbols outside of $
+  s = s.replace(/\\le\b/g, '≤')
+       .replace(/\\ge\b/g, '≥')
+       .replace(/\\times\b/g, '×')
+       .replace(/\\neq\b/g, '≠')
+       .replace(/\\dots\b/g, '…');
+
+  return s;
+}
+
 export const ProblemDetail: React.FC<Props> = ({ 
   problem, 
   onBack, 
@@ -1019,27 +1062,29 @@ export const ProblemDetail: React.FC<Props> = ({
                     lineHeight: 1.7,
                     color: '#e2e8f0'
                   }}
-                  dangerouslySetInnerHTML={{ __html: effectiveStatementHtml }}
+                  dangerouslySetInnerHTML={{ __html: formatMathHtml(effectiveStatementHtml) }}
                 />
               ) : (activeProblem.statement || problem.statement) ? (
-                <div style={{ 
-                  fontSize: '0.92rem', 
-                  lineHeight: 1.75, 
-                  color: '#e2e8f0', 
-                  whiteSpace: 'pre-wrap',
-                  fontFamily: 'system-ui, -apple-system, sans-serif'
-                }}>
-                  {activeProblem.statement || problem.statement}
-                </div>
+                <div 
+                  className="problem-statement-html"
+                  style={{ 
+                    fontSize: '0.92rem', 
+                    lineHeight: 1.75, 
+                    color: '#e2e8f0', 
+                    fontFamily: 'system-ui, -apple-system, sans-serif'
+                  }}
+                  dangerouslySetInnerHTML={{ __html: formatMathHtml(activeProblem.statement || problem.statement || '') }}
+                />
               ) : (
-                <div style={{ 
-                  fontSize: '0.92rem', 
-                  lineHeight: 1.75, 
-                  color: '#e2e8f0', 
-                  whiteSpace: 'pre-wrap'
-                }}>
-                  {activeProblem.description || problem.description || '(Đề bài chưa có mô tả chi tiết)'}
-                </div>
+                <div 
+                  className="problem-statement-html"
+                  style={{ 
+                    fontSize: '0.92rem', 
+                    lineHeight: 1.75, 
+                    color: '#e2e8f0'
+                  }}
+                  dangerouslySetInnerHTML={{ __html: formatMathHtml(activeProblem.description || problem.description || '(Đề bài chưa có mô tả chi tiết)') }}
+                />
               )}
             </div>
           )}
@@ -1050,9 +1095,10 @@ export const ProblemDetail: React.FC<Props> = ({
               <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-cyan)', marginBottom: '6px', textTransform: 'uppercase' }}>
                 DỮ LIỆU VÀO (INPUT)
               </h4>
-              <div style={{ fontSize: '0.88rem', color: '#cbd5e1', whiteSpace: 'pre-wrap', lineHeight: 1.6 }}>
-                {activeProblem.inputDescription || problem.inputDescription}
-              </div>
+              <div 
+                style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.6 }}
+                dangerouslySetInnerHTML={{ __html: formatMathHtml(activeProblem.inputDescription || problem.inputDescription || '') }}
+              />
             </div>
           )}
 
@@ -1061,9 +1107,10 @@ export const ProblemDetail: React.FC<Props> = ({
               <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-emerald)', marginBottom: '6px', textTransform: 'uppercase' }}>
                 DỮ LIỆU RA (OUTPUT)
               </h4>
-              <div style={{ fontSize: '0.88rem', color: '#cbd5e1', whiteSpace: 'pre-wrap', lineHeight: 1.6 }}>
-                {activeProblem.outputDescription || problem.outputDescription}
-              </div>
+              <div 
+                style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.6 }}
+                dangerouslySetInnerHTML={{ __html: formatMathHtml(activeProblem.outputDescription || problem.outputDescription || '') }}
+              />
             </div>
           )}
 
@@ -1072,9 +1119,10 @@ export const ProblemDetail: React.FC<Props> = ({
               <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-amber)', marginBottom: '6px', textTransform: 'uppercase' }}>
                 GIỚI HẠN / RÀNG BUỘC (CONSTRAINTS)
               </h4>
-              <div style={{ fontSize: '0.88rem', color: '#cbd5e1', whiteSpace: 'pre-wrap', lineHeight: 1.6 }}>
-                {activeProblem.constraints || problem.constraints}
-              </div>
+              <div 
+                style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.6 }}
+                dangerouslySetInnerHTML={{ __html: formatMathHtml(activeProblem.constraints || problem.constraints || '') }}
+              />
             </div>
           )}
 
