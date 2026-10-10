@@ -3471,6 +3471,74 @@ app.post('/api/roadmap/lessons/:id/detach-problem', requireHost, (req, res) => {
   }
 });
 
+// Stage CRUD (Host / Teacher only)
+app.post('/api/roadmap/stages', requireHost, (req, res) => {
+  try {
+    const stage = db.saveRoadmapStage(req.body);
+    res.json(stage);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put('/api/roadmap/stages/:id', requireHost, (req, res) => {
+  try {
+    const stage = db.saveRoadmapStage({ ...req.body, id: req.params.id });
+    res.json(stage);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.delete('/api/roadmap/stages/:id', requireHost, (req, res) => {
+  try {
+    const success = db.deleteRoadmapStage(req.params.id);
+    if (!success) return res.status(404).json({ error: 'Chặng không tồn tại' });
+    res.json({ success: true, id: req.params.id });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Lesson CRUD (Host / Teacher only)
+app.post('/api/roadmap/lessons', requireHost, (req, res) => {
+  try {
+    const lesson = db.saveRoadmapLesson(req.body);
+    res.json(lesson);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put('/api/roadmap/lessons/:id', requireHost, (req, res) => {
+  try {
+    const lesson = db.saveRoadmapLesson({ ...req.body, id: req.params.id });
+    res.json(lesson);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.delete('/api/roadmap/lessons/:id', requireHost, (req, res) => {
+  try {
+    const success = db.deleteRoadmapLesson(req.params.id);
+    if (!success) return res.status(404).json({ error: 'Bài học không tồn tại' });
+    res.json({ success: true, id: req.params.id });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Reset roadmap to default seed data
+app.post('/api/roadmap/reset-default', requireHost, (req, res) => {
+  try {
+    const result = db.resetRoadmapToDefault();
+    res.json({ success: true, message: 'Đã khôi phục lộ trình mặc định thành công!', ...result });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ─── ROADMAP APIS (LỘ TRÌNH HỌC TẬP THEO CHỦ ĐỀ & BÀI TẬP THỦ CÔNG) ────────
 app.get('/api/roadmap', (req, res) => {
   try {

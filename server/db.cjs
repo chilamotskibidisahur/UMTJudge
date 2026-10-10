@@ -2228,6 +2228,91 @@ class Database {
     return this.getRoadmapLessons().filter(l => !l.problemCode && !l.problemId);
   }
 
+  saveRoadmapStage(stageData) {
+    const stages = this.getRoadmapStages();
+    let stage = null;
+    if (stageData.id) {
+      stage = stages.find(s => s.id === stageData.id);
+    }
+    if (stage) {
+      Object.assign(stage, stageData);
+    } else {
+      const newId = stageData.id || `stage-${stages.length + 1}`;
+      stage = {
+        ...stageData,
+        id: newId,
+        order: stageData.order || stages.length + 1,
+        checkpoint: stageData.checkpoint || { problemIds: [], passScore: 100 }
+      };
+      stages.push(stage);
+    }
+    this.data.roadmap_stages = stages;
+    this.save();
+    return stage;
+  }
+
+  deleteRoadmapStage(stageId) {
+    const stages = this.getRoadmapStages();
+    const stage = stages.find(s => s.id === stageId);
+    if (!stage) return false;
+    this.data.roadmap_stages = stages.filter(s => s.id !== stageId);
+    if (Array.isArray(this.data.roadmap_lessons)) {
+      this.data.roadmap_lessons = this.data.roadmap_lessons.filter(l => l.stageId !== stageId);
+    }
+    this.save();
+    return true;
+  }
+
+  saveRoadmapLesson(lessonData) {
+    const lessons = this.getRoadmapLessons();
+    let lesson = null;
+    if (lessonData.id) {
+      lesson = lessons.find(l => l.id === lessonData.id);
+    }
+    if (lesson) {
+      Object.assign(lesson, lessonData);
+    } else {
+      const stageLessons = lessons.filter(l => l.stageId === lessonData.stageId);
+      const stageNum = (lessonData.stageId || 'stage-1').replace('stage-', '');
+      const newId = lessonData.id || `${stageNum}.${stageLessons.length + 1}`;
+      lesson = {
+        ...lessonData,
+        id: newId,
+        order: lessonData.order || stageLessons.length + 1,
+        hints: Array.isArray(lessonData.hints) ? lessonData.hints : [],
+        prerequisiteLessonIds: Array.isArray(lessonData.prerequisiteLessonIds) ? lessonData.prerequisiteLessonIds : []
+      };
+      lessons.push(lesson);
+    }
+    if (lesson.problemCode || lesson.problemId) {
+      const codeOrId = lesson.problemCode || lesson.problemId;
+      const prob = this.getProblems().find(p => p.code === codeOrId || p.id === codeOrId);
+      if (prob) {
+        lesson.problemCode = prob.code;
+        lesson.problemId = prob.id;
+      }
+    }
+    this.data.roadmap_lessons = lessons;
+    this.save();
+    return lesson;
+  }
+
+  deleteRoadmapLesson(lessonId) {
+    const lessons = this.getRoadmapLessons();
+    const lesson = lessons.find(l => l.id === lessonId);
+    if (!lesson) return false;
+    this.data.roadmap_lessons = lessons.filter(l => l.id !== lessonId);
+    this.save();
+    return true;
+  }
+
+  resetRoadmapToDefault() {
+    this.data.roadmap_stages = JSON.parse(JSON.stringify(ROADMAP_STAGES));
+    this.data.roadmap_lessons = JSON.parse(JSON.stringify(ROADMAP_LESSONS));
+    this.save();
+    return { stages: this.data.roadmap_stages, lessons: this.data.roadmap_lessons };
+  }
+
   computeRoadmapProgress(userId) {
     const stages = this.getRoadmapStages();
     const lessons = this.getRoadmapLessons();
