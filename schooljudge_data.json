@@ -1674,6 +1674,486 @@
       "sampleCode": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    int r, c;\n    if (cin >> r >> c) {\n        vector<vector<long long>> a(r, vector<long long>(c));\n        for (int i = 0; i < r; i++)\n            for (int j = 0; j < c; j++)\n                cin >> a[i][j];\n        vector<long long> v;\n        v.reserve(r * c);\n        for (int i = 0; i < r; i++) {\n            if (i % 2 == 0) {\n                for (int j = 0; j < c; j++) v.push_back(a[i][j]);\n            } else {\n                for (int j = c - 1; j >= 0; j--) v.push_back(a[i][j]);\n            }\n        }\n        int cnt = 0;\n        for (size_t i = 1; i + 1 < v.size(); i++) {\n            if (v[i] > v[i - 1] && v[i] > v[i + 1]) cnt++;\n        }\n        cout << cnt << \"\\n\";\n    }\n    return 0;\n}\n",
       "hasSolution": true,
       "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-timeconv",
+      "code": "RM_TIMECONV",
+      "title": "Chuyển Đổi Thời Gian Giây Thành Giờ Phút Giây",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>CHUYỂN ĐỔI THỜI GIAN GIÂY THÀNH GIỜ, PHÚT, GIÂY</strong></p>\n<p>Hệ thống giám sát phòng máy ghi nhận thời gian chạy của máy chủ là $N$ giây. Để báo cáo trực quan cho ban quản lý, bạn cần quy đổi tổng số giây $N$ thành các đơn vị giờ, phút và giây tương ứng.</p>\n<p><strong>Yêu cầu:</strong> Cho số nguyên không âm $N$ ($0 le N le 10^9$). Hãy quy đổi $N$ giây thành $H$ giờ, $M$ phút và $S$ giây sao cho $0 le M < 60$ và $0 le S < 60$.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Gồm một dòng duy nhất chứa số nguyên $N$ ($0 le N le 10^9$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra ba số nguyên $H, M, S$ cách nhau một dấu cách.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>3665</td><td>1 1 5</td><td>3665 giây = 1 giờ (3600s) + 1 phút (60s) + 5 giây.</td></tr>\n  <tr><td>0</td><td>0 0 0</td><td>0 giây = 0 giờ 0 phút 0 giây.</td></tr>\n</table>",
+      "statement": "CHUYỂN ĐỔI THỜI GIAN GIÂY THÀNH GIỜ, PHÚT, GIÂY Hệ thống giám sát phòng máy ghi nhận thời gian chạy của máy chủ là $N$ giây. Để báo cáo trực quan cho ban quản lý, bạn cần quy đổi tổng số giây $N$ thành các đơn vị giờ, phút và giây tương ứng. Yêu cầu: Cho số nguyên không âm $N$ ($0 le N le 10^9$). Hãy quy đổi $N$ giây thành $H$ giờ, $M$ phút và $S$ giây sao cho $0 le M Dữ liệu vào: Gồm một dòng duy nhất chứa số nguyên $N$ ($0 le N le 10^9$). Dữ liệu ra: In ra ba số nguyên $H, M, S$ cách nhau một dấu cách. Ví dụ: Input Output Giải thích 3665 1 1 5 3665 giây = 1 giờ (3600s) + 1 phút (60s) + 5 giây. 0 0 0 0 0 giây = 0 giờ 0 phút 0 giây.",
+      "description": "Chuyển Đổi Thời Gian Giây Thành Giờ Phút Giây — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "3665",
+          "output": "1 1 5",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "0",
+          "output": "0 0 0",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-bigsum",
+      "code": "RM_BIGSUM",
+      "title": "Phép Cộng Hai Số Nguyên 64-bit Tránh Tràn Số",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>PHÉP CỘNG HAI SỐ NGUYÊN 64-BIT TRÁNH TRÀN SỐ</strong></p>\n<p>Trong ngôn ngữ C++, kiểu dữ liệu <code>int</code> chỉ lưu trữ được tối đa khoảng $2 \times 10^9$. Khi làm việc với các số liệu thiên văn hoặc tọa độ lớn, giá trị có thể đạt tới $10^{18}$. Lập trình viên cần khai báo đúng kiểu <code>long long</code> (64-bit) để tránh hiện tượng tràn số (integer overflow).</p>\n<p><strong>Yêu cầu:</strong> Cho hai số nguyên $A$ và $B$ ($-10^{18} le A, B le 10^{18}$). Hãy tính tổng $A + B$.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa hai số nguyên $A$ và $B$ cách nhau bởi dấu cách.</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra một số nguyên duy nhất là kết quả của $A + B$.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>1000000000000000000 500000000000000000</td><td>1500000000000000000</td><td>Kết quả vượt xa giới hạn int, yêu cầu dùng long long.</td></tr>\n  <tr><td>15 25</td><td>40</td><td>Tổng của 15 và 25 là 40.</td></tr>\n</table>",
+      "statement": "PHÉP CỘNG HAI SỐ NGUYÊN 64-BIT TRÁNH TRÀN SỐ Trong ngôn ngữ C++, kiểu dữ liệu int chỉ lưu trữ được tối đa khoảng $2 imes 10^9$. Khi làm việc với các số liệu thiên văn hoặc tọa độ lớn, giá trị có thể đạt tới $10^{18}$. Lập trình viên cần khai báo đúng kiểu long long (64-bit) để tránh hiện tượng tràn số (integer overflow). Yêu cầu: Cho hai số nguyên $A$ và $B$ ($-10^{18} le A, B le 10^{18}$). Hãy tính tổng $A + B$. Dữ liệu vào: Một dòng duy nhất chứa hai số nguyên $A$ và $B$ cách nhau bởi dấu cách. Dữ liệu ra: In ra một số nguyên duy nhất là kết quả của $A + B$. Ví dụ: Input Output Giải thích 1000000000000000000 500000000000000000 1500000000000000000 Kết quả vượt xa giới hạn int, yêu cầu dùng long long. 15 25 40 Tổng của 15 và 25 là 40.",
+      "description": "Phép Cộng Hai Số Nguyên 64-bit Tránh Tràn Số — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "1000000000000000000 500000000000000000",
+          "output": "1500000000000000000",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "15 25",
+          "output": "40",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-buscount",
+      "code": "RM_BUSCOUNT",
+      "title": "Tính Số Lượng Xe Buýt Đưa Đón Học Sinh",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>TÍNH SỐ LƯỢNG XE BUÝT ĐƯA ĐÓN HỌC SINH</strong></p>\n<p>Nhà trường tổ chức đưa $N$ học sinh đi tham quan hội chợ công nghệ. Đơn vị vận tải cho thuê loại xe buýt có sức chứa tối đa $K$ chỗ ngồi cho mỗi xe. Mỗi học sinh bắt buộc phải có một chỗ ngồi riêng biệt trên xe.</p>\n<p><strong>Yêu cầu:</strong> Cho hai số nguyên dương $N$ và $K$ ($1 le N, K le 10^9$). Hãy xác định số lượng xe buýt tối thiểu cần điều động để chở toàn bộ $N$ học sinh.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa hai số nguyên dương $N, K$ cách nhau bởi dấu cách.</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra số lượng xe buýt tối thiểu cần thuê.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>45 10</td><td>5</td><td>4 xe chở được 40 người, 5 người còn lại cần thêm 1 xe nữa. Tổng cộng 5 xe.</td></tr>\n  <tr><td>50 10</td><td>5</td><td>5 xe vừa đủ chở 50 người.</td></tr>\n</table>",
+      "statement": "TÍNH SỐ LƯỢNG XE BUÝT ĐƯA ĐÓN HỌC SINH Nhà trường tổ chức đưa $N$ học sinh đi tham quan hội chợ công nghệ. Đơn vị vận tải cho thuê loại xe buýt có sức chứa tối đa $K$ chỗ ngồi cho mỗi xe. Mỗi học sinh bắt buộc phải có một chỗ ngồi riêng biệt trên xe. Yêu cầu: Cho hai số nguyên dương $N$ và $K$ ($1 le N, K le 10^9$). Hãy xác định số lượng xe buýt tối thiểu cần điều động để chở toàn bộ $N$ học sinh. Dữ liệu vào: Một dòng duy nhất chứa hai số nguyên dương $N, K$ cách nhau bởi dấu cách. Dữ liệu ra: In ra số lượng xe buýt tối thiểu cần thuê. Ví dụ: Input Output Giải thích 45 10 5 4 xe chở được 40 người, 5 người còn lại cần thêm 1 xe nữa. Tổng cộng 5 xe. 50 10 5 5 xe vừa đủ chở 50 người.",
+      "description": "Tính Số Lượng Xe Buýt Đưa Đón Học Sinh — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "45 10",
+          "output": "5",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "50 10",
+          "output": "5",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-clockadd",
+      "code": "RM_CLOCKADD",
+      "title": "Xác Định Thời Điểm Đồng Hồ Sau X Phút",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>XÁC ĐỊNH THỜI ĐIỂM ĐỒNG HỒ SAU X PHÚT</strong></p>\n<p>Đồng hồ kỹ thuật số trong phòng thi hoạt động theo định dạng 24 giờ (từ $0$ giờ $0$ phút đến $23$ giờ $59$ phút). Hiện tại đồng hồ đang hiển thị $H$ giờ và $M$ phút.</p>\n<p><strong>Yêu cầu:</strong> Sau đúng $X$ phút nữa ($0 le X le 10^9$), đồng hồ sẽ chỉ mấy giờ và mấy phút?</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Dòng 1: Chứa hai số nguyên $H, M$ ($0 le H le 23, 0 le M le 59$).</li>\n  <li>Dòng 2: Chứa số nguyên $X$ ($0 le X le 10^9$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra hai số nguyên là giờ và phút mới cách nhau bởi một dấu cách.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>14 30<br>45</td><td>15 15</td><td>14 giờ 30 phút cộng thêm 45 phút thành 15 giờ 15 phút.</td></tr>\n  <tr><td>23 50<br>20</td><td>0 10</td><td>23 giờ 50 phút cộng thêm 20 phút sang ngày mới thành 0 giờ 10 phút.</td></tr>\n</table>",
+      "statement": "XÁC ĐỊNH THỜI ĐIỂM ĐỒNG HỒ SAU X PHÚT Đồng hồ kỹ thuật số trong phòng thi hoạt động theo định dạng 24 giờ (từ $0$ giờ $0$ phút đến $23$ giờ $59$ phút). Hiện tại đồng hồ đang hiển thị $H$ giờ và $M$ phút. Yêu cầu: Sau đúng $X$ phút nữa ($0 le X le 10^9$), đồng hồ sẽ chỉ mấy giờ và mấy phút? Dữ liệu vào: Dòng 1: Chứa hai số nguyên $H, M$ ($0 le H le 23, 0 le M le 59$). Dòng 2: Chứa số nguyên $X$ ($0 le X le 10^9$). Dữ liệu ra: In ra hai số nguyên là giờ và phút mới cách nhau bởi một dấu cách. Ví dụ: Input Output Giải thích 14 30 45 15 15 14 giờ 30 phút cộng thêm 45 phút thành 15 giờ 15 phút. 23 50 20 0 10 23 giờ 50 phút cộng thêm 20 phút sang ngày mới thành 0 giờ 10 phút.",
+      "description": "Xác Định Thời Điểm Đồng Hồ Sau X Phút — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "14 30\n45",
+          "output": "15 15",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "23 50\n20",
+          "output": "0 10",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-swapdigits",
+      "code": "RM_SWAPDIGITS",
+      "title": "Đổi Chỗ Hai Chữ Số Của Số Nguyên Dương",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>ĐỔI CHỖ HAI CHỮ SỐ CỦA SỐ NGUYÊN DƯƠNG</strong></p>\n<p>Trong trò chơi mật mã, mỗi thí sinh nhận được một thẻ bài mang số nguyên dương $N$ có đúng hai chữ số. Người chơi cần tạo ra con số đối ứng bằng cách hoán đổi vị trí của chữ số hàng chục và chữ số hàng đơn vị.</p>\n<p><strong>Yêu cầu:</strong> Cho số nguyên $N$ ($10 le N le 99$). Hãy in ra giá trị số học sau khi tráo đổi hai chữ số của $N$. (Ví dụ nếu sau khi đảo được số có chữ số hàng chục là $0$ như $05$, thì giá trị số học in ra là $5$).</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa số nguyên $N$ ($10 le N le 99$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra giá trị số nguyên sau khi đổi chỗ hai chữ số.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>73</td><td>37</td><td>Chữ số 7 và 3 đổi chỗ cho nhau thành 37.</td></tr>\n  <tr><td>50</td><td>5</td><td>Chữ số 5 và 0 đổi chỗ thành 05, giá trị số học là 5.</td></tr>\n</table>",
+      "statement": "ĐỔI CHỖ HAI CHỮ SỐ CỦA SỐ NGUYÊN DƯƠNG Trong trò chơi mật mã, mỗi thí sinh nhận được một thẻ bài mang số nguyên dương $N$ có đúng hai chữ số. Người chơi cần tạo ra con số đối ứng bằng cách hoán đổi vị trí của chữ số hàng chục và chữ số hàng đơn vị. Yêu cầu: Cho số nguyên $N$ ($10 le N le 99$). Hãy in ra giá trị số học sau khi tráo đổi hai chữ số của $N$. (Ví dụ nếu sau khi đảo được số có chữ số hàng chục là $0$ như $05$, thì giá trị số học in ra là $5$). Dữ liệu vào: Một dòng duy nhất chứa số nguyên $N$ ($10 le N le 99$). Dữ liệu ra: In ra giá trị số nguyên sau khi đổi chỗ hai chữ số. Ví dụ: Input Output Giải thích 73 37 Chữ số 7 và 3 đổi chỗ cho nhau thành 37. 50 5 Chữ số 5 và 0 đổi chỗ thành 05, giá trị số học là 5.",
+      "description": "Đổi Chỗ Hai Chữ Số Của Số Nguyên Dương — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "73",
+          "output": "37",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "50",
+          "output": "5",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-max3",
+      "code": "RM_MAX3",
+      "title": "Tìm Giá Trị Lớn Nhất Trong Ba Số Nguyên",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>TÌM GIÁ TRỊ LỚN NHẤT TRONG BA SỐ NGUYÊN</strong></p>\n<p>Cho ba số nguyên $A, B$ và $C$. Sử dụng câu lệnh điều kiện <code>if - else</code> hoặc toán tử ba ngôi để tìm ra giá trị lớn nhất trong ba số đã cho.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa ba số nguyên $A, B, C$ ($-10^9 le A, B, C le 10^9$) cách nhau bởi dấu cách.</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra giá trị lớn nhất trong ba số.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>5 12 8</td><td>12</td><td>Trong ba số 5, 12, 8 thì 12 là số lớn nhất.</td></tr>\n  <tr><td>-10 -5 -20</td><td>-5</td><td>Trong các số âm thì -5 lớn nhất.</td></tr>\n</table>",
+      "statement": "TÌM GIÁ TRỊ LỚN NHẤT TRONG BA SỐ NGUYÊN Cho ba số nguyên $A, B$ và $C$. Sử dụng câu lệnh điều kiện if - else hoặc toán tử ba ngôi để tìm ra giá trị lớn nhất trong ba số đã cho. Dữ liệu vào: Một dòng duy nhất chứa ba số nguyên $A, B, C$ ($-10^9 le A, B, C le 10^9$) cách nhau bởi dấu cách. Dữ liệu ra: In ra giá trị lớn nhất trong ba số. Ví dụ: Input Output Giải thích 5 12 8 12 Trong ba số 5, 12, 8 thì 12 là số lớn nhất. -10 -5 -20 -5 Trong các số âm thì -5 lớn nhất.",
+      "description": "Tìm Giá Trị Lớn Nhất Trong Ba Số Nguyên — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "5 12 8",
+          "output": "12",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "-10 -5 -20",
+          "output": "-5",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-sort3",
+      "code": "RM_SORT3",
+      "title": "Sắp Xếp Ba Số Nguyên Tăng Dần",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>SẮP XẾP BA SỐ NGUYÊN TĂNG DẦN</strong></p>\n<p>Cho ba số nguyên $A, B, C$. Hãy sử dụng các câu lệnh so sánh và hoán đổi điều kiện (không dùng hàm <code>std::sort</code>) để sắp xếp ba số theo thứ tự không giảm (tăng dần).</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa ba số nguyên $A, B, C$ ($-10^9 le A, B, C le 10^9$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra ba số sau khi sắp xếp tăng dần, cách nhau bởi một dấu cách.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>15 4 9</td><td>4 9 15</td><td>Thứ tự tăng dần là 4, 9, 15.</td></tr>\n  <tr><td>5 5 2</td><td>2 5 5</td><td>Thứ tự tăng dần là 2, 5, 5.</td></tr>\n</table>",
+      "statement": "SẮP XẾP BA SỐ NGUYÊN TĂNG DẦN Cho ba số nguyên $A, B, C$. Hãy sử dụng các câu lệnh so sánh và hoán đổi điều kiện (không dùng hàm std::sort ) để sắp xếp ba số theo thứ tự không giảm (tăng dần). Dữ liệu vào: Một dòng duy nhất chứa ba số nguyên $A, B, C$ ($-10^9 le A, B, C le 10^9$). Dữ liệu ra: In ra ba số sau khi sắp xếp tăng dần, cách nhau bởi một dấu cách. Ví dụ: Input Output Giải thích 15 4 9 4 9 15 Thứ tự tăng dần là 4, 9, 15. 5 5 2 2 5 5 Thứ tự tăng dần là 2, 5, 5.",
+      "description": "Sắp Xếp Ba Số Nguyên Tăng Dần — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "15 4 9",
+          "output": "4 9 15",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "1 2 3",
+          "output": "1 2 3",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-leapyear",
+      "code": "RM_LEAPYEAR",
+      "title": "Kiểm Tra Năm Nhuận Dương Lịch Chuẩn Quốc Tế",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>KIỂM TRA NĂM NHUẬN DƯƠNG LỊCH CHUẨN QUỐC TẾ</strong></p>\n<p>Theo lịch Gregory (dương lịch), một năm $Y$ được quy định là năm nhuận nếu thỏa mãn một trong hai điều kiện sau:</p>\n<ul>\n  <li>$Y$ chia hết cho 400; HOẶC</li>\n  <li>$Y$ chia hết cho 4 nhưng đồng thời không chia hết cho 100.</li>\n</ul>\n<p><strong>Yêu cầu:</strong> Cho một số nguyên dương $Y$ ($1 le Y le 10^9$). Hãy kiểm tra xem năm $Y$ có phải là năm nhuận hay không.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa số nguyên dương $Y$.</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra <code>YES</code> nếu $Y$ là năm nhuận, ngược lại in ra <code>NO</code>.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>2024</td><td>YES</td><td>2024 chia hết cho 4 và không chia hết cho 100 nên là năm nhuận.</td></tr>\n  <tr><td>1900</td><td>NO</td><td>1900 chia hết cho 100 nhưng không chia hết cho 400 nên không nhuận.</td></tr>\n</table>",
+      "statement": "KIỂM TRA NĂM NHUẬN DƯƠNG LỊCH CHUẨN QUỐC TẾ Theo lịch Gregory (dương lịch), một năm $Y$ được quy định là năm nhuận nếu thỏa mãn một trong hai điều kiện sau: $Y$ chia hết cho 400; HOẶC $Y$ chia hết cho 4 nhưng đồng thời không chia hết cho 100. Yêu cầu: Cho một số nguyên dương $Y$ ($1 le Y le 10^9$). Hãy kiểm tra xem năm $Y$ có phải là năm nhuận hay không. Dữ liệu vào: Một dòng duy nhất chứa số nguyên dương $Y$. Dữ liệu ra: In ra YES nếu $Y$ là năm nhuận, ngược lại in ra NO . Ví dụ: Input Output Giải thích 2024 YES 2024 chia hết cho 4 và không chia hết cho 100 nên là năm nhuận. 1900 NO 1900 chia hết cho 100 nhưng không chia hết cho 400 nên không nhuận.",
+      "description": "Kiểm Tra Năm Nhuận Dương Lịch Chuẩn Quốc Tế — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "2024",
+          "output": "YES",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "2023",
+          "output": "NO",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-daysinmonth",
+      "code": "RM_DAYSINMONTH",
+      "title": "Xác Định Số Ngày Trong Tháng Của Năm Bất Kỳ",
+      "category": "C++ Cơ bản",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>XÁC ĐỊNH SỐ NGÀY TRONG THÁNG CỦA NĂM BẤT KỲ</strong></p>\n<p>Một ứng dụng quản lý lịch biểu cần xác định chính xác số lượng ngày của tháng $M$ trong năm $Y$. Biết rằng:</p>\n<ul>\n  <li>Các tháng 1, 3, 5, 7, 8, 10, 12 luôn có 31 ngày.</li>\n  <li>Các tháng 4, 6, 9, 11 luôn có 30 ngày.</li>\n  <li>Tháng 2 có 29 ngày nếu $Y$ là năm nhuận, và có 28 ngày nếu $Y$ không phải là năm nhuận.</li>\n</ul>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Gồm một dòng chứa hai số nguyên $M$ và $Y$ ($1 le M le 12$, $1 le Y le 10^9$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra một số nguyên duy nhất là số ngày của tháng $M$ trong năm $Y$.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>2 2024</td><td>29</td><td>Năm 2024 là năm nhuận nên tháng 2 có 29 ngày.</td></tr>\n  <tr><td>2 2023</td><td>28</td><td>Năm 2023 không nhuận nên tháng 2 có 28 ngày.</td></tr>\n</table>",
+      "statement": "XÁC ĐỊNH SỐ NGÀY TRONG THÁNG CỦA NĂM BẤT KỲ Một ứng dụng quản lý lịch biểu cần xác định chính xác số lượng ngày của tháng $M$ trong năm $Y$. Biết rằng: Các tháng 1, 3, 5, 7, 8, 10, 12 luôn có 31 ngày. Các tháng 4, 6, 9, 11 luôn có 30 ngày. Tháng 2 có 29 ngày nếu $Y$ là năm nhuận, và có 28 ngày nếu $Y$ không phải là năm nhuận. Dữ liệu vào: Gồm một dòng chứa hai số nguyên $M$ và $Y$ ($1 le M le 12$, $1 le Y le 10^9$). Dữ liệu ra: In ra một số nguyên duy nhất là số ngày của tháng $M$ trong năm $Y$. Ví dụ: Input Output Giải thích 2 2024 29 Năm 2024 là năm nhuận nên tháng 2 có 29 ngày. 2 2023 28 Năm 2023 không nhuận nên tháng 2 có 28 ngày.",
+      "description": "Xác Định Số Ngày Trong Tháng Của Năm Bất Kỳ — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "2 2024",
+          "output": "29",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "2 2023",
+          "output": "28",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-weekday",
+      "code": "RM_WEEKDAY",
+      "title": "Chuyển Đổi Số Thứ Tự Sang Thứ Trong Tuần",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>CHUYỂN ĐỔI SỐ THỨ TỰ SANG THỨ TRONG TUẦN</strong></p>\n<p>Áp dụng cấu trúc lệnh <code>switch-case</code> trong C++ để chuyển đổi một mã số $D$ thành tên ngày tương ứng trong tuần theo quy ước quốc tế không dấu:</p>\n<ul>\n  <li>$1$: <code>Chu Nhat</code></li>\n  <li>$2$: <code>Thu Hai</code></li>\n  <li>$3$: <code>Thu Ba</code></li>\n  <li>$4$: <code>Thu Tu</code></li>\n  <li>$5$: <code>Thu Nam</code></li>\n  <li>$6$: <code>Thu Sau</code></li>\n  <li>$7$: <code>Thu Bay</code></li>\n  <li>Các giá trị khác ngoài khoảng $[1, 7]$: in ra <code>KHONG HOP LE</code></li>\n</ul>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa số nguyên $D$ ($-100 le D le 100$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra tên ngày trong tuần tương ứng theo định dạng trên.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>1</td><td>Chu Nhat</td><td>Số 1 quy ước là Chủ Nhật.</td></tr>\n  <tr><td>8</td><td>KHONG HOP LE</td><td>Số 8 không nằm trong tuần [1, 7].</td></tr>\n</table>",
+      "statement": "CHUYỂN ĐỔI SỐ THỨ TỰ SANG THỨ TRONG TUẦN Áp dụng cấu trúc lệnh switch-case trong C++ để chuyển đổi một mã số $D$ thành tên ngày tương ứng trong tuần theo quy ước quốc tế không dấu: $1$: Chu Nhat $2$: Thu Hai $3$: Thu Ba $4$: Thu Tu $5$: Thu Nam $6$: Thu Sau $7$: Thu Bay Các giá trị khác ngoài khoảng $[1, 7]$: in ra KHONG HOP LE Dữ liệu vào: Một dòng duy nhất chứa số nguyên $D$ ($-100 le D le 100$). Dữ liệu ra: In ra tên ngày trong tuần tương ứng theo định dạng trên. Ví dụ: Input Output Giải thích 1 Chu Nhat Số 1 quy ước là Chủ Nhật. 8 KHONG HOP LE Số 8 không nằm trong tuần [1, 7].",
+      "description": "Chuyển Đổi Số Thứ Tự Sang Thứ Trong Tuần — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "1",
+          "output": "Chu Nhat",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "2",
+          "output": "Thu Hai",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-validdate",
+      "code": "RM_VALIDDATE",
+      "title": "Kiểm Tra Tính Hợp Lệ Của Ngày Tháng Năm",
+      "category": "C++ Cơ bản",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>KIỂM TRA TÍNH HỢP LỆ CỦA BỘ BA NGÀY THÁNG NĂM</strong></p>\n<p>Một phần mềm biểu mẫu nhập liệu cần kiểm tra xem bộ ba số nguyên $(D, M, Y)$ do người dùng nhập vào có tạo thành một ngày hợp lệ trong dương lịch hay không.</p>\n<p><strong>Quy tắc hợp lệ:</strong></p>\n<ul>\n  <li>Năm $Y ge 1$.</li>\n  <li>Tháng $1 le M le 12$.</li>\n  <li>Ngày $1 le D le \text{số ngày tối đa của tháng } M \text{ trong năm } Y$ (chú ý kiểm tra năm nhuận cho tháng 2).</li>\n</ul>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa ba số nguyên $D, M, Y$ ($-10^9 le D, M, Y le 10^9$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra <code>VALID</code> nếu ngày tháng năm hợp lệ, ngược lại in ra <code>INVALID</code>.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>29 2 2024</td><td>VALID</td><td>Năm 2024 là năm nhuận, ngày 29/02 hợp lệ.</td></tr>\n  <tr><td>29 2 2023</td><td>INVALID</td><td>Năm 2023 không nhuận, tháng 2 chỉ có 28 ngày.</td></tr>\n</table>",
+      "statement": "KIỂM TRA TÍNH HỢP LỆ CỦA BỘ BA NGÀY THÁNG NĂM Một phần mềm biểu mẫu nhập liệu cần kiểm tra xem bộ ba số nguyên $(D, M, Y)$ do người dùng nhập vào có tạo thành một ngày hợp lệ trong dương lịch hay không. Quy tắc hợp lệ: Năm $Y ge 1$. Tháng $1 le M le 12$. Ngày $1 le D le ext{số ngày tối đa của tháng } M ext{ trong năm } Y$ (chú ý kiểm tra năm nhuận cho tháng 2). Dữ liệu vào: Một dòng duy nhất chứa ba số nguyên $D, M, Y$ ($-10^9 le D, M, Y le 10^9$). Dữ liệu ra: In ra VALID nếu ngày tháng năm hợp lệ, ngược lại in ra INVALID . Ví dụ: Input Output Giải thích 29 2 2024 VALID Năm 2024 là năm nhuận, ngày 29/02 hợp lệ. 29 2 2023 INVALID Năm 2023 không nhuận, tháng 2 chỉ có 28 ngày.",
+      "description": "Kiểm Tra Tính Hợp Lệ Của Ngày Tháng Năm — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "29 2 2024",
+          "output": "VALID",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "29 2 2023",
+          "output": "INVALID",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-gradeclass",
+      "code": "RM_GRADECLASS",
+      "title": "Phân Loại Học Lực Theo Điểm Số Thang Điểm 100",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>PHÂN LOẠI HỌC LỰC THEO ĐIỂM SỐ THANG ĐIỂM 100</strong></p>\n<p>Hệ thống xét tuyển học bổng phân loại kết quả thi của thí sinh theo thang điểm số nguyên $S$ ($0 le S le 100$) như sau:</p>\n<ul>\n  <li>$90 le S le 100$: in ra <code>XUAT SAC</code></li>\n  <li>$80 le S le 89$: in ra <code>GIOI</code></li>\n  <li>$65 le S le 79$: in ra <code>KHA</code></li>\n  <li>$50 le S le 64$: in ra <code>TRUNG BINH</code></li>\n  <li>$0 le S le 49$: in ra <code>YEU</code></li>\n  <li>Nếu $S < 0$ hoặc $S > 100$: in ra <code>KHONG HOP LE</code></li>\n</ul>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa số nguyên $S$ ($-1000 le S le 1000$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra kết quả xếp loại tương ứng.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>95</td><td>XUAT SAC</td><td>Điểm 95 nằm trong khoảng [90, 100].</td></tr>\n  <tr><td>105</td><td>KHONG HOP LE</td><td>Điểm 105 vượt quá thang điểm 100.</td></tr>\n</table>",
+      "statement": "PHÂN LOẠI HỌC LỰC THEO ĐIỂM SỐ THANG ĐIỂM 100 Hệ thống xét tuyển học bổng phân loại kết quả thi của thí sinh theo thang điểm số nguyên $S$ ($0 le S le 100$) như sau: $90 le S le 100$: in ra XUAT SAC $80 le S le 89$: in ra GIOI $65 le S le 79$: in ra KHA $50 le S le 64$: in ra TRUNG BINH $0 le S le 49$: in ra YEU Nếu $S 100$: in ra KHONG HOP LE Dữ liệu vào: Một dòng duy nhất chứa số nguyên $S$ ($-1000 le S le 1000$). Dữ liệu ra: In ra kết quả xếp loại tương ứng. Ví dụ: Input Output Giải thích 95 XUAT SAC Điểm 95 nằm trong khoảng [90, 100]. 105 KHONG HOP LE Điểm 105 vượt quá thang điểm 100.",
+      "description": "Phân Loại Học Lực Theo Điểm Số Thang Điểm 100 — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "95",
+          "output": "XUAT SAC",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "90",
+          "output": "XUAT SAC",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-electricbill",
+      "code": "RM_ELECTRICBILL",
+      "title": "Tính Tiền Điện Tiêu Thụ Theo Biểu Giá Lũy Tiến",
+      "category": "C++ Cơ bản",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>TÍNH TIỀN ĐIỆN TIÊU THỤ THEO BIỂU GIÁ LŨY TIẾN</strong></p>\n<p>Công ty Điện lực tính tiền điện sinh hoạt cho hộ gia đình tiêu thụ $N$ kWh điện trong tháng ($0 le N le 10^6$) theo biểu giá 4 bậc thang lũy tiến sau:</p>\n<ul>\n  <li>Bậc 1 (cho 50 kWh đầu tiên, từ kWh 1 đến 50): giá <strong>1678</strong> đồng/kWh.</li>\n  <li>Bậc 2 (cho 50 kWh tiếp theo, từ kWh 51 đến 100): giá <strong>1734</strong> đồng/kWh.</li>\n  <li>Bậc 3 (cho 100 kWh tiếp theo, từ kWh 101 đến 200): giá <strong>2014</strong> đồng/kWh.</li>\n  <li>Bậc 4 (cho các kWh từ thứ 201 trở đi): giá <strong>2536</strong> đồng/kWh.</li>\n</ul>\n<p><strong>Yêu cầu:</strong> Cho số nguyên $N$ là lượng điện tiêu thụ trong tháng. Hãy tính tổng số tiền điện phải thanh toán (đồng).</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa số nguyên $N$ ($0 le N le 10^6$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra một số nguyên duy nhất là tổng số tiền điện phải trả.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>30</td><td>50340</td><td>30 kWh thuộc bậc 1: 30 * 1678 = 50.340 đồng.</td></tr>\n  <tr><td>75</td><td>127250</td><td>50 kWh bậc 1 (83.900) + 25 kWh bậc 2 (43.350) = 127.250 đồng.</td></tr>\n</table>",
+      "statement": "TÍNH TIỀN ĐIỆN TIÊU THỤ THEO BIỂU GIÁ LŨY TIẾN Công ty Điện lực tính tiền điện sinh hoạt cho hộ gia đình tiêu thụ $N$ kWh điện trong tháng ($0 le N le 10^6$) theo biểu giá 4 bậc thang lũy tiến sau: Bậc 1 (cho 50 kWh đầu tiên, từ kWh 1 đến 50): giá 1678 đồng/kWh. Bậc 2 (cho 50 kWh tiếp theo, từ kWh 51 đến 100): giá 1734 đồng/kWh. Bậc 3 (cho 100 kWh tiếp theo, từ kWh 101 đến 200): giá 2014 đồng/kWh. Bậc 4 (cho các kWh từ thứ 201 trở đi): giá 2536 đồng/kWh. Yêu cầu: Cho số nguyên $N$ là lượng điện tiêu thụ trong tháng. Hãy tính tổng số tiền điện phải thanh toán (đồng). Dữ liệu vào: Một dòng duy nhất chứa số nguyên $N$ ($0 le N le 10^6$). Dữ liệu ra: In ra một số nguyên duy nhất là tổng số tiền điện phải trả. Ví dụ: Input Output Giải thích 30 50340 30 kWh thuộc bậc 1: 30 * 1678 = 50.340 đồng. 75 127250 50 kWh bậc 1 (83.900) + 25 kWh bậc 2 (43.350) = 127.250 đồng.",
+      "description": "Tính Tiền Điện Tiêu Thụ Theo Biểu Giá Lũy Tiến — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "30",
+          "output": "50340",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "50",
+          "output": "83900",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-taxbracket",
+      "code": "RM_TAXBRACKET",
+      "title": "Tính Thuế Thu Nhập Cá Nhân Lũy Tiến Từng Phần",
+      "category": "C++ Cơ bản",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>TÍNH THUẾ THU NHẬP CÁ NHÂN LŨY TIẾN TỪNG PHẦN</strong></p>\n<p>Thu nhập tính thuế của một chuyên gia công nghệ là $T$ nghìn đồng ($0 le T le 10^9$). Mức thuế thu nhập phải nộp được tính theo biểu thuế lũy tiến từng phần như sau:</p>\n<ul>\n  <li>Phần thu nhập đến 5.000 nghìn đồng: chịu thuế suất <strong>5%</strong>.</li>\n  <li>Phần thu nhập trên 5.000 đến 10.000 nghìn đồng: chịu thuế suất <strong>10%</strong>.</li>\n  <li>Phần thu nhập trên 10.000 đến 18.000 nghìn đồng: chịu thuế suất <strong>15%</strong>.</li>\n  <li>Phần thu nhập trên 18.000 nghìn đồng: chịu thuế suất <strong>20%</strong>.</li>\n</ul>\n<p><em>Ghi chú:</em> Để đảm bảo không xuất hiện số thực, dữ liệu kiểm thử luôn đảm bảo $T$ là bội số của $100$. Số tiền thuế tính ra luôn là số nguyên nghìn đồng.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa số nguyên $T$ ($0 le T le 10^9$, $T$ chia hết cho 100).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra số tiền thuế phải nộp (đơn vị: nghìn đồng).</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>4000</td><td>200</td><td>4000 * 5% = 200 nghìn đồng.</td></tr>\n  <tr><td>8000</td><td>550</td><td>5000 * 5% (250) + 3000 * 10% (300) = 550 nghìn đồng.</td></tr>\n</table>",
+      "statement": "TÍNH THUẾ THU NHẬP CÁ NHÂN LŨY TIẾN TỪNG PHẦN Thu nhập tính thuế của một chuyên gia công nghệ là $T$ nghìn đồng ($0 le T le 10^9$). Mức thuế thu nhập phải nộp được tính theo biểu thuế lũy tiến từng phần như sau: Phần thu nhập đến 5.000 nghìn đồng: chịu thuế suất 5% . Phần thu nhập trên 5.000 đến 10.000 nghìn đồng: chịu thuế suất 10% . Phần thu nhập trên 10.000 đến 18.000 nghìn đồng: chịu thuế suất 15% . Phần thu nhập trên 18.000 nghìn đồng: chịu thuế suất 20% . Ghi chú: Để đảm bảo không xuất hiện số thực, dữ liệu kiểm thử luôn đảm bảo $T$ là bội số của $100$. Số tiền thuế tính ra luôn là số nguyên nghìn đồng. Dữ liệu vào: Một dòng duy nhất chứa số nguyên $T$ ($0 le T le 10^9$, $T$ chia hết cho 100). Dữ liệu ra: In ra số tiền thuế phải nộp (đơn vị: nghìn đồng). Ví dụ: Input Output Giải thích 4000 200 4000 * 5% = 200 nghìn đồng. 8000 550 5000 * 5% (250) + 3000 * 10% (300) = 550 nghìn đồng.",
+      "description": "Tính Thuế Thu Nhập Cá Nhân Lũy Tiến Từng Phần — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "4000",
+          "output": "200",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "5000",
+          "output": "250",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-countdigits",
+      "code": "RM_COUNTDIGITS",
+      "title": "Đếm Số Lượng Chữ Số Của Một Số Nguyên",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>ĐẾM SỐ LƯỢNG CHỮ SỐ CỦA MỘT SỐ NGUYÊN</strong></p>\n<p>Sử dụng vòng lặp <code>while</code> hoặc <code>do-while</code> để liên tục chia nguyên cho 10 nhằm đếm số lượng chữ số trong biểu diễn thập phân của số nguyên $N$.</p>\n<p><strong>Lưu ý:</strong> Dấu âm <code>-</code> (nếu có) không được tính là một chữ số. Số $0$ có đúng $1$ chữ số.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Một dòng duy nhất chứa số nguyên $N$ ($-10^{18} le N le 10^{18}$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong></p>\n<ul>\n  <li>In ra số lượng chữ số của $N$.</li>\n</ul>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>12345</td><td>5</td><td>Số 12345 có 5 chữ số: 1, 2, 3, 4, 5.</td></tr>\n  <tr><td>0</td><td>1</td><td>Số 0 có 1 chữ số.</td></tr>\n  <tr><td>-7</td><td>1</td><td>Dấu âm không tính, số -7 có 1 chữ số là 7.</td></tr>\n</table>",
+      "statement": "ĐẾM SỐ LƯỢNG CHỮ SỐ CỦA MỘT SỐ NGUYÊN Sử dụng vòng lặp while hoặc do-while để liên tục chia nguyên cho 10 nhằm đếm số lượng chữ số trong biểu diễn thập phân của số nguyên $N$. Lưu ý: Dấu âm - (nếu có) không được tính là một chữ số. Số $0$ có đúng $1$ chữ số. Dữ liệu vào: Một dòng duy nhất chứa số nguyên $N$ ($-10^{18} le N le 10^{18}$). Dữ liệu ra: In ra số lượng chữ số của $N$. Ví dụ: Input Output Giải thích 12345 5 Số 12345 có 5 chữ số: 1, 2, 3, 4, 5. 0 1 Số 0 có 1 chữ số. -7 1 Dấu âm không tính, số -7 có 1 chữ số là 7.",
+      "description": "Đếm Số Lượng Chữ Số Của Một Số Nguyên — Bài tập rèn luyện trong Lộ trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "12345",
+          "output": "5",
+          "explanation": "Bộ test ví dụ minh họa."
+        },
+        {
+          "input": "0",
+          "output": "1",
+          "explanation": "Bộ test ví dụ minh họa."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
     }
   ],
   "submissions": [],
