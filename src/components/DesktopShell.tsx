@@ -22,7 +22,9 @@ import {
   GraduationCap,
   Download,
   Menu,
-  X
+  X,
+  PanelLeftClose,
+  PanelLeftOpen
 } from 'lucide-react';
 import { isElectron } from '../lib/api';
 
@@ -45,6 +47,23 @@ export const DesktopShell: React.FC<Props> = ({ activeTab, setActiveTab, childre
   const isAdmin = role === 'host' || !!user?.isAdmin;
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isRailExpanded, setIsRailExpanded] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('schooljudge_sidebar_expanded');
+      return saved !== null ? saved === 'true' : true;
+    } catch {
+      return true;
+    }
+  });
+
+  const toggleRail = () => {
+    setIsRailExpanded(prev => {
+      const next = !prev;
+      try { localStorage.setItem('schooljudge_sidebar_expanded', String(next)); } catch {}
+      return next;
+    });
+  };
+
   const location = useLocation();
   const navigate = useNavigate();
   const currentPath = location.pathname;
@@ -103,21 +122,39 @@ export const DesktopShell: React.FC<Props> = ({ activeTab, setActiveTab, childre
 
   return (
     <div className="desktop-layout-root">
-      {/* LEFT 52px ACTIVITY RAIL */}
-      <aside className="activity-rail" aria-label="Activity Rail">
-        {/* Top App Glyph with UMT Dark Logo */}
-        <div
-          className="rail-brand"
-          title="UMTJudge"
-          onClick={handleBrandClick}
-          style={{ padding: '8px 4px', cursor: 'pointer' }}
-        >
-          <div className="rail-brand-icon" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <UmtDarkLogo height={28} />
+      {/* LEFT EXPANDABLE SIDEBAR / ACTIVITY RAIL */}
+      <aside className={`activity-rail ${isRailExpanded ? 'expanded' : ''}`} aria-label="Activity Rail">
+        {/* Top Header Row with Logo and Toggle Button */}
+        <div className="rail-header-row">
+          <div
+            className="rail-brand"
+            title="UMTJudge"
+            onClick={handleBrandClick}
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="rail-brand-icon" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <UmtDarkLogo height={26} />
+            </div>
+            {isRailExpanded && (
+              <div className="rail-brand-text animate-fade-in">
+                <span className="rail-brand-title">UMT JUDGE</span>
+                <span className="rail-brand-badge">{isAdmin ? 'MÁY CHỦ GIÁO VIÊN' : 'HỌC SINH / THÍ SINH'}</span>
+              </div>
+            )}
           </div>
+
+          <button
+            type="button"
+            className="rail-toggle-btn"
+            onClick={toggleRail}
+            title={isRailExpanded ? "Thu gọn menu (Chỉ hiện icon)" : "Mở rộng menu (Hiện tên chức năng)"}
+            aria-label="Thu gọn hoặc mở rộng thanh điều hướng"
+          >
+            {isRailExpanded ? <PanelLeftClose size={18} /> : <PanelLeftOpen size={18} />}
+          </button>
         </div>
 
-        {/* Primary Navigation Icons */}
+        {/* Navigation Items with Labels & Shortcuts */}
         <nav className="rail-nav-group" aria-label="Main Navigation">
           {currentNavItems.map((item) => {
             const isActive = activeItem?.id === item.id;
@@ -127,10 +164,16 @@ export const DesktopShell: React.FC<Props> = ({ activeTab, setActiveTab, childre
                 type="button"
                 className={`rail-nav-btn ${isActive ? 'active' : ''}`}
                 onClick={() => handleNavClick(item)}
-                title={`${item.label} (Alt+${item.shortcut || ''})`}
+                title={!isRailExpanded ? `${item.label} (Alt+${item.shortcut || ''})` : undefined}
                 aria-label={item.label}
               >
-                {item.icon}
+                <span className="rail-nav-icon">{item.icon}</span>
+                {isRailExpanded && (
+                  <span className="rail-nav-label animate-fade-in">{item.label}</span>
+                )}
+                {isRailExpanded && item.shortcut && (
+                  <kbd className="rail-nav-shortcut">Alt+{item.shortcut}</kbd>
+                )}
                 {isActive && <div className="rail-active-indicator" />}
               </button>
             );
@@ -138,11 +181,11 @@ export const DesktopShell: React.FC<Props> = ({ activeTab, setActiveTab, childre
         </nav>
 
         {/* Bottom User Profile & Logout */}
-        <div className="rail-bottom-group">
-          <div className="rail-user-container">
+        <div className="rail-bottom-group" style={{ width: '100%' }}>
+          <div className="rail-user-container" style={{ width: '100%' }}>
             <button
               type="button"
-              className="rail-nav-btn rail-user-btn"
+              className={`rail-nav-btn rail-user-btn ${isRailExpanded ? 'expanded' : ''}`}
               onClick={() => setShowUserMenu(!showUserMenu)}
               title={user ? `${user.fullName || user.username} (${role === 'host' ? 'Giáo Viên' : 'Học Sinh'})` : 'Tài khoản'}
               aria-label="Menu tài khoản người dùng"
@@ -152,16 +195,30 @@ export const DesktopShell: React.FC<Props> = ({ activeTab, setActiveTab, childre
                 style={{
                   background: 'var(--grad-primary)',
                   boxShadow: '0 0 10px var(--primary-glow)',
-                  fontWeight: 800
+                  fontWeight: 800,
+                  flexShrink: 0
                 }}
               >
                 {(user?.fullName || user?.username || 'U').charAt(0).toUpperCase()}
               </div>
+              {isRailExpanded && (
+                <div className="rail-user-info-text animate-fade-in">
+                  <div className="rail-user-info-name">{user?.fullName || user?.username}</div>
+                  <div className="rail-user-info-role">{role === 'host' ? 'Giáo viên' : 'Học sinh'}</div>
+                </div>
+              )}
             </button>
 
             {/* Quick User Dropdown */}
             {showUserMenu && (
-              <div className="rail-user-menu glass-panel bracket-corners animate-scale-in" style={{ bottom: '10px' }}>
+              <div 
+                className="rail-user-menu glass-panel bracket-corners animate-scale-in" 
+                style={{ 
+                  bottom: '10px',
+                  left: isRailExpanded ? '12px' : '48px',
+                  width: isRailExpanded ? 'calc(100% - 24px)' : '220px'
+                }}
+              >
                 <div className="rail-user-header">
                   <div className="rail-user-fullname">{user?.fullName || user?.username}</div>
                   <div className="rail-user-role-label umt-subtitle">
@@ -188,15 +245,30 @@ export const DesktopShell: React.FC<Props> = ({ activeTab, setActiveTab, childre
         {/* Sub-header / Window Top Context Bar */}
         <header className="desktop-view-header">
           <div className="view-header-title-group">
-            {/* Mobile Hamburger Drawer Trigger */}
+            {/* Desktop & Mobile Menu Toggle Button */}
             <button
               type="button"
-              className="btn btn-outline btn-sm mobile-menu-toggle"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              style={{ display: 'none', padding: '4px 8px' }}
-              aria-label="Mở menu chức năng"
+              className="btn btn-outline btn-sm desktop-menu-toggle"
+              onClick={toggleRail}
+              style={{ 
+                padding: '5px 10px', 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '6px',
+                borderRadius: 'var(--radius-sm)',
+                marginRight: '8px',
+                background: isRailExpanded ? 'rgba(124, 92, 255, 0.12)' : 'var(--surface-2)',
+                borderColor: isRailExpanded ? 'var(--primary)' : 'var(--border-subtle)',
+                color: isRailExpanded ? 'var(--primary-light)' : 'var(--text-secondary)',
+                cursor: 'pointer'
+              }}
+              title={isRailExpanded ? "Thu gọn menu (Chỉ hiện icon)" : "Mở rộng menu (Hiện tên các chức năng)"}
+              aria-label="Menu chức năng"
             >
-              {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
+              <Menu size={16} />
+              <span style={{ fontSize: '0.78rem', fontWeight: 600 }}>
+                {isRailExpanded ? 'Thu gọn' : 'Menu'}
+              </span>
             </button>
 
             <span
