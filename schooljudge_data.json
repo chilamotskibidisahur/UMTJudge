@@ -563,6 +563,390 @@
       "pdfUrl": "",
       "pdfFileName": "",
       "testCount": 40
+    },
+    {
+      "id": "prob-rm-fastio",
+      "code": "RM_FASTIO",
+      "title": "C++ Fast I/O & Phép Tính Số Nguyên Lớn",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 1: NHẬP XUẤT CHUẨN & PHÉP TÍNH SỐ NGUYÊN LỚN (FAST I/O)</strong></p>\n<p>Trong lập trình thi đấu C++, việc tối ưu tốc độ vào/ra dữ liệu (Fast I/O) và sử dụng đúng kiểu dữ liệu để tránh tràn số (Overflow) là kỹ năng tối quan trọng.</p>\n<p><strong>Yêu cầu:</strong> Cho hai số nguyên $A$ và $B$ ($-10^9 le A, B le 10^9$). Hãy tính và in ra trên 3 dòng lần lượt là:</p>\n<ul>\n  <li>Dòng 1: Tổng $A + B$</li>\n  <li>Dòng 2: Hiệu $A - B$</li>\n  <li>Dòng 3: Tích $A \times B$</li>\n</ul>\n<p><em>Lưu ý:</em> Tích $A \times B$ có thể đạt tới $10^{18}$, vượt quá giới hạn của kiểu <code>int</code> (32-bit). Bạn bắt buộc phải dùng kiểu <code>long long</code> (64-bit) và chèn <code>ios_base::sync_with_stdio(0); cin.tie(0);</code> để tăng tốc độ.</p>\n<p><strong>Dữ liệu vào:</strong> Một dòng duy nhất chứa 2 số nguyên $A, B$ cách nhau bởi dấu cách.</p>\n<p><strong>Dữ liệu ra:</strong> In ra 3 dòng tương ứng là Tổng, Hiệu và Tích.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>5 3</td><td>8<br>2<br>15</td><td>5 + 3 = 8; 5 - 3 = 2; 5 * 3 = 15.</td></tr>\n  <tr><td>1000000000 1000000000</td><td>2000000000<br>0<br>1000000000000000000</td><td>Tích đạt 10^18, cần dùng long long.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 1: NHẬP XUẤT CHUẨN & PHÉP TÍNH SỐ NGUYÊN LỚN (FAST I/O) Trong lập trình thi đấu C++, việc tối ưu tốc độ vào/ra dữ liệu (Fast I/O) và sử dụng đúng kiểu dữ liệu để tránh tràn số (Overflow) là kỹ năng tối quan trọng. Yêu cầu: Cho hai số nguyên $A$ và $B$ ($-10^9 le A, B le 10^9$). Hãy tính và in ra trên 3 dòng lần lượt là: Dòng 1: Tổng $A + B$ Dòng 2: Hiệu $A - B$ Dòng 3: Tích $A imes B$ Lưu ý: Tích $A imes B$ có thể đạt tới $10^{18}$, vượt quá giới hạn của kiểu int (32-bit). Bạn bắt buộc phải dùng kiểu long long (64-bit) và chèn ios_base::sync_with_stdio(0); cin.tie(0); để tăng tốc độ. Dữ liệu vào: Một dòng duy nhất chứa 2 số nguyên $A, B$ cách nhau bởi dấu cách. Dữ liệu ra: In ra 3 dòng tương ứng là Tổng, Hiệu và Tích. Ví dụ: Input Output Giải thích 5 3 8 2 15 5 + 3 = 8; 5 - 3 = 2; 5 * 3 = 15. 1000000000 1000000000 2000000000 0 1000000000000000000 Tích đạt 10^18, cần dùng long long.",
+      "description": "C++ Fast I/O & Phép Tính Số Nguyên Lớn — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "5 3",
+          "output": "8\n2\n15",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "0 0",
+          "output": "0\n0\n0",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-compare",
+      "code": "RM_COMPARE",
+      "title": "So Sánh Hai Số & Phân Loại Tính Chất",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 2: CÂU LỆNH ĐIỀU KIỆN IF - ELSE & SO SÁNH LOGIC</strong></p>\n<p>Bạn được cho 2 số nguyên $A$ và $B$. Hãy áp dụng cấu trúc rẽ nhánh để đưa ra phán quyết theo quy tắc sau:</p>\n<ul>\n  <li>Nếu $A > B$, in ra giá trị của $A$.</li>\n  <li>Nếu $A < B$, in ra giá trị của $B$.</li>\n  <li>Nếu $A = B$, kiểm tra tính chẵn lẻ của $A$: in ra <code>CHAN</code> nếu $A$ là số chẵn, hoặc <code>LE</code> nếu $A$ là số lẻ.</li>\n</ul>\n<p><strong>Dữ liệu vào:</strong> Một dòng duy nhất chứa 2 số nguyên $A, B$ ($-10^9 le A, B le 10^9$).</p>\n<p><strong>Dữ liệu ra:</strong> In ra kết quả thỏa mãn quy tắc trên.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>15 9</td><td>15</td><td>15 lớn hơn 9, in ra 15.</td></tr>\n  <tr><td>8 8</td><td>CHAN</td><td>Hai số bằng nhau và là số chẵn.</td></tr>\n  <tr><td>7 7</td><td>LE</td><td>Hai số bằng nhau và là số lẻ.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 2: CÂU LỆNH ĐIỀU KIỆN IF - ELSE & SO SÁNH LOGIC Bạn được cho 2 số nguyên $A$ và $B$. Hãy áp dụng cấu trúc rẽ nhánh để đưa ra phán quyết theo quy tắc sau: Nếu $A > B$, in ra giá trị của $A$. Nếu $A Nếu $A = B$, kiểm tra tính chẵn lẻ của $A$: in ra CHAN nếu $A$ là số chẵn, hoặc LE nếu $A$ là số lẻ. Dữ liệu vào: Một dòng duy nhất chứa 2 số nguyên $A, B$ ($-10^9 le A, B le 10^9$). Dữ liệu ra: In ra kết quả thỏa mãn quy tắc trên. Ví dụ: Input Output Giải thích 15 9 15 15 lớn hơn 9, in ra 15. 8 8 CHAN Hai số bằng nhau và là số chẵn. 7 7 LE Hai số bằng nhau và là số lẻ.",
+      "description": "So Sánh Hai Số & Phân Loại Tính Chất — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "15 9",
+          "output": "15",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "4 10",
+          "output": "10",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-logic",
+      "code": "RM_LOGIC",
+      "title": "Kiểm Tra Tam Giác & Phân Loại Hình Học",
+      "category": "C++ Cơ bản",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 3: TOÁN TỬ LOGIC (&&, ||, !) & CẤU TRÚC ĐIỀU KIỆN LỒNG NHAU</strong></p>\n<p>Cho 3 số nguyên dương $a, b, c$ là độ dài 3 đoạn thẳng. Hãy kiểm tra xem chúng có thể tạo thành 3 cạnh của một tam giác có diện tích dương hay không. Nếu có, hãy phân loại tam giác đó:</p>\n<ul>\n  <li><code>DEU</code>: Tam giác đều (cả 3 cạnh bằng nhau).</li>\n  <li><code>VUONG</code>: Tam giác vuông (thỏa mãn định lý Pythagoras: $x^2 + y^2 = z^2$).</li>\n  <li><code>CAN</code>: Tam giác cân (có ít nhất 2 cạnh bằng nhau, nhưng không đều).</li>\n  <li><code>THUONG</code>: Tam giác thường (không thỏa các điều kiện trên).</li>\n  <li><code>KHONG</code>: Không thể tạo thành tam giác (tổng 2 cạnh bất kỳ nhỏ hơn hoặc bằng cạnh còn lại).</li>\n</ul>\n<p><strong>Dữ liệu vào:</strong> Một dòng duy nhất chứa 3 số nguyên $a, b, c$ ($1 le a, b, c le 10^4$).</p>\n<p><strong>Dữ liệu ra:</strong> In ra mã định danh của tam giác tương ứng.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>3 3 3</td><td>DEU</td><td>3 cạnh bằng nhau -> Tam giác đều.</td></tr>\n  <tr><td>3 4 5</td><td>VUONG</td><td>3^2 + 4^2 = 5^2 (9 + 16 = 25) -> Tam giác vuông.</td></tr>\n  <tr><td>1 2 5</td><td>KHONG</td><td>1 + 2 = 3 &lt; 5, không tạo thành tam giác.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 3: TOÁN TỬ LOGIC (&&, ||, !) & CẤU TRÚC ĐIỀU KIỆN LỒNG NHAU Cho 3 số nguyên dương $a, b, c$ là độ dài 3 đoạn thẳng. Hãy kiểm tra xem chúng có thể tạo thành 3 cạnh của một tam giác có diện tích dương hay không. Nếu có, hãy phân loại tam giác đó: DEU : Tam giác đều (cả 3 cạnh bằng nhau). VUONG : Tam giác vuông (thỏa mãn định lý Pythagoras: $x^2 + y^2 = z^2$). CAN : Tam giác cân (có ít nhất 2 cạnh bằng nhau, nhưng không đều). THUONG : Tam giác thường (không thỏa các điều kiện trên). KHONG : Không thể tạo thành tam giác (tổng 2 cạnh bất kỳ nhỏ hơn hoặc bằng cạnh còn lại). Dữ liệu vào: Một dòng duy nhất chứa 3 số nguyên $a, b, c$ ($1 le a, b, c le 10^4$). Dữ liệu ra: In ra mã định danh của tam giác tương ứng. Ví dụ: Input Output Giải thích 3 3 3 DEU 3 cạnh bằng nhau -> Tam giác đều. 3 4 5 VUONG 3^2 + 4^2 = 5^2 (9 + 16 = 25) -> Tam giác vuông. 1 2 5 KHONG 1 + 2 = 3 &lt; 5, không tạo thành tam giác.",
+      "description": "Kiểm Tra Tam Giác & Phân Loại Hình Học — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "3 3 3",
+          "output": "DEU",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "3 4 5",
+          "output": "VUONG",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-ticket",
+      "code": "RM_TICKET",
+      "title": "Tính Giá Vé Rạp Chiếu Phim Ưu Đãi",
+      "category": "C++ Cơ bản",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 4: PHÂN LOẠI KHOẢNG GIÁ TRỊ & TÍNH TOÁN ĐIỀU KIỆN</strong></p>\n<p>Một rạp chiếu phim áp dụng chính sách ưu đãi giá vé gốc $K$ đồng cho khách hàng dựa vào tuổi $T$ và thẻ học sinh:</p>\n<ul>\n  <li>Trẻ em ($T < 12$) hoặc Người cao tuổi ($T ge 60$): Giảm 50% giá vé ($0.5 \times K$).</li>\n  <li>Học sinh ($12 le T le 18$) có thẻ học sinh (cờ <code>HS = 1</code>): Giảm 20% giá vé ($0.8 \times K$).</li>\n  <li>Các trường hợp còn lại: Thanh toán 100% giá vé gốc ($K$).</li>\n</ul>\n<p><strong>Dữ liệu vào:</strong> Một dòng gồm 3 số nguyên $T, K, HS$ ($0 le T le 100$, $10000 le K le 10^6$, $HS in {0, 1}$).</p>\n<p><strong>Dữ liệu ra:</strong> In ra số tiền vé khách hàng phải trả.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>10 80000 0</td><td>40000</td><td>10 tuổi (&lt; 12) -> giảm 50% còn 40.000đ.</td></tr>\n  <tr><td>15 100000 1</td><td>80000</td><td>15 tuổi có thẻ HS -> giảm 20% còn 80.000đ.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 4: PHÂN LOẠI KHOẢNG GIÁ TRỊ & TÍNH TOÁN ĐIỀU KIỆN Một rạp chiếu phim áp dụng chính sách ưu đãi giá vé gốc $K$ đồng cho khách hàng dựa vào tuổi $T$ và thẻ học sinh: Trẻ em ($T Học sinh ($12 le T le 18$) có thẻ học sinh (cờ HS = 1 ): Giảm 20% giá vé ($0.8 imes K$). Các trường hợp còn lại: Thanh toán 100% giá vé gốc ($K$). Dữ liệu vào: Một dòng gồm 3 số nguyên $T, K, HS$ ($0 le T le 100$, $10000 le K le 10^6$, $HS in {0, 1}$). Dữ liệu ra: In ra số tiền vé khách hàng phải trả. Ví dụ: Input Output Giải thích 10 80000 0 40000 10 tuổi (&lt; 12) -> giảm 50% còn 40.000đ. 15 100000 1 80000 15 tuổi có thẻ HS -> giảm 20% còn 80.000đ.",
+      "description": "Tính Giá Vé Rạp Chiếu Phim Ưu Đãi — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "10 80000 0",
+          "output": "40000",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "15 100000 1",
+          "output": "80000",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-loopsum",
+      "code": "RM_LOOPSUM",
+      "title": "Tính Tổng Số Chẵn Và Số Lẻ Từ 1 Đến N",
+      "category": "Vòng lặp & Tích lũy",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 5: VÒNG LẶP FOR & KỸ THUẬT TÍCH LŨY TỔNG</strong></p>\n<p>Cho số nguyên dương $N$ ($1 le N le 10^9$). Hãy tính:</p>\n<ul>\n  <li>$S_{chan}$: Tổng tất cả các số chẵn trong phạm vi từ $1$ đến $N$.</li>\n  <li>$S_{le}$: Tổng tất cả các số lẻ trong phạm vi từ $1$ đến $N$.</li>\n</ul>\n<p><em>Gợi ý:</em> Với $N$ nhỏ bạn có thể dùng vòng lặp, nhưng với $N$ lên tới $10^9$, bạn nên sử dụng công thức cấp số cộng $O(1)$ hoặc tối ưu toán học để tránh Time Limit Exceeded (TLE) và tràn số <code>long long</code>.</p>\n<p><strong>Dữ liệu vào:</strong> Một dòng duy nhất chứa số nguyên dương $N$.</p>\n<p><strong>Dữ liệu ra:</strong> In ra 2 số $S_{chan}$ và $S_{le}$ cách nhau một dấu cách.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>10</td><td>30 25</td><td>Chẵn: 2+4+6+8+10 = 30; Lẻ: 1+3+5+7+9 = 25.</td></tr>\n  <tr><td>5</td><td>6 9</td><td>Chẵn: 2+4 = 6; Lẻ: 1+3+5 = 9.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 5: VÒNG LẶP FOR & KỸ THUẬT TÍCH LŨY TỔNG Cho số nguyên dương $N$ ($1 le N le 10^9$). Hãy tính: $S_{chan}$: Tổng tất cả các số chẵn trong phạm vi từ $1$ đến $N$. $S_{le}$: Tổng tất cả các số lẻ trong phạm vi từ $1$ đến $N$. Gợi ý: Với $N$ nhỏ bạn có thể dùng vòng lặp, nhưng với $N$ lên tới $10^9$, bạn nên sử dụng công thức cấp số cộng $O(1)$ hoặc tối ưu toán học để tránh Time Limit Exceeded (TLE) và tràn số long long . Dữ liệu vào: Một dòng duy nhất chứa số nguyên dương $N$. Dữ liệu ra: In ra 2 số $S_{chan}$ và $S_{le}$ cách nhau một dấu cách. Ví dụ: Input Output Giải thích 10 30 25 Chẵn: 2+4+6+8+10 = 30; Lẻ: 1+3+5+7+9 = 25. 5 6 9 Chẵn: 2+4 = 6; Lẻ: 1+3+5 = 9.",
+      "description": "Tính Tổng Số Chẵn Và Số Lẻ Từ 1 Đến N — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "1",
+          "output": "0 1",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "2",
+          "output": "2 1",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-divisors",
+      "code": "RM_DIVISORS",
+      "title": "Đếm Và Tính Tổng Ước Số Trong O(sqrt(N))",
+      "category": "Số học",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 6: TÌM TẤT CẢ ƯỚC SỐ TRONG $O(\\sqrt{N})$</strong></p>\n<p>Cho số nguyên dương $N$ ($1 le N le 10^{12}$). Nếu duyệt từ $1$ đến $N$ sẽ bị TLE khi $N$ lớn. Hãy áp dụng tính chất: nếu $d$ là ước của $N$ thì $\\frac{N}{d}$ cũng là ước của $N$, chỉ cần duyệt $d$ từ $1$ đến $\\sqrt{N}$ để tìm toàn bộ ước số.</p>\n<p><strong>Yêu cầu:</strong> Đếm số lượng ước số và tính tổng các ước số của $N$.</p>\n<p><strong>Dữ liệu vào:</strong> Một dòng duy nhất chứa số nguyên dương $N$.</p>\n<p><strong>Dữ liệu ra:</strong> In ra số lượng ước và tổng các ước cách nhau một dấu cách.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>6</td><td>4 12</td><td>Các ước: {1, 2, 3, 6} -> Có 4 ước, tổng = 1+2+3+6 = 12.</td></tr>\n  <tr><td>16</td><td>5 31</td><td>Các ước: {1, 2, 4, 8, 16} -> Có 5 ước, tổng = 31.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 6: TÌM TẤT CẢ ƯỚC SỐ TRONG $O(\\sqrt{N})$ Cho số nguyên dương $N$ ($1 le N le 10^{12}$). Nếu duyệt từ $1$ đến $N$ sẽ bị TLE khi $N$ lớn. Hãy áp dụng tính chất: nếu $d$ là ước của $N$ thì $\\frac{N}{d}$ cũng là ước của $N$, chỉ cần duyệt $d$ từ $1$ đến $\\sqrt{N}$ để tìm toàn bộ ước số. Yêu cầu: Đếm số lượng ước số và tính tổng các ước số của $N$. Dữ liệu vào: Một dòng duy nhất chứa số nguyên dương $N$. Dữ liệu ra: In ra số lượng ước và tổng các ước cách nhau một dấu cách. Ví dụ: Input Output Giải thích 6 4 12 Các ước: {1, 2, 3, 6} -> Có 4 ước, tổng = 1+2+3+6 = 12. 16 5 31 Các ước: {1, 2, 4, 8, 16} -> Có 5 ước, tổng = 31.",
+      "description": "Đếm Và Tính Tổng Ước Số Trong O(sqrt(N)) — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "1",
+          "output": "1 1",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "6",
+          "output": "4 12",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-prime",
+      "code": "RM_PRIME",
+      "title": "Kiểm Tra Số Nguyên Tố O(sqrt(N))",
+      "category": "Số học",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 7: THUẬT TOÁN KIỂM TRA SỐ NGUYÊN TỐ CƠ BẢN $O(\\sqrt{N})$</strong></p>\n<p>Số nguyên tố là số nguyên lớn hơn 1 và chỉ có đúng 2 ước dương là 1 và chính nó.</p>\n<p><strong>Yêu cầu:</strong> Cho một số nguyên $N$ ($-10^9 le N le 10^{12}$). Hãy kiểm tra xem $N$ có phải là số nguyên tố hay không. Nếu có in ra <code>YES</code>, ngược lại in ra <code>NO</code>.</p>\n<p><strong>Dữ liệu vào:</strong> Một dòng duy nhất chứa số nguyên $N$.</p>\n<p><strong>Dữ liệu ra:</strong> In ra <code>YES</code> hoặc <code>NO</code>.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>7</td><td>YES</td><td>7 chỉ chia hết cho 1 và 7 -> Là số nguyên tố.</td></tr>\n  <tr><td>15</td><td>NO</td><td>15 chia hết cho 3 và 5 -> Hợp số.</td></tr>\n  <tr><td>1</td><td>NO</td><td>1 không phải số nguyên tố.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 7: THUẬT TOÁN KIỂM TRA SỐ NGUYÊN TỐ CƠ BẢN $O(\\sqrt{N})$ Số nguyên tố là số nguyên lớn hơn 1 và chỉ có đúng 2 ước dương là 1 và chính nó. Yêu cầu: Cho một số nguyên $N$ ($-10^9 le N le 10^{12}$). Hãy kiểm tra xem $N$ có phải là số nguyên tố hay không. Nếu có in ra YES , ngược lại in ra NO . Dữ liệu vào: Một dòng duy nhất chứa số nguyên $N$. Dữ liệu ra: In ra YES hoặc NO . Ví dụ: Input Output Giải thích 7 YES 7 chỉ chia hết cho 1 và 7 -> Là số nguyên tố. 15 NO 15 chia hết cho 3 và 5 -> Hợp số. 1 NO 1 không phải số nguyên tố.",
+      "description": "Kiểm Tra Số Nguyên Tố O(sqrt(N)) — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "7",
+          "output": "YES",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "15",
+          "output": "NO",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-twopointers",
+      "code": "RM_TWOPOINTERS",
+      "title": "Kỹ Thuật Hai Con Trỏ: Cặp Số Tổng X",
+      "category": "Hai con trỏ",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 8: KỸ THUẬT HAI CON TRỎ (TWO POINTERS) HAI ĐẦU ĐỐI DIỆN</strong></p>\n<p>Cho dãy số gồm $N$ phần tử đã được sắp xếp tăng dần $A_1 le A_2 le dots le A_N$ và một số nguyên $X$.</p>\n<p><strong>Yêu cầu:</strong> Tìm một cặp vị trí $1 le i < j le N$ sao cho $A_i + A_j = X$. Nếu có nhiều cặp, in ra cặp có $i$ nhỏ nhất. Nếu không tồn tại cặp nào thỏa mãn, in ra <code>-1</code>.</p>\n<p><em>Thuật toán tối ưu:</em> Khởi tạo con trỏ trái $L=1$ và con trỏ phải $R=N$. Tại mỗi bước tính $A_L + A_R$, nếu bằng $X$ thì tìm thấy nghiệm; nếu nhỏ hơn $X$ tăng $L$; nếu lớn hơn $X$ giảm $R$. Độ phức tạp đạt $O(N)$ thay vì duyệt $O(N^2)$.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Dòng 1: Hai số nguyên $N$ và $X$ ($2 le N le 10^5$, $-10^9 le X le 10^9$).</li>\n  <li>Dòng 2: $N$ số nguyên $A_1, A_2, dots, A_N$ cách nhau bởi dấu cách.</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong> In ra hai chỉ số $i$ và $j$ (1-based) hoặc <code>-1</code>.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>5 10<br>1 3 5 7 9</td><td>1 5</td><td>A[1] + A[5] = 1 + 9 = 10.</td></tr>\n  <tr><td>4 8<br>1 2 4 5</td><td>-1</td><td>Không có 2 phần tử nào có tổng bằng 8.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 8: KỸ THUẬT HAI CON TRỎ (TWO POINTERS) HAI ĐẦU ĐỐI DIỆN Cho dãy số gồm $N$ phần tử đã được sắp xếp tăng dần $A_1 le A_2 le dots le A_N$ và một số nguyên $X$. Yêu cầu: Tìm một cặp vị trí $1 le i -1 . Thuật toán tối ưu: Khởi tạo con trỏ trái $L=1$ và con trỏ phải $R=N$. Tại mỗi bước tính $A_L + A_R$, nếu bằng $X$ thì tìm thấy nghiệm; nếu nhỏ hơn $X$ tăng $L$; nếu lớn hơn $X$ giảm $R$. Độ phức tạp đạt $O(N)$ thay vì duyệt $O(N^2)$. Dữ liệu vào: Dòng 1: Hai số nguyên $N$ và $X$ ($2 le N le 10^5$, $-10^9 le X le 10^9$). Dòng 2: $N$ số nguyên $A_1, A_2, dots, A_N$ cách nhau bởi dấu cách. Dữ liệu ra: In ra hai chỉ số $i$ và $j$ (1-based) hoặc -1 . Ví dụ: Input Output Giải thích 5 10 1 3 5 7 9 1 5 A[1] + A[5] = 1 + 9 = 10. 4 8 1 2 4 5 -1 Không có 2 phần tử nào có tổng bằng 8.",
+      "description": "Kỹ Thuật Hai Con Trỏ: Cặp Số Tổng X — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "5 10\n1 3 5 7 9",
+          "output": "1 5",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "4 8\n1 2 4 5",
+          "output": "-1",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-greedy",
+      "code": "RM_GREEDY",
+      "title": "Chiến Lược Tham Lam: Đổi Tiền Xu Tối Thiểu",
+      "category": "Thuật toán Tham lam",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 9: CHIẾN LƯỢC THAM LAM (GREEDY ALGORITHM)</strong></p>\n<p>Hệ thống tiền tệ quy định các mệnh giá đồng xu gồm: 500, 200, 100, 50, 20, 10, 5, 2, 1 đồng (số lượng không giới hạn).</p>\n<p><strong>Yêu cầu:</strong> Cho số tiền nguyên dương $S$. Áp dụng chiến lược tham lam (ưu tiên đổi các đồng có mệnh giá lớn nhất có thể trước), hãy tìm số lượng đồng xu ít nhất cần dùng để đổi đủ số tiền $S$.</p>\n<p><strong>Dữ liệu vào:</strong> Một dòng duy nhất chứa số nguyên dương $S$ ($1 le S le 10^9$).</p>\n<p><strong>Dữ liệu ra:</strong> In ra số lượng đồng xu tối thiểu cần dùng.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>789</td><td>8</td><td>Gồm: 1 đồng 500, 1 đồng 200, 1 đồng 50, 1 đồng 20, 1 đồng 10, 1 đồng 5, 2 đồng 2 -> Tổng 8 đồng xu.</td></tr>\n  <tr><td>5</td><td>1</td><td>1 đồng mệnh giá 5.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 9: CHIẾN LƯỢC THAM LAM (GREEDY ALGORITHM) Hệ thống tiền tệ quy định các mệnh giá đồng xu gồm: 500, 200, 100, 50, 20, 10, 5, 2, 1 đồng (số lượng không giới hạn). Yêu cầu: Cho số tiền nguyên dương $S$. Áp dụng chiến lược tham lam (ưu tiên đổi các đồng có mệnh giá lớn nhất có thể trước), hãy tìm số lượng đồng xu ít nhất cần dùng để đổi đủ số tiền $S$. Dữ liệu vào: Một dòng duy nhất chứa số nguyên dương $S$ ($1 le S le 10^9$). Dữ liệu ra: In ra số lượng đồng xu tối thiểu cần dùng. Ví dụ: Input Output Giải thích 789 8 Gồm: 1 đồng 500, 1 đồng 200, 1 đồng 50, 1 đồng 20, 1 đồng 10, 1 đồng 5, 2 đồng 2 -> Tổng 8 đồng xu. 5 1 1 đồng mệnh giá 5.",
+      "description": "Chiến Lược Tham Lam: Đổi Tiền Xu Tối Thiểu — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "1",
+          "output": "1",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "5",
+          "output": "1",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-frogjump",
+      "code": "RM_FROGJUMP",
+      "title": "Quy Hoạch Động 1D: Chú Ếch Nhảy Đá",
+      "category": "Quy hoạch động",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 10: QUY HOẠCH ĐỘNG 1D - BƯỚC NHẢY TỐI ƯU (FROG JUMP)</strong></p>\n<p>Có $N$ hòn đá đánh số từ $1$ đến $N$, hòn đá $i$ có độ cao $h_i$. Một chú ếch đang ở hòn đá $1$ và muốn nhảy đến hòn đá $N$.</p>\n<ul>\n  <li>Từ hòn đá $i$, chú ếch có thể nhảy đến hòn đá $i+1$ với chi phí năng lượng là $|h_i - h_{i+1}|$.</li>\n  <li>Hoặc có thể nhảy vọt đến hòn đá $i+2$ với chi phí năng lượng là $|h_i - h_{i+2}|$.</li>\n</ul>\n<p><strong>Yêu cầu:</strong> Hãy tìm chi phí năng lượng tối thiểu để chú ếch đến được hòn đá $N$.</p>\n<p><em>Công thức truy hồi:</em> $dp[i] = \\min(dp[i-1] + |h_i - h_{i-1}|, dp[i-2] + |h_i - h_{i-2}|)$.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Dòng 1: Số nguyên $N$ ($2 le N le 10^5$).</li>\n  <li>Dòng 2: $N$ số nguyên $h_1, h_2, dots, h_N$ ($1 le h_i le 10^4$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong> In ra chi phí tối thiểu.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>4<br>10 30 40 20</td><td>30</td><td>Nhảy từ đá 1 -> 2 -> 4: |10-30| + |30-20| = 20 + 10 = 30.</td></tr>\n  <tr><td>2<br>10 20</td><td>10</td><td>Nhảy từ 1 -> 2 tốn |10-20| = 10.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 10: QUY HOẠCH ĐỘNG 1D - BƯỚC NHẢY TỐI ƯU (FROG JUMP) Có $N$ hòn đá đánh số từ $1$ đến $N$, hòn đá $i$ có độ cao $h_i$. Một chú ếch đang ở hòn đá $1$ và muốn nhảy đến hòn đá $N$. Từ hòn đá $i$, chú ếch có thể nhảy đến hòn đá $i+1$ với chi phí năng lượng là $|h_i - h_{i+1}|$. Hoặc có thể nhảy vọt đến hòn đá $i+2$ với chi phí năng lượng là $|h_i - h_{i+2}|$. Yêu cầu: Hãy tìm chi phí năng lượng tối thiểu để chú ếch đến được hòn đá $N$. Công thức truy hồi: $dp[i] = \\min(dp[i-1] + |h_i - h_{i-1}|, dp[i-2] + |h_i - h_{i-2}|)$. Dữ liệu vào: Dòng 1: Số nguyên $N$ ($2 le N le 10^5$). Dòng 2: $N$ số nguyên $h_1, h_2, dots, h_N$ ($1 le h_i le 10^4$). Dữ liệu ra: In ra chi phí tối thiểu. Ví dụ: Input Output Giải thích 4 10 30 40 20 30 Nhảy từ đá 1 -> 2 -> 4: |10-30| + |30-20| = 20 + 10 = 30. 2 10 20 10 Nhảy từ 1 -> 2 tốn |10-20| = 10.",
+      "description": "Quy Hoạch Động 1D: Chú Ếch Nhảy Đá — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "2\n10 20",
+          "output": "10",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "4\n10 30 40 20",
+          "output": "30",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-maxsubarray",
+      "code": "RM_MAXSUBARRAY",
+      "title": "Tổng Đoạn Con Liên Tiếp Lớn Nhất (Kadane)",
+      "category": "Quy hoạch động",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 11: TỔNG ĐOẠN CON LỚN NHẤT (THUẬT TOÁN KADANE)</strong></p>\n<p>Cho một mảng số nguyên $A$ gồm $N$ phần tử. Bạn cần tìm một đoạn con liên tiếp có ít nhất một phần tử sao cho tổng các phần tử trong đoạn đó là lớn nhất có thể.</p>\n<p><em>Thuật toán Kadane:</em> Duyệt qua mảng và duy trì $curMax = \\max(A[i], curMax + A[i])$, cập nhật $maxSoFar = \\max(maxSoFar, curMax)$. Độ phức tạp chỉ $O(N)$ và bộ nhớ $O(1)$.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Dòng 1: Số nguyên dương $N$ ($1 le N le 10^5$).</li>\n  <li>Dòng 2: $N$ số nguyên $A_1, A_2, dots, A_N$ ($-10^9 le A_i le 10^9$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong> In ra giá trị tổng đoạn con lớn nhất tìm được.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>8<br>-2 1 -3 4 -1 2 1 -5</td><td>6</td><td>Đoạn con [4, -1, 2, 1] có tổng là 4 - 1 + 2 + 1 = 6.</td></tr>\n  <tr><td>5<br>-5 -2 -8 -1 -4</td><td>-1</td><td>Đoạn con gồm duy nhất phần tử [-1].</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 11: TỔNG ĐOẠN CON LỚN NHẤT (THUẬT TOÁN KADANE) Cho một mảng số nguyên $A$ gồm $N$ phần tử. Bạn cần tìm một đoạn con liên tiếp có ít nhất một phần tử sao cho tổng các phần tử trong đoạn đó là lớn nhất có thể. Thuật toán Kadane: Duyệt qua mảng và duy trì $curMax = \\max(A[i], curMax + A[i])$, cập nhật $maxSoFar = \\max(maxSoFar, curMax)$. Độ phức tạp chỉ $O(N)$ và bộ nhớ $O(1)$. Dữ liệu vào: Dòng 1: Số nguyên dương $N$ ($1 le N le 10^5$). Dòng 2: $N$ số nguyên $A_1, A_2, dots, A_N$ ($-10^9 le A_i le 10^9$). Dữ liệu ra: In ra giá trị tổng đoạn con lớn nhất tìm được. Ví dụ: Input Output Giải thích 8 -2 1 -3 4 -1 2 1 -5 6 Đoạn con [4, -1, 2, 1] có tổng là 4 - 1 + 2 + 1 = 6. 5 -5 -2 -8 -1 -4 -1 Đoạn con gồm duy nhất phần tử [-1].",
+      "description": "Tổng Đoạn Con Liên Tiếp Lớn Nhất (Kadane) — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "5\n-2 1 -3 4 -1",
+          "output": "4",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "8\n-2 1 -3 4 -1 2 1 -5",
+          "output": "6",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-dijkstra",
+      "code": "RM_DIJKSTRA",
+      "title": "Đường Đi Ngắn Nhất Đồ Thị Trọng Số (Dijkstra)",
+      "category": "Đồ thị",
+      "difficulty": "Nâng cao",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "<p><strong>BÀI TẬP LỘ TRÌNH 12: THUẬT TOÁN DIJKSTRA - ĐƯỜNG ĐI NGẮN NHẤT ĐỒ THỊ CÓ TRỌNG SỐ</strong></p>\n<p>Cho đồ thị có hướng gồm $N$ đỉnh (đánh số từ $1$ đến $N$) và $M$ cung có trọng số không âm.</p>\n<p><strong>Yêu cầu:</strong> Hãy tìm độ dài đường đi ngắn nhất từ đỉnh nguồn $1$ đến tất cả các đỉnh còn lại từ $2$ đến $N$. Nếu từ đỉnh $1$ không có đường đi đến đỉnh $v$, quy ước khoảng cách là <code>-1</code>.</p>\n<p><strong>Dữ liệu vào:</strong></p>\n<ul>\n  <li>Dòng đầu tiên chứa hai số nguyên $N$ và $M$ ($2 le N le 10^4$, $1 le M le 10^5$).</li>\n  <li>$M$ dòng tiếp theo, mỗi dòng chứa 3 số nguyên $u, v, w$ đại diện cho một cung từ đỉnh $u$ đến đỉnh $v$ với trọng số $w$ ($1 le u, v le N$, $0 le w le 10^6$).</li>\n</ul>\n<p><strong>Dữ liệu ra:</strong> In ra trên một dòng gồm $N - 1$ số nguyên lần lượt là khoảng cách ngắn nhất từ đỉnh 1 đến các đỉnh $2, 3, dots, N$, cách nhau bởi dấu cách.</p>\n<p><strong>Ví dụ:</strong></p>\n<table>\n  <tr><td><strong>Input</strong></td><td><strong>Output</strong></td><td><strong>Giải thích</strong></td></tr>\n  <tr><td>4 4<br>1 2 2<br>1 3 5<br>2 3 1<br>3 4 3</td><td>2 3 6</td><td>Đến đỉnh 2 là 2; đến đỉnh 3 qua đỉnh 2 (2+1=3); đến đỉnh 4 qua 1->2->3->4 (2+1+3=6).</td></tr>\n  <tr><td>4 2<br>1 2 7<br>3 4 5</td><td>7 -1 -1</td><td>Đỉnh 3 và 4 không thể đến được từ đỉnh 1.</td></tr>\n</table>",
+      "statement": "BÀI TẬP LỘ TRÌNH 12: THUẬT TOÁN DIJKSTRA - ĐƯỜNG ĐI NGẮN NHẤT ĐỒ THỊ CÓ TRỌNG SỐ Cho đồ thị có hướng gồm $N$ đỉnh (đánh số từ $1$ đến $N$) và $M$ cung có trọng số không âm. Yêu cầu: Hãy tìm độ dài đường đi ngắn nhất từ đỉnh nguồn $1$ đến tất cả các đỉnh còn lại từ $2$ đến $N$. Nếu từ đỉnh $1$ không có đường đi đến đỉnh $v$, quy ước khoảng cách là -1 . Dữ liệu vào: Dòng đầu tiên chứa hai số nguyên $N$ và $M$ ($2 le N le 10^4$, $1 le M le 10^5$). $M$ dòng tiếp theo, mỗi dòng chứa 3 số nguyên $u, v, w$ đại diện cho một cung từ đỉnh $u$ đến đỉnh $v$ với trọng số $w$ ($1 le u, v le N$, $0 le w le 10^6$). Dữ liệu ra: In ra trên một dòng gồm $N - 1$ số nguyên lần lượt là khoảng cách ngắn nhất từ đỉnh 1 đến các đỉnh $2, 3, dots, N$, cách nhau bởi dấu cách. Ví dụ: Input Output Giải thích 4 4 1 2 2 1 3 5 2 3 1 3 4 3 2 3 6 Đến đỉnh 2 là 2; đến đỉnh 3 qua đỉnh 2 (2+1=3); đến đỉnh 4 qua 1->2->3->4 (2+1+3=6). 4 2 1 2 7 3 4 5 7 -1 -1 Đỉnh 3 và 4 không thể đến được từ đỉnh 1.",
+      "description": "Đường Đi Ngắn Nhất Đồ Thị Trọng Số (Dijkstra) — Bài tập rèn luyện kỹ năng cốt lõi trong lộ trình lập trình thuật toán C++.",
+      "samples": [
+        {
+          "input": "4 4\n1 2 2\n1 3 5\n2 3 1\n3 4 3",
+          "output": "2 3 6",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        },
+        {
+          "input": "3 2\n1 2 10\n2 3 5",
+          "output": "10 15",
+          "explanation": "Bộ test ví dụ minh họa của đề bài."
+        }
+      ],
+      "testCount": 10,
+      "ioMode": "stdin",
+      "inputFile": "",
+      "outputFile": "",
+      "sampleCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Code của bạn tại đây\n    return 0;\n}\n",
+      "hasSolution": false,
+      "solutionVisible": false
     }
   ],
   "submissions": [],
@@ -2295,366 +2679,101 @@
   "roadmap_topics": [
     {
       "id": "topic-1",
-      "title": "Programming Fundamentals & C++ Structure",
-      "description": "Cấu trúc chương trình C++, các kiểu dữ liệu cơ bản (int, long long, double, char), khai báo biến và kỹ thuật nhập/xuất chuẩn tốc độ cao (cin, cout).",
-      "level": "Cơ bản",
-      "icon": "Terminal",
       "order": 1,
+      "title": "Chặng 1: Nhập Xuất C++ & Cú Pháp Cơ Bản (Syntax & I/O)",
+      "description": "Làm quen Fast I/O, số nguyên lớn (long long), câu lệnh rẽ nhánh if/else, toán tử logic và kỹ thuật tính tổng vòng lặp.",
+      "level": "Cơ bản",
       "problemCodes": [
-        "CAU1"
+        "RM_FASTIO",
+        "RM_COMPARE",
+        "RM_LOGIC",
+        "RM_TICKET",
+        "RM_LOOPSUM"
       ],
-      "phase": "Phase 0 — Programming Fundamentals",
-      "difficulty": "Beginner",
-      "estimatedMinutes": 60,
-      "prerequisites": [],
-      "guide": "### 1. Cấu Trúc Chương Trình C++ Chuẩn\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    // Tối ưu hóa tốc độ I/O cho Competitive Programming\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    long long a, b;\n    if (cin >> a >> b) {\n        cout << a + b << \"\\n\";\n    }\n    return 0;\n}\n```\n\n### 2. Các Kiểu Dữ Liệu & Giới Hạn Cần Nhớ\n- `int`: 32-bit có dấu, phạm vi khoảng $-2 \\cdot 10^9$ đến $2 \\cdot 10^9$ (chính xác $-2^{31} \\dots 2^{31}-1$).\n- `long long`: 64-bit có dấu, phạm vi khoảng $-9 \\cdot 10^{18}$ đến $9 \\cdot 10^{18}$. Dùng khi giá trị vượt quá $2 \\cdot 10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15-17 chữ số có nghĩa).\n- `char`, `bool`: Ký tự và giá trị logic (`true` / `false`).\n\n### 3. Lưu Ý & Bẫy Thường Gặp\n- **Tràn số nguyên (Integer Overflow)**: Phép nhân hai số `int` (vd: `100000 * 100000`) sẽ bị tràn số trước khi gán vào `long long`. Cần ép kiểu: `1LL * a * b`.\n- **Phép chia số nguyên**: `5 / 2 = 2` (mất phần thập phân). Muốn lấy số thực: `5.0 / 2` hoặc `(double)a / b`.\n- Dùng `\\n` thay cho `endl` vì `endl` ép xả bộ đệm (flush), làm chậm chương trình.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "guide": "Nắm vững: Fast I/O, tràn số nguyên (overflow), switch-case, vòng lặp for/while."
     },
     {
       "id": "topic-2",
-      "title": "Conditional Statements & Logical Decisions",
-      "description": "Cấu trúc rẽ nhánh if - else, switch-case, toán tử so sánh (==, !=, <, >), toán tử logic (&&, ||, !) và kỹ thuật xử lý điều kiện phức hợp.",
-      "level": "Cơ bản",
-      "icon": "GitFork",
       "order": 2,
+      "title": "Chặng 2: Số Học & Nền Tảng Lý Thuyết Số (Number Theory)",
+      "description": "Thuật toán tìm ước số trong O(sqrt(N)), kiểm tra số nguyên tố và sàng số nguyên tố cơ bản.",
+      "level": "Cơ bản",
       "problemCodes": [
-        "CAU2",
-        "CAU3",
-        "GIAVE"
+        "RM_DIVISORS",
+        "RM_PRIME"
       ],
-      "phase": "Phase 0 — Programming Fundamentals",
-      "difficulty": "Beginner",
-      "estimatedMinutes": 60,
-      "prerequisites": [
-        "topic-1"
-      ],
-      "guide": "### 1. Kiến Thức Trọng Tâm\n- Cấu trúc rẽ nhánh điều khiển luồng thực thi:\n```cpp\nif (condition1) {\n    // Thực thi khi condition1 đúng\n} else if (condition2) {\n    // Thực thi khi condition1 sai và condition2 đúng\n} else {\n    // Trường hợp còn lại\n}\n```\n- Toán tử logic:\n  - `&&` (AND): Đúng khi cả hai vế đều đúng.\n  - `||` (OR): Đúng khi ít nhất một vế đúng.\n  - `!` (NOT): Phủ định giá trị logic.\n\n### 2. Ví Dụ & Cấu Trúc Mẫu\n```cpp\n// Kiểm tra năm nhuận\nbool isLeap = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);\n\n// Toán tử 3 ngôi (Ternary Operator)\nint maxVal = (a > b) ? a : b;\n```\n\n### 3. Lưu Ý & Bẫy Thường Gặp\n- Nhầm lẫn giữa toán tử gán `=` và so sánh bằng `==`.\n- So sánh số thực: Không so sánh trực tiếp `a == b`, hãy dùng `fabs(a - b) < 1e-9`.\n- Rút gọn điều kiện (Short-circuit evaluation): C++ dừng đánh giá biểu thức `A && B` nếu `A` đã sai.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "guide": "Nắm vững: Duyệt đến căn bậc hai căn(N), sàng Eratosthenes, số nguyên tố, ước chung lớn nhất (GCD)."
     },
     {
       "id": "topic-3",
-      "title": "Loops & Iteration (For & While)",
-      "description": "Vòng lặp for, while, do-while, lặp lồng nhau, biến đếm và điều khiển vòng lặp với break, continue.",
-      "level": "Cơ bản",
-      "icon": "Repeat",
       "order": 3,
-      "problemCodes": [
-        "TONGCHAN"
-      ],
-      "phase": "Phase 0 — Programming Fundamentals",
-      "difficulty": "Beginner",
-      "estimatedMinutes": 75,
-      "prerequisites": [
-        "topic-2"
-      ],
-      "guide": "### 1. Các Cấu Trúc Lặp Cơ Bản\n- **Vòng lặp `for`**: Thích hợp khi biết trước số lần lặp:\n```cpp\nfor (int i = 1; i <= n; ++i) {\n    sum += i;\n}\n```\n- **Vòng lặp `while`**: Thích hợp khi lặp phụ thuộc điều kiện biến đổi:\n```cpp\nwhile (n > 0) {\n    int digit = n % 10;\n    n /= 10;\n}\n```\n\n### 2. Độ Phức Tạp Thời Gian Cơ Bản\n- Vòng lặp đơn chạy $N$ bước: Độ phức tạp $O(N)$.\n- Vòng lặp lồng $N \\times M$ bước: Độ phức tạp $O(N \\times M)$.\n- Máy chấm trung bình thực hiện được khoảng $10^7 - 10^8$ phép tính/giây. Với thời gian giới hạn 1.0s, $N \\le 10^7$ là an toàn cho $O(N)$.\n\n### 3. Lưu Ý & Bẫy Thường Gặp\n- Lặp vô tận (Infinite loop) do quên cập nhật biến điều kiện dừng trong `while`.\n- Lỗi lệch 1 (Off-by-one error): Dùng `< n` thay vì `<= n` hoặc ngược lại.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "title": "Chặng 3: Kỹ Thuật Ad-hoc & Tư Duy Giải Quyết Vấn Đề",
+      "description": "Xử lý các bài toán tư duy logic, mô phỏng trực tiếp và kỹ thuật quan sát quy luật.",
+      "level": "Trung bình",
+      "problemCodes": [],
+      "guide": "Rèn luyện khả năng phân tích bài toán, tìm invariant và mô phỏng chính xác."
     },
     {
       "id": "topic-4",
-      "title": "Basic Math & Number Theory Foundations",
-      "description": "Ước số, bội số, số nguyên tố, ước chung lớn nhất (GCD), bội chung nhỏ nhất (LCM) và thuật toán Euclid.",
-      "level": "Cơ bản",
-      "icon": "Cpu",
       "order": 4,
-      "problemCodes": [
-        "DIEMTHUONG"
-      ],
-      "phase": "Phase 1 — Basic Problem Solving",
-      "difficulty": "Easy",
-      "estimatedMinutes": 90,
-      "prerequisites": [
-        "topic-3"
-      ],
-      "guide": "### 1. Kiến Thức Trọng Tâm\n- **Tìm ước số của số nguyên $N$**: Duyệt $i$ từ $1$ đến $\\sqrt{N}$, nếu $N \\% i == 0$ thì $i$ và $N / i$ là hai ước. Độ phức tạp $O(\\sqrt{N})$.\n- **Kiểm tra số nguyên tố**:\n```cpp\nbool isPrime(long long n) {\n    if (n < 2) return false;\n    if (n == 2 || n == 3) return true;\n    if (n % 2 == 0 || n % 3 == 0) return false;\n    for (long long i = 5; i * i <= n; i += 6) {\n        if (n % i == 0 || n % (i + 2) == 0) return false;\n    }\n    return true;\n}\n```\n- **Thuật toán Euclid tìm GCD**:\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước nhân sau để tránh tràn số\n}\n```\n\n### 2. Độ Phức Tạp\n- Kiểm tra nguyên tố / đếm ước: $O(\\sqrt{N})$.\n- Thuật toán Euclid: $O(\\log(\\min(a, b)))$.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "title": "Chặng 4: Cấu Trúc Dữ Liệu Tuyến Tính & STL C++",
+      "description": "Sử dụng vector, string, stack, queue, map, set và unordered_map trong thư viện chuẩn STL.",
+      "level": "Trung bình",
+      "problemCodes": [],
+      "guide": "Tận dụng cấu trúc dữ liệu tối ưu thời gian tìm kiếm từ O(N) xuống O(log N) hoặc O(1)."
     },
     {
       "id": "topic-5",
-      "title": "One-dimensional Arrays & Frequency Counting",
-      "description": "Kỹ thuật lưu trữ mảng 1 chiều, duyệt tuần tự, tìm max/min, kỹ thuật mảng đếm phân phối (Frequency Array / Counting Array).",
-      "level": "Trung cấp",
-      "icon": "Layers",
       "order": 5,
-      "problemCodes": [],
-      "phase": "Phase 2 — Arrays and Strings",
-      "difficulty": "Easy",
-      "estimatedMinutes": 90,
-      "prerequisites": [
-        "topic-4"
+      "title": "Chặng 5: Kỹ Thuật Hai Con Trỏ & Thuật Toán Tham Lam (Greedy)",
+      "description": "Kỹ thuật Two Pointers hai đầu đối diện và chiến lược lựa chọn tham lam tối ưu cục bộ.",
+      "level": "Trung bình",
+      "problemCodes": [
+        "RM_TWOPOINTERS",
+        "RM_GREEDY"
       ],
-      "guide": "### 1. Kiến Thức Trọng Tâm\n- Khai báo mảng tĩnh: `int a[MAXN];` (nên khai báo biến toàn cục ngoài hàm main nếu kích thước mảng $> 10^5$ để tránh tràn bộ đệm stack).\n- **Mảng đếm tần số (Frequency Array)**:\n```cpp\nconst int MAXV = 1000000;\nint cnt[MAXV + 1] = {0};\n\nfor (int i = 0; i < n; ++i) {\n    cnt[a[i]]++; // Ghi nhận số lần a[i] xuất hiện\n}\n```\n- Duyệt tìm phần tử lớn nhất và vị trí:\n```cpp\nint maxVal = a[0], maxPos = 0;\nfor (int i = 1; i < n; ++i) {\n    if (a[i] > maxVal) {\n        maxVal = a[i];\n        maxPos = i;\n    }\n}\n```\n\n### 2. Lưu Ý & Bẫy Thường Gặp\n- Truy cập ngoài phạm vi mảng: Mảng `int a[100]` chỉ có chỉ số từ `0` đến `99`. Truy cập `a[100]` gây lỗi Undefined Behavior hoặc Runtime Error (SIGSEGV).\n- Giới hạn kích thước mảng cục bộ: Khai báo mảng lớn bên trong hàm `main()` dễ gây lỗi tràn bộ nhớ ngăn xếp (Stack Overflow).",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "guide": "Áp dụng cho mảng đã sắp xếp: tìm cặp phần tử thỏa mãn điều kiện và sắp xếp tham lam."
     },
     {
       "id": "topic-6",
-      "title": "Prefix Sum & Range Queries",
-      "description": "Mảng cộng dồn Prefix Sum để tính tổng đoạn [L, R] trong O(1), mảng hiệu (Difference Array) để cập nhật đoạn.",
-      "level": "Trung cấp",
-      "icon": "Sparkles",
       "order": 6,
-      "problemCodes": [],
-      "phase": "Phase 2 — Arrays and Strings",
-      "difficulty": "Intermediate",
-      "estimatedMinutes": 75,
-      "prerequisites": [
-        "topic-5"
+      "title": "Chặng 6: Quy Hoạch Động (Dynamic Programming - DP 1D)",
+      "description": "Phương pháp chia nhỏ bài toán con, công thức truy hồi và bài toán bước nhảy tối ưu / Kadane.",
+      "level": "Nâng cao",
+      "problemCodes": [
+        "RM_FROGJUMP",
+        "RM_MAXSUBARRAY"
       ],
-      "guide": "### 1. Nguyên Lý Mảng Cộng Dồn (Prefix Sum)\n- Cho mảng $A$ có $N$ phần tử (1-indexed). Mảng tiền tố $P$ được định nghĩa:\n  $$P[0] = 0, \\quad P[i] = P[i - 1] + A[i] \\quad (1 \\le i \\le N)$$\n- Khi đó, tổng các phần tử từ chỉ số $L$ đến $R$:\n  $$\\sum_{i=L}^{R} A[i] = P[R] - P[L - 1]$$\n- **Thời gian xử lý**: Tiền xử lý $O(N)$, mỗi truy vấn trả về kết quả trong $O(1)$.\n\n### 2. Code Mẫu\n```cpp\nvector<long long> pref(n + 1, 0);\nfor (int i = 1; i <= n; ++i) {\n    pref[i] = pref[i - 1] + a[i];\n}\n\nwhile (q--) {\n    int L, R;\n    cin >> L >> R;\n    long long sumRange = pref[R] - pref[L - 1];\n    cout << sumRange << \"\\n\";\n}\n```\n\n### 3. Lưu Ý\n- Luôn sử dụng `long long` cho mảng tiền tố để tránh tràn số khi tính tổng nhiều phần tử.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "guide": "Xác định mảng trạng thái dp[i], điều kiện biên (base cases) và thứ tự tính toán."
     },
     {
       "id": "topic-7",
       "order": 7,
-      "phase": "Phase 2 — Arrays and Strings",
-      "title": "Two-dimensional Arrays & Matrix Processing",
-      "description": "Ma trận, mảng 2 chiều, duyệt theo hàng/cột/đường chéo, kỹ thuật mảng toạ độ hướng (dx, dy) và thao tác biên lưới.",
-      "level": "Trung cấp",
-      "difficulty": "Intermediate",
-      "icon": "Layers",
-      "estimatedMinutes": 80,
-      "prerequisites": [
-        "topic-5"
+      "title": "Chặng 7: Thuật Toán Đồ Thị Cơ Bản (Graph Algorithms)",
+      "description": "Biểu diễn đồ thị danh sách kề, duyệt BFS/DFS và thuật toán Dijkstra tìm đường đi ngắn nhất.",
+      "level": "Nâng cao",
+      "problemCodes": [
+        "RM_DIJKSTRA"
       ],
-      "problemCodes": [],
-      "guide": "### 1. Duyệt Ma Trận & Tọa Độ Hướng\n```cpp\nint a[MAXN][MAXM];\n// Duyệt ma trận\nfor (int i = 1; i <= n; ++i) {\n    for (int j = 1; j <= m; ++j) {\n        cin >> a[i][j];\n    }\n}\n\n// Mảng hướng di chuyển 4 hướng (Trên, Phải, Dưới, Trái)\nconst int dx[4] = {-1, 0, 1, 0};\nconst int dy[4] = {0, 1, 0, -1};\n\nbool isValid(int x, int y, int n, int m) {\n    return (x >= 1 && x <= n && y >= 1 && y <= m);\n}\n```\n\n### 2. Ứng Dụng\n- Các bài toán mô phỏng bản đồ, tính toán đường đi, tìm kiếm vật cản, xử lý ảnh pixel.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "guide": "Sử dụng priority_queue<pair<long long, int>> để tối ưu Dijkstra đạt độ phức tạp O((V + E) log V)."
     },
     {
       "id": "topic-8",
       "order": 8,
-      "phase": "Phase 2 — Arrays and Strings",
-      "title": "String Processing & Character Analysis",
-      "description": "Thao tác với chuỗi std::string, trích xuất chuỗi con, chuyển đổi số - chuỗi, phân tích cú pháp ký tự và xâu đối xứng.",
-      "level": "Trung cấp",
-      "difficulty": "Easy",
-      "icon": "Code2",
-      "estimatedMinutes": 75,
-      "prerequisites": [
-        "topic-5"
-      ],
+      "title": "Chặng 8: Lập Trình Thi Đấu Nâng Cao (Advanced CP)",
+      "description": "Cây phân đoạn (Segment Tree), Binary Indexed Tree (Fenwick) và quy hoạch động bitmask.",
+      "level": "Nâng cao",
       "problemCodes": [],
-      "guide": "### 1. Các Thao Tác Chuỗi Cần Nắm\n```cpp\nstring s;\ncin >> s; // Đọc chuỗi không chứa dấu cách\n// getline(cin, s); // Đọc cả dòng chứa dấu cách\n\n// Kiểm tra ký tự\nif (isdigit(s[i])) { ... } // Ký tự số '0'-'9'\nif (isalpha(s[i])) { ... } // Ký tự chữ cái\n\n// Chuyển ký tự số sang giá trị số\nint val = s[i] - '0';\n\n// Cắt chuỗi con\nstring sub = s.substr(pos, length);\n```\n\n### 2. Kiểm Tra Xâu Đối Xứng (Palindrome)\n- Dùng kỹ thuật hai con trỏ so sánh từ hai đầu `l = 0, r = s.length() - 1` cho đến khi gặp nhau. Thời gian $O(N)$, bộ nhớ $O(1)$.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "guide": "Cấu trúc dữ liệu truy vấn khoảng và cập nhật điểm trong O(log N)."
     },
     {
       "id": "topic-9",
       "order": 9,
-      "phase": "Phase 3 — Core Algorithms",
-      "title": "Sorting & Standard Library Algorithms",
-      "description": "Thuật toán sắp xếp O(N log N), std::sort, custom comparator với struct/pair, binary search STL (lower_bound, upper_bound).",
-      "level": "Trung cấp",
-      "difficulty": "Intermediate",
-      "icon": "Search",
-      "estimatedMinutes": 90,
-      "prerequisites": [
-        "topic-5"
-      ],
-      "problemCodes": [],
-      "guide": "### 1. Sử Dụng std::sort và Custom Comparator\n```cpp\n#include <algorithm>\n#include <vector>\n\nstruct Item {\n    int id;\n    int weight;\n    int value;\n};\n\n// Sắp xếp giảm dần theo giá trị, nếu bằng nhau thì tăng dần theo trọng lượng\nbool cmp(const Item& a, const Item& b) {\n    if (a.value != b.value) return a.value > b.value;\n    return a.weight < b.weight;\n}\n\nvector<Item> items;\n// ...\nsort(items.begin(), items.end(), cmp);\n```\n\n### 2. Tìm Kiếm Nhị Phân Trong C++ STL\n- `lower_bound(v.begin(), v.end(), x)`: Con trỏ tới phần tử đầu tiên $\\ge x$.\n- `upper_bound(v.begin(), v.end(), x)`: Con trỏ tới phần tử đầu tiên $> x$.\n- Lưu ý: Dãy phải được sắp xếp tăng dần trước khi gọi lower_bound/upper_bound.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-10",
-      "order": 10,
-      "phase": "Phase 3 — Core Algorithms",
-      "title": "Two Pointers & Sliding Window",
-      "description": "Kỹ thuật hai con trỏ đối xứng, hai con trỏ cùng chiều và cửa sổ trượt (Sliding Window) để tối ưu độ phức tạp từ O(N^2) xuống O(N).",
-      "level": "Trung cấp",
-      "difficulty": "Intermediate",
-      "icon": "ArrowRight",
-      "estimatedMinutes": 90,
-      "prerequisites": [
-        "topic-9"
-      ],
-      "problemCodes": [
-        "KYYEU"
-      ],
-      "guide": "### 1. Mẫu Cửa Sổ Trượt (Sliding Window)\n```cpp\nint l = 0;\nlong long currentSum = 0;\nint maxLen = 0;\n\nfor (int r = 0; r < n; ++r) {\n    currentSum += a[r];\n    while (currentSum > S && l <= r) {\n        currentSum -= a[l];\n        l++;\n    }\n    if (currentSum <= S) {\n        maxLen = max(maxLen, r - l + 1);\n    }\n}\n```\n- Độ phức tạp: $O(N)$ vì mỗi con trỏ `l` và `r` chỉ di chuyển về phía trước tối đa $N$ bước.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-11",
-      "order": 11,
-      "phase": "Phase 3 — Core Algorithms",
-      "title": "Greedy Algorithms & Interval Scheduling",
-      "description": "Tư duy tham lam (Greedy Choice), chứng minh tính tối ưu cục bộ, bài toán phân bổ tài nguyên và sắp xếp lịch trình không giao nhau.",
-      "level": "Trung cấp",
-      "difficulty": "Intermediate",
-      "icon": "Target",
-      "estimatedMinutes": 90,
-      "prerequisites": [
-        "topic-9"
-      ],
-      "problemCodes": [
-        "MUASAM"
-      ],
-      "guide": "### 1. Bài Toán Sắp Xếp Lịch Trình (Interval Scheduling)\n- Cho $N$ công việc với thời gian bắt đầu $s_i$ và kết thúc $e_i$. Chọn số lượng công việc nhiều nhất không giao nhau.\n- **Chiến lược tham lam**: Sắp xếp các đoạn theo thời điểm kết thúc $e_i$ tăng dần. Luôn ưu tiên chọn công việc kết thúc sớm nhất để chừa lại nhiều thời gian nhất cho các công việc sau.\n\n```cpp\nstruct Interval {\n    int start, end;\n};\n\nbool cmp(const Interval& a, const Interval& b) {\n    return a.end < b.end;\n}\n\nint countJobs(vector<Interval>& jobs) {\n    sort(jobs.begin(), jobs.end(), cmp);\n    int cnt = 0, lastEnd = -1;\n    for (const auto& job : jobs) {\n        if (job.start >= lastEnd) {\n            cnt++;\n            lastEnd = job.end;\n        }\n    }\n    return cnt;\n}\n```",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-12",
-      "order": 12,
-      "phase": "Phase 4 — Recursion and Backtracking",
-      "title": "Recursion & Backtracking (Permutations & Subsets)",
-      "description": "Đệ quy, ngăn xếp gọi hàm (Call Stack), điều kiện dừng (Base Case), kỹ thuật quay lui duyệt toàn bộ không gian nghiệm (Hoán vị, Tổ hợp).",
-      "level": "Trung cấp",
-      "difficulty": "Intermediate",
-      "icon": "Repeat",
-      "estimatedMinutes": 100,
-      "prerequisites": [
-        "topic-3"
-      ],
-      "problemCodes": [],
-      "guide": "### 1. Khung Mẫu Thuật Toán Quay Lui (Backtracking)\n```cpp\nvoid backtrack(int i) {\n    for (int v = 1; v <= n; ++v) {\n        if (!used[v]) {\n            x[i] = v;\n            used[v] = true;\n\n            if (i == n) {\n                // Đạt lời giải hoàn chỉnh, in hoặc xử lý\n                printSolution();\n            } else {\n                backtrack(i + 1);\n            }\n\n            // Hoàn tác trạng thái (Backtrack step)\n            used[v] = false;\n        }\n    }\n}\n```\n\n### 2. Giới Hạn Cần Chú Ý\n- Sinh hoán vị: $O(N!)$, chỉ áp dụng khi $N \\le 10$.\n- Sinh tập con: $O(2^N)$, chỉ áp dụng khi $N \\le 20$.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-13",
-      "order": 13,
-      "phase": "Phase 5 — Data Structures",
-      "title": "Standard Data Structures (Vector, Stack, Queue, Set & Map)",
-      "description": "Cấu trúc dữ liệu chuẩn trong C++ STL: vector, stack (LIFO), queue (FIFO), deque, set (Red-Black Tree), map, unordered_map (Hash Table) và priority_queue.",
-      "level": "Trung cấp",
-      "difficulty": "Intermediate",
-      "icon": "Layers",
-      "estimatedMinutes": 120,
-      "prerequisites": [
-        "topic-9"
-      ],
-      "problemCodes": [],
-      "guide": "### 1. Bảng Tra Cứu STL Containers & Độ Phức Tạp\n| Cấu trúc | Thao tác chính | Độ phức tạp | Ứng dụng tiêu biểu |\n| :--- | :--- | :---: | :--- |\n| `std::vector` | `push_back`, `[]` | $O(1)$ | Mảng động, danh sách kề |\n| `std::stack` | `push`, `pop`, `top` | $O(1)$ | LIFO, khử đệ quy, Monotonic Stack |\n| `std::queue` | `push`, `pop`, `front` | $O(1)$ | FIFO, duyệt đồ thị BFS |\n| `std::deque` | Thêm/xóa ở cả 2 đầu | $O(1)$ | Cửa sổ trượt min/max |\n| `std::priority_queue` | `push`, `pop`, `top` | $O(\\log N)$ | Heap, thuật toán Dijkstra |\n| `std::set` / `std::map` | Chèn, tìm kiếm, xóa | $O(\\log N)$ | Tập hợp có thứ tự, cây đỏ đen |\n| `std::unordered_map` | Chèn, tìm kiếm | $O(1)$ tb | Bảng băm đếm nhanh |\n\n### 2. Khuyến Nghị Sử Dụng\n- Dùng `priority_queue<int, vector<int>, greater<int>>` để tạo min-heap.\n- Cẩn thận với `unordered_map` trong Competitive Programming vì có thể bị anti-hash testcase đưa độ phức tạp về $O(N)$. Dùng custom hash nếu cần thiết.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-14",
-      "order": 14,
-      "phase": "Phase 6 — Intermediate Algorithms",
-      "title": "Binary Search on Answer & Sieve of Eratosthenes",
-      "description": "Tìm kiếm nhị phân trên không gian nghiệm (Binary Search on Answer), tính đơn điệu của hàm kiểm tra check(mid) và sàng nguyên tố Eratosthenes.",
-      "level": "Trung cấp",
-      "difficulty": "Intermediate",
-      "icon": "Search",
-      "estimatedMinutes": 100,
-      "prerequisites": [
-        "topic-4",
-        "topic-9"
-      ],
-      "problemCodes": [
-        "SODEP"
-      ],
-      "guide": "### 1. Tìm Kiếm Nhị Phân Trên Tập Kết Quả (Binary Search on Answer)\nÁp dụng khi: Không thể tính trực tiếp đáp án, nhưng với một giá trị $X$ giả định, ta dễ dàng kiểm tra xem $X$ có thỏa mãn điều kiện hay không trong thời gian nhanh ($O(N)$), và hàm kiểm tra có tính đơn điệu (Monotonic).\n\n```cpp\nlong long low = 1, high = MAX_ANS, ans = -1;\nwhile (low <= high) {\n    long long mid = low + (high - low) / 2;\n    if (check(mid)) {\n        ans = mid;\n        low = mid + 1; // Hoặc high = mid - 1 tùy bài toán tìm min hay max\n    } else {\n        high = mid - 1;\n    }\n}\n```\n\n### 2. Sàng Nguyên Tố Eratosthenes\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP + 2, isP + MAXN + 1, true);\n    for (int p = 2; p * p <= MAXN; ++p) {\n        if (isP[p]) {\n            for (int i = p * p; i <= MAXN; i += p) {\n                isP[i] = false;\n            }\n        }\n    }\n}\n```",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-15",
-      "order": 15,
-      "phase": "Phase 7 — Dynamic Programming",
-      "title": "Introduction to Dynamic Programming & 1D State Transitions",
-      "description": "Tư duy Quy hoạch động: Trạng thái (State), Hệ thức truy hồi (Transition), bài toán con gối nhau, Memoization vs Tabulation.",
+      "title": "Chặng 9: Luyện Đề Thi Thử & Tối Ưu Thời Gian (Contest Mocks)",
+      "description": "Tổng hợp kỹ năng, rèn luyện áp lực thời gian và chiến thuật làm bài trong các kỳ thi học sinh giỏi.",
       "level": "Nâng cao",
-      "difficulty": "Advanced",
-      "icon": "Sparkles",
-      "estimatedMinutes": 120,
-      "prerequisites": [
-        "topic-6",
-        "topic-12"
-      ],
-      "problemCodes": [
-        "NHAYECH",
-        "TRANGTRI"
-      ],
-      "guide": "### 1. Bốn Bước Thiết Kế Thuật Toán Quy Hoạch Động (DP)\n1. **Định nghĩa trạng thái**: `dp[i]` đại diện cho điều gì? (Ví dụ: chi phí nhỏ nhất để nhảy đến bậc $i$).\n2. **Hệ thức truy hồi (State Transition)**: Giá trị của `dp[i]` được tính như thế nào từ các trạng thái trước đó (`dp[i-1]`, `dp[i-2]`).\n3. **Bài toán cơ sở (Base Cases)**: Các giá trị khởi tạo (`dp[0] = 0`, `dp[1] = ...`).\n4. **Thứ tự tính toán**: Tính theo chiều tăng dần của chỉ số để đảm bảo trạng thái phụ thuộc đã được giải quyết xong.\n\n### 2. Ví Dụ Bài Toán Ếch Nhảy\n```cpp\ndp[1] = 0;\ndp[2] = abs(h[2] - h[1]);\nfor (int i = 3; i <= n; ++i) {\n    dp[i] = min(dp[i - 1] + abs(h[i] - h[i - 1]),\n                dp[i - 2] + abs(h[i] - h[i - 2]));\n}\n```",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-16",
-      "order": 16,
-      "phase": "Phase 7 — Dynamic Programming",
-      "title": "Knapsack DP & Longest Increasing Subsequence (LIS)",
-      "description": "Bài toán Cái túi 0/1 Knapsack, Unbounded Knapsack, tối ưu hóa bộ nhớ 1 chiều và bài toán Dãy con tăng dài nhất (LIS).",
-      "level": "Nâng cao",
-      "difficulty": "Advanced",
-      "icon": "Trophy",
-      "estimatedMinutes": 120,
-      "prerequisites": [
-        "topic-15"
-      ],
       "problemCodes": [],
-      "guide": "### 1. 0/1 Knapsack (Tối Ưu Mảng 1 Chiều)\n```cpp\nvector<long long> dp(W + 1, 0);\n\nfor (int i = 0; i < n; ++i) {\n    // Duyệt ngược để mỗi đồ vật chỉ được chọn tối đa 1 lần\n    for (int w = W; w >= weight[i]; --w) {\n        dp[w] = max(dp[w], dp[w - weight[i]] + value[i]);\n    }\n}\n```\n\n### 2. Dãy Con Tăng Dài Nhất (LIS) O(N log N)\n```cpp\nvector<int> tails;\nfor (int x : a) {\n    auto it = lower_bound(tails.begin(), tails.end(), x);\n    if (it == tails.end()) {\n        tails.push_back(x);\n    } else {\n        *it = x;\n    }\n}\nint lisLength = tails.size();\n```",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-17",
-      "order": 17,
-      "phase": "Phase 7 — Dynamic Programming",
-      "title": "Grid Dynamic Programming & Tiling Problems",
-      "description": "Quy hoạch động trên lưới 2 chiều, tìm đường đi thu hoạch cực trị và các bài toán lát gạch (Tiling DP).",
-      "level": "Nâng cao",
-      "difficulty": "Advanced",
-      "icon": "Sparkles",
-      "estimatedMinutes": 120,
-      "prerequisites": [
-        "topic-7",
-        "topic-15"
-      ],
-      "problemCodes": [],
-      "guide": "### 1. Quy Hoạch Động Trên Lưới Ma Trận\n- Gọi `dp[i][j]` là giá trị thu hoạch lớn nhất khi đi từ ô $(1,1)$ đến ô $(i,j)$ chỉ bằng các bước đi xuống hoặc sang phải:\n  $$\\text{dp}[i][j] = a[i][j] + \\max(\\text{dp}[i - 1][j], \\text{dp}[i][j - 1])$$\n- Xử lý ô cấm: Nếu $(i,j)$ là chướng ngại vật thì đặt `dp[i][j] = -INF`.\n\n### 2. Bài Toán Lát Gạch (Tiling DP)\n- Số cách lát gạch chữ nhật kích thước $2 \\times N$ bằng các viên gạch $2 \\times 1$:\n  $$\\text{dp}[n] = \\text{dp}[n - 1] + \\text{dp}[n - 2]$$\n- Ma trận chuyển trạng thái và nhân ma trận $O(\\log N)$ khi $N$ lên tới $10^{18}$.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-18",
-      "order": 18,
-      "phase": "Phase 8 — Graph Algorithms",
-      "title": "Graph Representation, Traversal (BFS/DFS) & Shortest Paths",
-      "description": "Biểu diễn đồ thị bằng danh sách kề (Adjacency List), duyệt BFS/DFS, thuật toán Dijkstra tìm đường đi ngắn nhất trên đồ thị có trọng số không âm.",
-      "level": "Nâng cao",
-      "difficulty": "Advanced",
-      "icon": "Compass",
-      "estimatedMinutes": 150,
-      "prerequisites": [
-        "topic-13"
-      ],
-      "problemCodes": [
-        "HANHTRINH"
-      ],
-      "guide": "### 1. Biểu Diễn Đồ Thị Trọng Số\n```cpp\nconst int MAXN = 100005;\nvector<pair<int, int>> adj[MAXN]; // adj[u] chứa các cặp {v, weight}\n```\n\n### 2. Thuật Toán Dijkstra (Tìm Đường Đi Ngắn Nhất)\n```cpp\nvector<long long> dist(n + 1, 1e18);\npriority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<>> pq;\n\ndist[startNode] = 0;\npq.push({0, startNode});\n\nwhile (!pq.empty()) {\n    auto [d, u] = pq.top();\n    pq.pop();\n    if (d > dist[u]) continue;\n\n    for (auto [v, w] : adj[u]) {\n        if (dist[u] + w < dist[v]) {\n            dist[v] = dist[u] + w;\n            pq.push({dist[v], v});\n        }\n    }\n}\n```\n- Độ phức tạp: $O((V + E) \\log V)$.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-19",
-      "order": 19,
-      "phase": "Phase 8 — Graph Algorithms",
-      "title": "Minimum Spanning Tree (MST) & Network Optimization",
-      "description": "Cây khung nhỏ nhất (MST) với thuật toán Kruskal và Prim, cấu trúc dữ liệu Disjoint Set Union (DSU / DSN) tối ưu gộp tập hợp.",
-      "level": "Nâng cao",
-      "difficulty": "Advanced",
-      "icon": "GitFork",
-      "estimatedMinutes": 120,
-      "prerequisites": [
-        "topic-18"
-      ],
-      "problemCodes": [],
-      "guide": "### 1. Cấu Trúc Disjoint Set Union (DSU) Tối Ưu\n```cpp\nstruct DSU {\n    vector<int> parent;\n    DSU(int n) : parent(n + 1) {\n        iota(parent.begin(), parent.end(), 0);\n    }\n    int find(int u) {\n        return parent[u] == u ? u : parent[u] = find(parent[u]);\n    }\n    bool unite(int u, int v) {\n        int rootU = find(u), rootV = find(v);\n        if (rootU == rootV) return false;\n        parent[rootU] = rootV;\n        return true;\n    }\n};\n```\n\n### 2. Thuật Toán Kruskal Tìm Cây Khung Nhỏ Nhất\n- Sắp xếp tất cả các cạnh theo trọng số tăng dần.\n- Duyệt qua từng cạnh, nếu hai đỉnh chưa thuộc cùng thành phần liên thông (kiểm tra bằng DSU), thêm cạnh đó vào cây khung và gộp hai đỉnh.\n- Dừng lại khi đã chọn đủ $V - 1$ cạnh. Độ phức tạp: $O(E \\log E)$.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
-    },
-    {
-      "id": "topic-20",
-      "order": 20,
-      "phase": "Phase 9 — Advanced Competitive Programming",
-      "title": "Monotonic Stack/Queue, Segment Tree & Advanced Techniques",
-      "description": "Ngăn xếp/Hàng đợi đơn điệu (Monotonic Stack/Queue), cây phân đoạn Segment Tree, Fenwick Tree (BIT), cây tiền tố Trie.",
-      "level": "Nâng cao",
-      "difficulty": "Advanced",
-      "icon": "Cpu",
-      "estimatedMinutes": 180,
-      "prerequisites": [
-        "topic-13",
-        "topic-16"
-      ],
-      "problemCodes": [],
-      "guide": "### 1. Kỹ Thuật Ngăn Xếp Đơn Điệu (Monotonic Stack)\n- Sử dụng stack duy trì các phần tử tăng dần hoặc giảm dần để tìm phần tử lớn hơn/nhỏ hơn gần nhất bên trái hoặc bên phải trong thời gian $O(N)$.\n- Ứng dụng xóa $K$ chữ số để được số lớn nhất (`DELNUM`), tìm hình chữ nhật lớn nhất trong biểu đồ cột, bài toán nhìn thấy tòa nhà cao tầng.\n\n### 2. Cây Phân Đoạn (Segment Tree) Cơ Bản\n- Cấu trúc cây quản lý mảng kích thước $N$:\n  - Cập nhật một phần tử tại vị trí $p$: $O(\\log N)$.\n  - Truy vấn min/max/sum trên đoạn $[L, R]$ bất kỳ: $O(\\log N)$.\n- Xây dựng cây trong $O(N)$, bộ nhớ sử dụng $4N$.",
-      "updatedAt": "2026-10-09T07:16:01.333Z"
+      "guide": "Luyện tập giải đề trong giới hạn thời gian thật, rà soát bẫy testcase biên."
     }
   ],
   "student_custom_contests": []

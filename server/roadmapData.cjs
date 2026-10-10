@@ -1,6 +1,8 @@
-// ─── UMTJUDGE NEW COMPREHENSIVE ROADMAP DATA DEFINITIONS ───────────────────────
-// Structured from ZERO to ADVANCED across 9 stages for C++ Competitive Programming
-// Seeded for UMTJudge LAN and backward compatible with existing systems.
+'use strict';
+
+// ==============================================================================
+// UMTJudge — Full Roadmap Structure & Lesson Curriculum (ZERO to ADVANCED)
+// ==============================================================================
 
 const ROADMAP_STAGES = [
   {
@@ -13,11 +15,11 @@ const ROADMAP_STAGES = [
     "skillGained": "Nắm vững nền tảng lập trình hướng thủ tục trong C++, giải quyết trơn tru các bài toán cơ bản.",
     "checkpoint": {
       "problemIds": [
-        "CAU1",
-        "CAU2",
-        "CAU3",
-        "GIAVE",
-        "TONGCHAN"
+        "RM_FASTIO",
+        "RM_COMPARE",
+        "RM_LOGIC",
+        "RM_TICKET",
+        "RM_LOOPSUM"
       ],
       "passScore": 70
     }
@@ -32,8 +34,8 @@ const ROADMAP_STAGES = [
     "skillGained": "Xử lý các bài toán số học tối ưu từ O(sqrt(N)) đến O(log N), áp dụng thuần thục modulo và bitwise.",
     "checkpoint": {
       "problemIds": [
-        "DIEMTHUONG",
-        "SODEP"
+        "RM_DIVISORS",
+        "RM_PRIME"
       ],
       "passScore": 70
     }
@@ -74,8 +76,8 @@ const ROADMAP_STAGES = [
     "skillGained": "Tối ưu thuật toán từ O(N^2) xuống O(N) hoặc O(N log N), kỹ thuật cốt lõi trong các kỳ thi HSG.",
     "checkpoint": {
       "problemIds": [
-        "KYYEU",
-        "MUASAM"
+        "RM_TWOPOINTERS",
+        "RM_GREEDY"
       ],
       "passScore": 70
     }
@@ -90,8 +92,8 @@ const ROADMAP_STAGES = [
     "skillGained": "Xác định bài toán con gối nhau, xây dựng công thức truy hồi và tối ưu hóa không gian bộ nhớ.",
     "checkpoint": {
       "problemIds": [
-        "NHAYECH",
-        "TRANGTRI"
+        "RM_FROGJUMP",
+        "RM_MAXSUBARRAY"
       ],
       "passScore": 70
     }
@@ -106,7 +108,7 @@ const ROADMAP_STAGES = [
     "skillGained": "Mô hình hóa các bài toán thế giới thực thành bài toán đồ thị và áp dụng thuật toán tối ưu.",
     "checkpoint": {
       "problemIds": [
-        "HANHTRINH"
+        "RM_DIJKSTRA"
       ],
       "passScore": 70
     }
@@ -148,8 +150,8 @@ const ROADMAP_LESSONS = [
     "difficulty": 1,
     "estimatedMinutes": 30,
     "prerequisiteLessonIds": [],
-    "problemId": null,
-    "problemCode": "CAU1",
+    "problemId": "prob-rm-fastio",
+    "problemCode": "RM_FASTIO",
     "shortTheory": "### Cấu trúc chương trình C++ chuẩn\nMọi chương trình C++ bắt đầu từ hàm `main()`. Trong Competitive Programming, để tăng tốc độ nhập xuất ta sử dụng:\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    long long a, b;\n    if (cin >> a >> b) {\n        cout << a + b << \"\\n\";\n    }\n    return 0;\n}\n```\n- Dùng `\\n` thay vì `endl` để tránh ép xả buffer nhiều lần gây Time Limit Exceeded (TLE).",
     "hints": [
       "Đọc vào 2 số nguyên bằng cú pháp cin >> a >> b;",
@@ -205,8 +207,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-3"
     ],
-    "problemId": null,
-    "problemCode": "CAU2",
+    "problemId": "prob-rm-compare",
+    "problemCode": "RM_COMPARE",
     "shortTheory": "### Câu lệnh điều kiện if - else\nDùng để rẽ nhánh thực thi chương trình dựa trên biểu thức điều kiện:\n```cpp\nif (condition) {\n    // Thực thi khi condition đúng (khác 0)\n} else {\n    // Thực thi khi condition sai\n}\n```\n- Các toán tử so sánh: `==`, `!=`, `<`, `<=`, `>`, `>=`.\n- **Lưu ý**: So sánh bằng là `==`, không nhầm với phép gán `=`.",
     "hints": [
       "Xác định rõ các điều kiện biên của đề bài.",
@@ -224,8 +226,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-4"
     ],
-    "problemId": null,
-    "problemCode": "CAU3",
+    "problemId": "prob-rm-logic",
+    "problemCode": "RM_LOGIC",
     "shortTheory": "### Toán tử logic phức hợp\n- `&&` (AND): Đúng khi cả hai điều kiện cùng đúng.\n- `||` (OR): Đúng khi ít nhất một điều kiện đúng.\n- `!` (NOT): Phủ định giá trị logic.\n\n```cpp\nif (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {\n    cout << \"NAM NHUAN\\n\";\n} else {\n    cout << \"NAM KHONG NHUAN\\n\";\n}\n```",
     "hints": [
       "Toán tử && có độ ưu tiên cao hơn ||, dùng ngoặc đơn ( ) để phân định rõ ràng.",
@@ -243,8 +245,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-5"
     ],
-    "problemId": null,
-    "problemCode": "GIAVE",
+    "problemId": "prob-rm-ticket",
+    "problemCode": "RM_TICKET",
     "shortTheory": "### Phân loại nhiều khoảng giá trị\nKhi gặp bài toán tính tiền theo từng mức (ví dụ tiền điện, giá vé xe, thuế):\n```cpp\nlong long tinhTien(int tuoi, int loaiVe) {\n    if (tuoi < 6) return 0;\n    if (tuoi <= 12) return 50000;\n    if (tuoi >= 65) return 30000;\n    return 100000;\n}\n```\nNên xử lý các trường hợp đặc biệt trước (trẻ em, người cao tuổi) để đơn giản hóa logic.",
     "hints": [
       "Xếp các khoảng điều kiện theo thứ tự tăng dần hoặc giảm dần để tránh sót trường hợp.",
@@ -281,8 +283,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-7"
     ],
-    "problemId": null,
-    "problemCode": "TONGCHAN",
+    "problemId": "prob-rm-loopsum",
+    "problemCode": "RM_LOOPSUM",
     "shortTheory": "### Vòng lặp for\nCấu trúc lặp phổ biến nhất khi biết trước số lần lặp:\n```cpp\nlong long sum = 0;\nfor (int i = 1; i <= n; i++) {\n    if (i % 2 == 0) {\n        sum += i;\n    }\n}\n```\n- Khởi tạo biến tích lũy: `sum = 0` hoặc `product = 1LL`.\n- Luôn kiểm tra xem `sum` có vượt giới hạn `int` không để khai báo `long long`.",
     "hints": [
       "Duyệt từ 1 đến n (hoặc bước nhảy i += 2 để chỉ duyệt số chẵn).",
@@ -642,8 +644,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-1"
     ],
-    "problemId": null,
-    "problemCode": "DIEMTHUONG",
+    "problemId": "prob-rm-divisors",
+    "problemCode": "RM_DIVISORS",
     "shortTheory": "### Tìm ước trong $O(\\sqrt{N})$\nNếu $d$ là ước của $N$ thì $\\frac{N}{d}$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $\\sqrt{N}$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
     "hints": [
       "Điều kiện dừng là i * i <= n để đạt độ phức tạp O(sqrt(N)).",
@@ -718,8 +720,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-5"
     ],
-    "problemId": null,
-    "problemCode": "SODEP",
+    "problemId": "prob-rm-prime",
+    "problemCode": "RM_PRIME",
     "shortTheory": "### Kiểm tra số nguyên tố\nSố nguyên tố là số nguyên lớn hơn 1, chỉ có đúng 2 ước là 1 và chính nó.\n```cpp\nbool isPrime(long long n) {\n    if (n < 2) return false;\n    if (n == 2 || n == 3) return true;\n    if (n % 2 == 0 || n % 3 == 0) return false;\n    for (long long i = 5; i * i <= n; i += 6) {\n        if (n % i == 0 || n % (i + 2) == 0) return false;\n    }\n    return true;\n}\n```",
     "hints": [
       "Loại bỏ ngay n < 2 và các số chẵn > 2.",
@@ -2124,8 +2126,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-5-4"
     ],
-    "problemId": null,
-    "problemCode": "KYYEU",
+    "problemId": "prob-rm-twopointers",
+    "problemCode": "RM_TWOPOINTERS",
     "shortTheory": "### Kỹ thuật Hai con trỏ (Two Pointers): Hai đầu đối diện\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
@@ -2219,8 +2221,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-5-9"
     ],
-    "problemId": null,
-    "problemCode": "MUASAM",
+    "problemId": "prob-rm-greedy",
+    "problemCode": "RM_GREEDY",
     "shortTheory": "### Chiến lược Tham lam (Greedy): Nguyên lý lựa chọn tham lam\nKỹ thuật tối ưu hóa thuật toán kinh điển trong Competitive Programming.\n- Giúp hạ bậc độ phức tạp từ $O(N^2)$ xuống $O(N)$ hoặc $O(N \\log N)$.\n- Nắm chắc phương pháp chứng minh tính đúng đắn và xử lý điều kiện biên.",
     "hints": [
       "Gợi ý 1: Xác định xem dữ liệu có tính chất đơn điệu (tăng/giảm) để áp dụng hai con trỏ hoặc chặt nhị phân không.",
@@ -2656,8 +2658,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-6-2"
     ],
-    "problemId": null,
-    "problemCode": "NHAYECH",
+    "problemId": "prob-rm-frogjump",
+    "problemCode": "RM_FROGJUMP",
     "shortTheory": "### Quy hoạch động 1D: Bài toán bước nhảy tối ưu\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
@@ -2675,8 +2677,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-6-3"
     ],
-    "problemId": null,
-    "problemCode": "TRANGTRI",
+    "problemId": "prob-rm-maxsubarray",
+    "problemCode": "RM_MAXSUBARRAY",
     "shortTheory": "### Quy hoạch động 1D: Trang trí dãy số & Phân bổ trạng thái\nLàm chủ chuyên đề Quy hoạch động (Dynamic Programming) - chìa khóa vàng trong các kỳ thi học sinh giỏi.\n- Xác định rõ: Định nghĩa trạng thái $dp[\\dots]$, Công thức chuyển trạng thái, Trường hợp cơ sở và Thứ tự tính toán.\n- Áp dụng các kỹ thuật nén mảng để tiết kiệm bộ nhớ từ $O(N^2)$ xuống $O(N)$.",
     "hints": [
       "Gợi ý 1: Định nghĩa rõ nghĩa trạng thái dp[i] đại diện cho điều gì.",
@@ -3530,8 +3532,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-7-13"
     ],
-    "problemId": null,
-    "problemCode": "HANHTRINH",
+    "problemId": "prob-rm-dijkstra",
+    "problemCode": "RM_DIJKSTRA",
     "shortTheory": "### Thuật toán Dijkstra: Đường đi ngắn nhất đồ thị trọng số không âm\nKiến thức cốt lõi về Lý thuyết Đồ thị (Graph Theory) trong Competitive Programming.\n- Làm chủ kỹ năng chuyển đổi bài toán thực tế thành bài toán đồ thị.\n- Phân tích và cài đặt thuật toán chuẩn xác trên danh sách kề `vector<int> adj[]` hoặc `vector<pair<int, int>> adj[]`.",
     "hints": [
       "Gợi ý 1: Chọn cấu trúc lưu trữ phù hợp (danh sách kề vector<pair<int, int>> cho đồ thị có trọng số).",
@@ -4890,30 +4892,167 @@ const ROADMAP_LESSONS = [
   }
 ];
 
-// Backward compatibility adapter for legacy views / endpoints
-const ALGORITHM_ROADMAP_TOPICS = ROADMAP_STAGES.map((stage, idx) => {
-  const stageLessons = ROADMAP_LESSONS.filter(l => l.stageId === stage.id);
-  const codes = [];
-  stageLessons.forEach(l => {
-    if (l.problemCode && !codes.includes(l.problemCode)) {
-      codes.push(l.problemCode);
-    }
-  });
-  return {
-    id: 'topic-' + (idx + 1),
-    order: stage.order,
-    phase: stage.title,
-    title: stage.title,
-    description: stage.goal,
-    level: idx < 3 ? 'Cơ bản' : idx < 6 ? 'Trung bình' : 'Nâng cao',
-    difficulty: idx < 2 ? 'Beginner' : idx < 5 ? 'Intermediate' : 'Advanced',
-    icon: idx < 2 ? 'Terminal' : idx < 5 ? 'Layers' : 'Cpu',
-    estimatedMinutes: stageLessons.reduce((acc, l) => acc + (l.estimatedMinutes || 30), 0),
-    prerequisites: idx > 0 ? ['topic-' + idx] : [],
-    problemCodes: codes,
-    guide: stage.skillGained
-  };
-});
+const ALGORITHM_ROADMAP_TOPICS = [
+  {
+    "id": "topic-1",
+    "order": 1,
+    "phase": "C++ Basic Syntax & Foundation",
+    "title": "C++ Basic Syntax & Foundation",
+    "description": "Làm chủ cú pháp C++, biến, rẽ nhánh, vòng lặp, mảng 1D/2D, chuỗi ký tự, hàm và đọc ghi tệp.",
+    "level": "Cơ bản",
+    "difficulty": "Beginner",
+    "icon": "Terminal",
+    "estimatedMinutes": 835,
+    "prerequisites": [],
+    "problemCodes": [
+      "RM_FASTIO",
+      "RM_COMPARE",
+      "RM_LOGIC",
+      "RM_TICKET",
+      "RM_LOOPSUM"
+    ],
+    "guide": "Nắm vững nền tảng lập trình hướng thủ tục trong C++, giải quyết trơn tru các bài toán cơ bản."
+  },
+  {
+    "id": "topic-2",
+    "order": 2,
+    "phase": "Number Theory Foundations",
+    "title": "Number Theory Foundations",
+    "description": "Hiểu sâu về chia hết, ước/bội, số nguyên tố, sàng Eratosthenes, số học modulo, lũy thừa nhanh và thao tác bit.",
+    "level": "Cơ bản",
+    "difficulty": "Beginner",
+    "icon": "Terminal",
+    "estimatedMinutes": 1160,
+    "prerequisites": [
+      "topic-1"
+    ],
+    "problemCodes": [
+      "RM_DIVISORS",
+      "RM_PRIME"
+    ],
+    "guide": "Xử lý các bài toán số học tối ưu từ O(sqrt(N)) đến O(log N), áp dụng thuần thục modulo và bitwise."
+  },
+  {
+    "id": "topic-3",
+    "order": 3,
+    "phase": "Ad hoc & Problem Solving Techniques",
+    "title": "Ad hoc & Problem Solving Techniques",
+    "description": "Phát triển tư duy quan sát (observation), tìm bất biến (invariant), mô phỏng (simulation) và xây dựng nghiệm (constructive).",
+    "level": "Cơ bản",
+    "difficulty": "Intermediate",
+    "icon": "Layers",
+    "estimatedMinutes": 835,
+    "prerequisites": [
+      "topic-2"
+    ],
+    "problemCodes": [],
+    "guide": "Khả năng tư duy linh hoạt trước các bài toán không mẫu mực, tư duy thuật toán trực giác."
+  },
+  {
+    "id": "topic-4",
+    "order": 4,
+    "phase": "STL & Basic Data Structures",
+    "title": "STL & Basic Data Structures",
+    "description": "Làm chủ thư viện chuẩn C++ STL (vector, set, map, stack, queue, priority_queue), chặt nhị phân với lower_bound/upper_bound.",
+    "level": "Trung bình",
+    "difficulty": "Intermediate",
+    "icon": "Layers",
+    "estimatedMinutes": 950,
+    "prerequisites": [
+      "topic-3"
+    ],
+    "problemCodes": [],
+    "guide": "Sử dụng thành thạo các cấu trúc dữ liệu kinh điển, viết code ngắn gọn và tối ưu độ phức tạp."
+  },
+  {
+    "id": "topic-5",
+    "order": 5,
+    "phase": "Core Algorithmic Techniques",
+    "title": "Core Algorithmic Techniques",
+    "description": "Làm chủ mảng cộng dồn, mảng hiệu, hai con trỏ, cửa sổ trượt, tham lam, tìm kiếm nhị phân kết quả và quay lui.",
+    "level": "Trung bình",
+    "difficulty": "Intermediate",
+    "icon": "Layers",
+    "estimatedMinutes": 1315,
+    "prerequisites": [
+      "topic-4"
+    ],
+    "problemCodes": [
+      "RM_TWOPOINTERS",
+      "RM_GREEDY"
+    ],
+    "guide": "Tối ưu thuật toán từ O(N^2) xuống O(N) hoặc O(N log N), kỹ thuật cốt lõi trong các kỳ thi HSG."
+  },
+  {
+    "id": "topic-6",
+    "order": 6,
+    "phase": "Dynamic Programming (DP)",
+    "title": "Dynamic Programming (DP)",
+    "description": "Quy hoạch động từ cơ bản đến nâng cao: 1D, 2D lưới, Knapsack 0/1, LIS, LCS, Interval DP, Bitmask DP và Tree DP.",
+    "level": "Trung bình",
+    "difficulty": "Advanced",
+    "icon": "Cpu",
+    "estimatedMinutes": 1770,
+    "prerequisites": [
+      "topic-5"
+    ],
+    "problemCodes": [
+      "RM_FROGJUMP",
+      "RM_MAXSUBARRAY"
+    ],
+    "guide": "Xác định bài toán con gối nhau, xây dựng công thức truy hồi và tối ưu hóa không gian bộ nhớ."
+  },
+  {
+    "id": "topic-7",
+    "order": 7,
+    "phase": "Graph Algorithms",
+    "title": "Graph Algorithms",
+    "description": "Thuật toán đồ thị: biểu diễn đồ thị, BFS/DFS, DSU, cây khung nhỏ nhất (Kruskal/Prim), Dijkstra, Tarjan cầu/khớp và SCC.",
+    "level": "Nâng cao",
+    "difficulty": "Advanced",
+    "icon": "Cpu",
+    "estimatedMinutes": 1715,
+    "prerequisites": [
+      "topic-6"
+    ],
+    "problemCodes": [
+      "RM_DIJKSTRA"
+    ],
+    "guide": "Mô hình hóa các bài toán thế giới thực thành bài toán đồ thị và áp dụng thuật toán tối ưu."
+  },
+  {
+    "id": "topic-8",
+    "order": 8,
+    "phase": "Advanced Competitive Programming",
+    "title": "Advanced Competitive Programming",
+    "description": "Segment Tree, Fenwick Tree (BIT), String Hashing, KMP, Trie, LCA Binary Lifting, Tổ hợp mod P, Hình học tính toán.",
+    "level": "Nâng cao",
+    "difficulty": "Advanced",
+    "icon": "Cpu",
+    "estimatedMinutes": 1905,
+    "prerequisites": [
+      "topic-7"
+    ],
+    "problemCodes": [],
+    "guide": "Sẵn sàng chinh phục các bài tập mức độ HSG Quốc gia (VNOI / Codeforces Div. 2-1)."
+  },
+  {
+    "id": "topic-9",
+    "order": 9,
+    "phase": "Contest Practice & Timed Mocks",
+    "title": "Contest Practice & Timed Mocks",
+    "description": "Bộ đề thi thử tính giờ, rèn luyện chiến thuật làm bài, quản lý thời gian, bẫy test và viết stress test.",
+    "level": "Nâng cao",
+    "difficulty": "Advanced",
+    "icon": "Cpu",
+    "estimatedMinutes": 1365,
+    "prerequisites": [
+      "topic-8"
+    ],
+    "problemCodes": [],
+    "guide": "Tâm lý thi đấu vững vàng, kỹ năng săn điểm và kiểm thử bài làm trong phòng thi thực chiến."
+  }
+];
 
 module.exports = {
   ROADMAP_STAGES,
