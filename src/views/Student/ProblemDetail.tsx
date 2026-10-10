@@ -290,6 +290,22 @@ export const ProblemDetail: React.FC<Props> = ({
     }, 600);
   }, [storageKey]);
 
+  const [activeConsoleTab, setActiveConsoleTab] = useState<'custom' | 'result'>('custom');
+  const [customInput, setCustomInput] = useState<string>(() => {
+    return (problem.samples && problem.samples.length > 0) ? problem.samples[0].input : '';
+  });
+  const [customOutput, setCustomOutput] = useState<string>('');
+  const [customTime, setCustomTime] = useState<number | null>(null);
+  const [isRunningCustom, setIsRunningCustom] = useState<boolean>(false);
+  const [customError, setCustomError] = useState<string>('');
+
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [currentSubmission, setCurrentSubmission] = useState<Submission | null>(null);
+  const [judgeProgress, setJudgeProgress] = useState<{ current: number; total: number; message: string } | null>(null);
+  const [copiedSampleIdx, setCopiedSampleIdx] = useState<{ type: 'in' | 'out'; idx: number } | null>(null);
+  const [expandedTestIdx, setExpandedTestIdx] = useState<number | null>(null);
+  const [loadingFullTestIdx, setLoadingFullTestIdx] = useState<number | null>(null);
+
   // Memoized Monaco Editor options to eliminate re-renders on timer ticks or parent updates
   const editorOptions = useMemo(() => ({
     fontSize: 14,
@@ -314,22 +330,6 @@ export const ProblemDetail: React.FC<Props> = ({
     acceptSuggestionOnEnter: 'on' as const,
     readOnly: isExamLocked || isSubmitting
   }), [isExamLocked, isSubmitting]);
-
-  const [activeConsoleTab, setActiveConsoleTab] = useState<'custom' | 'result'>('custom');
-  const [customInput, setCustomInput] = useState<string>(() => {
-    return (problem.samples && problem.samples.length > 0) ? problem.samples[0].input : '';
-  });
-  const [customOutput, setCustomOutput] = useState<string>('');
-  const [customTime, setCustomTime] = useState<number | null>(null);
-  const [isRunningCustom, setIsRunningCustom] = useState<boolean>(false);
-  const [customError, setCustomError] = useState<string>('');
-
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [currentSubmission, setCurrentSubmission] = useState<Submission | null>(null);
-  const [judgeProgress, setJudgeProgress] = useState<{ current: number; total: number; message: string } | null>(null);
-  const [copiedSampleIdx, setCopiedSampleIdx] = useState<{ type: 'in' | 'out'; idx: number } | null>(null);
-  const [expandedTestIdx, setExpandedTestIdx] = useState<number | null>(null);
-  const [loadingFullTestIdx, setLoadingFullTestIdx] = useState<number | null>(null);
 
   // Document view mode & Contest Resolution
   const [contestInfo, setContestInfo] = useState<Contest | null>(null);
