@@ -286,42 +286,14 @@
       "createdAt": "2026-10-10T14:09:58.595Z"
     },
     {
-      "id": "user-dev-37f83a61-62ce-442e-b1fd-128cf857ae99",
+      "id": "user-dev-10a31f55-55cd-409b-bda5-3dc0c8294d6b",
       "username": "dev_student",
       "classes": [
         "class-career"
       ]
     },
     {
-      "id": "user-olp-44c8d4b8-b907-499a-a1c6-e1989cb679ec",
-      "username": "olp_student",
-      "classes": [
-        "class-olp"
-      ]
-    },
-    {
-      "id": "user-dev-8e0738f7-d7f3-4dfb-a5fb-b518fe6bef78",
-      "username": "dev_student",
-      "classes": [
-        "class-career"
-      ]
-    },
-    {
-      "id": "user-olp-f30d3bab-d2f2-4a12-8aee-3f5a211f5bc6",
-      "username": "olp_student",
-      "classes": [
-        "class-olp"
-      ]
-    },
-    {
-      "id": "user-dev-31006fc8-5a89-40fa-91b5-4dfe26514dba",
-      "username": "dev_student",
-      "classes": [
-        "class-career"
-      ]
-    },
-    {
-      "id": "user-olp-8b8c837a-6e1e-4630-81f2-9342cd1102ba",
+      "id": "user-olp-6b995737-ccea-4fa0-8faf-d372f45a46e8",
       "username": "olp_student",
       "classes": [
         "class-olp"
@@ -1787,7 +1759,7 @@
         }
       ],
       "testCount": 12,
-      "createdAt": "2026-10-11T02:21:53.692Z"
+      "createdAt": "2026-10-11T02:32:17.344Z"
     },
     {
       "id": "prob-rm-cses-missing",
@@ -1808,7 +1780,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.695Z"
+      "createdAt": "2026-10-11T02:32:17.347Z"
     },
     {
       "id": "prob-rm-cses-repetitions",
@@ -1834,7 +1806,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.697Z"
+      "createdAt": "2026-10-11T02:32:17.348Z"
     },
     {
       "id": "prob-rm-cses-increasing",
@@ -1855,7 +1827,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.698Z"
+      "createdAt": "2026-10-11T02:32:17.349Z"
     },
     {
       "id": "prob-rm-cses-permute",
@@ -1881,7 +1853,7 @@
         }
       ],
       "testCount": 12,
-      "createdAt": "2026-10-11T02:21:53.700Z"
+      "createdAt": "2026-10-11T02:32:17.351Z"
     },
     {
       "id": "prob-rm-usaco-teleport",
@@ -1902,7 +1874,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.701Z"
+      "createdAt": "2026-10-11T02:32:17.352Z"
     },
     {
       "id": "prob-rm-usaco-fencepaint",
@@ -1923,7 +1895,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.702Z"
+      "createdAt": "2026-10-11T02:32:17.353Z"
     },
     {
       "id": "prob-rm-usaco-wordproc",
@@ -1944,7 +1916,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.703Z"
+      "createdAt": "2026-10-11T02:32:17.354Z"
     },
     {
       "id": "prob-rm-vnoi-triangle",
@@ -1975,7 +1947,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.705Z"
+      "createdAt": "2026-10-11T02:32:17.355Z"
     },
     {
       "id": "prob-rm-vnoi-kadane1d",
@@ -1996,7 +1968,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.706Z"
+      "createdAt": "2026-10-11T02:32:17.356Z"
     },
     {
       "id": "prob-rm-cses-expon",
@@ -2017,7 +1989,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.708Z"
+      "createdAt": "2026-10-11T02:32:17.357Z"
     },
     {
       "id": "prob-rm-cses-countdiv",
@@ -2038,7 +2010,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.709Z"
+      "createdAt": "2026-10-11T02:32:17.359Z"
     },
     {
       "id": "prob-rm-cses-trailingzeros",
@@ -2059,7 +2031,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.710Z"
+      "createdAt": "2026-10-11T02:32:17.360Z"
     },
     {
       "id": "prob-rm-cses-bitstrings",
@@ -2080,7 +2052,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.712Z"
+      "createdAt": "2026-10-11T02:32:17.361Z"
     },
     {
       "id": "prob-rm-vnoi-arraygcd",
@@ -2101,7 +2073,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.713Z"
+      "createdAt": "2026-10-11T02:32:17.362Z"
     },
     {
       "id": "prob-rm-vnoi-primepalin",
@@ -2122,7 +2094,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.721Z"
+      "createdAt": "2026-10-11T02:32:17.370Z"
     },
     {
       "id": "prob-rm-vnoi-singlenum",
@@ -2143,7 +2115,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.723Z"
+      "createdAt": "2026-10-11T02:32:17.371Z"
     },
     {
       "id": "prob-rm-vnoi-squarecount",
@@ -2164,7 +2136,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.724Z"
+      "createdAt": "2026-10-11T02:32:17.372Z"
     },
     {
       "id": "prob-rm-vnoi-digitcycle",
@@ -2185,7 +2157,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.726Z"
+      "createdAt": "2026-10-11T02:32:17.374Z"
     },
     {
       "id": "prob-rm-cses-coinpiles",
@@ -2206,7 +2178,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.727Z"
+      "createdAt": "2026-10-11T02:32:17.375Z"
     },
     {
       "id": "prob-rm-usaco-madscientist",
@@ -2227,7 +2199,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.728Z"
+      "createdAt": "2026-10-11T02:32:17.376Z"
     },
     {
       "id": "prob-rm-cses-numspiral",
@@ -2248,7 +2220,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.729Z"
+      "createdAt": "2026-10-11T02:32:17.377Z"
     },
     {
       "id": "prob-rm-usaco-mixingmilk",
@@ -2269,7 +2241,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.731Z"
+      "createdAt": "2026-10-11T02:32:17.379Z"
     },
     {
       "id": "prob-rm-robot-grid",
@@ -2290,7 +2262,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.732Z"
+      "createdAt": "2026-10-11T02:32:17.380Z"
     },
     {
       "id": "prob-rm-valid-parentheses",
@@ -2316,7 +2288,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.734Z"
+      "createdAt": "2026-10-11T02:32:17.381Z"
     },
     {
       "id": "prob-rm-usaco-shellgame",
@@ -2337,7 +2309,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.735Z"
+      "createdAt": "2026-10-11T02:32:17.382Z"
     },
     {
       "id": "prob-rm-usaco-bovineshuffle",
@@ -2358,7 +2330,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.736Z"
+      "createdAt": "2026-10-11T02:32:17.383Z"
     },
     {
       "id": "prob-rm-cses-twosets",
@@ -2379,7 +2351,7 @@
         }
       ],
       "testCount": 12,
-      "createdAt": "2026-10-11T02:21:53.737Z"
+      "createdAt": "2026-10-11T02:32:17.384Z"
     },
     {
       "id": "prob-rm-cses-palinreorder",
@@ -2405,7 +2377,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.739Z"
+      "createdAt": "2026-10-11T02:32:17.385Z"
     },
     {
       "id": "prob-rm-extreme-construct",
@@ -2426,7 +2398,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.740Z"
+      "createdAt": "2026-10-11T02:32:17.386Z"
     },
     {
       "id": "prob-rm-usaco-blockedbillboard",
@@ -2447,7 +2419,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.741Z"
+      "createdAt": "2026-10-11T02:32:17.387Z"
     },
     {
       "id": "prob-rm-usaco-lostcow",
@@ -2468,7 +2440,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.742Z"
+      "createdAt": "2026-10-11T02:32:17.388Z"
     },
     {
       "id": "prob-rm-usaco-censoring",
@@ -2489,7 +2461,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.769Z"
+      "createdAt": "2026-10-11T02:32:17.389Z"
     },
     {
       "id": "prob-rm-cses-twoknights",
@@ -2510,7 +2482,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.770Z"
+      "createdAt": "2026-10-11T02:32:17.390Z"
     },
     {
       "id": "prob-rm-usaco-speeding",
@@ -2531,7 +2503,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.772Z"
+      "createdAt": "2026-10-11T02:32:17.391Z"
     },
     {
       "id": "prob-rm-usaco-cowgym",
@@ -2552,7 +2524,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.774Z"
+      "createdAt": "2026-10-11T02:32:17.392Z"
     },
     {
       "id": "prob-rm-target-sum-arr",
@@ -2573,7 +2545,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.775Z"
+      "createdAt": "2026-10-11T02:32:17.393Z"
     },
     {
       "id": "prob-rm-spiral-rotate",
@@ -2594,7 +2566,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.777Z"
+      "createdAt": "2026-10-11T02:32:17.394Z"
     },
     {
       "id": "prob-rm-cses-graycode",
@@ -2615,7 +2587,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:21:53.779Z"
+      "createdAt": "2026-10-11T02:32:17.397Z"
     },
     {
       "id": "prob-rm-hollow-square",
@@ -2636,7 +2608,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.351Z"
+      "createdAt": "2026-10-11T02:32:17.502Z"
     },
     {
       "id": "prob-rm-first-negative",
@@ -2657,7 +2629,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.353Z"
+      "createdAt": "2026-10-11T02:32:17.505Z"
     },
     {
       "id": "prob-rm-is-alphanum",
@@ -2688,7 +2660,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.355Z"
+      "createdAt": "2026-10-11T02:32:17.506Z"
     },
     {
       "id": "prob-rm-is-prime-func",
@@ -2709,7 +2681,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.355Z"
+      "createdAt": "2026-10-11T02:32:17.507Z"
     },
     {
       "id": "prob-rm-fraction-struct",
@@ -2735,7 +2707,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.356Z"
+      "createdAt": "2026-10-11T02:32:17.508Z"
     },
     {
       "id": "prob-rm-lcm-pair",
@@ -2756,7 +2728,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.357Z"
+      "createdAt": "2026-10-11T02:32:17.509Z"
     },
     {
       "id": "prob-rm-vnoi-primerange",
@@ -2777,7 +2749,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.400Z"
+      "createdAt": "2026-10-11T02:32:17.566Z"
     },
     {
       "id": "prob-rm-count-even-odd-digits",
@@ -2803,7 +2775,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.401Z"
+      "createdAt": "2026-10-11T02:32:17.568Z"
     },
     {
       "id": "prob-rm-check-kth-bit",
@@ -2829,7 +2801,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.402Z"
+      "createdAt": "2026-10-11T02:32:17.569Z"
     },
     {
       "id": "prob-rm-repeated-digit-sum",
@@ -2855,7 +2827,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.403Z"
+      "createdAt": "2026-10-11T02:32:17.570Z"
     },
     {
       "id": "prob-rm-fib-last-digit",
@@ -2881,7 +2853,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.404Z"
+      "createdAt": "2026-10-11T02:32:17.572Z"
     },
     {
       "id": "prob-rm-usaco-cowcross",
@@ -2902,7 +2874,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.405Z"
+      "createdAt": "2026-10-11T02:32:17.573Z"
     },
     {
       "id": "prob-rm-usaco-squarepasture",
@@ -2923,7 +2895,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.406Z"
+      "createdAt": "2026-10-11T02:32:17.574Z"
     },
     {
       "id": "prob-rm-usaco-daisychains",
@@ -2944,7 +2916,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.407Z"
+      "createdAt": "2026-10-11T02:32:17.575Z"
     },
     {
       "id": "prob-rm-run-length-enc",
@@ -2965,7 +2937,7 @@
         }
       ],
       "testCount": 10,
-      "createdAt": "2026-10-11T02:22:06.408Z"
+      "createdAt": "2026-10-11T02:32:17.576Z"
     }
   ],
   "submissions": [
@@ -3125,7 +3097,7 @@
   ],
   "contests": [
     {
-      "id": "cnt-fa930cab-889a-46dd-9cc4-cb6cb0ef3f3a",
+      "id": "cnt-2a7124d1-a32a-49e8-8666-45543da0a87d",
       "title": "Kỳ thi thử Virtual",
       "description": "",
       "mode": "offline",
@@ -3143,8 +3115,8 @@
       "pdfFileName": "",
       "statementHtml": "",
       "_pdfDiskPath": "",
-      "startTime": "2026-10-11T01:18:19.357Z",
-      "endTime": "2026-10-11T02:18:18.358Z",
+      "startTime": "2026-10-11T01:25:57.772Z",
+      "endTime": "2026-10-11T02:25:56.773Z",
       "durationMinutes": 45,
       "status": "ended",
       "gradingMode": "direct",
@@ -3162,87 +3134,7 @@
         "maxTabViolations": 3,
         "preventCopyPaste": false
       },
-      "createdAt": "2026-10-11T02:18:19.358Z"
-    },
-    {
-      "id": "cnt-2099f9f8-3b33-42c0-b827-07262b2fc825",
-      "title": "Kỳ thi thử Virtual",
-      "description": "",
-      "mode": "offline",
-      "scopeType": "ALL",
-      "targetGrades": [],
-      "targetClasses": [],
-      "targetStudents": [],
-      "totalScore": 100,
-      "memoryLimit": 256,
-      "category": "regular",
-      "classIds": [],
-      "candidateIds": [],
-      "problemIds": [],
-      "pdfUrl": "",
-      "pdfFileName": "",
-      "statementHtml": "",
-      "_pdfDiskPath": "",
-      "startTime": "2026-10-11T01:14:30.538Z",
-      "endTime": "2026-10-11T02:14:29.538Z",
-      "durationMinutes": 45,
-      "status": "ended",
-      "gradingMode": "direct",
-      "freezeScoreboardMinutes": 15,
-      "pinCode": "",
-      "hideTestDetailsForStudents": true,
-      "requireFreopen": false,
-      "allowReopen": true,
-      "manualEndOnly": true,
-      "ioMode": "stdin",
-      "scoringMode": "LIVE_BEST",
-      "ipWhitelist": "",
-      "antiCheat": {
-        "preventTabSwitch": true,
-        "maxTabViolations": 3,
-        "preventCopyPaste": false
-      },
-      "createdAt": "2026-10-11T02:14:30.539Z"
-    },
-    {
-      "id": "cnt-b036349a-8522-4cdb-88cd-b56365f5f491",
-      "title": "Kỳ thi thử Virtual",
-      "description": "",
-      "mode": "offline",
-      "scopeType": "ALL",
-      "targetGrades": [],
-      "targetClasses": [],
-      "targetStudents": [],
-      "totalScore": 100,
-      "memoryLimit": 256,
-      "category": "regular",
-      "classIds": [],
-      "candidateIds": [],
-      "problemIds": [],
-      "pdfUrl": "",
-      "pdfFileName": "",
-      "statementHtml": "",
-      "_pdfDiskPath": "",
-      "startTime": "2026-10-11T01:13:38.113Z",
-      "endTime": "2026-10-11T02:13:37.115Z",
-      "durationMinutes": 45,
-      "status": "ended",
-      "gradingMode": "direct",
-      "freezeScoreboardMinutes": 15,
-      "pinCode": "",
-      "hideTestDetailsForStudents": true,
-      "requireFreopen": false,
-      "allowReopen": true,
-      "manualEndOnly": true,
-      "ioMode": "stdin",
-      "scoringMode": "LIVE_BEST",
-      "ipWhitelist": "",
-      "antiCheat": {
-        "preventTabSwitch": true,
-        "maxTabViolations": 3,
-        "preventCopyPaste": false
-      },
-      "createdAt": "2026-10-11T02:13:38.118Z"
+      "createdAt": "2026-10-11T02:25:57.774Z"
     },
     {
       "id": "cnt-c112e7ec-e345-450d-b051-da98f4c4f7b6",
@@ -10942,55 +10834,19 @@
         "stage-1"
       ]
     },
-    "test-user-prereq-721187d6-b49b-4c91-8b77-e12c1a10b59c": {
+    "test-user-prereq-ff3e727c-bd49-4612-a550-7bd492d0e729": {
       "completedLessonIds": [
         "les-1-1"
       ],
       "testedOutStageIds": []
     },
-    "test-user-testout-86d31626-0674-4600-8a01-aac035fdc295": {
+    "test-user-testout-61cbed31-8b0b-4ca9-a9c9-42a855c7d156": {
       "completedLessonIds": [],
       "testedOutStageIds": [
         "stage-1"
       ]
     },
-    "test-user-progress-0d6eef34-2795-46db-8d3a-b457bfb6b211": {
-      "completedLessonIds": [],
-      "testedOutStageIds": [
-        "stage-1"
-      ]
-    },
-    "test-user-prereq-0863f47a-3d84-4091-9383-6f6e87344c84": {
-      "completedLessonIds": [
-        "les-1-1"
-      ],
-      "testedOutStageIds": []
-    },
-    "test-user-testout-3e3cb559-d45a-4aa9-8fb9-9b9e08e46a43": {
-      "completedLessonIds": [],
-      "testedOutStageIds": [
-        "stage-1"
-      ]
-    },
-    "test-user-progress-c6b0dd8d-a8a6-4e62-bb16-159c2cb9bcde": {
-      "completedLessonIds": [],
-      "testedOutStageIds": [
-        "stage-1"
-      ]
-    },
-    "test-user-prereq-457d72c8-b658-4cee-8757-902012a607e0": {
-      "completedLessonIds": [
-        "les-1-1"
-      ],
-      "testedOutStageIds": []
-    },
-    "test-user-testout-ac4e7b8a-c850-4175-9887-276fb6b7f1c0": {
-      "completedLessonIds": [],
-      "testedOutStageIds": [
-        "stage-1"
-      ]
-    },
-    "test-user-progress-7f9fc485-1c8d-4695-84b3-97050e92035a": {
+    "test-user-progress-b83932e6-67e5-471c-8785-8fa018bdfd3a": {
       "completedLessonIds": [],
       "testedOutStageIds": [
         "stage-1"
