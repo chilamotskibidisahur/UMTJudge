@@ -122,7 +122,15 @@ async function migrate() {
     // 3. Users & Enrollments
     const validClassIds = new Set((data.classes || []).map(c => c.id));
     if (Array.isArray(data.users)) {
+      const seenUsernames = new Set();
+      const uniqueUsers = [];
       for (const u of data.users) {
+        const uname = (u.username || '').trim().toLowerCase();
+        if (!uname || seenUsernames.has(uname)) continue;
+        seenUsernames.add(uname);
+        uniqueUsers.push(u);
+      }
+      for (const u of uniqueUsers) {
         await client.query(`
           INSERT INTO users (
             id, username, password_hash, full_name, role, streak, is_locked, must_change_password,
@@ -451,9 +459,18 @@ async function migrate() {
     }
 
     if (data.roadmap_user_progress && typeof data.roadmap_user_progress === 'object') {
+      const userRes = await client.query('SELECT id FROM users');
+      const existingUserIds = new Set(userRes.rows.map(r => r.id));
+      const lessonRes = await client.query('SELECT id FROM roadmap_lessons');
+      const existingLessonIds = new Set(lessonRes.rows.map(r => r.id));
+      const stageRes = await client.query('SELECT id FROM roadmap_stages');
+      const existingStageIds = new Set(stageRes.rows.map(r => r.id));
+
       for (const [userId, prog] of Object.entries(data.roadmap_user_progress)) {
+        if (!existingUserIds.has(userId)) continue;
         if (prog && Array.isArray(prog.completedLessonIds)) {
           for (const lId of prog.completedLessonIds) {
+            if (!existingLessonIds.has(lId)) continue;
             await client.query(`
               INSERT INTO roadmap_user_progress (user_id, lesson_id, status, score)
               VALUES ($1, $2, 'completed', 100)
@@ -463,6 +480,7 @@ async function migrate() {
         }
         if (prog && Array.isArray(prog.testedOutStageIds)) {
           for (const sId of prog.testedOutStageIds) {
+            if (!existingStageIds.has(sId)) continue;
             await client.query(`
               INSERT INTO roadmap_stage_progress (user_id, stage_id, status, score)
               VALUES ($1, $2, 'tested_out', 100)
@@ -474,7 +492,11 @@ async function migrate() {
     }
 
     if (Array.isArray(data.student_custom_contests)) {
+      const userRes = await client.query('SELECT id FROM users');
+      const existingUserIds = new Set(userRes.rows.map(r => r.id));
+
       for (const cc of data.student_custom_contests) {
+        if (!cc.userId || !existingUserIds.has(cc.userId)) continue;
         await client.query(`
           INSERT INTO student_custom_contests (id, user_id, title, description, time_limit, memory_limit, test_cases, created_at, updated_at)
           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
