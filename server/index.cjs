@@ -3775,6 +3775,9 @@ if (fs.existsSync(distDir)) {
 }
 
 async function autoSeedAdmin() {
+  if (db._syncPromise) {
+    try { await db._syncPromise; } catch (e) {}
+  }
   const adminUsername = (process.env.ADMIN_USERNAME || 'admin').trim().toLowerCase();
   const adminPassword = process.env.ADMIN_PASSWORD || 'phatt123';
   try {

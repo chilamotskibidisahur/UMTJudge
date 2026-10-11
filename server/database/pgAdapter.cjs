@@ -143,6 +143,7 @@ class PgAdapter {
   // First Run Check & Admin Setup
   // --------------------------------------------------------------------------
   isFirstRun() {
+    if (!this.isReady) return false;
     return !this.cache.users.some(u => u.role === 'host' || u.role === 'admin');
   }
 
@@ -175,8 +176,19 @@ class PgAdapter {
       this.cache.settings.serverName = adminData.serverName.trim();
     }
 
-    this.cache.users = [admin];
-    this.cache.classes = [defaultClass];
+    const existingAdminIdx = this.cache.users.findIndex(u => u.username === admin.username);
+    if (existingAdminIdx >= 0) {
+      this.cache.users[existingAdminIdx] = { ...this.cache.users[existingAdminIdx], ...admin };
+    } else {
+      this.cache.users.push(admin);
+    }
+
+    const existingClassIdx = this.cache.classes.findIndex(c => c.joinCode === 'TIN01');
+    if (existingClassIdx >= 0) {
+      this.cache.classes[existingClassIdx] = { ...this.cache.classes[existingClassIdx], ...defaultClass };
+    } else {
+      this.cache.classes.push(defaultClass);
+    }
 
     // Ghi vào PostgreSQL ngầm
     usersRepo.setupFirstAdmin(adminData).catch(err => {

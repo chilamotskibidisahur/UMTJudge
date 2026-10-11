@@ -313,17 +313,25 @@ async function setupFirstAdmin(adminData) {
     const adminId = newId('usr');
     const classId = newId('cls');
 
-    // 1. Tạo lớp mặc định
+    // 1. Tạo lớp mặc định (an toàn nếu join_code TIN01 đã tồn tại)
     const className = adminData.className || "Lớp Tin Học 1";
-    await client.query(`
+    const classRes = await client.query(`
       INSERT INTO classes (id, name, teacher, join_code)
       VALUES ($1, $2, $3, $4)
+      ON CONFLICT (join_code) DO UPDATE SET
+        name = EXCLUDED.name,
+        teacher = EXCLUDED.teacher
+      RETURNING id, name, teacher, join_code
     `, [classId, className, adminData.fullName || "Quản trị viên / Giáo viên", "TIN01"]);
+    const finalClass = classRes.rows[0];
 
-    // 2. Tạo tài khoản Host
+    // 2. Tạo tài khoản Host (an toàn nếu username đã tồn tại)
     const insertAdminSql = `
       INSERT INTO users (id, username, password_hash, full_name, role)
       VALUES ($1, $2, $3, $4, 'host')
+      ON CONFLICT (username) DO UPDATE SET
+        password_hash = EXCLUDED.password_hash,
+        role = 'host'
       RETURNING id, username, password_hash AS "passwordHash", full_name AS "fullName", role, created_at AS "createdAt"
     `;
     const adminRes = await client.query(insertAdminSql, [
@@ -341,7 +349,7 @@ async function setupFirstAdmin(adminData) {
 
     return {
       admin: adminRes.rows[0],
-      defaultClass: { id: classId, name: className, teacher: adminData.fullName, joinCode: "TIN01" }
+      defaultClass: finalClass || { id: classId, name: className, teacher: adminData.fullName, joinCode: "TIN01" }
     };
   });
 }
