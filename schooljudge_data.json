@@ -382,6 +382,20 @@
       "classes": [
         "class-olp"
       ]
+    },
+    {
+      "id": "user-dev-41653301-8de7-41c9-a8af-2467a5dc698e",
+      "username": "dev_student",
+      "classes": [
+        "class-career"
+      ]
+    },
+    {
+      "id": "user-olp-979dae8e-333f-4740-a8b8-b7e858b60c05",
+      "username": "olp_student",
+      "classes": [
+        "class-olp"
+      ]
     }
   ],
   "problems": [
@@ -5237,6 +5251,46 @@
     }
   ],
   "contests": [
+    {
+      "id": "cnt-bd6a6cfb-92ce-40f7-af5b-ca1efa06733e",
+      "title": "Kỳ thi thử Virtual",
+      "description": "",
+      "mode": "offline",
+      "scopeType": "ALL",
+      "targetGrades": [],
+      "targetClasses": [],
+      "targetStudents": [],
+      "totalScore": 100,
+      "memoryLimit": 256,
+      "category": "regular",
+      "classIds": [],
+      "candidateIds": [],
+      "problemIds": [],
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "statementHtml": "",
+      "_pdfDiskPath": "",
+      "startTime": "2026-10-11T00:17:50.869Z",
+      "endTime": "2026-10-11T01:17:49.870Z",
+      "durationMinutes": 45,
+      "status": "ended",
+      "gradingMode": "direct",
+      "freezeScoreboardMinutes": 15,
+      "pinCode": "",
+      "hideTestDetailsForStudents": true,
+      "requireFreopen": false,
+      "allowReopen": true,
+      "manualEndOnly": true,
+      "ioMode": "stdin",
+      "scoringMode": "LIVE_BEST",
+      "ipWhitelist": "",
+      "antiCheat": {
+        "preventTabSwitch": true,
+        "maxTabViolations": 3,
+        "preventCopyPaste": false
+      },
+      "createdAt": "2026-10-11T01:17:50.871Z"
+    },
     {
       "id": "cnt-2edd6cec-31dc-4203-8156-b6f97d206284",
       "title": "Kỳ thi thử Virtual",
@@ -12928,6 +12982,24 @@
       ]
     },
     "test-user-progress-2a78be9b-8b61-4b24-a5d1-0ccbc7eb8be9": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-prereq-59e70cb1-e881-426c-8f68-ebcb6678f423": {
+      "completedLessonIds": [
+        "les-1-1"
+      ],
+      "testedOutStageIds": []
+    },
+    "test-user-testout-f56869f7-3b64-4dd7-8ec5-873a6d56625f": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-progress-5893a947-072a-408f-9166-3f0fc0f03980": {
       "completedLessonIds": [],
       "testedOutStageIds": [
         "stage-1"

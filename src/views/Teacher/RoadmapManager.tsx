@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { apiFetch } from '../../lib/api';
 import { RoadmapStage, RoadmapLesson, Problem } from '../../types';
 import { useNetwork } from '../../context/NetworkContext';
+import { formatMathHtml } from '../../lib/mathFormatter';
 import { 
   Compass, 
   Plus, 
@@ -1328,9 +1329,8 @@ export const RoadmapManager: React.FC = () => {
                   lineHeight: 1.65,
                   whiteSpace: 'pre-wrap'
                 }}
-              >
-                {previewLesson.shortTheory || 'Chưa có nội dung lý thuyết.'}
-              </div>
+                dangerouslySetInnerHTML={{ __html: formatMathHtml(previewLesson.shortTheory || 'Chưa có nội dung lý thuyết.') }}
+              />
             </div>
 
             {/* Attached Problem Card */}

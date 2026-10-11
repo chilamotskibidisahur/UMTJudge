@@ -8,6 +8,7 @@ import {
 } from '../../types';
 import { useNetwork } from '../../context/NetworkContext';
 import { useAuth } from '../../context/AuthContext';
+import { cleanMathToHtml } from '../../lib/mathFormatter';
 import { 
   Compass, 
   CheckCircle2, 
@@ -108,28 +109,7 @@ const TheoryMarkdownViewer = React.memo<{ content: string }>(({ content }) => {
   }, [content]);
 
   const renderMathFormula = (rawMath: string, keyPrefix: string | number) => {
-    let clean = rawMath.trim();
-    // Normalize LaTeX symbols
-    clean = clean.replace(/\\pmod\s*([a-zA-Z0-9_]+)/g, ' (mod $1)');
-    clean = clean.replace(/\\cdot/g, ' × ');
-    clean = clean.replace(/\\times/g, ' × ');
-    clean = clean.replace(/\\le\b/g, ' ≤ ');
-    clean = clean.replace(/\\ge\b/g, ' ≥ ');
-    clean = clean.replace(/\\ne\b|\\neq\b/g, ' ≠ ');
-    clean = clean.replace(/\\pm\b/g, ' ± ');
-    clean = clean.replace(/\\equiv\b/g, ' ≡ ');
-    clean = clean.replace(/\\sqrt\{([^}]+)\}/g, '√$1');
-    clean = clean.replace(/\\sqrt\s*([a-zA-Z0-9]+)/g, '√$1');
-    clean = clean.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)');
-    clean = clean.replace(/\\dots\b/g, '…');
-    clean = clean.replace(/\\log\b/g, 'log');
-    clean = clean.replace(/\\gcd\b/g, 'gcd');
-    clean = clean.replace(/\\text\{([^}]+)\}/g, '$1');
-    clean = clean.replace(/\s+/g, ' ').trim();
-
-    // Tokenize exponents and subscripts like 10^9, 10^{18}, N^2, 2^N, A_i
-    const subParts = clean.split(/([a-zA-Z0-9\(\)]+\^\{[^}]+\}|[a-zA-Z0-9\(\)]+\^[a-zA-Z0-9]+|[a-zA-Z0-9]+_\{[^}]+\}|[a-zA-Z0-9]+_[a-zA-Z0-9]+)/g);
-
+    const html = cleanMathToHtml(rawMath);
     return (
       <span 
         key={keyPrefix}
@@ -142,53 +122,14 @@ const TheoryMarkdownViewer = React.memo<{ content: string }>(({ content }) => {
           color: 'var(--secondary)',
           background: 'rgba(45, 212, 191, 0.08)',
           border: '1px solid rgba(45, 212, 191, 0.22)',
-          padding: '0 5px',
+          padding: '0 6px',
           borderRadius: '4px',
           fontWeight: 600,
           verticalAlign: 'baseline',
           margin: '0 2px'
         }}
-      >
-        {subParts.map((sp, spIdx) => {
-          const supBraceMatch = sp.match(/^([a-zA-Z0-9\(\)]+)\^\{([^}]+)\}$/);
-          if (supBraceMatch) {
-            return (
-              <span key={spIdx}>
-                {supBraceMatch[1]}
-                <sup style={{ fontSize: '0.78em', fontWeight: 700, marginLeft: '1px' }}>{supBraceMatch[2]}</sup>
-              </span>
-            );
-          }
-          const supMatch = sp.match(/^([a-zA-Z0-9\(\)]+)\^([a-zA-Z0-9]+)$/);
-          if (supMatch) {
-            return (
-              <span key={spIdx}>
-                {supMatch[1]}
-                <sup style={{ fontSize: '0.78em', fontWeight: 700, marginLeft: '1px' }}>{supMatch[2]}</sup>
-              </span>
-            );
-          }
-          const subBraceMatch = sp.match(/^([a-zA-Z0-9]+)_\{([^}]+)\}$/);
-          if (subBraceMatch) {
-            return (
-              <span key={spIdx}>
-                {subBraceMatch[1]}
-                <sub style={{ fontSize: '0.78em', fontWeight: 700, marginLeft: '1px' }}>{subBraceMatch[2]}</sub>
-              </span>
-            );
-          }
-          const subMatch = sp.match(/^([a-zA-Z0-9]+)_([a-zA-Z0-9]+)$/);
-          if (subMatch) {
-            return (
-              <span key={spIdx}>
-                {subMatch[1]}
-                <sub style={{ fontSize: '0.78em', fontWeight: 700, marginLeft: '1px' }}>{subMatch[2]}</sub>
-              </span>
-            );
-          }
-          return <span key={spIdx}>{sp}</span>;
-        })}
-      </span>
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     );
   };
 
