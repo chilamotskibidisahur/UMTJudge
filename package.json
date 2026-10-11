@@ -23,7 +23,8 @@
     "tunnel": "node scripts/tunnel.cjs",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint src server electron tests",
-    "sign:update": "node scripts/sign-update.cjs"
+    "sign:update": "node scripts/sign-update.cjs",
+    "db:migrate": "node server/database/migrate-from-json.cjs"
   },
   "build": {
     "appId": "com.umtjudge.lan",

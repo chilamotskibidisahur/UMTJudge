@@ -22,7 +22,7 @@ if (fs.existsSync(envPath) && typeof process.loadEnvFile === 'function') {
 const isTestEnv = !!process.env.SCHOOLJUDGE_DATA_DIR;
 const mode = (process.env.SCHOOLJUDGE_DB_MODE || 'json').toLowerCase();
 
-if (mode === 'json') {
+if (isTestEnv || mode === 'json') {
   console.log('📦 [Database Mode]: Đang chạy ở chế độ Fallback JSON (schooljudge_data.json)');
   module.exports = require('../db.cjs');
 } else {

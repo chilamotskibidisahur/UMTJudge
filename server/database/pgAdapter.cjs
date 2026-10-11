@@ -12,6 +12,9 @@ const submissionsRepo = require('./repos/submissions.cjs');
 const leaderboardRepo = require('./repos/leaderboard.cjs');
 const settingsRepo = require('./repos/settings.cjs');
 const achievementsRepo = require('./repos/achievements.cjs');
+const roadmapRepo = require('./repos/roadmap.cjs');
+const { ROADMAP_STAGES, ROADMAP_LESSONS, ALGORITHM_ROADMAP_TOPICS } = require('../roadmapData.cjs');
+const DEFAULT_ROADMAP_TOPICS = Array.isArray(ALGORITHM_ROADMAP_TOPICS) ? ALGORITHM_ROADMAP_TOPICS : [];
 const { resolveProblemSubmission, SCORING_MODES } = require('../scoring.cjs');
 
 function newId(prefix) {
@@ -32,10 +35,19 @@ class PgAdapter {
       virtual_sessions: [],
       contest_attendance: {},
       achievements: [],
-      rewards: []
+      rewards: [],
+      roadmap_stages: JSON.parse(JSON.stringify(ROADMAP_STAGES)),
+      roadmap_lessons: JSON.parse(JSON.stringify(ROADMAP_LESSONS)),
+      roadmap_user_progress: {},
+      roadmap_topics: JSON.parse(JSON.stringify(DEFAULT_ROADMAP_TOPICS)),
+      student_custom_contests: []
     };
     this.isReady = false;
     this._syncPromise = this.initCache();
+  }
+
+  get data() {
+    return this.cache;
   }
 
   async initCache() {
@@ -54,6 +66,17 @@ class PgAdapter {
           this.cache.submissions = fbData.submissions || [];
           this.cache.achievements = fbData.achievements || [];
           this.cache.rewards = fbData.rewards || [];
+          this.cache.roadmap_stages = fbData.roadmap_stages && fbData.roadmap_stages.length > 0
+            ? fbData.roadmap_stages
+            : JSON.parse(JSON.stringify(ROADMAP_STAGES));
+          this.cache.roadmap_lessons = fbData.roadmap_lessons && fbData.roadmap_lessons.length > 0
+            ? fbData.roadmap_lessons
+            : JSON.parse(JSON.stringify(ROADMAP_LESSONS));
+          this.cache.roadmap_user_progress = fbData.roadmap_user_progress || {};
+          this.cache.roadmap_topics = fbData.roadmap_topics && fbData.roadmap_topics.length > 0
+            ? fbData.roadmap_topics
+            : JSON.parse(JSON.stringify(DEFAULT_ROADMAP_TOPICS));
+          this.cache.student_custom_contests = fbData.student_custom_contests || [];
           this.isReady = true;
         } catch (e) {
           console.error('[PgAdapter] Fallback nạp JSON thất bại:', e);
@@ -62,7 +85,7 @@ class PgAdapter {
       }
 
       // Nạp dữ liệu song song từ PostgreSQL vào cache
-      const [settings, classes, users, problems, contests, submissions, achievements, rewards] = await Promise.all([
+      const [settings, classes, users, problems, contests, submissions, achievements, rewards, roadmapStages, roadmapLessons, roadmapTopics, customContests] = await Promise.all([
         settingsRepo.getSettings().catch(() => settingsRepo.DEFAULT_SETTINGS),
         classesRepo.getClasses().catch(() => []),
         usersRepo.getUsers().catch(() => []),
@@ -70,7 +93,11 @@ class PgAdapter {
         contestsRepo.getContests().catch(() => []),
         submissionsRepo.getSubmissions({}).catch(() => []),
         achievementsRepo.getAchievements().catch(() => []),
-        achievementsRepo.getRewards().catch(() => [])
+        achievementsRepo.getRewards().catch(() => []),
+        roadmapRepo.getRoadmapStages().catch(() => ROADMAP_STAGES),
+        roadmapRepo.getRoadmapLessons().catch(() => ROADMAP_LESSONS),
+        roadmapRepo.getRoadmapTopics().catch(() => DEFAULT_ROADMAP_TOPICS),
+        roadmapRepo.getStudentCustomContests().catch(() => [])
       ]);
 
       this.cache.settings = settings;
@@ -81,6 +108,10 @@ class PgAdapter {
       this.cache.submissions = submissions;
       this.cache.achievements = achievements;
       this.cache.rewards = rewards;
+      this.cache.roadmap_stages = roadmapStages && roadmapStages.length > 0 ? roadmapStages : JSON.parse(JSON.stringify(ROADMAP_STAGES));
+      this.cache.roadmap_lessons = roadmapLessons && roadmapLessons.length > 0 ? roadmapLessons : JSON.parse(JSON.stringify(ROADMAP_LESSONS));
+      this.cache.roadmap_topics = roadmapTopics && roadmapTopics.length > 0 ? roadmapTopics : JSON.parse(JSON.stringify(DEFAULT_ROADMAP_TOPICS));
+      this.cache.student_custom_contests = customContests || [];
       this.isReady = true;
 
       console.log('⚡ [PgAdapter] Đã đồng bộ cache từ PostgreSQL vào bộ nhớ thành công.');
@@ -1442,6 +1473,623 @@ class PgAdapter {
       },
       contests: transcriptContests
     };
+  }
+
+  // ─── ROADMAP METHODS (STAGES, LESSONS, CHECKPOINTS & PROGRESS) ──────────────
+  getRoadmapStages(track = null) {
+    if (!this.cache.roadmap_stages || !Array.isArray(this.cache.roadmap_stages) || this.cache.roadmap_stages.length === 0) {
+      this.cache.roadmap_stages = JSON.parse(JSON.stringify(ROADMAP_STAGES));
+    }
+    let list = this.cache.roadmap_stages || [];
+    if (track && track !== 'all') {
+      list = list.filter(s => !s.track || s.track === 'all' || s.track === track);
+    }
+    return [...list].sort((a, b) => (a.order || 0) - (b.order || 0));
+  }
+
+  getRoadmapStage(id) {
+    return this.getRoadmapStages().find(s => s.id === id) || null;
+  }
+
+  getRoadmapLessons(stageId = null, track = null) {
+    if (!this.cache.roadmap_lessons || !Array.isArray(this.cache.roadmap_lessons) || this.cache.roadmap_lessons.length === 0) {
+      this.cache.roadmap_lessons = JSON.parse(JSON.stringify(ROADMAP_LESSONS));
+    }
+    let list = this.cache.roadmap_lessons || [];
+    if (stageId) {
+      list = list.filter(l => l.stageId === stageId);
+    }
+    if (track && track !== 'all') {
+      list = list.filter(l => !l.track || l.track === 'all' || l.track === track);
+    }
+    return [...list].sort((a, b) => (a.order || 0) - (b.order || 0));
+  }
+
+  getRoadmapLesson(id) {
+    return this.getRoadmapLessons().find(l => l.id === id) || null;
+  }
+
+  attachProblemToLesson(lessonId, problemCodeOrId) {
+    const lessons = this.getRoadmapLessons();
+    const target = lessons.find(l => l.id === lessonId);
+    if (!target) return null;
+
+    const prob = this.getProblems().find(p => p.code === problemCodeOrId || p.id === problemCodeOrId);
+    const code = prob ? prob.code : problemCodeOrId;
+    const pid = prob ? prob.id : null;
+
+    target.problemCodes = Array.isArray(target.problemCodes) ? target.problemCodes : (target.problemCode ? [target.problemCode] : []);
+    if (!target.problemCodes.includes(code)) {
+      target.problemCodes.push(code);
+    }
+    target.problemCode = target.problemCodes[0] || code;
+    target.problemId = pid || target.problemId || null;
+
+    this.cache.roadmap_lessons = lessons;
+    roadmapRepo.saveRoadmapLesson(target).catch(err => {
+      console.error('[PgAdapter] Lỗi đính kèm bài tập trong PG:', err.message);
+    });
+    return target;
+  }
+
+  detachProblemFromLesson(lessonId, problemCodeOrId = null) {
+    const lessons = this.getRoadmapLessons();
+    const target = lessons.find(l => l.id === lessonId);
+    if (!target) return null;
+
+    target.problemCodes = Array.isArray(target.problemCodes) ? target.problemCodes : (target.problemCode ? [target.problemCode] : []);
+    if (problemCodeOrId) {
+      target.problemCodes = target.problemCodes.filter(c => c !== problemCodeOrId && c !== (this.getProblems().find(p => p.id === problemCodeOrId)?.code));
+    } else {
+      target.problemCodes = [];
+    }
+
+    target.problemCode = target.problemCodes[0] || null;
+    const remainingFirstProb = target.problemCodes.length > 0 ? this.getProblems().find(p => p.code === target.problemCodes[0]) : null;
+    target.problemId = remainingFirstProb ? remainingFirstProb.id : null;
+    this.cache.roadmap_lessons = lessons;
+    roadmapRepo.saveRoadmapLesson(target).catch(err => {
+      console.error('[PgAdapter] Lỗi gỡ bài tập trong PG:', err.message);
+    });
+    return target;
+  }
+
+  markLessonDone(userId, lessonId) {
+    if (!userId || !lessonId) return false;
+    this.cache.roadmap_user_progress = this.cache.roadmap_user_progress || {};
+    if (!this.cache.roadmap_user_progress[userId]) {
+      this.cache.roadmap_user_progress[userId] = { completedLessonIds: [], testedOutStageIds: [] };
+    }
+    const prog = this.cache.roadmap_user_progress[userId];
+    prog.completedLessonIds = prog.completedLessonIds || [];
+    if (!prog.completedLessonIds.includes(lessonId)) {
+      prog.completedLessonIds.push(lessonId);
+    }
+    roadmapRepo.markLessonDone(userId, lessonId).catch(err => {
+      console.error('[PgAdapter] Lỗi ghi markLessonDone vào PG:', err.message);
+    });
+    return true;
+  }
+
+  testOutStage(userId, stageId) {
+    if (!userId || !stageId) return false;
+    this.cache.roadmap_user_progress = this.cache.roadmap_user_progress || {};
+    if (!this.cache.roadmap_user_progress[userId]) {
+      this.cache.roadmap_user_progress[userId] = { completedLessonIds: [], testedOutStageIds: [] };
+    }
+    const prog = this.cache.roadmap_user_progress[userId];
+    prog.testedOutStageIds = prog.testedOutStageIds || [];
+    if (!prog.testedOutStageIds.includes(stageId)) {
+      prog.testedOutStageIds.push(stageId);
+    }
+    roadmapRepo.testOutStage(userId, stageId).catch(err => {
+      console.error('[PgAdapter] Lỗi ghi testOutStage vào PG:', err.message);
+    });
+    return true;
+  }
+
+  getUnlinkedLessons() {
+    return this.getRoadmapLessons().filter(l => !l.problemCode && !l.problemId);
+  }
+
+  saveRoadmapStage(stageData) {
+    const stages = this.getRoadmapStages();
+    let stage = null;
+    if (stageData.id) {
+      stage = stages.find(s => s.id === stageData.id);
+    }
+    if (stage) {
+      Object.assign(stage, stageData);
+    } else {
+      const newId = stageData.id || `stage-${stages.length + 1}`;
+      stage = {
+        ...stageData,
+        id: newId,
+        order: stageData.order || stages.length + 1,
+        checkpoint: stageData.checkpoint || { problemIds: [], passScore: 100 }
+      };
+      stages.push(stage);
+    }
+    this.cache.roadmap_stages = stages;
+    roadmapRepo.saveRoadmapStage(stage).catch(err => {
+      console.error('[PgAdapter] Lỗi ghi stage vào PG:', err.message);
+    });
+    return stage;
+  }
+
+  deleteRoadmapStage(stageId) {
+    const stages = this.getRoadmapStages();
+    const stage = stages.find(s => s.id === stageId);
+    if (!stage) return false;
+    this.cache.roadmap_stages = stages.filter(s => s.id !== stageId);
+    if (Array.isArray(this.cache.roadmap_lessons)) {
+      this.cache.roadmap_lessons = this.cache.roadmap_lessons.filter(l => l.stageId !== stageId);
+    }
+    roadmapRepo.deleteRoadmapStage(stageId).catch(err => {
+      console.error('[PgAdapter] Lỗi xóa stage trong PG:', err.message);
+    });
+    return true;
+  }
+
+  saveRoadmapLesson(lessonData) {
+    const lessons = this.getRoadmapLessons();
+    let lesson = null;
+    if (lessonData.id) {
+      lesson = lessons.find(l => l.id === lessonData.id);
+    }
+    if (lesson) {
+      Object.assign(lesson, lessonData);
+    } else {
+      const stageLessons = lessons.filter(l => l.stageId === lessonData.stageId);
+      const stageNum = (lessonData.stageId || 'stage-1').replace('stage-', '');
+      const newId = lessonData.id || `${stageNum}.${stageLessons.length + 1}`;
+      lesson = {
+        ...lessonData,
+        id: newId,
+        order: lessonData.order || stageLessons.length + 1,
+        hints: Array.isArray(lessonData.hints) ? lessonData.hints : [],
+        prerequisiteLessonIds: Array.isArray(lessonData.prerequisiteLessonIds) ? lessonData.prerequisiteLessonIds : []
+      };
+      lessons.push(lesson);
+    }
+    if (Array.isArray(lesson.problemCodes)) {
+      lesson.problemCodes = Array.from(new Set(lesson.problemCodes.filter(Boolean)));
+      if (!lesson.problemCode && lesson.problemCodes.length > 0) {
+        lesson.problemCode = lesson.problemCodes[0];
+      }
+    } else if (lesson.problemCode) {
+      lesson.problemCodes = [lesson.problemCode];
+    } else {
+      lesson.problemCodes = [];
+    }
+
+    if (lesson.problemCode || lesson.problemId) {
+      const codeOrId = lesson.problemCode || lesson.problemId;
+      const prob = this.getProblems().find(p => p.code === codeOrId || p.id === codeOrId);
+      if (prob) {
+        lesson.problemCode = prob.code;
+        lesson.problemId = prob.id;
+        if (!lesson.problemCodes.includes(prob.code)) {
+          lesson.problemCodes.unshift(prob.code);
+        }
+      }
+    }
+    this.cache.roadmap_lessons = lessons;
+    roadmapRepo.saveRoadmapLesson(lesson).catch(err => {
+      console.error('[PgAdapter] Lỗi ghi lesson vào PG:', err.message);
+    });
+    return lesson;
+  }
+
+  deleteRoadmapLesson(lessonId) {
+    const lessons = this.getRoadmapLessons();
+    const lesson = lessons.find(l => l.id === lessonId);
+    if (!lesson) return false;
+    this.cache.roadmap_lessons = lessons.filter(l => l.id !== lessonId);
+    roadmapRepo.deleteRoadmapLesson(lessonId).catch(err => {
+      console.error('[PgAdapter] Lỗi xóa lesson trong PG:', err.message);
+    });
+    return true;
+  }
+
+  resetRoadmapToDefault() {
+    this.cache.roadmap_stages = JSON.parse(JSON.stringify(ROADMAP_STAGES));
+    this.cache.roadmap_lessons = JSON.parse(JSON.stringify(ROADMAP_LESSONS));
+    roadmapRepo.resetRoadmapToDefault().catch(err => {
+      console.error('[PgAdapter] Lỗi resetRoadmap trong PG:', err.message);
+    });
+    return { stages: this.cache.roadmap_stages, lessons: this.cache.roadmap_lessons };
+  }
+
+  computeRoadmapProgress(userId, requestedTrack = null) {
+    const user = userId ? this.getUser(userId) : null;
+
+    let activeTrack = requestedTrack;
+    if (!activeTrack || (activeTrack !== 'olympic' && activeTrack !== 'career' && activeTrack !== 'all')) {
+      if (user && Array.isArray(user.classes)) {
+        if (user.classes.includes('class-career') && !user.classes.includes('class-olp')) {
+          activeTrack = 'career';
+        } else {
+          activeTrack = 'olympic';
+        }
+      } else {
+        activeTrack = 'olympic';
+      }
+    }
+
+    const allStages = this.getRoadmapStages();
+    const allLessons = this.getRoadmapLessons();
+    const stages = activeTrack === 'all' 
+      ? allStages 
+      : allStages.filter(s => !s.track || s.track === 'all' || s.track === activeTrack);
+    const validStageIds = new Set(stages.map(s => s.id));
+    const lessons = activeTrack === 'all'
+      ? allLessons
+      : allLessons.filter(l => validStageIds.has(l.stageId) && (!l.track || l.track === 'all' || l.track === activeTrack));
+
+    const problems = this.getProblems();
+    const probMap = new Map();
+    const probIdMap = new Map();
+    problems.forEach(p => {
+      probMap.set(p.code, p);
+      probIdMap.set(p.id, p);
+    });
+
+    const userSubs = userId ? this.getSubmissions().filter(s => s.userId === userId) : [];
+    const bestScores = new Map();
+    const isPassed = new Set();
+
+    userSubs.forEach(s => {
+      const code = s.problemCode;
+      const pid = s.problemId;
+      const score = s.score || 0;
+      if (code) {
+        if (score > (bestScores.get(code) || 0)) bestScores.set(code, score);
+        if (s.status === 'AC' || score >= 100) isPassed.add(code);
+      }
+      if (pid) {
+        if (score > (bestScores.get(pid) || 0)) bestScores.set(pid, score);
+        if (s.status === 'AC' || score >= 100) isPassed.add(pid);
+      }
+    });
+
+    const userProgress = (this.cache.roadmap_user_progress && userId && this.cache.roadmap_user_progress[userId]) || {
+      completedLessonIds: [],
+      testedOutStageIds: []
+    };
+    const customDone = new Set(userProgress.completedLessonIds || []);
+    const testedOutStages = new Set(userProgress.testedOutStageIds || []);
+
+    // 1. Initial lesson evaluation
+    const lessonStatusMap = new Map();
+    const processedLessons = lessons.map(lesson => {
+      const codes = Array.isArray(lesson.problemCodes) && lesson.problemCodes.length > 0
+        ? lesson.problemCodes
+        : (lesson.problemCode ? [lesson.problemCode] : []);
+
+      const attachedProbs = [];
+      codes.forEach(c => {
+        const p = probMap.get(c) || probIdMap.get(c);
+        if (p && !attachedProbs.some(ap => ap.id === p.id)) attachedProbs.push(p);
+      });
+      if (attachedProbs.length === 0 && lesson.problemId) {
+        const p = probIdMap.get(lesson.problemId);
+        if (p) attachedProbs.push(p);
+      }
+
+      const problemSummaries = attachedProbs.map(p => {
+        const passed = isPassed.has(p.code) || isPassed.has(p.id);
+        const score = Math.max(bestScores.get(p.code) || 0, bestScores.get(p.id) || 0);
+        return {
+          id: p.id,
+          code: p.code,
+          title: p.title,
+          difficulty: p.difficulty,
+          points: p.points,
+          isPassed: passed,
+          score
+        };
+      });
+
+      let status = 'not_started';
+      let userScore = 0;
+
+      if (testedOutStages.has(lesson.stageId) || customDone.has(lesson.id)) {
+        status = 'done';
+        userScore = 100;
+      } else if (problemSummaries.length > 0) {
+        const allPassed = problemSummaries.every(p => p.isPassed);
+        const totalScore = problemSummaries.reduce((sum, p) => sum + p.score, 0);
+        userScore = Math.round(totalScore / problemSummaries.length);
+
+        if (allPassed) {
+          status = 'done';
+        } else {
+          const anyAttempted = problemSummaries.some(p => 
+            p.score > 0 || userSubs.some(s => s.problemCode === p.code || s.problemId === p.id)
+          );
+          if (anyAttempted) {
+            status = 'in_progress';
+          }
+        }
+      } else {
+        if (customDone.has(lesson.id)) {
+          status = 'done';
+          userScore = 100;
+        }
+      }
+
+      lessonStatusMap.set(lesson.id, status);
+
+      const firstProb = problemSummaries[0] || null;
+
+      return {
+        ...lesson,
+        status,
+        userScore,
+        problemCodes: codes,
+        problems: problemSummaries,
+        problem: firstProb ? {
+          id: firstProb.id,
+          code: firstProb.code,
+          title: firstProb.title,
+          difficulty: firstProb.difficulty,
+          points: firstProb.points
+        } : null
+      };
+    });
+
+    const lessonMap = new Map(processedLessons.map(l => [l.id, l]));
+
+    // 2. Compute Stage statuses and unlocks sequentially
+    let prevStagePassed = true; // Stage 1 is always unlocked
+    const stageMap = new Map();
+
+    const processedStages = stages.map((stage, idx) => {
+      const stageLessons = processedLessons.filter(l => l.stageId === stage.id);
+      const isTestedOut = testedOutStages.has(stage.id);
+
+      // Checkpoint evaluation
+      const checkpointProbKeys = stage.checkpoint && Array.isArray(stage.checkpoint.problemIds) ? stage.checkpoint.problemIds : [];
+      let checkpointScore = 0;
+      let checkpointPassed = false;
+
+      if (isTestedOut) {
+        checkpointScore = 100;
+        checkpointPassed = true;
+      } else if (checkpointProbKeys.length > 0) {
+        let totalScore = 0;
+        checkpointProbKeys.forEach(key => {
+          const score = Math.max(bestScores.get(key) || 0, isPassed.has(key) ? 100 : 0);
+          totalScore += score;
+        });
+        checkpointScore = Math.round(totalScore / checkpointProbKeys.length);
+        checkpointPassed = checkpointScore >= (stage.checkpoint.passScore || 70);
+      } else {
+        const total = stageLessons.length;
+        const done = stageLessons.filter(l => l.status === 'done').length;
+        checkpointScore = total > 0 ? Math.round((done / total) * 100) : 100;
+        checkpointPassed = checkpointScore >= (stage.checkpoint.passScore || 70);
+      }
+
+      const completedCount = stageLessons.filter(l => l.status === 'done').length;
+      const totalCount = stageLessons.length;
+      const progressPercent = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+      const completed = isTestedOut || (completedCount === totalCount && totalCount > 0);
+
+      const unlocked = idx === 0 || prevStagePassed;
+      prevStagePassed = checkpointPassed || isTestedOut || completed;
+
+      const stageObj = {
+        ...stage,
+        unlocked,
+        completed,
+        testedOut: isTestedOut,
+        checkpointScore,
+        checkpointPassed,
+        completedLessonCount: completedCount,
+        totalLessonCount: totalCount,
+        progressPercent
+      };
+
+      stageMap.set(stage.id, stageObj);
+      return stageObj;
+    });
+
+    // 3. Compute lesson unlocks based on stage unlock and prerequisites
+    const finalLessons = processedLessons.map(lesson => {
+      const stage = stageMap.get(lesson.stageId);
+      if (!stage || !stage.unlocked) {
+        return {
+          ...lesson,
+          unlocked: false,
+          lockReason: `Chặng "${stage ? stage.title : ''}" chưa được mở khóa. Hãy hoàn thành checkpoint chặng trước.`
+        };
+      }
+
+      const prereqs = lesson.prerequisiteLessonIds || [];
+      if (prereqs.length === 0) {
+        return {
+          ...lesson,
+          unlocked: true,
+          lockReason: null
+        };
+      }
+
+      const missing = prereqs.filter(pId => lessonStatusMap.get(pId) !== 'done');
+      if (missing.length === 0) {
+        return {
+          ...lesson,
+          unlocked: true,
+          lockReason: null
+        };
+      }
+
+      const missingTitles = missing.map(pId => lessonMap.get(pId)?.title || pId).join(', ');
+      return {
+        ...lesson,
+        unlocked: false,
+        lockReason: `Cần hoàn thành bài học tiên quyết: ${missingTitles}`
+      };
+    });
+
+    // 4. Find "Continue where you left off" target
+    let continueTargetLessonId = null;
+    let continueTargetStageId = null;
+
+    for (const stage of processedStages) {
+      if (stage.unlocked) {
+        const stageLessons = finalLessons.filter(l => l.stageId === stage.id);
+        const nextLesson = stageLessons.find(l => l.unlocked && l.status !== 'done');
+        if (nextLesson) {
+          continueTargetLessonId = nextLesson.id;
+          continueTargetStageId = stage.id;
+          break;
+        }
+      }
+    }
+
+    if (!continueTargetLessonId && finalLessons.length > 0) {
+      const firstUnlocked = finalLessons.find(l => l.unlocked);
+      if (firstUnlocked) {
+        continueTargetLessonId = firstUnlocked.id;
+        continueTargetStageId = firstUnlocked.stageId;
+      }
+    }
+
+    const totalLessons = finalLessons.length;
+    const completedLessons = finalLessons.filter(l => l.status === 'done').length;
+    const overallPercent = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
+    const streak = user ? (Number(user.streak) || 0) : 0;
+    const allStagesCompleted = processedStages.every(s => s.completed);
+
+    return {
+      stages: processedStages,
+      lessons: finalLessons,
+      activeTrack,
+      summary: {
+        overallPercent,
+        totalLessons,
+        completedLessons,
+        streak,
+        continueTargetLessonId,
+        continueTargetStageId,
+        allStagesCompleted
+      }
+    };
+  }
+
+  // Legacy roadmap_topics
+  getRoadmapTopics() {
+    if (!this.cache.roadmap_topics || this.cache.roadmap_topics.length === 0) {
+      this.cache.roadmap_topics = JSON.parse(JSON.stringify(DEFAULT_ROADMAP_TOPICS));
+    }
+    return [...this.cache.roadmap_topics].sort((a, b) => (a.order || 0) - (b.order || 0));
+  }
+
+  getRoadmapTopic(id) {
+    return this.getRoadmapTopics().find(t => t.id === id) || null;
+  }
+
+  createRoadmapTopic(topic) {
+    const list = this.getRoadmapTopics();
+    const newTopic = {
+      ...topic,
+      id: topic.id || newId('topic'),
+      title: topic.title || 'Chủ đề mới',
+      description: topic.description || '',
+      guide: topic.guide || '',
+      level: topic.level || 'Cơ bản',
+      icon: topic.icon || 'Code2',
+      order: topic.order !== undefined ? Number(topic.order) : (list.length + 1),
+      problemCodes: Array.isArray(topic.problemCodes) ? topic.problemCodes : [],
+      createdAt: topic.createdAt || new Date().toISOString()
+    };
+    list.push(newTopic);
+    this.cache.roadmap_topics = list;
+    roadmapRepo.createRoadmapTopic(newTopic).catch(err => {
+      console.error('[PgAdapter] Lỗi tạo topic trong PG:', err.message);
+    });
+    return newTopic;
+  }
+
+  updateRoadmapTopic(id, updates) {
+    const list = this.getRoadmapTopics();
+    const idx = list.findIndex(t => t.id === id);
+    if (idx === -1) return null;
+    list[idx] = { ...list[idx], ...updates, id };
+    if (updates.order !== undefined) {
+      list[idx].order = Number(updates.order);
+    }
+    this.cache.roadmap_topics = list;
+    roadmapRepo.updateRoadmapTopic(id, updates).catch(err => {
+      console.error('[PgAdapter] Lỗi cập nhật topic trong PG:', err.message);
+    });
+    return list[idx];
+  }
+
+  deleteRoadmapTopic(id) {
+    const list = this.getRoadmapTopics();
+    const filtered = list.filter(t => t.id !== id);
+    if (filtered.length === list.length) return false;
+    this.cache.roadmap_topics = filtered;
+    roadmapRepo.deleteRoadmapTopic(id).catch(err => {
+      console.error('[PgAdapter] Lỗi xóa topic trong PG:', err.message);
+    });
+    return true;
+  }
+
+  // Student Custom Contests
+  getStudentCustomContests(userId) {
+    this.cache.student_custom_contests = this.cache.student_custom_contests || [];
+    if (userId) {
+      return this.cache.student_custom_contests.filter(c => c.userId === userId);
+    }
+    return this.cache.student_custom_contests;
+  }
+
+  getStudentCustomContest(id) {
+    this.cache.student_custom_contests = this.cache.student_custom_contests || [];
+    return this.cache.student_custom_contests.find(c => c.id === id) || null;
+  }
+
+  saveStudentCustomContest(userId, contestData) {
+    this.cache.student_custom_contests = this.cache.student_custom_contests || [];
+    const id = contestData.id || newId('custom-contest');
+    const existingIdx = this.cache.student_custom_contests.findIndex(c => c.id === id);
+
+    const record = {
+      ...(existingIdx >= 0 ? this.cache.student_custom_contests[existingIdx] : {}),
+      ...contestData,
+      id,
+      userId,
+      timeLimit: contestData.timeLimit || 1000,
+      memoryLimit: contestData.memoryLimit || 256,
+      testCases: Array.isArray(contestData.testCases) ? contestData.testCases : [],
+      updatedAt: new Date().toISOString()
+    };
+    if (!record.createdAt) record.createdAt = new Date().toISOString();
+
+    if (existingIdx >= 0) {
+      this.cache.student_custom_contests[existingIdx] = record;
+    } else {
+      this.cache.student_custom_contests.unshift(record);
+    }
+    roadmapRepo.saveStudentCustomContest(userId, record).catch(err => {
+      console.error('[PgAdapter] Lỗi lưu custom contest vào PG:', err.message);
+    });
+    return record;
+  }
+
+  deleteStudentCustomContest(id, userId) {
+    this.cache.student_custom_contests = this.cache.student_custom_contests || [];
+    const initialLen = this.cache.student_custom_contests.length;
+    this.cache.student_custom_contests = this.cache.student_custom_contests.filter(c => c.id !== id || (userId && c.userId !== userId));
+    const deleted = this.cache.student_custom_contests.length < initialLen;
+    roadmapRepo.deleteStudentCustomContest(id, userId).catch(err => {
+      console.error('[PgAdapter] Lỗi xóa custom contest trong PG:', err.message);
+    });
+    return deleted;
   }
 
   save() {

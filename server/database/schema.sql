@@ -286,14 +286,15 @@ CREATE TABLE IF NOT EXISTS settings (
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS roadmap_stages (
     id VARCHAR(50) PRIMARY KEY,
-    track VARCHAR(50) NOT NULL DEFAULT 'olympic',   -- 'olympic' | 'career'
+    track VARCHAR(50) NOT NULL DEFAULT 'olympic',   -- 'olympic' | 'career' | 'all'
     title VARCHAR(255) NOT NULL,
-    description TEXT DEFAULT '',
+    month_range VARCHAR(50) DEFAULT '',
+    goal TEXT DEFAULT '',
+    skill_gained TEXT DEFAULT '',
+    estimated_hours_per_week INT DEFAULT 8,
+    checkpoint JSONB DEFAULT '{}'::jsonb,
     icon VARCHAR(50) DEFAULT 'Compass',
     color VARCHAR(50) DEFAULT 'blue',
-    estimated_weeks INT DEFAULT 2,
-    checkpoint_test_id VARCHAR(50) DEFAULT NULL,
-    pass_percentage INT DEFAULT 75,
     sort_order INT DEFAULT 0,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -309,12 +310,15 @@ CREATE TABLE IF NOT EXISTS roadmap_lessons (
     track VARCHAR(50) NOT NULL DEFAULT 'olympic',
     title VARCHAR(255) NOT NULL,
     summary TEXT DEFAULT '',
+    short_theory TEXT DEFAULT '',
     content_markdown TEXT DEFAULT '',
-    duration_minutes INT DEFAULT 45,
-    difficulty VARCHAR(50) DEFAULT 'Cơ bản',
+    duration_minutes INT DEFAULT 30,
+    difficulty INT DEFAULT 1,
     sort_order INT DEFAULT 0,
-    prerequisites JSONB DEFAULT '[]'::jsonb,
+    prerequisite_lesson_ids JSONB DEFAULT '[]'::jsonb,
+    hints JSONB DEFAULT '[]'::jsonb,
     problem_code VARCHAR(50) DEFAULT NULL,
+    problem_codes JSONB DEFAULT '[]'::jsonb,
     problem_id VARCHAR(50) DEFAULT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -349,4 +353,36 @@ CREATE TABLE IF NOT EXISTS roadmap_topics (
     sort_order INT DEFAULT 0,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- ----------------------------------------------------------------------------
+-- 19. Roadmap Stage Progress (Trạng thái vượt chặng / test-out của học viên)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS roadmap_stage_progress (
+    user_id VARCHAR(50) REFERENCES users(id) ON DELETE CASCADE,
+    stage_id VARCHAR(50) REFERENCES roadmap_stages(id) ON DELETE CASCADE,
+    status VARCHAR(20) DEFAULT 'completed',         -- 'completed' | 'tested_out'
+    score NUMERIC(6, 2) DEFAULT 100,
+    completed_at TIMESTAMPTZ DEFAULT NOW(),
+    PRIMARY KEY (user_id, stage_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_roadmap_stage_progress_user ON roadmap_stage_progress(user_id);
+
+-- ----------------------------------------------------------------------------
+-- 20. Student Custom Contests (Đấu trường & kỳ thi tự luyện của học sinh)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS student_custom_contests (
+    id VARCHAR(50) PRIMARY KEY,
+    user_id VARCHAR(50) REFERENCES users(id) ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
+    description TEXT DEFAULT '',
+    time_limit INT DEFAULT 1000,
+    memory_limit INT DEFAULT 256,
+    test_cases JSONB DEFAULT '[]'::jsonb,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_student_custom_contests_user ON student_custom_contests(user_id);
+
 

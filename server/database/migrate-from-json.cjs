@@ -217,7 +217,7 @@ async function migrate() {
         if (fs.existsSync(tcFile)) {
           try {
             tcs = JSON.parse(fs.readFileSync(tcFile, 'utf8'));
-          } catch (e) {}
+          } catch (e) { }
         } else if (Array.isArray(p.testCases) && p.testCases.length > 0) {
           tcs = p.testCases;
         }
@@ -372,48 +372,61 @@ async function migrate() {
     if (Array.isArray(data.roadmap_stages)) {
       for (const s of data.roadmap_stages) {
         await client.query(`
-          INSERT INTO roadmap_stages (id, track, title, description, icon, color, estimated_weeks, checkpoint_test_id, pass_percentage, sort_order)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+          INSERT INTO roadmap_stages (id, track, title, month_range, goal, skill_gained, estimated_hours_per_week, checkpoint, icon, color, sort_order)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
           ON CONFLICT (id) DO UPDATE SET
             track = EXCLUDED.track,
             title = EXCLUDED.title,
-            description = EXCLUDED.description,
+            month_range = EXCLUDED.month_range,
+            goal = EXCLUDED.goal,
+            skill_gained = EXCLUDED.skill_gained,
+            estimated_hours_per_week = EXCLUDED.estimated_hours_per_week,
+            checkpoint = EXCLUDED.checkpoint,
             icon = EXCLUDED.icon,
             color = EXCLUDED.color,
-            estimated_weeks = EXCLUDED.estimated_weeks,
-            checkpoint_test_id = EXCLUDED.checkpoint_test_id,
-            pass_percentage = EXCLUDED.pass_percentage,
             sort_order = EXCLUDED.sort_order
         `, [
-          s.id, s.track || 'olympic', s.title, s.description || '', s.icon || 'Compass',
-          s.color || 'blue', s.estimatedWeeks || 2, s.checkpointTestId || null,
-          s.passPercentage || 75, s.sortOrder || 0
+          s.id, s.track || 'olympic', s.title, s.monthRange || '', s.goal || '',
+          s.skillGained || '', s.estimatedHoursPerWeek || 8, JSON.stringify(s.checkpoint || {}),
+          s.icon || 'Compass', s.color || 'blue', s.order != null ? s.order : (s.sortOrder || 0)
         ]);
       }
     }
 
     if (Array.isArray(data.roadmap_lessons)) {
       for (const l of data.roadmap_lessons) {
+        const probCodes = Array.isArray(l.problemCodes) && l.problemCodes.length > 0
+          ? l.problemCodes
+          : (l.problemCode ? [l.problemCode] : []);
+
         await client.query(`
-          INSERT INTO roadmap_lessons (id, stage_id, track, title, summary, content_markdown, duration_minutes, difficulty, sort_order, prerequisites, problem_code, problem_id)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+          INSERT INTO roadmap_lessons (id, stage_id, track, title, summary, short_theory, content_markdown, duration_minutes, difficulty, sort_order, prerequisite_lesson_ids, hints, problem_code, problem_codes, problem_id)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
           ON CONFLICT (id) DO UPDATE SET
             stage_id = EXCLUDED.stage_id,
             track = EXCLUDED.track,
             title = EXCLUDED.title,
             summary = EXCLUDED.summary,
+            short_theory = EXCLUDED.short_theory,
             content_markdown = EXCLUDED.content_markdown,
             duration_minutes = EXCLUDED.duration_minutes,
             difficulty = EXCLUDED.difficulty,
             sort_order = EXCLUDED.sort_order,
-            prerequisites = EXCLUDED.prerequisites,
+            prerequisite_lesson_ids = EXCLUDED.prerequisite_lesson_ids,
+            hints = EXCLUDED.hints,
             problem_code = EXCLUDED.problem_code,
+            problem_codes = EXCLUDED.problem_codes,
             problem_id = EXCLUDED.problem_id
         `, [
           l.id, l.stageId, l.track || 'olympic', l.title, l.summary || '',
-          l.contentMarkdown || '', l.durationMinutes || 45, l.difficulty || 'Cơ bản',
-          l.sortOrder || 0, JSON.stringify(l.prerequisites || []),
-          l.problemCode || null, l.problemId || null
+          l.shortTheory || '', l.contentMarkdown || '', l.estimatedMinutes || l.durationMinutes || 30,
+          typeof l.difficulty === 'number' ? l.difficulty : 1,
+          l.order != null ? l.order : (l.sortOrder || 0),
+          JSON.stringify(l.prerequisiteLessonIds || l.prerequisites || []),
+          JSON.stringify(l.hints || []),
+          probCodes[0] || l.problemCode || null,
+          JSON.stringify(probCodes),
+          l.problemId || null
         ]);
       }
     }
@@ -433,6 +446,51 @@ async function migrate() {
         `, [
           t.id, t.title, t.description || '', t.difficulty || 'Cơ bản',
           t.color || '#3b82f6', JSON.stringify(t.problemIds || []), t.sortOrder || 0
+        ]);
+      }
+    }
+
+    if (data.roadmap_user_progress && typeof data.roadmap_user_progress === 'object') {
+      for (const [userId, prog] of Object.entries(data.roadmap_user_progress)) {
+        if (prog && Array.isArray(prog.completedLessonIds)) {
+          for (const lId of prog.completedLessonIds) {
+            await client.query(`
+              INSERT INTO roadmap_user_progress (user_id, lesson_id, status, score)
+              VALUES ($1, $2, 'completed', 100)
+              ON CONFLICT (user_id, lesson_id) DO NOTHING
+            `, [userId, lId]);
+          }
+        }
+        if (prog && Array.isArray(prog.testedOutStageIds)) {
+          for (const sId of prog.testedOutStageIds) {
+            await client.query(`
+              INSERT INTO roadmap_stage_progress (user_id, stage_id, status, score)
+              VALUES ($1, $2, 'tested_out', 100)
+              ON CONFLICT (user_id, stage_id) DO NOTHING
+            `, [userId, sId]);
+          }
+        }
+      }
+    }
+
+    if (Array.isArray(data.student_custom_contests)) {
+      for (const cc of data.student_custom_contests) {
+        await client.query(`
+          INSERT INTO student_custom_contests (id, user_id, title, description, time_limit, memory_limit, test_cases, created_at, updated_at)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+          ON CONFLICT (id) DO UPDATE SET
+            title = EXCLUDED.title,
+            description = EXCLUDED.description,
+            time_limit = EXCLUDED.time_limit,
+            memory_limit = EXCLUDED.memory_limit,
+            test_cases = EXCLUDED.test_cases,
+            updated_at = EXCLUDED.updated_at
+        `, [
+          cc.id, cc.userId, cc.title, cc.description || '',
+          cc.timeLimit || 1000, cc.memoryLimit || 256,
+          JSON.stringify(cc.testCases || []),
+          cc.createdAt ? new Date(cc.createdAt) : new Date(),
+          cc.updatedAt ? new Date(cc.updatedAt) : new Date()
         ]);
       }
     }

@@ -299,7 +299,7 @@ const ROADMAP_LESSONS = [
     "difficulty": 1,
     "estimatedMinutes": 30,
     "prerequisiteLessonIds": [],
-    "problemId": "prob-rm-fastio",
+    "problemId": "prob-rm-cses-weird",
     "problemCode": "RM_FASTIO",
     "shortTheory": "### Cấu trúc chương trình C++ chuẩn\nMọi chương trình C++ bắt đầu từ hàm `main()`. Trong Competitive Programming, để tăng tốc độ nhập xuất ta sử dụng:\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    long long a, b;\n    if (cin >> a >> b) {\n        cout << a + b << \"\\n\";\n    }\n    return 0;\n}\n```\n- Dùng `\\n` thay vì `endl` để tránh ép xả buffer nhiều lần gây Time Limit Exceeded (TLE).",
     "hints": [
@@ -307,7 +307,11 @@ const ROADMAP_LESSONS = [
       "Tính tổng hoặc giá trị biểu thức theo yêu cầu và in ra bằng cout << ans << \"\\n\";",
       "Nhớ thêm ios_base::sync_with_stdio(false); cin.tie(NULL); ở đầu hàm main."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_FASTIO",
+      "RM_CSES_WEIRD"
+    ]
   },
   {
     "id": "les-1-2",
@@ -327,7 +331,11 @@ const ROADMAP_LESSONS = [
       "Vì A và B có thể lên tới 10^9 nên diện tích có thể đạt 10^18, bắt buộc dùng kiểu long long trong C++.",
       "Dùng cin >> a >> b; và in ra trên 2 dòng bằng cout << perimeter << \"\\n\" << area << \"\\n\";"
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_BIGSUM",
+      "RM_TIMECONV"
+    ]
   },
   {
     "id": "les-1-3",
@@ -347,7 +355,11 @@ const ROADMAP_LESSONS = [
       "Sử dụng phép chia lấy dư n % k để tìm số kẹo còn dư.",
       "Lưu ý n và k có thể lên tới 10^18, hãy dùng kiểu long long."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SWAPDIGITS",
+      "RM_TIMECONV"
+    ]
   },
   {
     "id": "les-1-4",
@@ -359,7 +371,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-3"
     ],
-    "problemId": "prob-rm-leapyear",
+    "problemId": "prob-rm-usaco-fencepaint",
     "problemCode": "RM_LEAPYEAR",
     "shortTheory": "### Câu lệnh điều kiện if - else\nDùng để rẽ nhánh thực thi chương trình dựa trên biểu thức điều kiện:\n```cpp\nif (condition) {\n    // Thực thi khi condition đúng (khác 0)\n} else {\n    // Thực thi khi condition sai\n}\n```\n- Các toán tử so sánh: `==`, `!=`, `<`, `<=`, `>`, `>=`.\n- **Lưu ý**: So sánh bằng là `==`, không nhầm với phép gán `=`.",
     "hints": [
@@ -367,7 +379,12 @@ const ROADMAP_LESSONS = [
       "Dùng if (a > b) hoặc các phép so sánh tương ứng.",
       "In ra kết quả tương ứng theo từng nhánh rẽ."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_LEAPYEAR",
+      "RM_USACO_TELEPORT",
+      "RM_USACO_FENCEPAINT"
+    ]
   },
   {
     "id": "les-1-5",
@@ -379,7 +396,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-4"
     ],
-    "problemId": "prob-rm-validdate",
+    "problemId": "prob-rm-vnoi-triangle",
     "problemCode": "RM_VALIDDATE",
     "shortTheory": "### Toán tử logic phức hợp\n- `&&` (AND): Đúng khi cả hai điều kiện cùng đúng.\n- `||` (OR): Đúng khi ít nhất một điều kiện đúng.\n- `!` (NOT): Phủ định giá trị logic.\n\n```cpp\nif (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {\n    cout << \"NAM NHUAN\\n\";\n} else {\n    cout << \"NAM KHONG NHUAN\\n\";\n}\n```",
     "hints": [
@@ -387,7 +404,11 @@ const ROADMAP_LESSONS = [
       "Đọc kỹ các trường hợp ngoại lệ trong đề bài.",
       "Kiểm tra lại nhánh else cuối cùng xem đã bao quát hết chưa."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_VALIDDATE",
+      "RM_VNOI_TRIANGLE"
+    ]
   },
   {
     "id": "les-1-6",
@@ -399,7 +420,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-5"
     ],
-    "problemId": "prob-rm-taxbracket",
+    "problemId": "prob-rm-usaco-fencepaint",
     "problemCode": "RM_TAXBRACKET",
     "shortTheory": "### Phân loại nhiều khoảng giá trị\nKhi gặp bài toán tính tiền theo từng mức (ví dụ tiền điện, giá vé xe, thuế):\n```cpp\nlong long tinhTien(int tuoi, int loaiVe) {\n    if (tuoi < 6) return 0;\n    if (tuoi <= 12) return 50000;\n    if (tuoi >= 65) return 30000;\n    return 100000;\n}\n```\nNên xử lý các trường hợp đặc biệt trước (trẻ em, người cao tuổi) để đơn giản hóa logic.",
     "hints": [
@@ -407,7 +428,12 @@ const ROADMAP_LESSONS = [
       "Kiểm tra kỹ xem các mốc có bao gồm dấu bằng (<=, >=) hay không.",
       "Tính tổng hoặc áp dụng mức chiết khấu theo đúng đề bài."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_TAXBRACKET",
+      "RM_USACO_TELEPORT",
+      "RM_USACO_FENCEPAINT"
+    ]
   },
   {
     "id": "les-1-7",
@@ -419,7 +445,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-6"
     ],
-    "problemId": "prob-rm-digitroot",
+    "problemId": "prob-rm-cses-weird",
     "problemCode": "RM_DIGITROOT",
     "shortTheory": "### Vòng lặp while\nLặp lại một khối lệnh khi điều kiện còn thỏa mãn:\n```cpp\nint n; cin >> n;\nint sumDigits = 0;\nwhile (n > 0) {\n    sumDigits += n % 10;\n    n /= 10;\n}\n```\nThích hợp cho các bài toán không biết trước số lần lặp, như phân tích chữ số của một số nguyên.",
     "hints": [
@@ -427,7 +453,11 @@ const ROADMAP_LESSONS = [
       "Ở mỗi bước: lấy chữ số cuối bằng n % 10 cộng dồn vào tổng, tăng biến đếm số chữ số lên 1, sau đó loại bỏ chữ số cuối bằng n = n / 10.",
       "Lưu ý trường hợp đặc biệt: nếu N = 0 thì số chữ số là 1 và tổng là 0."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_DIGITROOT",
+      "RM_CSES_WEIRD"
+    ]
   },
   {
     "id": "les-1-8",
@@ -439,7 +469,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-7"
     ],
-    "problemId": "prob-rm-fibn",
+    "problemId": "prob-rm-cses-missing",
     "problemCode": "RM_FIBN",
     "shortTheory": "### Vòng lặp for\nCấu trúc lặp phổ biến nhất khi biết trước số lần lặp:\n```cpp\nlong long sum = 0;\nfor (int i = 1; i <= n; i++) {\n    if (i % 2 == 0) {\n        sum += i;\n    }\n}\n```\n- Khởi tạo biến tích lũy: `sum = 0` hoặc `product = 1LL`.\n- Luôn kiểm tra xem `sum` có vượt giới hạn `int` không để khai báo `long long`.",
     "hints": [
@@ -447,7 +477,11 @@ const ROADMAP_LESSONS = [
       "Cộng dồn vào biến sum kiểu long long.",
       "In kết quả ra màn hình."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_FIBN",
+      "RM_CSES_MISSING"
+    ]
   },
   {
     "id": "les-1-9",
@@ -459,7 +493,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-8"
     ],
-    "problemId": "prob-rm-chessboard",
+    "problemId": "prob-rm-hollow-square",
     "problemCode": "RM_CHESSBOARD",
     "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N ≤ 5000$, $O(N^2)$ chạy trong ~1 giây.",
     "hints": [
@@ -467,7 +501,11 @@ const ROADMAP_LESSONS = [
       "Nếu ô đang xét nằm trên viền: i == 1, i == R, j == 1 hoặc j == C thì in ra ký tự \"*\".",
       "Ngược lại in ra ký tự \".\". Sau khi in hết một dòng thì xuống dòng \"\\n\"."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CHESSBOARD",
+      "RM_HOLLOW_SQUARE"
+    ]
   },
   {
     "id": "les-1-10",
@@ -479,7 +517,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-9"
     ],
-    "problemId": "prob-rm-firstdiv",
+    "problemId": "prob-rm-first-negative",
     "problemCode": "RM_FIRSTDIV",
     "shortTheory": "### break và continue\n- `break`: Lập tức thoát khỏi vòng lặp gần nhất.\n- `continue`: Bỏ qua phần còn lại của lần lặp hiện tại và chuyển sang lần lặp tiếp theo.\n```cpp\nbool hasZero = false;\nfor (int i = 0; i < n; i++) {\n    if (a[i] == 0) {\n        hasZero = true;\n        break; // Dừng sớm khi tìm thấy\n    }\n}\n```",
     "hints": [
@@ -488,7 +526,11 @@ const ROADMAP_LESSONS = [
       "Khi gặp phần tử chẵn đầu tiên, in ra vị trí (1-based) và giá trị của nó, sau đó dùng lệnh break để dừng vòng lặp ngay lập tức.",
       "Nếu duyệt hết mảng mà không tìm thấy số chẵn nào, in ra -1."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_FIRSTDIV",
+      "RM_FIRST_NEGATIVE"
+    ]
   },
   {
     "id": "les-1-11",
@@ -500,7 +542,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-10"
     ],
-    "problemId": "prob-rm-aboveavg",
+    "problemId": "prob-rm-cses-increasing",
     "problemCode": "RM_ABOVEAVG",
     "shortTheory": "### Mảng 1 chiều (1D Static Array)\nTập hợp các phần tử cùng kiểu dữ liệu lưu trữ liên tiếp trong bộ nhớ:\n```cpp\nconst int MAXN = 100005;\nint a[MAXN]; // Khai báo toàn cục để mảng tự động gán giá trị 0 và không tràn stack\n\nint main() {\n    int n; cin >> n;\n    for (int i = 0; i < n; i++) cin >> a[i];\n}\n```\n- Chỉ số mảng trong C++ chạy từ `0` đến `N - 1` (hoặc `1` đến `N`).\n- Tránh khai báo mảng kích thước lớn ($> 10^5$) bên trong hàm `main` vì dễ tràn Stack.",
     "hints": [
@@ -508,7 +550,11 @@ const ROADMAP_LESSONS = [
       "Cộng dồn tất cả các phần tử vào biến tổng sum kiểu long long.",
       "Phần tử tại vị trí P (1-based) tương ứng với chỉ số A[P - 1] trong mảng 0-based của C++."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_ABOVEAVG",
+      "RM_CSES_INCREASING"
+    ]
   },
   {
     "id": "les-1-12",
@@ -520,7 +566,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-11"
     ],
-    "problemId": "prob-rm-countmax",
+    "problemId": "prob-rm-cses-increasing",
     "problemCode": "RM_COUNTMAX",
     "shortTheory": "### Tìm Min/Max trên mảng\n```cpp\nint minVal = a[0], maxVal = a[0];\nfor (int i = 1; i < n; i++) {\n    if (a[i] < minVal) minVal = a[i];\n    if (a[i] > maxVal) maxVal = a[i];\n}\n```\n- Hoặc dùng hàm có sẵn trong C++: `*min_element(a, a + n)` và `*max_element(a, a + n)`.",
     "hints": [
@@ -528,7 +574,11 @@ const ROADMAP_LESSONS = [
       "Duyệt từ i = 2 đến N. Sử dụng dấu so sánh nghiêm ngặt: nếu A[i] > maxVal thì mới cập nhật maxVal và maxPos. Tương tự nếu A[i] < minVal thì cập nhật minVal và minPos.",
       "Việc dùng dấu > và < đảm bảo khi có nhiều phần tử bằng nhau, vị trí xuất hiện ĐẦU TIÊN (earliest index) luôn được giữ nguyên."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_COUNTMAX",
+      "RM_CSES_INCREASING"
+    ]
   },
   {
     "id": "les-1-13",
@@ -540,7 +590,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-12"
     ],
-    "problemId": "prob-rm-issorted",
+    "problemId": "prob-rm-cses-permute",
     "problemCode": "RM_ISSORTED",
     "shortTheory": "### Thao tác biến đổi mảng\n- Đảo ngược mảng: Sử dụng 2 biến chỉ số chạy từ 2 đầu hoặc dùng `reverse(a, a + n)`.\n```cpp\nint l = 0, r = n - 1;\nwhile (l < r) {\n    swap(a[l], a[r]);\n    l++; r--;\n}\n```\n- Xóa phần tử tại vị trí $k$: Dịch tất cả phần tử từ $k + 1$ sang trái 1 bước và giảm $N$.",
     "hints": [
@@ -548,7 +598,11 @@ const ROADMAP_LESSONS = [
       "Duyệt vòng for ngược: for (int i = n - 1; i >= 0; i--) cout << a[i] << \" \";",
       "Hoặc sử dụng hàm thư viện sẵn có: reverse(a.begin(), a.end());"
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_ISSORTED",
+      "RM_CSES_PERMUTE"
+    ]
   },
   {
     "id": "les-1-14",
@@ -560,7 +614,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-13"
     ],
-    "problemId": "prob-rm-missingnum",
+    "problemId": "prob-rm-cses-missing",
     "problemCode": "RM_MISSINGNUM",
     "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i ≤ 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
     "hints": [
@@ -568,7 +622,11 @@ const ROADMAP_LESSONS = [
       "Khi đọc vào từng điểm số score (0 <= score <= 10), thực hiện tăng cnt[score]++.",
       "Dùng vòng lặp for từ 0 đến 10 để in ra theo đúng định dạng: cout << \"Diem \" << score << \": \" << cnt[score] << \"\\n\";"
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_MISSINGNUM",
+      "RM_CSES_MISSING"
+    ]
   },
   {
     "id": "les-1-15",
@@ -580,7 +638,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-14"
     ],
-    "problemId": "prob-rm-caseswap",
+    "problemId": "prob-rm-is-alphanum",
     "problemCode": "RM_CASESWAP",
     "shortTheory": "### Ký tự và mã ASCII\nMỗi ký tự là một số nguyên trong bảng mã ASCII:\n- `'0'` có mã 48, `'A'` có mã 65, `'a'` có mã 97.\n- Chuyển ký tự số sang giá trị nguyên: `int digit = ch - '0';`\n- Chuyển chữ hoa sang chữ thường: `char lower = ch + 32;` hoặc dùng `tolower(ch)`.\n- Kiểm tra loại ký tự: `isdigit(ch)`, `isalpha(ch)`, `isupper(ch)`, `islower(ch)`.",
     "hints": [
@@ -589,7 +647,11 @@ const ROADMAP_LESSONS = [
       "Nếu \"A\" <= c && c <= \"Z\" thì dịch sang ký tự kế tiếp vòng tròn: c = (c - \"A\" + 1) % 26 + \"A\" (đặc biệt Z trở thành A).",
       "Các ký tự khác (chữ số, dấu cách, dấu câu) giữ nguyên không đổi."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CASESWAP",
+      "RM_IS_ALPHANUM"
+    ]
   },
   {
     "id": "les-1-16",
@@ -601,7 +663,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-15"
     ],
-    "problemId": "prob-rm-palindrome",
+    "problemId": "prob-rm-cses-repetitions",
     "problemCode": "RM_PALINDROME",
     "shortTheory": "### std::string trong C++\n```cpp\n#include <string>\nstring s;\ncin >> s; // Đọc chuỗi không chứa khoảng trắng\ngetline(cin, s); // Đọc cả dòng có khoảng trắng\n\ncout << s.length() << \"\\n\"; // Độ dài chuỗi\ncout << s[0] << \"\\n\"; // Ký tự đầu tiên\n```\n> **Lưu ý khi dùng getline**: Nếu trước đó có dùng `cin >> n;`, cần gọi `cin.ignore();` để bỏ qua ký tự xuống dòng còn sót lại trong bộ đệm.",
     "hints": [
@@ -609,7 +671,11 @@ const ROADMAP_LESSONS = [
       "Sử dụng 2 con trỏ: left = 0 và right = s.length() - 1.",
       "So sánh s[left] và s[right]. Nếu khác nhau kết luận NO ngay lập tức. Nếu duyệt hết mà luôn bằng nhau thì kết luận YES."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_PALINDROME",
+      "RM_CSES_REPETITIONS"
+    ]
   },
   {
     "id": "les-1-17",
@@ -621,7 +687,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-16"
     ],
-    "problemId": "prob-rm-substrcount",
+    "problemId": "prob-rm-usaco-wordproc",
     "problemCode": "RM_SUBSTRCOUNT",
     "shortTheory": "### Các thao tác phổ biến trên string\n- `s.substr(pos, len)`: Cắt chuỗi con từ vị trí `pos` với độ dài `len`.\n- `s.find(sub)`: Tìm vị trí đầu tiên của `sub` trong `s`. Trả về `string::npos` nếu không tìm thấy.\n- Nối chuỗi: `s1 + s2`.\n- `reverse(s.begin(), s.end())`: Đảo ngược chuỗi.\n- Chuyển đổi: `to_string(num)` và `stoll(str)`.",
     "hints": [
@@ -629,7 +695,12 @@ const ROADMAP_LESSONS = [
       "Chuyển từng ký tự sang chữ thường tolower(c) để kiểm tra thuận tiện.",
       "Kiểm tra xem ký tự có phải là một trong các nguyên âm \"a\", \"e\", \"i\", \"o\", \"u\" hay không và tăng biến đếm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SUBSTRCOUNT",
+      "RM_CSES_REPETITIONS",
+      "RM_USACO_WORDPROC"
+    ]
   },
   {
     "id": "les-1-18",
@@ -641,7 +712,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-17"
     ],
-    "problemId": "prob-rm-armstrong",
+    "problemId": "prob-rm-is-prime-func",
     "problemCode": "RM_ARMSTRONG",
     "shortTheory": "### Hàm trong C++\nTái sử dụng code và module hóa logic bài toán:\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n```\n- Kiểu trả về: `int`, `long long`, `bool`, `void` (không trả về giá trị).",
     "hints": [
@@ -649,7 +720,11 @@ const ROADMAP_LESSONS = [
       "Khi N lên tới 10^18, hàm sqrt(double) trong C++ có thể bị sai số dấu chấm động. Ví dụ: sqrt(999999999999999999) có thể làm tròn thành 10^9.",
       "Để chính xác tuyệt đối: tính r = round(sqrt((double)n)), sau đó hiệu chỉnh bằng vòng lặp: while ((r + 1) * (r + 1) <= n && r < 1000000000LL) r++; while (r * r > n) r--; rồi kiểm tra r * r == n."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_ARMSTRONG",
+      "RM_IS_PRIME_FUNC"
+    ]
   },
   {
     "id": "les-1-19",
@@ -669,7 +744,11 @@ const ROADMAP_LESSONS = [
       "Thuật toán tìm GCD bằng vòng lặp đơn giản: int gcd(int x, int y) { while (y != 0) { int r = x % y; x = y; y = r; } return x; }",
       "Định nghĩa hàm rút gọn sử dụng truyền tham chiếu: void reduce(int &a, int &b) { int g = gcd(a, b); a /= g; b /= g; } để thay đổi trực tiếp giá trị của a và b."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_MINMAXREF",
+      "RM_USACO_TELEPORT"
+    ]
   },
   {
     "id": "les-1-20",
@@ -690,7 +769,11 @@ const ROADMAP_LESSONS = [
       "Biến toàn cục tự động mang giá trị 0."
     ],
     "readToComplete": true,
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CALLCOUNT",
+      "RM_FIRST_NEGATIVE"
+    ]
   },
   {
     "id": "les-1-21",
@@ -711,7 +794,11 @@ const ROADMAP_LESSONS = [
       "Phần tử thuộc đường chéo phụ có tổng chỉ số dòng và cột thỏa mãn: i + j == N - 1.",
       "Tính tổng bằng vòng for đơn O(N) bằng cách cộng a[i][i] và a[i][N - 1 - i], chú ý dùng kiểu long long."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_BORDERSUM",
+      "RM_SPIRAL_ROTATE"
+    ]
   },
   {
     "id": "les-1-22",
@@ -723,7 +810,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-21"
     ],
-    "problemId": "prob-rm-timediff",
+    "problemId": "prob-rm-fraction-struct",
     "problemCode": "RM_TIMEDIFF",
     "shortTheory": "### Struct trong C++\nGom nhóm các thuộc tính liên quan vào một kiểu dữ liệu duy nhất:\n```cpp\nstruct ThiSinh {\n    string id;\n    string ten;\n    double toan, tin;\n    double tongDiem() const {\n        return toan + tin;\n    }\n};\nThiSinh ds[1000];\n```",
     "hints": [
@@ -731,7 +818,11 @@ const ROADMAP_LESSONS = [
       "Tổng điểm được tính bằng math + lit.",
       "Quy tắc xử lý bằng nhau (Tie-breaker): Khi duyệt tìm max, sử dụng điều kiện nghiêm ngặt if (s.total > maxTotal) để luôn giữ học sinh xuất hiện sớm hơn trong danh sách nhập vào."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_TIMEDIFF",
+      "RM_FRACTION_STRUCT"
+    ]
   },
   {
     "id": "les-1-23",
@@ -772,7 +863,11 @@ const ROADMAP_LESSONS = [
       "Kiểm tra chính xác tên tệp INP và OUT (chữ hoa/chữ thường)."
     ],
     "readToComplete": true,
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SUMFILE",
+      "RM_RUN_LENGTH_ENC"
+    ]
   },
   {
     "id": "les-1-25",
@@ -784,7 +879,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-24"
     ],
-    "problemId": "prob-rm-maxdiff",
+    "problemId": "prob-rm-vnoi-kadane1d",
     "problemCode": "RM_MAXDIFF",
     "shortTheory": "### Quy tắc ước lượng thời gian chạy\nTrong 1 giây, máy tính chấm bài thực hiện được khoảng $10^8$ phép tính cơ bản.\n- $N ≤ 20$: $O(2^N)$ hoặc $O(N!)$\n- $N ≤ 500$: $O(N^3)$\n- $N ≤ 5000$: $O(N^2)$\n- $N ≤ 10^6$: $O(N log N)$ hoặc $O(N)$\n- $N ≤ 10^{18}$: $O(log N)$ hoặc $O(1)$",
     "hints": [
@@ -793,7 +888,11 @@ const ROADMAP_LESSONS = [
       "Kiểm tra tràn số long long và tối ưu fast I/O."
     ],
     "readToComplete": true,
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_MAXDIFF",
+      "RM_VNOI_KADANE1D"
+    ]
   },
   {
     "id": "les-2-1",
@@ -805,7 +904,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-25"
     ],
-    "problemId": "prob-rm-lastdigitpow",
+    "problemId": "prob-rm-cses-trailingzeros",
     "problemCode": "RM_LASTDIGITPOW",
     "shortTheory": "### Tính chất đồng dư (Congruence)\nNếu $a ≡ b  (mod m)$ và $c ≡ d  (mod m)$:\n- $(a + c) ≡ (b + d)  (mod m)$\n- $(a  ×  c) ≡ (b  ×  d)  (mod m)$\n- $(a - c) ≡ (b - d)  (mod m)$\n\nCông thức an toàn khi tính toán có modulo:\n```cpp\nlong long add(long long a, long long b, long long m) {\n    return (a % m + b % m) % m;\n}\nlong long mul(long long a, long long b, long long m) {\n    return ((a % m) * (b % m)) % m;\n}\n```",
     "hints": [
@@ -813,7 +912,11 @@ const ROADMAP_LESSONS = [
       "Phép trừ có thể ra số âm, cần cộng thêm modulo m trước khi lấy dư.",
       "Dùng kiểu long long khi nhân 2 số trước khi lấy modulo để tránh tràn số."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_LASTDIGITPOW",
+      "RM_CSES_TRAILINGZEROS"
+    ]
   },
   {
     "id": "les-2-2",
@@ -825,7 +928,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-1"
     ],
-    "problemId": "prob-rm-divlist",
+    "problemId": "prob-rm-cses-countdiv",
     "problemCode": "RM_DIVLIST",
     "shortTheory": "### Tìm ước trong $O(√N)$\nNếu $d$ là ước của $N$ thì $(N / d)$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $√N$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
     "hints": [
@@ -833,7 +936,11 @@ const ROADMAP_LESSONS = [
       "Nếu i * i == n thì chỉ thêm i một lần (tránh trùng khi n là số chính phương).",
       "Sắp xếp lại vector các ước nếu bài toán yêu cầu thứ tự tăng dần."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_DIVLIST",
+      "RM_CSES_COUNTDIV"
+    ]
   },
   {
     "id": "les-2-3",
@@ -845,7 +952,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-2"
     ],
-    "problemId": "prob-rm-amicable",
+    "problemId": "prob-rm-cses-countdiv",
     "problemCode": "RM_AMICABLE",
     "shortTheory": "### Công thức số lượng & Tổng ước\nNếu $N = p_1^{e_1}  ×  p_2^{e_2} … p_k^{e_k}$ (phân tích thừa số nguyên tố):\n- Số lượng ước: $d(N) = (e_1 + 1)(e_2 + 1) … (e_k + 1)$\n- Tổng các ước: $\\sigma(N) = \\prod_{i=1}^k \\frac{p_i^{e_i + 1} - 1}{p_i - 1}$",
     "hints": [
@@ -853,7 +960,11 @@ const ROADMAP_LESSONS = [
       "Số lượng ước là tích của (số mũ + 1).",
       "Áp dụng công thức cấp số nhân để tính tổng ước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_AMICABLE",
+      "RM_CSES_COUNTDIV"
+    ]
   },
   {
     "id": "les-2-4",
@@ -865,7 +976,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-3"
     ],
-    "problemId": "prob-rm-fracsum",
+    "problemId": "prob-rm-vnoi-arraygcd",
     "problemCode": "RM_FRACSUM",
     "shortTheory": "### Thuật toán Euclid\nDựa trên tính chất: $gcd(a, b) = gcd(b, a  (mod b))$ với $gcd(a, 0) = a$.\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n// C++17 có hàm có sẵn trong thư viện <numeric>: std::gcd(a, b)\n```\nĐộ phức tạp: $O(log(\\min(a, b)))$.",
     "hints": [
@@ -873,7 +984,11 @@ const ROADMAP_LESSONS = [
       "std::gcd(a, b) có sẵn từ C++17.",
       "gcd(a, b) không đổi khi đổi chỗ a và b."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_FRACSUM",
+      "RM_VNOI_ARRAYGCD"
+    ]
   },
   {
     "id": "les-2-5",
@@ -885,7 +1000,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-4"
     ],
-    "problemId": "prob-rm-numdivform",
+    "problemId": "prob-rm-lcm-pair",
     "problemCode": "RM_NUMDIVFORM",
     "shortTheory": "### Bội chung nhỏ nhất (LCM)\nCông thức liên hệ: $a  ×  b = gcd(a, b)  ×  lcm(a, b)$.\nDo đó:\n```cpp\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước rồi mới nhân để tránh tràn số!\n}\n```",
     "hints": [
@@ -893,7 +1008,11 @@ const ROADMAP_LESSONS = [
       "Sau đó nhân với b để tránh tràn số long long.",
       "Kiểm tra trường hợp a = 0 hoặc b = 0."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_NUMDIVFORM",
+      "RM_LCM_PAIR"
+    ]
   },
   {
     "id": "les-2-6",
@@ -905,7 +1024,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-5"
     ],
-    "problemId": "prob-rm-emirp",
+    "problemId": "prob-rm-vnoi-primepalin",
     "problemCode": "RM_EMIRP",
     "shortTheory": "### Kiểm tra số nguyên tố\nSố nguyên tố là số nguyên lớn hơn 1, chỉ có đúng 2 ước là 1 và chính nó.\n```cpp\nbool isPrime(long long n) {\n    if (n < 2) return false;\n    if (n == 2 || n == 3) return true;\n    if (n % 2 == 0 || n % 3 == 0) return false;\n    for (long long i = 5; i * i <= n; i += 6) {\n        if (n % i == 0 || n % (i + 2) == 0) return false;\n    }\n    return true;\n}\n```",
     "hints": [
@@ -913,7 +1032,11 @@ const ROADMAP_LESSONS = [
       "Bước nhảy i += 6 kiểm tra i và i + 2 giúp giảm số phép chia đi 3 lần.",
       "Chỉ cần duyệt đến căn bậc 2 của n."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_EMIRP",
+      "RM_VNOI_PRIMEPALIN"
+    ]
   },
   {
     "id": "les-2-7",
@@ -925,7 +1048,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-6"
     ],
-    "problemId": "prob-rm-sievequery",
+    "problemId": "prob-rm-vnoi-primerange",
     "problemCode": "RM_SIEVEQUERY",
     "shortTheory": "### Sàng Eratosthenes\nTìm tất cả số nguyên tố từ $1$ đến $N$ (thường $N ≤ 10^7$):\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP, isP + MAXN + 1, true);\n    isP[0] = isP[1] = false;\n    for (int i = 2; i * i <= MAXN; i++) {\n        if (isP[i]) {\n            for (int j = i * i; j <= MAXN; j += i) {\n                isP[j] = false;\n            }\n        }\n    }\n}\n```",
     "hints": [
@@ -933,7 +1056,11 @@ const ROADMAP_LESSONS = [
       "Gán isP[0] = isP[1] = false.",
       "Vòng lặp trong bắt đầu từ j = i * i để tránh làm lại các bội nhỏ đã duyệt."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SIEVEQUERY",
+      "RM_VNOI_PRIMERANGE"
+    ]
   },
   {
     "id": "les-2-8",
@@ -953,7 +1080,11 @@ const ROADMAP_LESSONS = [
       "Mảng spf[x] lưu thừa số nguyên tố nhỏ nhất của x.",
       "Dừng vòng lặp khi p == spf[i] để đảm bảo độ phức tạp tuyến tính O(N)."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_NTHPRIME",
+      "RM_VNOI_PRIMERANGE"
+    ]
   },
   {
     "id": "les-2-9",
@@ -973,7 +1104,11 @@ const ROADMAP_LESSONS = [
       "Sau vòng lặp, nếu n > 1 thì số n còn lại chính là thừa số nguyên tố cuối cùng.",
       "Lưu lại dưới dạng cặp {cơ số, số mũ}."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SPFFACTOR",
+      "RM_CSES_COUNTDIV"
+    ]
   },
   {
     "id": "les-2-10",
@@ -993,7 +1128,11 @@ const ROADMAP_LESSONS = [
       "Mỗi phép chia chỉ mất O(1), toàn bộ quá trình mất O(log N).",
       "Thích hợp với các bài toán có nhiều truy vấn kiểm tra/phân tích."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SEGSIEVE",
+      "RM_IS_PRIME_FUNC"
+    ]
   },
   {
     "id": "les-2-11",
@@ -1005,7 +1144,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-10"
     ],
-    "problemId": "prob-rm-modarith",
+    "problemId": "prob-rm-cses-expon",
     "problemCode": "RM_MODARITH",
     "shortTheory": "### Phép nhân & Cộng theo Modulo an toàn\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1013,7 +1152,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_MODARITH",
+      "RM_CSES_EXPON"
+    ]
   },
   {
     "id": "les-2-12",
@@ -1025,7 +1168,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-11"
     ],
-    "problemId": "prob-rm-factmod",
+    "problemId": "prob-rm-cses-expon",
     "problemCode": "RM_FACTMOD",
     "shortTheory": "### Lũy thừa nhanh (Binary Exponentiation) trong O(log P)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1033,7 +1176,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_FACTMOD",
+      "RM_CSES_EXPON"
+    ]
   },
   {
     "id": "les-2-13",
@@ -1045,7 +1192,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-12"
     ],
-    "problemId": "prob-rm-digitpow",
+    "problemId": "prob-rm-count-even-odd-digits",
     "problemCode": "RM_DIGITPOW",
     "shortTheory": "### Tách từng chữ số của số nguyên N\nKỹ thuật kinh điển xuất hiện trong rất nhiều bài toán nhập môn Tin học trẻ và Olympic:\n```cpp\n// Duyệt qua từng chữ số từ phải sang trái (hàng đơn vị lên hàng cao hơn)\nlong long temp = abs(n);\nif (temp == 0) {\n    // Trường hợp n = 0\n}\nwhile (temp > 0) {\n    int digit = temp % 10; // Lấy chữ số cuối cùng\n    // Xử lý với chữ số digit (tính tổng, đếm chẵn lẻ, v.v.)\n    temp /= 10;            // Bỏ chữ số cuối cùng\n}\n```\n- Lưu ý số âm: nên dùng `abs(n)` trước khi tách chữ số.\n- Đếm số chữ số: `temp /= 10` lặp bao nhiêu lần thì có bấy nhiêu chữ số.",
     "hints": [
@@ -1053,7 +1200,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Dùng phép chia nguyên / 10 để xóa chữ số cuối cùng.",
       "Gợi ý 3: Đừng quên xử lý trường hợp đặc biệt N = 0 (có 1 chữ số là 0)."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_DIGITPOW",
+      "RM_COUNT_EVEN_ODD_DIGITS"
+    ]
   },
   {
     "id": "les-2-14",
@@ -1065,7 +1216,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-13"
     ],
-    "problemId": "prob-rm-squarefree",
+    "problemId": "prob-rm-vnoi-squarecount",
     "problemCode": "RM_SQUAREFREE",
     "shortTheory": "### Kiểm tra số chính phương chuẩn xác\nSố chính phương là bình phương của một số nguyên ($N = k^2$).\n```cpp\nbool isSquare(long long n) {\n    if (n < 0) return false;\n    long long r = round(sqrt(n));\n    return r * r == n;\n}\n```\n- Tránh sai số số thực bằng cách ép kiểu qua `round()` rồi nhân ngược lại `r * r == n`.\n- **Đếm số chính phương trong đoạn $[A, B]$**:\n$$\\text{Số lượng} = \\lfloor\\sqrt{B}\\rfloor - \\lceil\\sqrt{A}\\rceil + 1$$\nĐộ phức tạp $O(1)$ thay vì phải duyệt từng số!",
     "hints": [
@@ -1073,7 +1224,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Khi tìm số chính phương trong [A, B], chỉ cần xét căn bậc hai của 2 đầu mút.",
       "Gợi ý 3: Tương tự với số lập phương: r = round(cbrt(n)) và r * r * r == n."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SQUAREFREE",
+      "RM_VNOI_SQUARECOUNT"
+    ]
   },
   {
     "id": "les-2-15",
@@ -1093,7 +1248,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Khi so sánh khoảng cách Euclid, so sánh bình phương (dx*dx + dy*dy) để tránh sai số số thực.",
       "Gợi ý 3: Dùng kiểu long long để tính bình phương khoảng cách tránh tràn số."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_LEGENDRE",
+      "RM_USACO_TELEPORT"
+    ]
   },
   {
     "id": "les-2-16",
@@ -1105,7 +1264,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-15"
     ],
-    "problemId": "prob-rm-cyclejump",
+    "problemId": "prob-rm-vnoi-digitcycle",
     "problemCode": "RM_CYCLEJUMP",
     "shortTheory": "### Nhận diện chu kỳ & Thuật toán O(1)\nNhiều bài toán có số bước rất lớn ($K ≤ 10^{18}$), ta không thể dùng vòng lặp mô phỏng mà phải tìm chu kỳ tuần hoàn:\n```cpp\n// Ví dụ: Sau K bước nhảy, mỗi chu kỳ dài L bước\nlong long cycle = K % L;\n// Chỉ cần tính toán cho cycle bước đầu tiên!\n```\n- **Chia việc / Cần bao nhiêu xe / Cần bao nhiêu phòng**:\nSố xe chở $N$ người với mỗi xe $K$ chỗ là $\\lceil N / K \\rceil = (N + K - 1) / K$.",
     "hints": [
@@ -1113,7 +1272,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Tìm chu kỳ tuần hoàn của trạng thái rồi lấy K % chu_kỳ.",
       "Gợi ý 3: Công thức chia làm tròn lên an toàn là (n + k - 1) / k."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CYCLEJUMP",
+      "RM_VNOI_DIGITCYCLE"
+    ]
   },
   {
     "id": "les-2-17",
@@ -1133,7 +1296,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_PHI",
+      "RM_CSES_BITSTRINGS"
+    ]
   },
   {
     "id": "les-2-18",
@@ -1153,7 +1320,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_MODINV",
+      "RM_CHECK_KTH_BIT"
+    ]
   },
   {
     "id": "les-2-19",
@@ -1165,7 +1336,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-18"
     ],
-    "problemId": "prob-rm-binommod",
+    "problemId": "prob-rm-vnoi-singlenum",
     "problemCode": "RM_BINOMMOD",
     "shortTheory": "### Toán tử Bit: AND (&), OR (|), XOR (^)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1173,7 +1344,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_BINOMMOD",
+      "RM_VNOI_SINGLENUM"
+    ]
   },
   {
     "id": "les-2-20",
@@ -1185,7 +1360,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-19"
     ],
-    "problemId": "prob-rm-pow2check",
+    "problemId": "prob-rm-cses-bitstrings",
     "problemCode": "RM_POW2CHECK",
     "shortTheory": "### Toán tử Bit: Dịch trái (<<), Dịch phải (>>), Phủ định (~)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1193,7 +1368,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_POW2CHECK",
+      "RM_CSES_BITSTRINGS"
+    ]
   },
   {
     "id": "les-2-21",
@@ -1205,7 +1384,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-20"
     ],
-    "problemId": "prob-rm-bitoperations",
+    "problemId": "prob-rm-check-kth-bit",
     "problemCode": "RM_BITOPERATIONS",
     "shortTheory": "### Kỹ thuật Bitmask: Kiểm tra, Bật, Tắt, Đảo bit thứ k\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1213,7 +1392,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_BITOPERATIONS",
+      "RM_CHECK_KTH_BIT"
+    ]
   },
   {
     "id": "les-2-22",
@@ -1233,7 +1416,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SUBSETSUM",
+      "RM_CHECK_KTH_BIT"
+    ]
   },
   {
     "id": "les-2-23",
@@ -1253,7 +1440,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_BASECONV",
+      "RM_VNOI_SINGLENUM"
+    ]
   },
   {
     "id": "les-2-24",
@@ -1265,7 +1456,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-23"
     ],
-    "problemId": "prob-rm-palinnum",
+    "problemId": "prob-rm-vnoi-primepalin",
     "problemCode": "RM_PALINNUM",
     "shortTheory": "### Số đối xứng (Palindromic Number) & Đảo ngược số\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1273,7 +1464,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_PALINNUM",
+      "RM_VNOI_PRIMEPALIN"
+    ]
   },
   {
     "id": "les-2-25",
@@ -1285,7 +1480,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-24"
     ],
-    "problemId": "prob-rm-digitsumroot",
+    "problemId": "prob-rm-repeated-digit-sum",
     "problemCode": "RM_DIGITSUMROOT",
     "shortTheory": "### Tổng chữ số & Căn số học (Digital Root)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1293,7 +1488,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_DIGITSUMROOT",
+      "RM_REPEATED_DIGIT_SUM"
+    ]
   },
   {
     "id": "les-2-26",
@@ -1313,7 +1512,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_ROUNDDIV",
+      "RM_VNOI_SQUARECOUNT"
+    ]
   },
   {
     "id": "les-2-27",
@@ -1325,7 +1528,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-26"
     ],
-    "problemId": "prob-rm-fibmod",
+    "problemId": "prob-rm-fib-last-digit",
     "problemCode": "RM_FIBMOD",
     "shortTheory": "### Dãy số Fibonacci: Tính chất & Nhân ma trận tính F(N)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1333,7 +1536,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_FIBMOD",
+      "RM_FIB_LAST_DIGIT"
+    ]
   },
   {
     "id": "les-2-28",
@@ -1353,7 +1560,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CRT2",
+      "RM_CSES_MISSING"
+    ]
   },
   {
     "id": "les-2-29",
@@ -1365,7 +1576,7 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-28"
     ],
-    "problemId": "prob-rm-geomsum",
+    "problemId": "prob-rm-cses-trailingzeros",
     "problemCode": "RM_GEOMSUM",
     "shortTheory": "### Cấp số cộng & Cấp số nhân: Công thức số hạng & Tổng\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
@@ -1373,7 +1584,11 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_GEOMSUM",
+      "RM_CSES_TRAILINGZEROS"
+    ]
   },
   {
     "id": "les-2-30",
@@ -1393,7 +1608,12 @@ const ROADMAP_LESSONS = [
       "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
       "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_STAGE2SUM",
+      "RM_CSES_TRAILINGZEROS",
+      "RM_VNOI_PRIMEPALIN"
+    ]
   },
   {
     "id": "les-3-1",
@@ -1405,15 +1625,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-30"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-cowcross",
+    "problemCode": "RM_CSES_COINPILES",
     "shortTheory": "### Quan sát & Tìm bất biến (Invariants) trong bài toán\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CSES_COINPILES",
+      "RM_USACO_COWCROSS"
+    ]
   },
   {
     "id": "les-3-2",
@@ -1425,15 +1649,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-1"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-madscientist",
+    "problemCode": "RM_USACO_MADSCIENTIST",
     "shortTheory": "### Bất biến chẵn lẻ (Parity Invariant)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_MADSCIENTIST",
+      "RM_CSES_COINPILES"
+    ]
   },
   {
     "id": "les-3-3",
@@ -1445,15 +1673,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-2"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-cses-numspiral",
+    "problemCode": "RM_CSES_NUMSPIRAL",
     "shortTheory": "### Nhận diện quy luật qua bảng số nhỏ (Pattern Finding)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CSES_NUMSPIRAL",
+      "RM_CSES_TWOKNIGHTS"
+    ]
   },
   {
     "id": "les-3-4",
@@ -1465,15 +1697,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-3"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-mixingmilk",
+    "problemCode": "RM_USACO_MIXINGMILK",
     "shortTheory": "### Mô phỏng trực tiếp: Thực hiện từng bước theo đề bài\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_MIXINGMILK",
+      "RM_USACO_LOSTCOW"
+    ]
   },
   {
     "id": "les-3-5",
@@ -1485,15 +1721,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-4"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-robot-grid",
+    "problemCode": "RM_ROBOT_GRID",
     "shortTheory": "### Mô phỏng lưới ma trận & Vector hướng (dx, dy)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_ROBOT_GRID",
+      "RM_SPIRAL_ROTATE"
+    ]
   },
   {
     "id": "les-3-6",
@@ -1505,15 +1745,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-5"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-valid-parentheses",
+    "problemCode": "RM_VALID_PARENTHESES",
     "shortTheory": "### Mô phỏng máy trạng thái hữu hạn (Finite State Machine)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_VALID_PARENTHESES",
+      "RM_USACO_COWCROSS"
+    ]
   },
   {
     "id": "les-3-7",
@@ -1525,15 +1769,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-6"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-shellgame",
+    "problemCode": "RM_USACO_SHELLGAME",
     "shortTheory": "### Mô phỏng trò chơi lượt (Turn-based Games)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_SHELLGAME",
+      "RM_CSES_COINPILES"
+    ]
   },
   {
     "id": "les-3-8",
@@ -1545,15 +1793,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-7"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-bovineshuffle",
+    "problemCode": "RM_USACO_BOVINESHUFFLE",
     "shortTheory": "### Mô phỏng chu trình & Phát hiện chu kỳ (Floyd Cycle Detection)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_BOVINESHUFFLE",
+      "RM_USACO_MIXINGMILK"
+    ]
   },
   {
     "id": "les-3-9",
@@ -1565,15 +1817,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-8"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-cses-twosets",
+    "problemCode": "RM_CSES_TWOSETS",
     "shortTheory": "### Thuật toán dựng nghiệm (Constructive): Dựng theo chẵn lẻ\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CSES_TWOSETS",
+      "RM_CSES_PERMUTE"
+    ]
   },
   {
     "id": "les-3-10",
@@ -1585,15 +1841,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-9"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-cses-palinreorder",
+    "problemCode": "RM_CSES_PALINREORDER",
     "shortTheory": "### Dựng nghiệm: Tính đối xứng & Phép bù\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CSES_PALINREORDER",
+      "RM_VNOI_PRIMEPALIN"
+    ]
   },
   {
     "id": "les-3-11",
@@ -1605,15 +1865,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-10"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-extreme-construct",
+    "problemCode": "RM_EXTREME_CONSTRUCT",
     "shortTheory": "### Dựng nghiệm: Xây dựng từ 2 đầu cực trị (Min/Max)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_EXTREME_CONSTRUCT",
+      "RM_TARGET_SUM_ARR"
+    ]
   },
   {
     "id": "les-3-12",
@@ -1625,15 +1889,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-11"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-squarepasture",
+    "problemCode": "RM_USACO_BLOCKEDBILLBOARD",
     "shortTheory": "### Mô phỏng đoạn thẳng & Hợp các khoảng chồng lấn\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_BLOCKEDBILLBOARD",
+      "RM_USACO_SQUAREPASTURE"
+    ]
   },
   {
     "id": "les-3-13",
@@ -1645,15 +1913,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-12"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-lostcow",
+    "problemCode": "RM_USACO_LOSTCOW",
     "shortTheory": "### Biến đổi hệ tọa độ & Dịch chuyển gốc\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_LOSTCOW",
+      "RM_USACO_TELEPORT"
+    ]
   },
   {
     "id": "les-3-14",
@@ -1665,15 +1937,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-13"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-run-length-enc",
+    "problemCode": "RM_USACO_CENSORING",
     "shortTheory": "### Mô phỏng xâu ký tự & Quy tắc ngữ pháp\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_CENSORING",
+      "RM_RUN_LENGTH_ENC"
+    ]
   },
   {
     "id": "les-3-15",
@@ -1685,15 +1961,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-14"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-cses-twoknights",
+    "problemCode": "RM_CSES_TWOKNIGHTS",
     "shortTheory": "### Lựa chọn Tham lam trực giác trong bài toán Ad hoc\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CSES_TWOKNIGHTS",
+      "RM_CSES_INCREASING"
+    ]
   },
   {
     "id": "les-3-16",
@@ -1705,15 +1985,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-15"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-speeding",
+    "problemCode": "RM_USACO_SPEEDING",
     "shortTheory": "### Tối ưu phân trường hợp (Case Analysis)\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_SPEEDING",
+      "RM_USACO_BLOCKEDBILLBOARD"
+    ]
   },
   {
     "id": "les-3-17",
@@ -1725,15 +2009,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-16"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-usaco-daisychains",
+    "problemCode": "RM_USACO_COWGYM",
     "shortTheory": "### Thu hẹp không gian tìm kiếm bằng quan sát\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_USACO_COWGYM",
+      "RM_USACO_DAISYCHAINS"
+    ]
   },
   {
     "id": "les-3-18",
@@ -1745,15 +2033,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-17"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-target-sum-arr",
+    "problemCode": "RM_TARGET_SUM_ARR",
     "shortTheory": "### Dựng mảng với tổng hoặc hiệu cố định\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_TARGET_SUM_ARR",
+      "RM_CSES_TWOSETS"
+    ]
   },
   {
     "id": "les-3-19",
@@ -1765,15 +2057,19 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-18"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-spiral-rotate",
+    "problemCode": "RM_SPIRAL_ROTATE",
     "shortTheory": "### Mô phỏng ma trận xoắn ốc & Xoay góc 90 độ\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_SPIRAL_ROTATE",
+      "RM_CSES_NUMSPIRAL"
+    ]
   },
   {
     "id": "les-3-20",
@@ -1785,15 +2081,20 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-3-19"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-cses-graycode",
+    "problemCode": "RM_CSES_GRAYCODE",
     "shortTheory": "### Tổng kết Chặng 3: Rèn luyện tư duy quan sát nhạy bén\nKỹ thuật giải quyết bài toán Ad hoc và mô phỏng thực tế.\n- Các bài toán Ad hoc không đòi hỏi thuật toán phức tạp nhưng đòi hỏi sự tinh tế trong quan sát.\n- Tìm ra quy luật ẩn sau các bước mô phỏng để giảm số bước chạy từ hàng triệu xuống $O(1)$ hoặc $O(N)$.",
     "hints": [
       "Gợi ý 1: Vẽ thử mô phỏng với test nhỏ từ 1 đến 5 bước ra nháp.",
       "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
       "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
     ],
-    "track": "olympic"
+    "track": "olympic",
+    "problemCodes": [
+      "RM_CSES_GRAYCODE",
+      "RM_CSES_PALINREORDER",
+      "RM_USACO_BOVINESHUFFLE"
+    ]
   },
   {
     "id": "les-4-1",
@@ -5385,186 +5686,7 @@ const ROADMAP_LESSONS = [
   }
 ];
 
-const ALGORITHM_ROADMAP_TOPICS = [
-  {
-    "id": "topic-1",
-    "order": 1,
-    "phase": "C++ Basic Syntax & Foundation",
-    "title": "C++ Basic Syntax & Foundation",
-    "description": "Làm chủ cú pháp C++, biến, rẽ nhánh, vòng lặp, mảng 1D/2D, chuỗi ký tự, hàm và đọc ghi tệp.",
-    "level": "Cơ bản",
-    "difficulty": "Beginner",
-    "icon": "Terminal",
-    "estimatedMinutes": 790,
-    "prerequisites": [],
-    "problemCodes": [
-      "RM_FASTIO",
-      "RM_RECTAREA",
-      "RM_CANDYDIV",
-      "RM_COMPARE",
-      "RM_LOGIC",
-      "RM_TICKET",
-      "RM_DIGITSUM",
-      "RM_LOOPSUM",
-      "RM_PRINTPATTERN",
-      "RM_FIRSTEVEN",
-      "RM_ARRAYQUERY",
-      "RM_MINMAXPOS",
-      "RM_REVERSEARR",
-      "RM_GRADEFREQ",
-      "RM_CHARSHIFT",
-      "RM_PALINDROME",
-      "RM_COUNTVOWELS",
-      "RM_SQUARECHECK",
-      "RM_REDUCERATE",
-      "RM_DIAGONAL",
-      "RM_STUDENTRANK"
-    ],
-    "guide": "Nắm vững nền tảng lập trình hướng thủ tục trong C++, giải quyết trơn tru các bài toán cơ bản."
-  },
-  {
-    "id": "topic-2",
-    "order": 2,
-    "phase": "Number Theory Foundations",
-    "title": "Number Theory Foundations",
-    "description": "Hiểu sâu về chia hết, ước/bội, số nguyên tố, sàng Eratosthenes, số học modulo, lũy thừa nhanh và thao tác bit.",
-    "level": "Cơ bản",
-    "difficulty": "Beginner",
-    "icon": "Terminal",
-    "estimatedMinutes": 1160,
-    "prerequisites": [
-      "topic-1"
-    ],
-    "problemCodes": [
-      "RM_DIVISORS",
-      "RM_PRIME"
-    ],
-    "guide": "Xử lý các bài toán số học tối ưu từ O(sqrt(N)) đến O(log N), áp dụng thuần thục modulo và bitwise."
-  },
-  {
-    "id": "topic-3",
-    "order": 3,
-    "phase": "Ad hoc & Problem Solving Techniques",
-    "title": "Ad hoc & Problem Solving Techniques",
-    "description": "Phát triển tư duy quan sát (observation), tìm bất biến (invariant), mô phỏng (simulation) và xây dựng nghiệm (constructive).",
-    "level": "Cơ bản",
-    "difficulty": "Intermediate",
-    "icon": "Layers",
-    "estimatedMinutes": 835,
-    "prerequisites": [
-      "topic-2"
-    ],
-    "problemCodes": [],
-    "guide": "Khả năng tư duy linh hoạt trước các bài toán không mẫu mực, tư duy thuật toán trực giác."
-  },
-  {
-    "id": "topic-4",
-    "order": 4,
-    "phase": "STL & Basic Data Structures",
-    "title": "STL & Basic Data Structures",
-    "description": "Làm chủ thư viện chuẩn C++ STL (vector, set, map, stack, queue, priority_queue), chặt nhị phân với lower_bound/upper_bound.",
-    "level": "Trung bình",
-    "difficulty": "Intermediate",
-    "icon": "Layers",
-    "estimatedMinutes": 950,
-    "prerequisites": [
-      "topic-3"
-    ],
-    "problemCodes": [],
-    "guide": "Sử dụng thành thạo các cấu trúc dữ liệu kinh điển, viết code ngắn gọn và tối ưu độ phức tạp."
-  },
-  {
-    "id": "topic-5",
-    "order": 5,
-    "phase": "Core Algorithmic Techniques",
-    "title": "Core Algorithmic Techniques",
-    "description": "Làm chủ mảng cộng dồn, mảng hiệu, hai con trỏ, cửa sổ trượt, tham lam, tìm kiếm nhị phân kết quả và quay lui.",
-    "level": "Trung bình",
-    "difficulty": "Intermediate",
-    "icon": "Layers",
-    "estimatedMinutes": 1360,
-    "prerequisites": [
-      "topic-4"
-    ],
-    "problemCodes": [
-      "RM_TWOPOINTERS",
-      "RM_GREEDY"
-    ],
-    "guide": "Tối ưu thuật toán từ O(N^2) xuống O(N) hoặc O(N log N), kỹ thuật cốt lõi trong các kỳ thi HSG."
-  },
-  {
-    "id": "topic-6",
-    "order": 6,
-    "phase": "Dynamic Programming (DP)",
-    "title": "Dynamic Programming (DP)",
-    "description": "Quy hoạch động từ cơ bản đến nâng cao: 1D, 2D lưới, Knapsack 0/1, LIS, LCS, Interval DP, Bitmask DP và Tree DP.",
-    "level": "Trung bình",
-    "difficulty": "Advanced",
-    "icon": "Cpu",
-    "estimatedMinutes": 1770,
-    "prerequisites": [
-      "topic-5"
-    ],
-    "problemCodes": [
-      "RM_FROGJUMP",
-      "RM_MAXSUBARRAY"
-    ],
-    "guide": "Xác định bài toán con gối nhau, xây dựng công thức truy hồi và tối ưu hóa không gian bộ nhớ."
-  },
-  {
-    "id": "topic-7",
-    "order": 7,
-    "phase": "Graph Algorithms",
-    "title": "Graph Algorithms",
-    "description": "Thuật toán đồ thị: biểu diễn đồ thị, BFS/DFS, DSU, cây khung nhỏ nhất (Kruskal/Prim), Dijkstra, Tarjan cầu/khớp và SCC.",
-    "level": "Nâng cao",
-    "difficulty": "Advanced",
-    "icon": "Cpu",
-    "estimatedMinutes": 1715,
-    "prerequisites": [
-      "topic-6"
-    ],
-    "problemCodes": [
-      "RM_DIJKSTRA"
-    ],
-    "guide": "Mô hình hóa các bài toán thế giới thực thành bài toán đồ thị và áp dụng thuật toán tối ưu."
-  },
-  {
-    "id": "topic-8",
-    "order": 8,
-    "phase": "Advanced Competitive Programming",
-    "title": "Advanced Competitive Programming",
-    "description": "Segment Tree, Fenwick Tree (BIT), String Hashing, KMP, Trie, LCA Binary Lifting, Tổ hợp mod P, Hình học tính toán.",
-    "level": "Nâng cao",
-    "difficulty": "Advanced",
-    "icon": "Cpu",
-    "estimatedMinutes": 1905,
-    "prerequisites": [
-      "topic-7"
-    ],
-    "problemCodes": [],
-    "guide": "Sẵn sàng chinh phục các bài tập mức độ HSG Quốc gia (VNOI / Codeforces Div. 2-1)."
-  },
-  {
-    "id": "topic-9",
-    "order": 9,
-    "phase": "Contest Practice & Timed Mocks",
-    "title": "Contest Practice & Timed Mocks",
-    "description": "Bộ đề thi thử tính giờ, rèn luyện chiến thuật làm bài, quản lý thời gian, bẫy test và viết stress test.",
-    "level": "Nâng cao",
-    "difficulty": "Advanced",
-    "icon": "Cpu",
-    "estimatedMinutes": 1365,
-    "prerequisites": [
-      "topic-8"
-    ],
-    "problemCodes": [],
-    "guide": "Tâm lý thi đấu vững vàng, kỹ năng săn điểm và kiểm thử bài làm trong phòng thi thực chiến."
-  }
-];
-
 module.exports = {
   ROADMAP_STAGES,
-  ROADMAP_LESSONS,
-  ALGORITHM_ROADMAP_TOPICS
+  ROADMAP_LESSONS
 };
