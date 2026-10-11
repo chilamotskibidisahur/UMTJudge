@@ -311,6 +311,10 @@ class Database {
         const existing = parsed.roadmap_lessons.find(l => l.id === seedLesson.id);
         if (existing) {
           existing.track = seedLesson.track || existing.track;
+          if (seedLesson.problemCode && (!existing.problemCode || !existing.problemId)) {
+            existing.problemCode = seedLesson.problemCode;
+            existing.problemId = seedLesson.problemId;
+          }
         } else {
           parsed.roadmap_lessons.push(JSON.parse(JSON.stringify(seedLesson)));
         }
@@ -386,12 +390,33 @@ class Database {
       // Write atomically using .tmp and rename to prevent file corruption on sudden crash
       const tmpFile = `${DATA_FILE}.tmp`;
       fs.writeFileSync(tmpFile, JSON.stringify(cleanData, null, 2), 'utf8');
-      fs.renameSync(tmpFile, DATA_FILE);
+      try {
+        fs.renameSync(tmpFile, DATA_FILE);
+      } catch (renameErr) {
+        if (process.platform === 'win32') {
+          try {
+            fs.copyFileSync(tmpFile, DATA_FILE);
+            try { fs.unlinkSync(tmpFile); } catch (e) {}
+          } catch (winErr) {
+            fs.writeFileSync(DATA_FILE, JSON.stringify(cleanData, null, 2), 'utf8');
+          }
+        } else {
+          throw renameErr;
+        }
+      }
 
       // 🛡️ TÍNH BỀN VỮNG: Giữ một bản backup liền kề .bak để chống hỏng tệp khi mất điện
       try {
         fs.copyFileSync(DATA_FILE, `${DATA_FILE}.bak`);
       } catch (e) {}
+
+      // Đồng bộ đồng thời vào schooljudge_data.json trong repo nếu không phải test môi trường biệt lập
+      if (!process.env.SCHOOLJUDGE_DATA_DIR && this.DATA_DIR !== process.cwd()) {
+        try {
+          const repoPath = path.join(process.cwd(), 'schooljudge_data.json');
+          fs.writeFileSync(repoPath, JSON.stringify(cleanData, null, 2), 'utf8');
+        } catch (e) {}
+      }
 
       // Tự động snapshot theo chu kỳ
       this.createBackupSnapshot(cleanData);

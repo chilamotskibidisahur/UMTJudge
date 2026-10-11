@@ -280,3 +280,73 @@ CREATE TABLE IF NOT EXISTS settings (
     value JSONB NOT NULL,
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- ----------------------------------------------------------------------------
+-- 15. Roadmap Stages (Các chặng trong lộ trình học thuật toán)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS roadmap_stages (
+    id VARCHAR(50) PRIMARY KEY,
+    track VARCHAR(50) NOT NULL DEFAULT 'olympic',   -- 'olympic' | 'career'
+    title VARCHAR(255) NOT NULL,
+    description TEXT DEFAULT '',
+    icon VARCHAR(50) DEFAULT 'Compass',
+    color VARCHAR(50) DEFAULT 'blue',
+    estimated_weeks INT DEFAULT 2,
+    checkpoint_test_id VARCHAR(50) DEFAULT NULL,
+    pass_percentage INT DEFAULT 75,
+    sort_order INT DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_roadmap_stages_track ON roadmap_stages(track, sort_order);
+
+-- ----------------------------------------------------------------------------
+-- 16. Roadmap Lessons (Các bài học & liên kết bài tập thực hành)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS roadmap_lessons (
+    id VARCHAR(50) PRIMARY KEY,
+    stage_id VARCHAR(50) REFERENCES roadmap_stages(id) ON DELETE CASCADE,
+    track VARCHAR(50) NOT NULL DEFAULT 'olympic',
+    title VARCHAR(255) NOT NULL,
+    summary TEXT DEFAULT '',
+    content_markdown TEXT DEFAULT '',
+    duration_minutes INT DEFAULT 45,
+    difficulty VARCHAR(50) DEFAULT 'Cơ bản',
+    sort_order INT DEFAULT 0,
+    prerequisites JSONB DEFAULT '[]'::jsonb,
+    problem_code VARCHAR(50) DEFAULT NULL,
+    problem_id VARCHAR(50) DEFAULT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_roadmap_lessons_stage ON roadmap_lessons(stage_id, sort_order);
+CREATE INDEX IF NOT EXISTS idx_roadmap_lessons_code ON roadmap_lessons(problem_code);
+
+-- ----------------------------------------------------------------------------
+-- 17. Roadmap User Progress (Tiến độ học viên theo từng bài học)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS roadmap_user_progress (
+    user_id VARCHAR(50) REFERENCES users(id) ON DELETE CASCADE,
+    lesson_id VARCHAR(50) REFERENCES roadmap_lessons(id) ON DELETE CASCADE,
+    status VARCHAR(20) DEFAULT 'completed',         -- 'completed' | 'in_progress'
+    score NUMERIC(6, 2) DEFAULT 100,
+    completed_at TIMESTAMPTZ DEFAULT NOW(),
+    PRIMARY KEY (user_id, lesson_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_roadmap_user_progress_user ON roadmap_user_progress(user_id);
+
+-- ----------------------------------------------------------------------------
+-- 18. Roadmap Topics (Chủ đề lộ trình tự do & phân loại)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS roadmap_topics (
+    id VARCHAR(50) PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    description TEXT DEFAULT '',
+    difficulty VARCHAR(50) DEFAULT 'Cơ bản',
+    color VARCHAR(50) DEFAULT '#3b82f6',
+    problem_ids JSONB DEFAULT '[]'::jsonb,
+    sort_order INT DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+

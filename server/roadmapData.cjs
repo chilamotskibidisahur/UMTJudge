@@ -319,8 +319,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-1"
     ],
-    "problemId": "prob-rm-rectarea",
-    "problemCode": "RM_RECTAREA",
+    "problemId": "prob-rm-bigsum",
+    "problemCode": "RM_BIGSUM",
     "shortTheory": "### Các kiểu dữ liệu thường dùng trong C++\n- `int`: 32-bit có dấu, giá trị từ $-2  ×  10^9$ đến $2  ×  10^9$.\n- `long long`: 64-bit có dấu, từ $-9  ×  10^{18}$ đến $9  ×  10^{18}$. Dùng khi kết quả vượt quá $2  ×  10^9$.\n- `double`: Số thực độ chính xác kép (khoảng 15 chữ số có nghĩa).\n- `char`: Ký tự đơn trong bảng mã ASCII (1 byte).\n- `bool`: Giá trị logic (`true` hoặc `false`).\n\n> **Cảnh báo tràn số (Overflow)**: Khi nhân hai biến `int` (ví dụ: `100000 * 100000`), C++ sẽ tính trên kiểu `int` rồi mới ép kiểu. Cần viết: `1LL * a * b` để tránh tràn số!",
     "hints": [
       "Công thức chu vi = 2 * (A + B), diện tích = A * B.",
@@ -339,8 +339,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-2"
     ],
-    "problemId": "prob-rm-candydiv",
-    "problemCode": "RM_CANDYDIV",
+    "problemId": "prob-rm-swapdigits",
+    "problemCode": "RM_SWAPDIGITS",
     "shortTheory": "### Toán tử số học & Chia lấy dư\n- Các phép toán: `+`, `-`, `*`, `/`, `%`.\n- **Phép chia nguyên**: `7 / 2 = 3`. Để lấy số thực: `7.0 / 2` hoặc `(double)a / b`.\n- **Phép chia dư**: `7 % 2 = 1`. Chú ý với số âm trong C++: `-7 % 2 = -1`. Để đưa về số dư dương trong $[0, m-1]$:\n```cpp\nlong long mod = (a % m + m) % m;\n```",
     "hints": [
       "Sử dụng phép chia nguyên n / k để tìm số kẹo mỗi bạn nhận được.",
@@ -359,8 +359,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-3"
     ],
-    "problemId": "prob-rm-compare",
-    "problemCode": "RM_COMPARE",
+    "problemId": "prob-rm-leapyear",
+    "problemCode": "RM_LEAPYEAR",
     "shortTheory": "### Câu lệnh điều kiện if - else\nDùng để rẽ nhánh thực thi chương trình dựa trên biểu thức điều kiện:\n```cpp\nif (condition) {\n    // Thực thi khi condition đúng (khác 0)\n} else {\n    // Thực thi khi condition sai\n}\n```\n- Các toán tử so sánh: `==`, `!=`, `<`, `<=`, `>`, `>=`.\n- **Lưu ý**: So sánh bằng là `==`, không nhầm với phép gán `=`.",
     "hints": [
       "Xác định rõ các điều kiện biên của đề bài.",
@@ -379,8 +379,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-4"
     ],
-    "problemId": "prob-rm-logic",
-    "problemCode": "RM_LOGIC",
+    "problemId": "prob-rm-validdate",
+    "problemCode": "RM_VALIDDATE",
     "shortTheory": "### Toán tử logic phức hợp\n- `&&` (AND): Đúng khi cả hai điều kiện cùng đúng.\n- `||` (OR): Đúng khi ít nhất một điều kiện đúng.\n- `!` (NOT): Phủ định giá trị logic.\n\n```cpp\nif (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {\n    cout << \"NAM NHUAN\\n\";\n} else {\n    cout << \"NAM KHONG NHUAN\\n\";\n}\n```",
     "hints": [
       "Toán tử && có độ ưu tiên cao hơn ||, dùng ngoặc đơn ( ) để phân định rõ ràng.",
@@ -399,8 +399,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-5"
     ],
-    "problemId": "prob-rm-ticket",
-    "problemCode": "RM_TICKET",
+    "problemId": "prob-rm-taxbracket",
+    "problemCode": "RM_TAXBRACKET",
     "shortTheory": "### Phân loại nhiều khoảng giá trị\nKhi gặp bài toán tính tiền theo từng mức (ví dụ tiền điện, giá vé xe, thuế):\n```cpp\nlong long tinhTien(int tuoi, int loaiVe) {\n    if (tuoi < 6) return 0;\n    if (tuoi <= 12) return 50000;\n    if (tuoi >= 65) return 30000;\n    return 100000;\n}\n```\nNên xử lý các trường hợp đặc biệt trước (trẻ em, người cao tuổi) để đơn giản hóa logic.",
     "hints": [
       "Xếp các khoảng điều kiện theo thứ tự tăng dần hoặc giảm dần để tránh sót trường hợp.",
@@ -419,8 +419,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-6"
     ],
-    "problemId": "prob-rm-digitsum",
-    "problemCode": "RM_DIGITSUM",
+    "problemId": "prob-rm-digitroot",
+    "problemCode": "RM_DIGITROOT",
     "shortTheory": "### Vòng lặp while\nLặp lại một khối lệnh khi điều kiện còn thỏa mãn:\n```cpp\nint n; cin >> n;\nint sumDigits = 0;\nwhile (n > 0) {\n    sumDigits += n % 10;\n    n /= 10;\n}\n```\nThích hợp cho các bài toán không biết trước số lần lặp, như phân tích chữ số của một số nguyên.",
     "hints": [
       "Sử dụng vòng lặp while (n > 0) để tách lần lượt từng chữ số.",
@@ -439,8 +439,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-7"
     ],
-    "problemId": "prob-rm-loopsum",
-    "problemCode": "RM_LOOPSUM",
+    "problemId": "prob-rm-fibn",
+    "problemCode": "RM_FIBN",
     "shortTheory": "### Vòng lặp for\nCấu trúc lặp phổ biến nhất khi biết trước số lần lặp:\n```cpp\nlong long sum = 0;\nfor (int i = 1; i <= n; i++) {\n    if (i % 2 == 0) {\n        sum += i;\n    }\n}\n```\n- Khởi tạo biến tích lũy: `sum = 0` hoặc `product = 1LL`.\n- Luôn kiểm tra xem `sum` có vượt giới hạn `int` không để khai báo `long long`.",
     "hints": [
       "Duyệt từ 1 đến n (hoặc bước nhảy i += 2 để chỉ duyệt số chẵn).",
@@ -459,8 +459,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-8"
     ],
-    "problemId": "prob-rm-printpattern",
-    "problemCode": "RM_PRINTPATTERN",
+    "problemId": "prob-rm-chessboard",
+    "problemCode": "RM_CHESSBOARD",
     "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N ≤ 5000$, $O(N^2)$ chạy trong ~1 giây.",
     "hints": [
       "Dùng 2 vòng lặp for lồng nhau: vòng lặp ngoài duyệt dòng i từ 1 đến R, vòng lặp trong duyệt cột j từ 1 đến C.",
@@ -479,8 +479,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-9"
     ],
-    "problemId": "prob-rm-firsteven",
-    "problemCode": "RM_FIRSTEVEN",
+    "problemId": "prob-rm-firstdiv",
+    "problemCode": "RM_FIRSTDIV",
     "shortTheory": "### break và continue\n- `break`: Lập tức thoát khỏi vòng lặp gần nhất.\n- `continue`: Bỏ qua phần còn lại của lần lặp hiện tại và chuyển sang lần lặp tiếp theo.\n```cpp\nbool hasZero = false;\nfor (int i = 0; i < n; i++) {\n    if (a[i] == 0) {\n        hasZero = true;\n        break; // Dừng sớm khi tìm thấy\n    }\n}\n```",
     "hints": [
       "Duyệt lần lượt từng phần tử từ vị trí 1 đến N.",
@@ -500,8 +500,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-10"
     ],
-    "problemId": "prob-rm-arrayquery",
-    "problemCode": "RM_ARRAYQUERY",
+    "problemId": "prob-rm-aboveavg",
+    "problemCode": "RM_ABOVEAVG",
     "shortTheory": "### Mảng 1 chiều (1D Static Array)\nTập hợp các phần tử cùng kiểu dữ liệu lưu trữ liên tiếp trong bộ nhớ:\n```cpp\nconst int MAXN = 100005;\nint a[MAXN]; // Khai báo toàn cục để mảng tự động gán giá trị 0 và không tràn stack\n\nint main() {\n    int n; cin >> n;\n    for (int i = 0; i < n; i++) cin >> a[i];\n}\n```\n- Chỉ số mảng trong C++ chạy từ `0` đến `N - 1` (hoặc `1` đến `N`).\n- Tránh khai báo mảng kích thước lớn ($> 10^5$) bên trong hàm `main` vì dễ tràn Stack.",
     "hints": [
       "Khai báo mảng chứa N phần tử hoặc đọc lần lượt vào mảng.",
@@ -520,8 +520,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-11"
     ],
-    "problemId": "prob-rm-minmaxpos",
-    "problemCode": "RM_MINMAXPOS",
+    "problemId": "prob-rm-countmax",
+    "problemCode": "RM_COUNTMAX",
     "shortTheory": "### Tìm Min/Max trên mảng\n```cpp\nint minVal = a[0], maxVal = a[0];\nfor (int i = 1; i < n; i++) {\n    if (a[i] < minVal) minVal = a[i];\n    if (a[i] > maxVal) maxVal = a[i];\n}\n```\n- Hoặc dùng hàm có sẵn trong C++: `*min_element(a, a + n)` và `*max_element(a, a + n)`.",
     "hints": [
       "Khởi tạo maxVal = A[0], maxPos = 1; minVal = A[0], minPos = 1.",
@@ -540,8 +540,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-12"
     ],
-    "problemId": "prob-rm-reversearr",
-    "problemCode": "RM_REVERSEARR",
+    "problemId": "prob-rm-issorted",
+    "problemCode": "RM_ISSORTED",
     "shortTheory": "### Thao tác biến đổi mảng\n- Đảo ngược mảng: Sử dụng 2 biến chỉ số chạy từ 2 đầu hoặc dùng `reverse(a, a + n)`.\n```cpp\nint l = 0, r = n - 1;\nwhile (l < r) {\n    swap(a[l], a[r]);\n    l++; r--;\n}\n```\n- Xóa phần tử tại vị trí $k$: Dịch tất cả phần tử từ $k + 1$ sang trái 1 bước và giảm $N$.",
     "hints": [
       "Lưu mảng vào std::vector hoặc mảng tĩnh.",
@@ -560,8 +560,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-13"
     ],
-    "problemId": "prob-rm-gradefreq",
-    "problemCode": "RM_GRADEFREQ",
+    "problemId": "prob-rm-missingnum",
+    "problemCode": "RM_MISSINGNUM",
     "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i ≤ 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
     "hints": [
       "Khai báo mảng đếm cnt[11] khởi tạo toàn bộ bằng 0.",
@@ -580,8 +580,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-14"
     ],
-    "problemId": "prob-rm-charshift",
-    "problemCode": "RM_CHARSHIFT",
+    "problemId": "prob-rm-caseswap",
+    "problemCode": "RM_CASESWAP",
     "shortTheory": "### Ký tự và mã ASCII\nMỗi ký tự là một số nguyên trong bảng mã ASCII:\n- `'0'` có mã 48, `'A'` có mã 65, `'a'` có mã 97.\n- Chuyển ký tự số sang giá trị nguyên: `int digit = ch - '0';`\n- Chuyển chữ hoa sang chữ thường: `char lower = ch + 32;` hoặc dùng `tolower(ch)`.\n- Kiểm tra loại ký tự: `isdigit(ch)`, `isalpha(ch)`, `isupper(ch)`, `islower(ch)`.",
     "hints": [
       "Đọc chuỗi bằng cin >> s hoặc getline.",
@@ -621,8 +621,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-16"
     ],
-    "problemId": "prob-rm-countvowels",
-    "problemCode": "RM_COUNTVOWELS",
+    "problemId": "prob-rm-substrcount",
+    "problemCode": "RM_SUBSTRCOUNT",
     "shortTheory": "### Các thao tác phổ biến trên string\n- `s.substr(pos, len)`: Cắt chuỗi con từ vị trí `pos` với độ dài `len`.\n- `s.find(sub)`: Tìm vị trí đầu tiên của `sub` trong `s`. Trả về `string::npos` nếu không tìm thấy.\n- Nối chuỗi: `s1 + s2`.\n- `reverse(s.begin(), s.end())`: Đảo ngược chuỗi.\n- Chuyển đổi: `to_string(num)` và `stoll(str)`.",
     "hints": [
       "Dùng getline(cin, s) để đọc toàn bộ dòng văn bản có chứa dấu cách.",
@@ -641,8 +641,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-17"
     ],
-    "problemId": "prob-rm-squarecheck",
-    "problemCode": "RM_SQUARECHECK",
+    "problemId": "prob-rm-armstrong",
+    "problemCode": "RM_ARMSTRONG",
     "shortTheory": "### Hàm trong C++\nTái sử dụng code và module hóa logic bài toán:\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n```\n- Kiểu trả về: `int`, `long long`, `bool`, `void` (không trả về giá trị).",
     "hints": [
       "Số chính phương là số có dạng k * k với k là số nguyên không âm.",
@@ -661,8 +661,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-18"
     ],
-    "problemId": "prob-rm-reducerate",
-    "problemCode": "RM_REDUCERATE",
+    "problemId": "prob-rm-minmaxref",
+    "problemCode": "RM_MINMAXREF",
     "shortTheory": "### Tham trị vs Tham chiếu\n- **Tham trị (Pass by Value)**: Tạo ra bản sao mới, thay đổi bên trong hàm không ảnh hưởng biến ban đầu.\n- **Tham chiếu (Pass by Reference `&`)**: Thao tác trực tiếp trên biến gốc.\n```cpp\nvoid mySwap(int &x, int &y) {\n    int temp = x;\n    x = y;\n    y = temp;\n}\n// Tránh sao chép mảng/vector/string lớn:\nvoid process(const string &s) { ... }\n```",
     "hints": [
       "Để rút gọn phân số A/B, ta chia cả tử và mẫu cho ước chung lớn nhất g = gcd(A, B).",
@@ -681,8 +681,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-19"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-callcount",
+    "problemCode": "RM_CALLCOUNT",
     "shortTheory": "### Phạm vi và vòng đời biến\n- **Biến cục bộ (Local)**: Nằm trong cặp ngoặc `{ }`, giải phóng khi thoát khối lệnh.\n- **Biến toàn cục (Global)**: Nằm ngoài tất cả các hàm, tồn tại suốt chương trình, tự động khởi tạo bằng 0.\n- Trong Competitive Programming, các mảng kích thước lớn ($10^5 - 10^7$) luôn nên khai báo toàn cục để tránh lỗi tràn stack memory.",
     "hints": [
       "Khai báo mảng lớn ngoài hàm main.",
@@ -702,8 +702,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-20"
     ],
-    "problemId": "prob-rm-diagonal",
-    "problemCode": "RM_DIAGONAL",
+    "problemId": "prob-rm-bordersum",
+    "problemCode": "RM_BORDERSUM",
     "shortTheory": "### Ma trận trong C++\n```cpp\nint a[1005][1005];\nint n, m; cin >> n >> m;\nfor (int i = 0; i < n; i++) {\n    for (int j = 0; j < m; j++) {\n        cin >> a[i][j];\n    }\n}\n```\n- Duyệt hàng, duyệt cột, tính tổng đường chéo chính (`i == j`), đường chéo phụ (`i + j == n - 1`).",
     "hints": [
       "Trong ma trận vuông N x N với chỉ số từ 0 đến N - 1:",
@@ -723,8 +723,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-21"
     ],
-    "problemId": "prob-rm-studentrank",
-    "problemCode": "RM_STUDENTRANK",
+    "problemId": "prob-rm-timediff",
+    "problemCode": "RM_TIMEDIFF",
     "shortTheory": "### Struct trong C++\nGom nhóm các thuộc tính liên quan vào một kiểu dữ liệu duy nhất:\n```cpp\nstruct ThiSinh {\n    string id;\n    string ten;\n    double toan, tin;\n    double tongDiem() const {\n        return toan + tin;\n    }\n};\nThiSinh ds[1000];\n```",
     "hints": [
       "Định nghĩa cấu trúc struct Student { string name; int math; int lit; int total; int order; };",
@@ -763,8 +763,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-23"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-sumfile",
+    "problemCode": "RM_SUMFILE",
     "shortTheory": "### Đọc ghi tệp với freopen\nTrong các kỳ thi HSG, đề bài thường yêu cầu nhập xuất từ tệp (ví dụ `BAI1.INP` và `BAI1.OUT`):\n```cpp\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    #ifndef ONLINE_JUDGE\n    if (fopen(\"BAI1.INP\", \"r\")) {\n        freopen(\"BAI1.INP\", \"r\", stdin);\n        freopen(\"BAI1.OUT\", \"w\", stdout);\n    }\n    #endif\n    // Code cin, cout như bình thường\n}\n```",
     "hints": [
       "freopen chuyển hướng chuẩn stdin và stdout sang tệp.",
@@ -784,8 +784,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-24"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-maxdiff",
+    "problemCode": "RM_MAXDIFF",
     "shortTheory": "### Quy tắc ước lượng thời gian chạy\nTrong 1 giây, máy tính chấm bài thực hiện được khoảng $10^8$ phép tính cơ bản.\n- $N ≤ 20$: $O(2^N)$ hoặc $O(N!)$\n- $N ≤ 500$: $O(N^3)$\n- $N ≤ 5000$: $O(N^2)$\n- $N ≤ 10^6$: $O(N log N)$ hoặc $O(N)$\n- $N ≤ 10^{18}$: $O(log N)$ hoặc $O(1)$",
     "hints": [
       "Đọc giới hạn N trước khi viết thuật toán.",
@@ -805,8 +805,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-1-25"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-lastdigitpow",
+    "problemCode": "RM_LASTDIGITPOW",
     "shortTheory": "### Tính chất đồng dư (Congruence)\nNếu $a ≡ b  (mod m)$ và $c ≡ d  (mod m)$:\n- $(a + c) ≡ (b + d)  (mod m)$\n- $(a  ×  c) ≡ (b  ×  d)  (mod m)$\n- $(a - c) ≡ (b - d)  (mod m)$\n\nCông thức an toàn khi tính toán có modulo:\n```cpp\nlong long add(long long a, long long b, long long m) {\n    return (a % m + b % m) % m;\n}\nlong long mul(long long a, long long b, long long m) {\n    return ((a % m) * (b % m)) % m;\n}\n```",
     "hints": [
       "Lấy modulo sau mỗi phép cộng hoặc nhân.",
@@ -825,8 +825,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-1"
     ],
-    "problemId": "prob-rm-divisors",
-    "problemCode": "RM_DIVISORS",
+    "problemId": "prob-rm-divlist",
+    "problemCode": "RM_DIVLIST",
     "shortTheory": "### Tìm ước trong $O(√N)$\nNếu $d$ là ước của $N$ thì $(N / d)$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $√N$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
     "hints": [
       "Điều kiện dừng là i * i <= n để đạt độ phức tạp O(sqrt(N)).",
@@ -845,8 +845,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-2"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-amicable",
+    "problemCode": "RM_AMICABLE",
     "shortTheory": "### Công thức số lượng & Tổng ước\nNếu $N = p_1^{e_1}  ×  p_2^{e_2} … p_k^{e_k}$ (phân tích thừa số nguyên tố):\n- Số lượng ước: $d(N) = (e_1 + 1)(e_2 + 1) … (e_k + 1)$\n- Tổng các ước: $\\sigma(N) = \\prod_{i=1}^k \\frac{p_i^{e_i + 1} - 1}{p_i - 1}$",
     "hints": [
       "Phân tích N ra thừa số nguyên tố.",
@@ -865,8 +865,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-3"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-fracsum",
+    "problemCode": "RM_FRACSUM",
     "shortTheory": "### Thuật toán Euclid\nDựa trên tính chất: $gcd(a, b) = gcd(b, a  (mod b))$ với $gcd(a, 0) = a$.\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n// C++17 có hàm có sẵn trong thư viện <numeric>: std::gcd(a, b)\n```\nĐộ phức tạp: $O(log(\\min(a, b)))$.",
     "hints": [
       "Hàm lặp while (b != 0) an toàn và không lo tràn stack.",
@@ -885,8 +885,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-4"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-numdivform",
+    "problemCode": "RM_NUMDIVFORM",
     "shortTheory": "### Bội chung nhỏ nhất (LCM)\nCông thức liên hệ: $a  ×  b = gcd(a, b)  ×  lcm(a, b)$.\nDo đó:\n```cpp\nlong long lcm(long long a, long long b) {\n    return (a / gcd(a, b)) * b; // Chia trước rồi mới nhân để tránh tràn số!\n}\n```",
     "hints": [
       "Thực hiện phép chia a / gcd(a, b) trước để giảm kích thước số.",
@@ -905,8 +905,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-5"
     ],
-    "problemId": "prob-rm-prime",
-    "problemCode": "RM_PRIME",
+    "problemId": "prob-rm-emirp",
+    "problemCode": "RM_EMIRP",
     "shortTheory": "### Kiểm tra số nguyên tố\nSố nguyên tố là số nguyên lớn hơn 1, chỉ có đúng 2 ước là 1 và chính nó.\n```cpp\nbool isPrime(long long n) {\n    if (n < 2) return false;\n    if (n == 2 || n == 3) return true;\n    if (n % 2 == 0 || n % 3 == 0) return false;\n    for (long long i = 5; i * i <= n; i += 6) {\n        if (n % i == 0 || n % (i + 2) == 0) return false;\n    }\n    return true;\n}\n```",
     "hints": [
       "Loại bỏ ngay n < 2 và các số chẵn > 2.",
@@ -925,8 +925,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-6"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-sievequery",
+    "problemCode": "RM_SIEVEQUERY",
     "shortTheory": "### Sàng Eratosthenes\nTìm tất cả số nguyên tố từ $1$ đến $N$ (thường $N ≤ 10^7$):\n```cpp\nconst int MAXN = 10000000;\nbool isP[MAXN + 1];\n\nvoid sieve() {\n    fill(isP, isP + MAXN + 1, true);\n    isP[0] = isP[1] = false;\n    for (int i = 2; i * i <= MAXN; i++) {\n        if (isP[i]) {\n            for (int j = i * i; j <= MAXN; j += i) {\n                isP[j] = false;\n            }\n        }\n    }\n}\n```",
     "hints": [
       "Khởi tạo mảng bool đánh dấu tất cả ban đầu là true.",
@@ -945,8 +945,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-7"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-nthprime",
+    "problemCode": "RM_NTHPRIME",
     "shortTheory": "### Sàng tuyến tính Euler\nMỗi hợp số chỉ bị gạch bỏ đúng một lần bởi ước nguyên tố nhỏ nhất (Smallest Prime Factor - SPF):\n```cpp\nconst int MAXN = 10000000;\nint spf[MAXN + 1];\nvector<int> primes;\n\nvoid linearSieve() {\n    for (int i = 2; i <= MAXN; i++) {\n        if (spf[i] == 0) {\n            spf[i] = i;\n            primes.push_back(i);\n        }\n        for (int p : primes) {\n            if (p > spf[i] || 1LL * i * p > MAXN) break;\n            spf[i * p] = p;\n        }\n    }\n}\n```",
     "hints": [
       "Mỗi hợp số được gạch đúng 1 lần duy nhất bởi ước nguyên tố nhỏ nhất.",
@@ -965,8 +965,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-8"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-spffactor",
+    "problemCode": "RM_SPFFACTOR",
     "shortTheory": "### Phân tích thừa số nguyên tố\n```cpp\nvector<pair<long long, int>> factorize(long long n) {\n    vector<pair<long long, int>> factors;\n    for (long long d = 2; d * d <= n; d++) {\n        if (n % d == 0) {\n            int count = 0;\n            while (n % d == 0) {\n                count++;\n                n /= d;\n            }\n            factors.push_back({d, count});\n        }\n    }\n    if (n > 1) factors.push_back({n, 1});\n    return factors;\n}\n```",
     "hints": [
       "Chia kiệt cho d để d tiếp theo luôn đảm bảo là số nguyên tố.",
@@ -985,8 +985,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-9"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-segsieve",
+    "problemCode": "RM_SEGSIEVE",
     "shortTheory": "### Phân tích trong $O(log N)$ với SPF\nKhi cần phân tích nhiều số ($Q ≤ 10^5$, mỗi số $N ≤ 10^7$), ta tiền xử lý mảng `spf[]` bằng sàng tuyến tính:\n```cpp\nvector<int> quickFactorize(int n) {\n    vector<int> factors;\n    while (n > 1) {\n        factors.push_back(spf[n]);\n        n /= spf[n];\n    }\n    return factors;\n}\n```",
     "hints": [
       "Tiền xử lý sàng một lần duy nhất trước mọi truy vấn.",
@@ -1005,8 +1005,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-10"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-modarith",
+    "problemCode": "RM_MODARITH",
     "shortTheory": "### Phép nhân & Cộng theo Modulo an toàn\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1025,8 +1025,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-11"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-factmod",
+    "problemCode": "RM_FACTMOD",
     "shortTheory": "### Lũy thừa nhanh (Binary Exponentiation) trong O(log P)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1045,8 +1045,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-12"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-digitpow",
+    "problemCode": "RM_DIGITPOW",
     "shortTheory": "### Tách từng chữ số của số nguyên N\nKỹ thuật kinh điển xuất hiện trong rất nhiều bài toán nhập môn Tin học trẻ và Olympic:\n```cpp\n// Duyệt qua từng chữ số từ phải sang trái (hàng đơn vị lên hàng cao hơn)\nlong long temp = abs(n);\nif (temp == 0) {\n    // Trường hợp n = 0\n}\nwhile (temp > 0) {\n    int digit = temp % 10; // Lấy chữ số cuối cùng\n    // Xử lý với chữ số digit (tính tổng, đếm chẵn lẻ, v.v.)\n    temp /= 10;            // Bỏ chữ số cuối cùng\n}\n```\n- Lưu ý số âm: nên dùng `abs(n)` trước khi tách chữ số.\n- Đếm số chữ số: `temp /= 10` lặp bao nhiêu lần thì có bấy nhiêu chữ số.",
     "hints": [
       "Gợi ý 1: Dùng phép chia dư % 10 để lấy chữ số cuối cùng.",
@@ -1065,8 +1065,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-13"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-squarefree",
+    "problemCode": "RM_SQUAREFREE",
     "shortTheory": "### Kiểm tra số chính phương chuẩn xác\nSố chính phương là bình phương của một số nguyên ($N = k^2$).\n```cpp\nbool isSquare(long long n) {\n    if (n < 0) return false;\n    long long r = round(sqrt(n));\n    return r * r == n;\n}\n```\n- Tránh sai số số thực bằng cách ép kiểu qua `round()` rồi nhân ngược lại `r * r == n`.\n- **Đếm số chính phương trong đoạn $[A, B]$**:\n$$\\text{Số lượng} = \\lfloor\\sqrt{B}\\rfloor - \\lceil\\sqrt{A}\\rceil + 1$$\nĐộ phức tạp $O(1)$ thay vì phải duyệt từng số!",
     "hints": [
       "Gợi ý 1: Tính r = round(sqrt(n)) rồi kiểm tra r * r == n.",
@@ -1085,8 +1085,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-14"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-legendre",
+    "problemCode": "RM_LEGENDRE",
     "shortTheory": "### Hai loại khoảng cách kinh điển trong lập trình\n1. **Khoảng cách Manhattan (Lưới ô vuông)**:\n$$D_M = |x_1 - x_2| + |y_1 - y_2|$$\nĐại diện cho số bước đi tối thiểu của robot di chuyển theo 4 hướng (lên, xuống, trái, phải).\n\n2. **Khoảng cách Euclid (Đường chim bay)**:\n$$D_E = \\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$$\nKhoảng cách hình học thông thường giữa 2 điểm.",
     "hints": [
       "Gợi ý 1: Khoảng cách Manhattan = abs(x1 - x2) + abs(y1 - y2).",
@@ -1105,8 +1105,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-15"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-cyclejump",
+    "problemCode": "RM_CYCLEJUMP",
     "shortTheory": "### Nhận diện chu kỳ & Thuật toán O(1)\nNhiều bài toán có số bước rất lớn ($K ≤ 10^{18}$), ta không thể dùng vòng lặp mô phỏng mà phải tìm chu kỳ tuần hoàn:\n```cpp\n// Ví dụ: Sau K bước nhảy, mỗi chu kỳ dài L bước\nlong long cycle = K % L;\n// Chỉ cần tính toán cho cycle bước đầu tiên!\n```\n- **Chia việc / Cần bao nhiêu xe / Cần bao nhiêu phòng**:\nSố xe chở $N$ người với mỗi xe $K$ chỗ là $\\lceil N / K \\rceil = (N + K - 1) / K$.",
     "hints": [
       "Gợi ý 1: Khi K lên đến 10^18, tuyệt đối không dùng vòng lặp for/while.",
@@ -1125,8 +1125,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-16"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-phi",
+    "problemCode": "RM_PHI",
     "shortTheory": "### Hệ đếm cơ số: Nhị phân, Bát phân, Thập phân & Thập lục phân\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1145,8 +1145,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-17"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-modinv",
+    "problemCode": "RM_MODINV",
     "shortTheory": "### Thuật toán đổi cơ số tổng quát (Base Conversion)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1165,8 +1165,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-18"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-binommod",
+    "problemCode": "RM_BINOMMOD",
     "shortTheory": "### Toán tử Bit: AND (&), OR (|), XOR (^)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1185,8 +1185,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-19"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-pow2check",
+    "problemCode": "RM_POW2CHECK",
     "shortTheory": "### Toán tử Bit: Dịch trái (<<), Dịch phải (>>), Phủ định (~)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1205,8 +1205,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-20"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-bitoperations",
+    "problemCode": "RM_BITOPERATIONS",
     "shortTheory": "### Kỹ thuật Bitmask: Kiểm tra, Bật, Tắt, Đảo bit thứ k\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1225,8 +1225,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-21"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-subsetsum",
+    "problemCode": "RM_SUBSETSUM",
     "shortTheory": "### Kiểm tra lũy thừa của 2 & Lấy bit 1 thấp nhất (x & -x)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1245,8 +1245,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-22"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-baseconv",
+    "problemCode": "RM_BASECONV",
     "shortTheory": "### Các hàm Bit tích hợp của GCC (__builtin_popcount, clz, ctz)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1265,8 +1265,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-23"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-palinnum",
+    "problemCode": "RM_PALINNUM",
     "shortTheory": "### Số đối xứng (Palindromic Number) & Đảo ngược số\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1285,8 +1285,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-24"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-digitsumroot",
+    "problemCode": "RM_DIGITSUMROOT",
     "shortTheory": "### Tổng chữ số & Căn số học (Digital Root)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1305,8 +1305,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-25"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-rounddiv",
+    "problemCode": "RM_ROUNDDIV",
     "shortTheory": "### Kỹ thuật làm tròn Floor, Ceil & Chia nguyên\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1325,8 +1325,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-26"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-fibmod",
+    "problemCode": "RM_FIBMOD",
     "shortTheory": "### Dãy số Fibonacci: Tính chất & Nhân ma trận tính F(N)\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1345,8 +1345,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-27"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-crt2",
+    "problemCode": "RM_CRT2",
     "shortTheory": "### Nguyên lý Dirichlet (Pigeonhole Principle) trong số học\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1365,8 +1365,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-28"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-geomsum",
+    "problemCode": "RM_GEOMSUM",
     "shortTheory": "### Cấp số cộng & Cấp số nhân: Công thức số hạng & Tổng\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",
@@ -1385,8 +1385,8 @@ const ROADMAP_LESSONS = [
     "prerequisiteLessonIds": [
       "les-2-29"
     ],
-    "problemId": null,
-    "problemCode": null,
+    "problemId": "prob-rm-stage2sum",
+    "problemCode": "RM_STAGE2SUM",
     "shortTheory": "### Tổng kết Chặng 2: Bộ kỹ năng số học thi đấu\nKiến thức trọng tâm phần Số học & Toán rời rạc cho Competitive Programming.\n- Tìm hiểu bản chất toán học, công thức tổng quát và chứng minh tính đúng đắn.\n- Ứng dụng code C++ tối ưu để xử lý số lớn hoặc modulo $10^9 + 7$.",
     "hints": [
       "Gợi ý 1: Xác định cấu trúc toán học của bài toán và các bất biến modulo.",

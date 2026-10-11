@@ -367,6 +367,75 @@ async function migrate() {
         ON CONFLICT (id) DO NOTHING
       `, [r.id, r.name, r.description, r.pointsCost || 100, r.icon]);
     }
+
+    // 8. Migrate Roadmap Stages & Lessons
+    if (Array.isArray(data.roadmap_stages)) {
+      for (const s of data.roadmap_stages) {
+        await client.query(`
+          INSERT INTO roadmap_stages (id, track, title, description, icon, color, estimated_weeks, checkpoint_test_id, pass_percentage, sort_order)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+          ON CONFLICT (id) DO UPDATE SET
+            track = EXCLUDED.track,
+            title = EXCLUDED.title,
+            description = EXCLUDED.description,
+            icon = EXCLUDED.icon,
+            color = EXCLUDED.color,
+            estimated_weeks = EXCLUDED.estimated_weeks,
+            checkpoint_test_id = EXCLUDED.checkpoint_test_id,
+            pass_percentage = EXCLUDED.pass_percentage,
+            sort_order = EXCLUDED.sort_order
+        `, [
+          s.id, s.track || 'olympic', s.title, s.description || '', s.icon || 'Compass',
+          s.color || 'blue', s.estimatedWeeks || 2, s.checkpointTestId || null,
+          s.passPercentage || 75, s.sortOrder || 0
+        ]);
+      }
+    }
+
+    if (Array.isArray(data.roadmap_lessons)) {
+      for (const l of data.roadmap_lessons) {
+        await client.query(`
+          INSERT INTO roadmap_lessons (id, stage_id, track, title, summary, content_markdown, duration_minutes, difficulty, sort_order, prerequisites, problem_code, problem_id)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+          ON CONFLICT (id) DO UPDATE SET
+            stage_id = EXCLUDED.stage_id,
+            track = EXCLUDED.track,
+            title = EXCLUDED.title,
+            summary = EXCLUDED.summary,
+            content_markdown = EXCLUDED.content_markdown,
+            duration_minutes = EXCLUDED.duration_minutes,
+            difficulty = EXCLUDED.difficulty,
+            sort_order = EXCLUDED.sort_order,
+            prerequisites = EXCLUDED.prerequisites,
+            problem_code = EXCLUDED.problem_code,
+            problem_id = EXCLUDED.problem_id
+        `, [
+          l.id, l.stageId, l.track || 'olympic', l.title, l.summary || '',
+          l.contentMarkdown || '', l.durationMinutes || 45, l.difficulty || 'Cơ bản',
+          l.sortOrder || 0, JSON.stringify(l.prerequisites || []),
+          l.problemCode || null, l.problemId || null
+        ]);
+      }
+    }
+
+    if (Array.isArray(data.roadmap_topics)) {
+      for (const t of data.roadmap_topics) {
+        await client.query(`
+          INSERT INTO roadmap_topics (id, title, description, difficulty, color, problem_ids, sort_order)
+          VALUES ($1, $2, $3, $4, $5, $6, $7)
+          ON CONFLICT (id) DO UPDATE SET
+            title = EXCLUDED.title,
+            description = EXCLUDED.description,
+            difficulty = EXCLUDED.difficulty,
+            color = EXCLUDED.color,
+            problem_ids = EXCLUDED.problem_ids,
+            sort_order = EXCLUDED.sort_order
+        `, [
+          t.id, t.title, t.description || '', t.difficulty || 'Cơ bản',
+          t.color || '#3b82f6', JSON.stringify(t.problemIds || []), t.sortOrder || 0
+        ]);
+      }
+    }
   });
 
   console.log('\n🎉 ================= MIGRATION REPORT =================');
@@ -378,6 +447,7 @@ async function migrate() {
   console.log(`✅ Kỳ thi (Contests):                ${stats.contests}`);
   console.log(`✅ Lịch sử bài nộp (Submissions):    ${stats.submissions}`);
   console.log(`✅ Chi tiết bài nộp (Sub Details):   ${stats.submissionDetails}`);
+  console.log(`✅ Lộ trình học (Roadmap):           ${data.roadmap_stages?.length || 0} chặng, ${data.roadmap_lessons?.length || 0} bài học`);
   console.log('========================================================\n');
 }
 
