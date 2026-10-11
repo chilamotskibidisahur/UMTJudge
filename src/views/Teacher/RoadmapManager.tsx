@@ -118,6 +118,20 @@ export const RoadmapManager: React.FC = () => {
     fetchData();
   }, [fetchData]);
 
+  // Handle ESC key to close any active modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsStageModalOpen(false);
+        setIsLessonModalOpen(false);
+        setAttachModalLesson(null);
+        setPreviewLesson(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   // Problems quick lookup map
   const problemMap = useMemo(() => {
     const map = new Map<string, Problem>();
@@ -881,8 +895,8 @@ export const RoadmapManager: React.FC = () => {
 
       {/* ─── MODAL: EDIT / CREATE STAGE ───────────────────────────────────── */}
       {isStageModalOpen && (
-        <div className="modal-backdrop animate-fade-in" style={{ zIndex: 1000 }}>
-          <div className="modal-content glass-panel" style={{ maxWidth: '580px', width: '90%' }}>
+        <div className="modal-backdrop" onClick={() => setIsStageModalOpen(false)}>
+          <div className="modal-content glass-panel" style={{ maxWidth: '620px', width: '92%', padding: '24px' }} onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
               <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Layers size={18} color="var(--primary-light)" />
@@ -1008,8 +1022,8 @@ export const RoadmapManager: React.FC = () => {
 
       {/* ─── MODAL: EDIT / CREATE LESSON ──────────────────────────────────── */}
       {isLessonModalOpen && (
-        <div className="modal-backdrop animate-fade-in" style={{ zIndex: 1000 }}>
-          <div className="modal-content glass-panel" style={{ maxWidth: '800px', width: '92%', maxHeight: '90vh', overflowY: 'auto' }}>
+        <div className="modal-backdrop" onClick={() => setIsLessonModalOpen(false)}>
+          <div className="modal-content glass-panel" style={{ maxWidth: '840px', width: '94%', maxHeight: '90vh', overflowY: 'auto', padding: '24px' }} onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
               <h3 style={{ margin: 0, fontSize: '1.18rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <BookOpen size={18} color="var(--primary-light)" />
@@ -1232,8 +1246,8 @@ export const RoadmapManager: React.FC = () => {
 
       {/* ─── MODAL: QUICK ATTACH PROBLEM ──────────────────────────────────── */}
       {attachModalLesson && (
-        <div className="modal-backdrop animate-fade-in" style={{ zIndex: 1000 }}>
-          <div className="modal-content glass-panel" style={{ maxWidth: '580px', width: '90%' }}>
+        <div className="modal-backdrop" onClick={() => setAttachModalLesson(null)}>
+          <div className="modal-content glass-panel" style={{ maxWidth: '640px', width: '92%', maxHeight: '90vh', overflowY: 'auto', padding: '24px' }} onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
               <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <LinkIcon size={16} color="var(--primary-light)" />
@@ -1299,8 +1313,8 @@ export const RoadmapManager: React.FC = () => {
 
       {/* ─── MODAL: PREVIEW AS STUDENT ────────────────────────────────────── */}
       {previewLesson && (
-        <div className="modal-backdrop animate-fade-in" style={{ zIndex: 1000 }}>
-          <div className="modal-content glass-panel" style={{ maxWidth: '820px', width: '92%', maxHeight: '90vh', overflowY: 'auto' }}>
+        <div className="modal-backdrop" onClick={() => setPreviewLesson(null)}>
+          <div className="modal-content glass-panel" style={{ maxWidth: '840px', width: '94%', maxHeight: '90vh', overflowY: 'auto', padding: '26px' }} onClick={e => e.stopPropagation()}>
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '12px' }}>
               <div>
