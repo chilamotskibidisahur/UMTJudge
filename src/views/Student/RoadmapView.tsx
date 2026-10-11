@@ -439,14 +439,15 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
     const q = searchQuery.toLowerCase().trim();
     return lessons.filter(l => 
       l.title.toLowerCase().includes(q) || 
-      (l.problemCode && l.problemCode.toLowerCase().includes(q))
+      (l.problemCode && l.problemCode.toLowerCase().includes(q)) ||
+      (Array.isArray(l.problemCodes) && l.problemCodes.some(c => c.toLowerCase().includes(q)))
     );
   }, [lessons, searchQuery]);
 
   // Unlinked lessons for Admin tab
   const unlinkedLessons = useMemo(() => {
     return lessons.filter(l => {
-      const isUnlinked = !l.problemCode && !l.problemId;
+      const isUnlinked = (!l.problemCodes || l.problemCodes.length === 0) && !l.problemCode && !l.problemId;
       if (adminAttachStage === 'all') return isUnlinked;
       return isUnlinked && l.stageId === adminAttachStage;
     });
@@ -531,9 +532,24 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
   };
 
   // Launch ProblemDetail for linked problem
-  const handleLaunchProblem = (lesson: RoadmapLesson) => {
-    const code = lesson.problemCode || lesson.problem?.code;
-    const pid = lesson.problemId || lesson.problem?.id;
+  const handleLaunchProblem = (lesson: RoadmapLesson, specificProblem?: { code?: string; id?: string; title?: string; difficulty?: any } | string) => {
+    let code: string | undefined;
+    let pid: string | undefined;
+    let title: string | undefined;
+    let difficulty: any;
+
+    if (typeof specificProblem === 'string') {
+      code = specificProblem;
+    } else if (specificProblem) {
+      code = specificProblem.code;
+      pid = specificProblem.id;
+      title = specificProblem.title;
+      difficulty = specificProblem.difficulty;
+    } else {
+      code = lesson.problemCode || lesson.problem?.code;
+      pid = lesson.problemId || lesson.problem?.id;
+    }
+
     const target = (code && problemMap.get(code)) || (pid && problemMap.get(pid)) || null;
 
     if (target && onSelectProblem) {
@@ -542,10 +558,10 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
     } else if (code) {
       // Mock minimal problem DTO if not yet loaded in array
       const mockProb: Problem = {
-        id: `prob-${code}`,
+        id: pid || `prob-${code}`,
         code: code,
-        title: lesson.problem?.title || `Bài tập [${code}]`,
-        difficulty: (lesson.problem?.difficulty as any) || 'Cơ bản',
+        title: title || (target as any)?.title || lesson.problem?.title || `Bài tập [${code}]`,
+        difficulty: (difficulty as any) || (lesson.problem?.difficulty as any) || 'Cơ bản',
         points: 100,
         timeLimit: 1000,
         memoryLimit: 256,
@@ -1332,15 +1348,27 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
                                     </div>
 
                                     <div>
-                                      {lesson.problemCode ? (
-                                        <span style={{ background: 'rgba(124, 92, 255, 0.15)', color: 'var(--primary)', padding: '2px 6px', borderRadius: '4px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
-                                          [{lesson.problemCode}]
-                                        </span>
-                                      ) : (
-                                        <span style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>
-                                          Lý thuyết
-                                        </span>
-                                      )}
+                                      {(() => {
+                                        const count = (lesson.problemCodes && lesson.problemCodes.length) || (lesson.problemCode ? 1 : 0);
+                                        if (count === 1) {
+                                          return (
+                                            <span style={{ background: 'rgba(124, 92, 255, 0.15)', color: 'var(--primary)', padding: '2px 6px', borderRadius: '4px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                                              [{lesson.problemCodes?.[0] || lesson.problemCode}]
+                                            </span>
+                                          );
+                                        } else if (count > 1) {
+                                          return (
+                                            <span style={{ background: 'rgba(16, 185, 129, 0.15)', color: 'var(--success)', padding: '2px 6px', borderRadius: '4px', fontWeight: 700 }}>
+                                              {count} bài tập
+                                            </span>
+                                          );
+                                        }
+                                        return (
+                                          <span style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>
+                                            Lý thuyết
+                                          </span>
+                                        );
+                                      })()}
                                     </div>
                                   </div>
                                 </div>
@@ -1634,81 +1662,155 @@ export const RoadmapView: React.FC<Props> = ({ onSelectProblem }) => {
               )}
 
               {/* Practice Problem Section */}
-              <div style={{ background: 'var(--surface-glass)', border: '1px solid var(--border-subtle)', borderRadius: '14px', padding: '18px 20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Code2 size={18} color="var(--primary)" />
-                    <h3 style={{ fontSize: '1rem', fontWeight: 800, margin: 0, color: 'var(--text)' }}>
-                      Bài tập thực hành
-                    </h3>
-                  </div>
-                  {selectedLesson.status === 'done' && (
-                    <span style={{ fontSize: '0.78rem', color: 'var(--success)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <CheckCircle2 size={14} /> Đạt 100/100 điểm
-                    </span>
-                  )}
-                </div>
+              {(() => {
+                const lessonProblems = (selectedLesson.problems && selectedLesson.problems.length > 0)
+                  ? selectedLesson.problems
+                  : (selectedLesson.problemCodes && selectedLesson.problemCodes.length > 0)
+                    ? selectedLesson.problemCodes.map(c => {
+                        const p = problemMap.get(c);
+                        return {
+                          code: c,
+                          id: p?.id || c,
+                          title: p?.title || `Bài tập [${c}]`,
+                          difficulty: p?.difficulty || 'Cơ bản',
+                          points: p?.points || 100,
+                          isPassed: selectedLesson.status === 'done',
+                          score: selectedLesson.userScore || 0
+                        };
+                      })
+                    : (selectedLesson.problemCode ? [{
+                        code: selectedLesson.problemCode,
+                        id: selectedLesson.problemId || selectedLesson.problemCode,
+                        title: selectedLesson.problem?.title || `Bài tập [${selectedLesson.problemCode}]`,
+                        difficulty: selectedLesson.problem?.difficulty || 'Cơ bản',
+                        points: selectedLesson.problem?.points || 100,
+                        isPassed: selectedLesson.status === 'done',
+                        score: selectedLesson.userScore || 0
+                      }] : []);
 
-                {selectedLesson.problemCode ? (
-                  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '14px', marginTop: '12px' }}>
-                    <div>
-                      <div style={{ fontWeight: 800, fontSize: '0.94rem', color: 'var(--text)', marginBottom: '3px' }}>
-                        [{selectedLesson.problemCode}] {selectedLesson.problem?.title || 'Bài tập chính khóa'}
+                return (
+                  <div style={{ background: 'var(--surface-glass)', border: '1px solid var(--border-subtle)', borderRadius: '14px', padding: '18px 20px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Code2 size={18} color="var(--primary)" />
+                        <h3 style={{ fontSize: '1rem', fontWeight: 800, margin: 0, color: 'var(--text)' }}>
+                          Bài tập thực hành {lessonProblems.length > 1 ? `(${lessonProblems.length} bài)` : ''}
+                        </h3>
                       </div>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                        Nhấn nút bên dưới để mở giao diện làm bài và chấm trực tiếp trên hệ thống.
-                      </div>
+                      {selectedLesson.status === 'done' && (
+                        <span style={{ fontSize: '0.78rem', color: 'var(--success)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <CheckCircle2 size={14} /> Hoàn thành bài học
+                        </span>
+                      )}
                     </div>
 
-                    <button
-                      onClick={() => handleLaunchProblem(selectedLesson)}
-                      style={{
-                        padding: '10px 20px',
-                        borderRadius: '10px',
-                        border: 'none',
-                        background: 'var(--grad-primary)',
-                        color: '#fff',
-                        fontWeight: 800,
-                        fontSize: '0.88rem',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        boxShadow: 'var(--glow-primary)'
-                      }}
-                    >
-                      <Play size={16} fill="#fff" />
-                      Làm bài ngay
-                    </button>
-                  </div>
-                ) : (
-                  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '14px', marginTop: '8px' }}>
-                    <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>
-                      Bài học lý thuyết nền tảng. Khi đọc và hiểu rõ nội dung, bạn có thể bấm nút hoàn thành bài học này.
-                    </div>
-                    {selectedLesson.status !== 'done' && (
-                      <button
-                        onClick={() => handleMarkLessonDone(selectedLesson.id)}
-                        style={{
-                          padding: '8px 16px',
-                          borderRadius: '8px',
-                          border: 'none',
-                          background: 'var(--success)',
-                          color: '#000',
-                          fontWeight: 800,
-                          fontSize: '0.82rem',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px'
-                        }}
-                      >
-                        <Check size={15} /> Đã hiểu lý thuyết
-                      </button>
+                    {lessonProblems.length > 0 ? (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
+                        {lessonProblems.map((probItem, pIdx) => (
+                          <div 
+                            key={probItem.code || pIdx}
+                            className="glass-card"
+                            style={{ 
+                              padding: '12px 16px', 
+                              borderRadius: '10px',
+                              display: 'flex',
+                              flexWrap: 'wrap',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                              gap: '12px',
+                              background: 'var(--surface-2)',
+                              border: probItem.isPassed ? '1px solid rgba(16, 185, 129, 0.4)' : '1px solid var(--border-subtle)'
+                            }}
+                          >
+                            <div style={{ minWidth: 0, flex: 1 }}>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                                <span 
+                                  style={{ 
+                                    fontWeight: 800, 
+                                    fontFamily: 'var(--font-mono, monospace)', 
+                                    fontSize: '0.82rem', 
+                                    padding: '2px 6px', 
+                                    borderRadius: '4px',
+                                    background: 'rgba(124, 92, 255, 0.15)',
+                                    color: 'var(--primary-light)'
+                                  }}
+                                >
+                                  [{probItem.code}]
+                                </span>
+                                <span style={{ fontWeight: 800, fontSize: '0.92rem', color: 'var(--text)' }}>
+                                  {probItem.title}
+                                </span>
+                                {probItem.isPassed ? (
+                                  <span style={{ fontSize: '0.74rem', color: 'var(--success)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
+                                    <CheckCircle2 size={13} /> Đã đạt ({probItem.score ?? 100}/100)
+                                  </span>
+                                ) : (probItem.score || 0) > 0 ? (
+                                  <span style={{ fontSize: '0.74rem', color: 'var(--warning)', fontWeight: 700 }}>
+                                    Đã nộp ({probItem.score}/100)
+                                  </span>
+                                ) : null}
+                              </div>
+                              <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', marginTop: '4px', display: 'flex', gap: '10px' }}>
+                                <span>Độ khó: {probItem.difficulty || 'Cơ bản'}</span>
+                                <span>•</span>
+                                <span>{probItem.points || 100} Điểm</span>
+                              </div>
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => handleLaunchProblem(selectedLesson, probItem)}
+                              style={{
+                                padding: '8px 16px',
+                                borderRadius: '8px',
+                                border: probItem.isPassed ? '1px solid var(--border-subtle)' : 'none',
+                                background: probItem.isPassed ? 'var(--surface-glass)' : 'var(--grad-primary)',
+                                color: '#fff',
+                                fontWeight: 700,
+                                fontSize: '0.82rem',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                boxShadow: probItem.isPassed ? 'none' : 'var(--glow-primary)'
+                              }}
+                            >
+                              <Play size={14} fill="#fff" />
+                              {probItem.isPassed ? 'Luyện lại' : 'Làm bài ngay'}
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '14px', marginTop: '8px' }}>
+                        <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+                          Bài học lý thuyết nền tảng. Khi đọc và hiểu rõ nội dung, bạn có thể bấm nút hoàn thành bài học này.
+                        </div>
+                        {selectedLesson.status !== 'done' && (
+                          <button
+                            onClick={() => handleMarkLessonDone(selectedLesson.id)}
+                            style={{
+                              padding: '8px 16px',
+                              borderRadius: '8px',
+                              border: 'none',
+                              background: 'var(--success)',
+                              color: '#000',
+                              fontWeight: 800,
+                              fontSize: '0.82rem',
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px'
+                            }}
+                          >
+                            <Check size={15} /> Đã hiểu lý thuyết
+                          </button>
+                        )}
+                      </div>
                     )}
                   </div>
-                )}
-              </div>
+                );
+              })()}
             </div>
 
             {/* Modal Footer (Prev / Next Lesson) */}

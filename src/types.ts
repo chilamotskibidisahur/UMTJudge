@@ -473,6 +473,16 @@ export interface RoadmapLesson {
   hints: string[];
   problemId: string | null;
   problemCode?: string | null;
+  problemCodes?: string[];
+  problems?: {
+    id: string;
+    code: string;
+    title: string;
+    difficulty?: string;
+    points?: number;
+    isPassed?: boolean;
+    score?: number;
+  }[];
   status?: 'not_started' | 'in_progress' | 'done';
   unlocked?: boolean;
   lockReason?: string | null;

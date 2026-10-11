@@ -396,6 +396,48 @@
       "classes": [
         "class-olp"
       ]
+    },
+    {
+      "id": "user-dev-049be228-78f3-49c7-974d-62dc49379e3a",
+      "username": "dev_student",
+      "classes": [
+        "class-career"
+      ]
+    },
+    {
+      "id": "user-olp-0042774a-1295-4188-aa6e-71164fcc9ba1",
+      "username": "olp_student",
+      "classes": [
+        "class-olp"
+      ]
+    },
+    {
+      "id": "user-dev-fbad9f71-6c27-4737-842a-14e43def20a7",
+      "username": "dev_student",
+      "classes": [
+        "class-career"
+      ]
+    },
+    {
+      "id": "user-olp-a0b540b7-b4fe-4153-a8ea-9fdc6df80dab",
+      "username": "olp_student",
+      "classes": [
+        "class-olp"
+      ]
+    },
+    {
+      "id": "user-dev-41094f6e-267c-4609-92fe-0453db669840",
+      "username": "dev_student",
+      "classes": [
+        "class-career"
+      ]
+    },
+    {
+      "id": "user-olp-7769f7fc-a32a-4808-87b3-7d6372821140",
+      "username": "olp_student",
+      "classes": [
+        "class-olp"
+      ]
     }
   ],
   "problems": [
@@ -5251,6 +5293,46 @@
     }
   ],
   "contests": [
+    {
+      "id": "cnt-7d1f3122-b0a6-40a7-a89c-492727aaa242",
+      "title": "Kỳ thi thử Virtual",
+      "description": "",
+      "mode": "offline",
+      "scopeType": "ALL",
+      "targetGrades": [],
+      "targetClasses": [],
+      "targetStudents": [],
+      "totalScore": 100,
+      "memoryLimit": 256,
+      "category": "regular",
+      "classIds": [],
+      "candidateIds": [],
+      "problemIds": [],
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "statementHtml": "",
+      "_pdfDiskPath": "",
+      "startTime": "2026-10-11T00:22:51.511Z",
+      "endTime": "2026-10-11T01:22:50.513Z",
+      "durationMinutes": 45,
+      "status": "ended",
+      "gradingMode": "direct",
+      "freezeScoreboardMinutes": 15,
+      "pinCode": "",
+      "hideTestDetailsForStudents": true,
+      "requireFreopen": false,
+      "allowReopen": true,
+      "manualEndOnly": true,
+      "ioMode": "stdin",
+      "scoringMode": "LIVE_BEST",
+      "ipWhitelist": "",
+      "antiCheat": {
+        "preventTabSwitch": true,
+        "maxTabViolations": 3,
+        "preventCopyPaste": false
+      },
+      "createdAt": "2026-10-11T01:22:51.514Z"
+    },
     {
       "id": "cnt-bd6a6cfb-92ce-40f7-af5b-ca1efa06733e",
       "title": "Kỳ thi thử Virtual",
@@ -13000,6 +13082,60 @@
       ]
     },
     "test-user-progress-5893a947-072a-408f-9166-3f0fc0f03980": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-prereq-6fd40232-ac59-42de-b040-fde7e599bdff": {
+      "completedLessonIds": [
+        "les-1-1"
+      ],
+      "testedOutStageIds": []
+    },
+    "test-user-testout-7c576bd2-b7cb-46c6-8a33-d083ba555a76": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-progress-3571ee9c-b8ea-45ca-b405-d691fbf7ac09": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-prereq-9ae6d433-7e68-42c6-89b7-28fcd5203182": {
+      "completedLessonIds": [
+        "les-1-1"
+      ],
+      "testedOutStageIds": []
+    },
+    "test-user-testout-ed47bc68-e10a-422a-a7ac-59b5c08a04d0": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-progress-d1c2b0ca-9192-44a7-996e-94c280863ef2": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-prereq-3962a7b0-6ae6-4d65-a30b-ff83f715eb71": {
+      "completedLessonIds": [
+        "les-1-1"
+      ],
+      "testedOutStageIds": []
+    },
+    "test-user-testout-6fdb80db-6ed3-475b-9bf1-99547e46346a": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-progress-fb2b6af3-3fff-4a09-b313-4c39117d2983": {
       "completedLessonIds": [],
       "testedOutStageIds": [
         "stage-1"

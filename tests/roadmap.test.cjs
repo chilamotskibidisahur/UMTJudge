@@ -129,3 +129,35 @@ test('Multi-track roadmap: Olympic vs Career tracks and class auto-detection', (
   assert.equal(detectedOlp.activeTrack, 'olympic');
   assert.equal(detectedOlp.stages[0].id, 'stage-1');
 });
+
+test('Multiple problems per roadmap lesson: attach, detach, and progress evaluation', () => {
+  const lessonId = 'test-multi-lesson-' + crypto.randomUUID();
+  const testLesson = {
+    id: lessonId,
+    stageId: 'stage-1',
+    order: 999,
+    title: 'Multi Problem Lesson Test',
+    shortTheory: 'Theory for testing multiple problems',
+    difficulty: 2,
+    problemCodes: []
+  };
+  db.saveRoadmapLesson(testLesson);
+
+  // 1. Attach problem A and problem B
+  db.attachProblemToLesson(lessonId, 'PROB_A');
+  db.attachProblemToLesson(lessonId, 'PROB_B');
+
+  const loaded1 = db.getRoadmapLessons().find(l => l.id === lessonId);
+  assert.deepEqual(loaded1.problemCodes, ['PROB_A', 'PROB_B']);
+  assert.equal(loaded1.problemCode, 'PROB_A');
+
+  // 2. Detach problem A specifically
+  db.detachProblemFromLesson(lessonId, 'PROB_A');
+  const loaded2 = db.getRoadmapLessons().find(l => l.id === lessonId);
+  assert.deepEqual(loaded2.problemCodes, ['PROB_B']);
+  assert.equal(loaded2.problemCode, 'PROB_B');
+
+  // Clean up
+  db.deleteRoadmapLesson(lessonId);
+});
+

@@ -327,8 +327,11 @@ export const RoadmapManager: React.FC = () => {
         body: JSON.stringify({ problemCode })
       });
       if (res.ok) {
+        const updatedLesson = await res.json();
         showNotice(`Đã gắn bài tập [${problemCode}] vào bài học thành công!`);
-        setAttachModalLesson(null);
+        if (attachModalLesson && attachModalLesson.id === lessonId) {
+          setAttachModalLesson(updatedLesson);
+        }
         await fetchData();
       } else {
         const err = await res.json();
@@ -339,14 +342,23 @@ export const RoadmapManager: React.FC = () => {
     }
   };
 
-  const handleDetachProblem = async (lessonId: string) => {
-    if (!confirm('Bạn có chắc chắn muốn gỡ bài tập khỏi bài học này?')) return;
+  const handleDetachProblem = async (lessonId: string, problemCode?: string) => {
+    const confirmMsg = problemCode 
+      ? `Bạn có chắc chắn muốn gỡ bài tập [${problemCode}] khỏi bài học này?`
+      : 'Bạn có chắc chắn muốn gỡ bài tập khỏi bài học này?';
+    if (!confirm(confirmMsg)) return;
     try {
       const res = await apiFetch(`${serverUrl}/api/roadmap/lessons/${lessonId}/detach-problem`, {
-        method: 'POST'
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(problemCode ? { problemCode } : {})
       });
       if (res.ok) {
-        showNotice('Đã gỡ bài tập thành công!');
+        const updatedLesson = await res.json();
+        showNotice(problemCode ? `Đã gỡ bài tập [${problemCode}] thành công!` : 'Đã gỡ bài tập thành công!');
+        if (attachModalLesson && attachModalLesson.id === lessonId) {
+          setAttachModalLesson(updatedLesson);
+        }
         await fetchData();
       }
     } catch (err: any) {
@@ -719,7 +731,7 @@ export const RoadmapManager: React.FC = () => {
                   onDelete={() => handleDeleteLesson(l.id, l.title)}
                   onPreview={() => { setPreviewLesson(l); setPreviewHintRevealed(0); }}
                   onAttach={() => setAttachModalLesson(l)}
-                  onDetach={() => handleDetachProblem(l.id)}
+                  onDetach={(code?: string) => handleDetachProblem(l.id, code)}
                 />
               ))}
             </div>
@@ -731,7 +743,7 @@ export const RoadmapManager: React.FC = () => {
           {filteredStages.map((stage) => {
             const isExpanded = !!expandedStages[stage.id];
             const stageLessons = lessonsByStage.get(stage.id) || [];
-            const attachedCount = stageLessons.filter(l => !!l.problemCode || !!l.problemId).length;
+            const attachedCount = stageLessons.filter(l => (Array.isArray(l.problemCodes) ? l.problemCodes.length > 0 : !!l.problemCode || !!l.problemId)).length;
 
             return (
               <div 
@@ -880,7 +892,7 @@ export const RoadmapManager: React.FC = () => {
                             onDelete={() => handleDeleteLesson(lesson.id, lesson.title)}
                             onPreview={() => { setPreviewLesson(lesson); setPreviewHintRevealed(0); }}
                             onAttach={() => setAttachModalLesson(lesson)}
-                            onDetach={() => handleDetachProblem(lesson.id)}
+                            onDetach={(code?: string) => handleDetachProblem(lesson.id, code)}
                           />
                         ))}
                       </div>
@@ -1231,6 +1243,72 @@ export const RoadmapManager: React.FC = () => {
                 </div>
               </div>
 
+              {/* Row 6: Practice Problems List in Lesson Edit Modal */}
+              <div style={{ background: 'var(--surface-2)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Code2 size={15} color="var(--primary-light)" />
+                    Bài tập thực hành đính kèm ({(() => {
+                      const codes = Array.isArray(currentLesson.problemCodes) && currentLesson.problemCodes.length > 0
+                        ? currentLesson.problemCodes
+                        : (currentLesson.problemCode ? [currentLesson.problemCode] : []);
+                      return codes.length;
+                    })()} bài)
+                  </div>
+                </div>
+
+                {(() => {
+                  const codes = Array.isArray(currentLesson.problemCodes) && currentLesson.problemCodes.length > 0
+                    ? currentLesson.problemCodes
+                    : (currentLesson.problemCode ? [currentLesson.problemCode] : []);
+
+                  return (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                      {codes.map(c => (
+                        <span
+                          key={c}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '4px 10px',
+                            borderRadius: '6px',
+                            background: 'rgba(16, 185, 129, 0.15)',
+                            border: '1px solid rgba(16, 185, 129, 0.3)',
+                            color: 'var(--success)',
+                            fontSize: '0.8rem',
+                            fontWeight: 700
+                          }}
+                        >
+                          [{c}] {problemMap.get(c)?.title || ''}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const newCodes = codes.filter(code => code !== c);
+                              setCurrentLesson(prev => ({
+                                ...prev,
+                                problemCodes: newCodes,
+                                problemCode: newCodes[0] || null
+                              }));
+                            }}
+                            style={{ border: 'none', background: 'transparent', color: 'var(--text-muted)', cursor: 'pointer', padding: 0 }}
+                            title={`Gỡ [${c}]`}
+                          >
+                            <X size={13} />
+                          </button>
+                        </span>
+                      ))}
+
+                      {codes.length === 0 && (
+                        <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>
+                          Chưa gắn bài tập nào (bài học lý thuyết thuần). Có thể dùng nút <strong>"+ Gắn bài"</strong> ở danh sách bài học để chọn nhanh từ kho đề.
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
+              </div>
+
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
                 <button type="button" className="btn btn-outline" onClick={() => setIsLessonModalOpen(false)}>
                   Hủy
@@ -1245,71 +1323,156 @@ export const RoadmapManager: React.FC = () => {
       )}
 
       {/* ─── MODAL: QUICK ATTACH PROBLEM ──────────────────────────────────── */}
-      {attachModalLesson && (
-        <div className="modal-backdrop" onClick={() => setAttachModalLesson(null)}>
-          <div className="modal-content glass-panel" style={{ maxWidth: '640px', width: '92%', maxHeight: '90vh', overflowY: 'auto', padding: '24px' }} onClick={e => e.stopPropagation()}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-              <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <LinkIcon size={16} color="var(--primary-light)" />
-                Gắn Bài Tập Vào [{attachModalLesson.id}] {attachModalLesson.title}
-              </h3>
-              <button type="button" className="btn-icon" onClick={() => setAttachModalLesson(null)}>
-                <X size={18} />
-              </button>
-            </div>
+      {attachModalLesson && (() => {
+        const currentAttachedCodes = Array.isArray(attachModalLesson.problemCodes) && attachModalLesson.problemCodes.length > 0
+          ? attachModalLesson.problemCodes
+          : (attachModalLesson.problemCode ? [attachModalLesson.problemCode] : []);
 
-            <div style={{ marginBottom: '14px' }}>
-              <input 
-                type="text"
-                className="input-field"
-                placeholder="Tìm mã hoặc tên bài tập trong kho đề..."
-                value={attachSearch}
-                onChange={e => setAttachSearch(e.target.value)}
-                autoFocus
-              />
-            </div>
+        return (
+          <div className="modal-backdrop" onClick={() => setAttachModalLesson(null)}>
+            <div className="modal-content glass-panel" style={{ maxWidth: '680px', width: '92%', maxHeight: '90vh', overflowY: 'auto', padding: '24px' }} onClick={e => e.stopPropagation()}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <LinkIcon size={16} color="var(--primary-light)" />
+                  Gắn Bài Tập Vào [{attachModalLesson.id}] {attachModalLesson.title}
+                </h3>
+                <button type="button" className="btn-icon" onClick={() => setAttachModalLesson(null)}>
+                  <X size={18} />
+                </button>
+              </div>
 
-            <div style={{ maxHeight: '320px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {problems
-                .filter(p => {
-                  if (!attachSearch) return true;
-                  const s = attachSearch.toLowerCase();
-                  return p.code.toLowerCase().includes(s) || p.title.toLowerCase().includes(s);
-                })
-                .map(prob => (
-                  <div 
-                    key={prob.code}
-                    className="glass-card"
-                    style={{
-                      padding: '10px 14px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      borderRadius: '8px',
-                      cursor: 'pointer'
-                    }}
-                    onClick={() => handleAttachProblem(attachModalLesson.id, prob.code)}
-                  >
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--text)' }}>
-                        <span style={{ color: 'var(--primary-light)', marginRight: '6px' }}>[{prob.code}]</span>
-                        {prob.title}
-                      </div>
-                      <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', display: 'flex', gap: '8px', marginTop: '2px' }}>
-                        <span>Độ khó: {prob.difficulty}</span>
-                        <span>•</span>
-                        <span>Điểm: {prob.points}</span>
-                      </div>
-                    </div>
-                    <button type="button" className="btn btn-primary btn-sm" style={{ fontSize: '0.76rem' }}>
-                      Chọn bài này
-                    </button>
+              {/* Currently Attached Problems */}
+              {currentAttachedCodes.length > 0 && (
+                <div style={{ marginBottom: '16px', padding: '12px 14px', borderRadius: '8px', background: 'var(--surface-2)', border: '1px solid var(--border-subtle)' }}>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '8px', textTransform: 'uppercase' }}>
+                    Bài tập đã gắn vào bài học này ({currentAttachedCodes.length}):
                   </div>
-                ))}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    {currentAttachedCodes.map(code => (
+                      <span 
+                        key={code}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '4px 10px',
+                          borderRadius: '6px',
+                          background: 'rgba(16, 185, 129, 0.15)',
+                          border: '1px solid rgba(16, 185, 129, 0.3)',
+                          color: 'var(--success)',
+                          fontSize: '0.8rem',
+                          fontWeight: 700
+                        }}
+                      >
+                        [{code}] {problemMap.get(code)?.title || ''}
+                        <button 
+                          type="button" 
+                          onClick={() => handleDetachProblem(attachModalLesson.id, code)}
+                          style={{ border: 'none', background: 'transparent', color: 'var(--text-muted)', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}
+                          title={`Gỡ bài [${code}]`}
+                        >
+                          <X size={13} />
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div style={{ marginBottom: '14px' }}>
+                <input 
+                  type="text"
+                  className="input-field"
+                  placeholder="Tìm mã hoặc tên bài tập trong kho đề để gắn thêm..."
+                  value={attachSearch}
+                  onChange={e => setAttachSearch(e.target.value)}
+                  autoFocus
+                />
+              </div>
+
+              <div style={{ maxHeight: '320px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {problems
+                  .filter(p => {
+                    if (!attachSearch) return true;
+                    const s = attachSearch.toLowerCase();
+                    return p.code.toLowerCase().includes(s) || p.title.toLowerCase().includes(s);
+                  })
+                  .map(prob => {
+                    const isAttached = currentAttachedCodes.includes(prob.code);
+                    return (
+                      <div 
+                        key={prob.code}
+                        className="glass-card"
+                        style={{
+                          padding: '10px 14px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          borderRadius: '8px',
+                          cursor: isAttached ? 'default' : 'pointer',
+                          background: isAttached ? 'rgba(16, 185, 129, 0.05)' : 'var(--surface-2)',
+                          border: isAttached ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid var(--border-subtle)'
+                        }}
+                        onClick={() => {
+                          if (!isAttached) handleAttachProblem(attachModalLesson.id, prob.code);
+                        }}
+                      >
+                        <div>
+                          <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--text)' }}>
+                            <span style={{ color: 'var(--primary-light)', marginRight: '6px' }}>[{prob.code}]</span>
+                            {prob.title}
+                          </div>
+                          <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', display: 'flex', gap: '8px', marginTop: '2px' }}>
+                            <span>Độ khó: {prob.difficulty}</span>
+                            <span>•</span>
+                            <span>Điểm: {prob.points}</span>
+                          </div>
+                        </div>
+
+                        {isAttached ? (
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span className="badge badge-success" style={{ fontSize: '0.76rem' }}>
+                              Đã gắn
+                            </span>
+                            <button 
+                              type="button"
+                              className="btn btn-outline btn-sm"
+                              style={{ fontSize: '0.72rem', padding: '3px 8px', color: 'var(--danger)' }}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleDetachProblem(attachModalLesson.id, prob.code);
+                              }}
+                            >
+                              Gỡ
+                            </button>
+                          </div>
+                        ) : (
+                          <button 
+                            type="button" 
+                            className="btn btn-primary btn-sm" 
+                            style={{ fontSize: '0.76rem' }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleAttachProblem(attachModalLesson.id, prob.code);
+                            }}
+                          >
+                            + Chọn bài này
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })}
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px', borderTop: '1px solid var(--border-subtle)', paddingTop: '12px' }}>
+                <button type="button" className="btn btn-primary" onClick={() => setAttachModalLesson(null)}>
+                  Xong
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* ─── MODAL: PREVIEW AS STUDENT ────────────────────────────────────── */}
       {previewLesson && (
@@ -1347,41 +1510,57 @@ export const RoadmapManager: React.FC = () => {
               />
             </div>
 
-            {/* Attached Problem Card */}
-            {previewLesson.problemCode && (
-              <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '8px', textTransform: 'uppercase' }}>
-                  Bài tập thực hành
-                </h4>
-                <div 
-                  className="glass-panel" 
-                  style={{ 
-                    padding: '14px 18px', 
-                    borderRadius: '10px', 
-                    background: 'rgba(124, 92, 255, 0.08)',
-                    border: '1px solid rgba(124, 92, 255, 0.3)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ width: '38px', height: '38px', borderRadius: '8px', background: 'var(--grad-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Code2 size={20} color="#fff" />
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text)' }}>
-                        [{previewLesson.problemCode}] {problemMap.get(previewLesson.problemCode)?.title || 'Bài tập thực hành'}
-                      </div>
-                      <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
-                        100 Điểm • Thử nghiệm biên dịch & chấm điểm tự động
-                      </div>
-                    </div>
+            {/* Attached Problem Cards */}
+            {(() => {
+              const previewCodes = Array.isArray(previewLesson.problemCodes) && previewLesson.problemCodes.length > 0
+                ? previewLesson.problemCodes
+                : (previewLesson.problemCode ? [previewLesson.problemCode] : []);
+
+              if (previewCodes.length === 0) return null;
+
+              return (
+                <div style={{ marginBottom: '20px' }}>
+                  <h4 style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '8px', textTransform: 'uppercase' }}>
+                    Bài tập thực hành ({previewCodes.length} bài)
+                  </h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {previewCodes.map(code => {
+                      const prob = problemMap.get(code);
+                      return (
+                        <div 
+                          key={code}
+                          className="glass-panel" 
+                          style={{ 
+                            padding: '12px 16px', 
+                            borderRadius: '10px', 
+                            background: 'rgba(124, 92, 255, 0.08)',
+                            border: '1px solid rgba(124, 92, 255, 0.3)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'var(--grad-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                              <Code2 size={18} color="#fff" />
+                            </div>
+                            <div>
+                              <div style={{ fontWeight: 800, fontSize: '0.92rem', color: 'var(--text)' }}>
+                                [{code}] {prob?.title || 'Bài tập thực hành'}
+                              </div>
+                              <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                                Độ khó: {prob?.difficulty || 'Cơ bản'} • {prob?.points || 100} Điểm • Chấm tự động
+                              </div>
+                            </div>
+                          </div>
+                          <span className="badge badge-success">Mở làm bài</span>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <span className="badge badge-success">Mở làm bài</span>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* Hints Preview */}
             {previewLesson.hints && previewLesson.hints.length > 0 && (
@@ -1426,7 +1605,7 @@ interface LessonRowProps {
   onDelete: () => void;
   onPreview: () => void;
   onAttach: () => void;
-  onDetach: () => void;
+  onDetach: (problemCode?: string) => void;
 }
 
 const LessonRowItem: React.FC<LessonRowProps> = ({
@@ -1438,7 +1617,9 @@ const LessonRowItem: React.FC<LessonRowProps> = ({
   onAttach,
   onDetach
 }) => {
-  const linkedProblem = lesson.problemCode ? problemMap.get(lesson.problemCode) : null;
+  const probCodes = Array.isArray(lesson.problemCodes) && lesson.problemCodes.length > 0
+    ? lesson.problemCodes
+    : (lesson.problemCode ? [lesson.problemCode] : []);
 
   return (
     <div 
@@ -1492,45 +1673,47 @@ const LessonRowItem: React.FC<LessonRowProps> = ({
         </div>
       </div>
 
-      {/* Center: Linked Problem Badge */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-        {lesson.problemCode ? (
+      {/* Center: Linked Problem Badges & Attach Button */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', justifyContent: 'flex-end', maxWidth: '340px' }}>
+        {probCodes.map(code => (
           <div 
+            key={code}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              padding: '4px 10px',
+              gap: '4px',
+              padding: '3px 8px',
               borderRadius: '6px',
               background: 'rgba(16, 185, 129, 0.12)',
               border: '1px solid rgba(16, 185, 129, 0.3)',
               color: 'var(--success)',
-              fontSize: '0.78rem',
+              fontSize: '0.76rem',
               fontWeight: 700
             }}
           >
-            <Code2 size={13} />
-            <span>[{lesson.problemCode}]</span>
+            <Code2 size={12} />
+            <span>[{code}]</span>
             <button 
               type="button" 
               className="btn-icon" 
-              onClick={onDetach} 
-              title="Gỡ bài tập"
-              style={{ width: '18px', height: '18px', padding: 0, color: 'var(--text-muted)' }}
+              onClick={(e) => { e.stopPropagation(); onDetach(code); }} 
+              title={`Gỡ bài [${code}]`}
+              style={{ width: '16px', height: '16px', padding: 0, color: 'var(--text-muted)', cursor: 'pointer' }}
             >
-              <X size={12} />
+              <X size={11} />
             </button>
           </div>
-        ) : (
-          <button 
-            type="button"
-            className="btn btn-outline btn-sm"
-            onClick={onAttach}
-            style={{ fontSize: '0.74rem', padding: '3px 8px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
-          >
-            <LinkIcon size={12} /> Gắn bài tập
-          </button>
-        )}
+        ))}
+
+        <button 
+          type="button"
+          className="btn btn-outline btn-sm"
+          onClick={onAttach}
+          title="Gắn bài tập vào bài học"
+          style={{ fontSize: '0.72rem', padding: '3px 8px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+        >
+          <LinkIcon size={11} /> + Gắn bài
+        </button>
       </div>
 
       {/* Right: Actions */}

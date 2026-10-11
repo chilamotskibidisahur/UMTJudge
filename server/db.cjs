@@ -2219,26 +2219,36 @@ class Database {
     if (!target) return null;
 
     const prob = this.getProblems().find(p => p.code === problemCodeOrId || p.id === problemCodeOrId);
-    if (!prob) {
-      target.problemCode = problemCodeOrId;
-      target.problemId = null;
-    } else {
-      target.problemCode = prob.code;
-      target.problemId = prob.id;
+    const code = prob ? prob.code : problemCodeOrId;
+    const pid = prob ? prob.id : null;
+
+    target.problemCodes = Array.isArray(target.problemCodes) ? target.problemCodes : (target.problemCode ? [target.problemCode] : []);
+    if (!target.problemCodes.includes(code)) {
+      target.problemCodes.push(code);
     }
+    target.problemCode = target.problemCodes[0] || code;
+    target.problemId = pid || target.problemId || null;
 
     this.data.roadmap_lessons = lessons;
     this.save();
     return target;
   }
 
-  detachProblemFromLesson(lessonId) {
+  detachProblemFromLesson(lessonId, problemCodeOrId = null) {
     const lessons = this.getRoadmapLessons();
     const target = lessons.find(l => l.id === lessonId);
     if (!target) return null;
 
-    target.problemCode = null;
-    target.problemId = null;
+    target.problemCodes = Array.isArray(target.problemCodes) ? target.problemCodes : (target.problemCode ? [target.problemCode] : []);
+    if (problemCodeOrId) {
+      target.problemCodes = target.problemCodes.filter(c => c !== problemCodeOrId && c !== (this.getProblems().find(p => p.id === problemCodeOrId)?.code));
+    } else {
+      target.problemCodes = [];
+    }
+
+    target.problemCode = target.problemCodes[0] || null;
+    const remainingFirstProb = target.problemCodes.length > 0 ? this.getProblems().find(p => p.code === target.problemCodes[0]) : null;
+    target.problemId = remainingFirstProb ? remainingFirstProb.id : null;
     this.data.roadmap_lessons = lessons;
     this.save();
     return target;
@@ -2334,12 +2344,26 @@ class Database {
       };
       lessons.push(lesson);
     }
+    if (Array.isArray(lesson.problemCodes)) {
+      lesson.problemCodes = Array.from(new Set(lesson.problemCodes.filter(Boolean)));
+      if (!lesson.problemCode && lesson.problemCodes.length > 0) {
+        lesson.problemCode = lesson.problemCodes[0];
+      }
+    } else if (lesson.problemCode) {
+      lesson.problemCodes = [lesson.problemCode];
+    } else {
+      lesson.problemCodes = [];
+    }
+
     if (lesson.problemCode || lesson.problemId) {
       const codeOrId = lesson.problemCode || lesson.problemId;
       const prob = this.getProblems().find(p => p.code === codeOrId || p.id === codeOrId);
       if (prob) {
         lesson.problemCode = prob.code;
         lesson.problemId = prob.id;
+        if (!lesson.problemCodes.includes(prob.code)) {
+          lesson.problemCodes.unshift(prob.code);
+        }
       }
     }
     this.data.roadmap_lessons = lessons;
@@ -2425,8 +2449,33 @@ class Database {
     // 1. Initial lesson evaluation
     const lessonStatusMap = new Map();
     const processedLessons = lessons.map(lesson => {
-      const prob = (lesson.problemCode && probMap.get(lesson.problemCode)) || 
-                   (lesson.problemId && probIdMap.get(lesson.problemId)) || null;
+      const codes = Array.isArray(lesson.problemCodes) && lesson.problemCodes.length > 0
+        ? lesson.problemCodes
+        : (lesson.problemCode ? [lesson.problemCode] : []);
+
+      const attachedProbs = [];
+      codes.forEach(c => {
+        const p = probMap.get(c) || probIdMap.get(c);
+        if (p && !attachedProbs.some(ap => ap.id === p.id)) attachedProbs.push(p);
+      });
+      if (attachedProbs.length === 0 && lesson.problemId) {
+        const p = probIdMap.get(lesson.problemId);
+        if (p) attachedProbs.push(p);
+      }
+
+      const problemSummaries = attachedProbs.map(p => {
+        const passed = isPassed.has(p.code) || isPassed.has(p.id);
+        const score = Math.max(bestScores.get(p.code) || 0, bestScores.get(p.id) || 0);
+        return {
+          id: p.id,
+          code: p.code,
+          title: p.title,
+          difficulty: p.difficulty,
+          points: p.points,
+          isPassed: passed,
+          score
+        };
+      });
 
       let status = 'not_started';
       let userScore = 0;
@@ -2434,14 +2483,20 @@ class Database {
       if (testedOutStages.has(lesson.stageId) || customDone.has(lesson.id)) {
         status = 'done';
         userScore = 100;
-      } else if (prob) {
-        const passed = isPassed.has(prob.code) || isPassed.has(prob.id);
-        const score = Math.max(bestScores.get(prob.code) || 0, bestScores.get(prob.id) || 0);
-        userScore = score;
-        if (passed) {
+      } else if (problemSummaries.length > 0) {
+        const allPassed = problemSummaries.every(p => p.isPassed);
+        const totalScore = problemSummaries.reduce((sum, p) => sum + p.score, 0);
+        userScore = Math.round(totalScore / problemSummaries.length);
+
+        if (allPassed) {
           status = 'done';
-        } else if (score > 0 || userSubs.some(s => s.problemCode === prob.code || s.problemId === prob.id)) {
-          status = 'in_progress';
+        } else {
+          const anyAttempted = problemSummaries.some(p => 
+            p.score > 0 || userSubs.some(s => s.problemCode === p.code || s.problemId === p.id)
+          );
+          if (anyAttempted) {
+            status = 'in_progress';
+          }
         }
       } else {
         if (customDone.has(lesson.id)) {
@@ -2452,16 +2507,20 @@ class Database {
 
       lessonStatusMap.set(lesson.id, status);
 
+      const firstProb = problemSummaries[0] || null;
+
       return {
         ...lesson,
         status,
         userScore,
-        problem: prob ? {
-          id: prob.id,
-          code: prob.code,
-          title: prob.title,
-          difficulty: prob.difficulty,
-          points: prob.points
+        problemCodes: codes,
+        problems: problemSummaries,
+        problem: firstProb ? {
+          id: firstProb.id,
+          code: firstProb.code,
+          title: firstProb.title,
+          difficulty: firstProb.difficulty,
+          points: firstProb.points
         } : null
       };
     });

@@ -3471,7 +3471,8 @@ app.post('/api/roadmap/lessons/:id/attach-problem', requireHost, (req, res) => {
 
 app.post('/api/roadmap/lessons/:id/detach-problem', requireHost, (req, res) => {
   try {
-    const updated = db.detachProblemFromLesson(req.params.id);
+    const { problemCode } = req.body || {};
+    const updated = db.detachProblemFromLesson(req.params.id, problemCode);
     if (!updated) return res.status(404).json({ error: 'Bài học không tồn tại' });
     res.json(updated);
   } catch (err) {
