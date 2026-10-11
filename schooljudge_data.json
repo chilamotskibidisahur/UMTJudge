@@ -312,6 +312,20 @@
       "classes": [
         "class-olp"
       ]
+    },
+    {
+      "id": "user-dev-31006fc8-5a89-40fa-91b5-4dfe26514dba",
+      "username": "dev_student",
+      "classes": [
+        "class-career"
+      ]
+    },
+    {
+      "id": "user-olp-8b8c837a-6e1e-4630-81f2-9342cd1102ba",
+      "username": "olp_student",
+      "classes": [
+        "class-olp"
+      ]
     }
   ],
   "problems": [
@@ -1748,6 +1762,1210 @@
       "sampleCode": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    int r, c;\n    if (cin >> r >> c) {\n        vector<vector<long long>> a(r, vector<long long>(c));\n        for (int i = 0; i < r; i++)\n            for (int j = 0; j < c; j++)\n                cin >> a[i][j];\n        vector<long long> v;\n        v.reserve(r * c);\n        for (int i = 0; i < r; i++) {\n            if (i % 2 == 0) {\n                for (int j = 0; j < c; j++) v.push_back(a[i][j]);\n            } else {\n                for (int j = c - 1; j >= 0; j--) v.push_back(a[i][j]);\n            }\n        }\n        int cnt = 0;\n        for (size_t i = 1; i + 1 < v.size(); i++) {\n            if (v[i] > v[i - 1] && v[i] > v[i + 1]) cnt++;\n        }\n        cout << cnt << \"\\n\";\n    }\n    return 0;\n}\n",
       "hasSolution": true,
       "solutionVisible": false
+    },
+    {
+      "id": "prob-rm-cses-weird",
+      "code": "RM_CSES_WEIRD",
+      "title": "Thuật Toán Collatz 3N + 1 (CSES Weird Algorithm)",
+      "category": "Vòng lặp & Mô phỏng",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Thuật Toán Collatz 3N + 1 (CSES Weird Algorithm)</h3>\n  <p>Cho một số nguyên dương $N$. Xét thuật toán sau:<br/>- Nếu $N = 1$, dừng thuật toán.<br/>- Nếu $N$ là số chẵn, chia $N$ cho $2$.<br/>- Nếu $N$ là số lẻ, nhân $N$ với $3$ rồi cộng thêm $1$.</p><p>Hãy in ra toàn bộ dãy giá trị của $N$ từ giá trị ban đầu cho đến khi đạt giá trị $1$.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên dương $N$ ($1 \\le N \\le 10^6$).</p><p>### Dữ liệu ra:<br/>- In ra một dòng chứa các số trong dãy theo thứ tự thực hiện, cách nhau bởi một dấu cách.</p><p>### Giới hạn:<br/>- Subtask 1 (50% điểm): $1 \\le N \\le 1000$.<br/>- Subtask 2 (50% điểm): $1 \\le N \\le 10^6$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td><pre style=\"margin:0;\">3 10 5 16 8 4 2 1</pre></td>\n      <td>3 là số lẻ -> 10 -> chẵn -> 5 -> 16 -> 8 -> 4 -> 2 -> 1.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">1</pre></td>\n      <td><pre style=\"margin:0;\">1</pre></td>\n      <td>Dừng ngay tại 1.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một số nguyên dương $N$. Xét thuật toán sau:\n- Nếu $N = 1$, dừng thuật toán.\n- Nếu $N$ là số chẵn, chia $N$ cho $2$.\n- Nếu $N$ là số lẻ, nhân $N$ với $3$ rồi cộng thêm $1$.\n\nHãy in ra toàn bộ dãy giá trị của $N$ từ giá trị ban đầu cho đến khi đạt giá trị $1$.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên dương $N$ ($1 \\le N \\le 10^6$).\n\n### Dữ liệu ra:\n- In ra một dòng chứa các số trong dãy theo thứ tự thực hiện, cách nhau bởi một dấu cách.\n\n### Giới hạn:\n- Subtask 1 (50% điểm): $1 \\le N \\le 1000$.\n- Subtask 2 (50% điểm): $1 \\le N \\le 10^6$.",
+      "samples": [
+        {
+          "input": "3\n",
+          "output": "3 10 5 16 8 4 2 1\n",
+          "explanation": "3 là số lẻ -> 10 -> chẵn -> 5 -> 16 -> 8 -> 4 -> 2 -> 1."
+        },
+        {
+          "input": "1\n",
+          "output": "1\n",
+          "explanation": "Dừng ngay tại 1."
+        }
+      ],
+      "testCount": 12,
+      "createdAt": "2026-10-11T02:21:53.692Z"
+    },
+    {
+      "id": "prob-rm-cses-missing",
+      "code": "RM_CSES_MISSING",
+      "title": "Tìm Số Bị Thiếu (CSES Missing Number)",
+      "category": "Mảng & Toán tư duy",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Tìm Số Bị Thiếu (CSES Missing Number)</h3>\n  <p>Cho một dãy số gồm tất cả các số nguyên từ $1$ đến $N$, ngoại trừ đúng một số bị thiếu. Nhiệm vụ của bạn là tìm ra số nguyên bị thiếu đó.</p><p>### Dữ liệu vào:<br/>- Dòng đầu tiên chứa số nguyên $N$ ($2 \\le N \\le 2 \\times 10^5$).<br/>- Dòng thứ hai chứa $N - 1$ số nguyên phân biệt trong khoảng từ $1$ đến $N$.</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số bị thiếu.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5\n2 3 1 5</pre></td>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td>Dãy 1..5 thiếu số 4.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một dãy số gồm tất cả các số nguyên từ $1$ đến $N$, ngoại trừ đúng một số bị thiếu. Nhiệm vụ của bạn là tìm ra số nguyên bị thiếu đó.\n\n### Dữ liệu vào:\n- Dòng đầu tiên chứa số nguyên $N$ ($2 \\le N \\le 2 \\times 10^5$).\n- Dòng thứ hai chứa $N - 1$ số nguyên phân biệt trong khoảng từ $1$ đến $N$.\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số bị thiếu.",
+      "samples": [
+        {
+          "input": "5\n2 3 1 5\n",
+          "output": "4\n",
+          "explanation": "Dãy 1..5 thiếu số 4."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.695Z"
+    },
+    {
+      "id": "prob-rm-cses-repetitions",
+      "code": "RM_CSES_REPETITIONS",
+      "title": "Đoạn Ký Tự Lặp Dài Nhất (CSES Repetitions)",
+      "category": "Chuỗi ký tự string",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Đoạn Ký Tự Lặp Dài Nhất (CSES Repetitions)</h3>\n  <p>Bạn được cung cấp một chuỗi ADN chỉ bao gồm các ký tự `A`, `C`, `G`, và `T`. Hãy tìm độ dài của đoạn con liên tiếp dài nhất chỉ chứa cùng một ký tự.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa chuỗi ký tự có độ dài từ $1$ đến $10^5$.</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là độ dài đoạn lặp dài nhất.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">ATTCGGGA</pre></td>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td>Đoạn \"GGG\" dài nhất có độ dài 3.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">A</pre></td>\n      <td><pre style=\"margin:0;\">1</pre></td>\n      <td>Chuỗi có độ dài 1.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bạn được cung cấp một chuỗi ADN chỉ bao gồm các ký tự `A`, `C`, `G`, và `T`. Hãy tìm độ dài của đoạn con liên tiếp dài nhất chỉ chứa cùng một ký tự.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa chuỗi ký tự có độ dài từ $1$ đến $10^5$.\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là độ dài đoạn lặp dài nhất.",
+      "samples": [
+        {
+          "input": "ATTCGGGA\n",
+          "output": "3\n",
+          "explanation": "Đoạn \"GGG\" dài nhất có độ dài 3."
+        },
+        {
+          "input": "A\n",
+          "output": "1\n",
+          "explanation": "Chuỗi có độ dài 1."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.697Z"
+    },
+    {
+      "id": "prob-rm-cses-increasing",
+      "code": "RM_CSES_INCREASING",
+      "title": "Biến Đổi Dãy Số Không Giảm (CSES Increasing Array)",
+      "category": "Mảng & Tham lam",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Biến Đổi Dãy Số Không Giảm (CSES Increasing Array)</h3>\n  <p>Cho một mảng gồm $N$ số nguyên. Trong mỗi bước, bạn có thể tăng giá trị của một phần tử bất kỳ lên $1$ đơn vị.<br/>Hãy tìm số bước tối thiểu để biến mảng thành một dãy không giảm, tức là $A_i \\le A_{i+1}$ với mọi $1 \\le i < N$.</p><p>### Dữ liệu vào:<br/>- Dòng đầu tiên chứa số nguyên $N$ ($1 \\le N \\le 2 \\times 10^5$).<br/>- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($1 \\le A_i \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là tổng số bước tối thiểu.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5\n3 2 5 1 7</pre></td>\n      <td><pre style=\"margin:0;\">5</pre></td>\n      <td>Tăng 2 thành 3 (1 bước), tăng 1 thành 5 (4 bước) -> Tổng 5 bước.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một mảng gồm $N$ số nguyên. Trong mỗi bước, bạn có thể tăng giá trị của một phần tử bất kỳ lên $1$ đơn vị.\nHãy tìm số bước tối thiểu để biến mảng thành một dãy không giảm, tức là $A_i \\le A_{i+1}$ với mọi $1 \\le i < N$.\n\n### Dữ liệu vào:\n- Dòng đầu tiên chứa số nguyên $N$ ($1 \\le N \\le 2 \\times 10^5$).\n- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($1 \\le A_i \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là tổng số bước tối thiểu.",
+      "samples": [
+        {
+          "input": "5\n3 2 5 1 7\n",
+          "output": "5\n",
+          "explanation": "Tăng 2 thành 3 (1 bước), tăng 1 thành 5 (4 bước) -> Tổng 5 bước."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.698Z"
+    },
+    {
+      "id": "prob-rm-cses-permute",
+      "code": "RM_CSES_PERMUTE",
+      "title": "Hoán Vị Đẹp Không Kề Nhau (CSES Permutations)",
+      "category": "Mảng & Dựng nghiệm",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Hoán Vị Đẹp Không Kề Nhau (CSES Permutations)</h3>\n  <p>Một hoán vị của các số từ $1$ đến $N$ được gọi là \"đẹp\" nếu không có hai phần tử kề nhau nào có hiệu bằng $1$ (tức là $|A_i - A_{i+1}| \\ne 1$).<br/>Cho số nguyên $N$, hãy tìm một hoán vị đẹp của $1..N$. Nếu không tồn tại, in ra `NO SOLUTION`.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^6$).</p><p>### Dữ liệu ra:<br/>- Nếu có nghiệm, in ra các số của hoán vị cách nhau bởi dấu cách.<br/>- Nếu không có nghiệm, in ra `NO SOLUTION`.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5</pre></td>\n      <td><pre style=\"margin:0;\">2 4 1 3 5</pre></td>\n      <td>Các cặp kề nhau đều có độ chênh lệch >= 2.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td><pre style=\"margin:0;\">NO SOLUTION</pre></td>\n      <td>Không thể xếp 1, 2, 3 sao cho không có 2 số liên tiếp cạnh nhau.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Một hoán vị của các số từ $1$ đến $N$ được gọi là \"đẹp\" nếu không có hai phần tử kề nhau nào có hiệu bằng $1$ (tức là $|A_i - A_{i+1}| \\ne 1$).\nCho số nguyên $N$, hãy tìm một hoán vị đẹp của $1..N$. Nếu không tồn tại, in ra `NO SOLUTION`.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^6$).\n\n### Dữ liệu ra:\n- Nếu có nghiệm, in ra các số của hoán vị cách nhau bởi dấu cách.\n- Nếu không có nghiệm, in ra `NO SOLUTION`.",
+      "samples": [
+        {
+          "input": "5\n",
+          "output": "2 4 1 3 5\n",
+          "explanation": "Các cặp kề nhau đều có độ chênh lệch >= 2."
+        },
+        {
+          "input": "3\n",
+          "output": "NO SOLUTION\n",
+          "explanation": "Không thể xếp 1, 2, 3 sao cho không có 2 số liên tiếp cạnh nhau."
+        }
+      ],
+      "testCount": 12,
+      "createdAt": "2026-10-11T02:21:53.700Z"
+    },
+    {
+      "id": "prob-rm-usaco-teleport",
+      "code": "RM_USACO_TELEPORT",
+      "title": "Cổng Dịch Chuyển Tức Thời (USACO Teleportation)",
+      "category": "Cấu trúc rẽ nhánh if/else",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Cổng Dịch Chuyển Tức Thời (USACO Teleportation)</h3>\n  <p>Bác nông dân John cần vận chuyển phân bò từ vị trí $a$ đến vị trí $b$ trên trục tọa độ thẳng.<br/>Thông thường, quãng đường vận chuyển giữa $a$ và $b$ là $|a - b|$.<br/>Tuy nhiên, John vừa phát hiện ra một cặp cổng dịch chuyển tức thời đặt tại vị trí $x$ và $y$. John có thể đi vào cổng $x$ và ngay lập tức xuất hiện tại cổng $y$ (hoặc ngược lại) mà không tốn khoảng cách nào.<br/>Hãy tìm quãng đường di chuyển tối thiểu để đi từ $a$ đến $b$.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa 4 số nguyên $a, b, x, y$ ($-1000 \\le a, b, x, y \\le 1000$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là quãng đường tối thiểu.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3 10 8 2</pre></td>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td>John đi từ 3 đến 2 (1 bước), qua cổng tới 8 (0 bước), rồi đi từ 8 đến 10 (2 bước) -> Tổng 3 bước. Đi thẳng mất |10 - 3| = 7 bước.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bác nông dân John cần vận chuyển phân bò từ vị trí $a$ đến vị trí $b$ trên trục tọa độ thẳng.\nThông thường, quãng đường vận chuyển giữa $a$ và $b$ là $|a - b|$.\nTuy nhiên, John vừa phát hiện ra một cặp cổng dịch chuyển tức thời đặt tại vị trí $x$ và $y$. John có thể đi vào cổng $x$ và ngay lập tức xuất hiện tại cổng $y$ (hoặc ngược lại) mà không tốn khoảng cách nào.\nHãy tìm quãng đường di chuyển tối thiểu để đi từ $a$ đến $b$.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa 4 số nguyên $a, b, x, y$ ($-1000 \\le a, b, x, y \\le 1000$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là quãng đường tối thiểu.",
+      "samples": [
+        {
+          "input": "3 10 8 2\n",
+          "output": "3\n",
+          "explanation": "John đi từ 3 đến 2 (1 bước), qua cổng tới 8 (0 bước), rồi đi từ 8 đến 10 (2 bước) -> Tổng 3 bước. Đi thẳng mất |10 - 3| = 7 bước."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.701Z"
+    },
+    {
+      "id": "prob-rm-usaco-fencepaint",
+      "code": "RM_USACO_FENCEPAINT",
+      "title": "Sơn Hàng Rào Giao Nhau (USACO Fence Painting)",
+      "category": "Khoảng giá trị & if/else",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Sơn Hàng Rào Giao Nhau (USACO Fence Painting)</h3>\n  <p>Bác John và chú bò Bessie cùng sơn một hàng rào dài. Hàng rào được mô tả như một trục số.<br/>John sơn đoạn từ tọa độ $a$ đến $b$. Bessie sơn đoạn từ tọa độ $c$ đến $d$.<br/>Hãy tính tổng chiều dài hàng rào được sơn ít nhất bởi một trong hai người.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa hai số nguyên $a, b$ ($0 \\le a < b \\le 100$).<br/>- Dòng thứ hai chứa hai số nguyên $c, d$ ($0 \\le c < d \\le 100$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là tổng chiều dài hàng rào được sơn.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">7 10\n4 8</pre></td>\n      <td><pre style=\"margin:0;\">6</pre></td>\n      <td>Hợp của [7, 10] và [4, 8] là đoạn [4, 10] có độ dài 10 - 4 = 6.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bác John và chú bò Bessie cùng sơn một hàng rào dài. Hàng rào được mô tả như một trục số.\nJohn sơn đoạn từ tọa độ $a$ đến $b$. Bessie sơn đoạn từ tọa độ $c$ đến $d$.\nHãy tính tổng chiều dài hàng rào được sơn ít nhất bởi một trong hai người.\n\n### Dữ liệu vào:\n- Dòng đầu chứa hai số nguyên $a, b$ ($0 \\le a < b \\le 100$).\n- Dòng thứ hai chứa hai số nguyên $c, d$ ($0 \\le c < d \\le 100$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là tổng chiều dài hàng rào được sơn.",
+      "samples": [
+        {
+          "input": "7 10\n4 8\n",
+          "output": "6\n",
+          "explanation": "Hợp của [7, 10] và [4, 8] là đoạn [4, 10] có độ dài 10 - 4 = 6."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.702Z"
+    },
+    {
+      "id": "prob-rm-usaco-wordproc",
+      "code": "RM_USACO_WORDPROC",
+      "title": "Trình Xử Lý Văn Bản (USACO Word Processor)",
+      "category": "Chuỗi ký tự & Mô phỏng",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Trình Xử Lý Văn Bản (USACO Word Processor)</h3>\n  <p>Bessie vừa viết một bài luận gồm $N$ từ. Cô muốn căn chỉnh văn bản sao cho mỗi dòng chứa không quá $K$ ký tự (không tính dấu cách giữa các từ).<br/>Quy tắc xuống dòng:<br/>- Duyệt qua các từ lần lượt.<br/>- Nếu đặt từ tiếp theo vào dòng hiện tại mà tổng số ký tự (không tính dấu cách) không vượt quá $K$, hãy đặt từ đó vào dòng hiện tại (cách từ trước bằng 1 dấu cách).<br/>- Ngược lại, hãy xuống dòng mới và bắt đầu từ đó.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa hai số nguyên $N$ và $K$ ($1 \\le N \\le 100, 1 \\le K \\le 80$).<br/>- Dòng thứ hai chứa $N$ từ, mỗi từ có độ dài không vượt quá $K$ ký tự chữ cái tiếng Anh in thường.</p><p>### Dữ liệu ra:<br/>- In ra văn bản sau khi đã căn dòng theo đúng quy tắc.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">10 7\nhello my name is Bessie and this is my essay</pre></td>\n      <td><pre style=\"margin:0;\">hello my\nname is\nBessie\nand this\nis my\nessay</pre></td>\n      <td>\"hello\"(5) + \"my\"(2) = 7 <= 7. Thêm \"name\"(4) thì thành 11 > 7 -> xuống dòng.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bessie vừa viết một bài luận gồm $N$ từ. Cô muốn căn chỉnh văn bản sao cho mỗi dòng chứa không quá $K$ ký tự (không tính dấu cách giữa các từ).\nQuy tắc xuống dòng:\n- Duyệt qua các từ lần lượt.\n- Nếu đặt từ tiếp theo vào dòng hiện tại mà tổng số ký tự (không tính dấu cách) không vượt quá $K$, hãy đặt từ đó vào dòng hiện tại (cách từ trước bằng 1 dấu cách).\n- Ngược lại, hãy xuống dòng mới và bắt đầu từ đó.\n\n### Dữ liệu vào:\n- Dòng đầu chứa hai số nguyên $N$ và $K$ ($1 \\le N \\le 100, 1 \\le K \\le 80$).\n- Dòng thứ hai chứa $N$ từ, mỗi từ có độ dài không vượt quá $K$ ký tự chữ cái tiếng Anh in thường.\n\n### Dữ liệu ra:\n- In ra văn bản sau khi đã căn dòng theo đúng quy tắc.",
+      "samples": [
+        {
+          "input": "10 7\nhello my name is Bessie and this is my essay\n",
+          "output": "hello my\nname is\nBessie\nand this\nis my\nessay\n",
+          "explanation": "\"hello\"(5) + \"my\"(2) = 7 <= 7. Thêm \"name\"(4) thì thành 11 > 7 -> xuống dòng."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.703Z"
+    },
+    {
+      "id": "prob-rm-vnoi-triangle",
+      "code": "RM_VNOI_TRIANGLE",
+      "title": "Phân Loại Tam Giác (VNOI Triangle Classification)",
+      "category": "Câu lệnh if/else logic",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Phân Loại Tam Giác (VNOI Triangle Classification)</h3>\n  <p>Cho 3 số nguyên dương $a, b, c$.<br/>1. Trước hết, kiểm tra xem $a, b, c$ có tạo thành 3 cạnh của một tam giác hợp lệ không ($a + b > c$, $a + c > b$, $b + c > a$). Nếu không, in ra `KHONG PHAI TAM GIAC`.<br/>2. Nếu hợp lệ, hãy phân loại:<br/>- `DEU` nếu 3 cạnh bằng nhau.<br/>- `VUONG CAN` nếu vừa vuông vừa cân.<br/>- `VUONG` nếu là tam giác vuông (thỏa mãn định lý Pythagoras).<br/>- `CAN` nếu có đúng 2 cạnh bằng nhau.<br/>- `TU` nếu bình phương cạnh lớn nhất lớn hơn tổng bình phương 2 cạnh còn lại ($c^2 > a^2 + b^2$ với $c$ là cạnh lớn nhất).<br/>- `NHON` cho các trường hợp còn lại.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa 3 số nguyên dương $a, b, c$ ($1 \\le a, b, c \\le 10^4$).</p><p>### Dữ liệu ra:<br/>- In ra một dòng là kết quả phân loại theo đúng định dạng.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3 4 5</pre></td>\n      <td><pre style=\"margin:0;\">VUONG</pre></td>\n      <td>3^2 + 4^2 = 5^2 (9 + 16 = 25) -> Tam giác vuông.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">5 5 5</pre></td>\n      <td><pre style=\"margin:0;\">DEU</pre></td>\n      <td>3 cạnh bằng nhau -> Tam giác đều.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">1 2 3</pre></td>\n      <td><pre style=\"margin:0;\">KHONG PHAI TAM GIAC</pre></td>\n      <td>1 + 2 không lớn hơn 3.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho 3 số nguyên dương $a, b, c$.\n1. Trước hết, kiểm tra xem $a, b, c$ có tạo thành 3 cạnh của một tam giác hợp lệ không ($a + b > c$, $a + c > b$, $b + c > a$). Nếu không, in ra `KHONG PHAI TAM GIAC`.\n2. Nếu hợp lệ, hãy phân loại:\n- `DEU` nếu 3 cạnh bằng nhau.\n- `VUONG CAN` nếu vừa vuông vừa cân.\n- `VUONG` nếu là tam giác vuông (thỏa mãn định lý Pythagoras).\n- `CAN` nếu có đúng 2 cạnh bằng nhau.\n- `TU` nếu bình phương cạnh lớn nhất lớn hơn tổng bình phương 2 cạnh còn lại ($c^2 > a^2 + b^2$ với $c$ là cạnh lớn nhất).\n- `NHON` cho các trường hợp còn lại.\n\n### Dữ liệu vào:\n- Một dòng chứa 3 số nguyên dương $a, b, c$ ($1 \\le a, b, c \\le 10^4$).\n\n### Dữ liệu ra:\n- In ra một dòng là kết quả phân loại theo đúng định dạng.",
+      "samples": [
+        {
+          "input": "3 4 5\n",
+          "output": "VUONG\n",
+          "explanation": "3^2 + 4^2 = 5^2 (9 + 16 = 25) -> Tam giác vuông."
+        },
+        {
+          "input": "5 5 5\n",
+          "output": "DEU\n",
+          "explanation": "3 cạnh bằng nhau -> Tam giác đều."
+        },
+        {
+          "input": "1 2 3\n",
+          "output": "KHONG PHAI TAM GIAC\n",
+          "explanation": "1 + 2 không lớn hơn 3."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.705Z"
+    },
+    {
+      "id": "prob-rm-vnoi-kadane1d",
+      "code": "RM_VNOI_KADANE1D",
+      "title": "Đoạn Con Có Tổng Lớn Nhất (Maximum Subarray Sum)",
+      "category": "Mảng & Quy hoạch động cơ bản",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Đoạn Con Có Tổng Lớn Nhất (Maximum Subarray Sum)</h3>\n  <p>Cho một mảng số nguyên gồm $N$ phần tử. Hãy tìm một đoạn con liên tiếp không rỗng có tổng các phần tử lớn nhất.</p><p>### Dữ liệu vào:<br/>- Dòng đầu tiên chứa số nguyên $N$ ($1 \\le N \\le 2 \\times 10^5$).<br/>- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là tổng lớn nhất của đoạn con liên tiếp.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">8\n-1 3 -2 5 3 -5 2 2</pre></td>\n      <td><pre style=\"margin:0;\">9</pre></td>\n      <td>Đoạn con [3, -2, 5, 3] có tổng là 9.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một mảng số nguyên gồm $N$ phần tử. Hãy tìm một đoạn con liên tiếp không rỗng có tổng các phần tử lớn nhất.\n\n### Dữ liệu vào:\n- Dòng đầu tiên chứa số nguyên $N$ ($1 \\le N \\le 2 \\times 10^5$).\n- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là tổng lớn nhất của đoạn con liên tiếp.",
+      "samples": [
+        {
+          "input": "8\n-1 3 -2 5 3 -5 2 2\n",
+          "output": "9\n",
+          "explanation": "Đoạn con [3, -2, 5, 3] có tổng là 9."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.706Z"
+    },
+    {
+      "id": "prob-rm-cses-expon",
+      "code": "RM_CSES_EXPON",
+      "title": "Lũy Thừa Modulo Nhanh (CSES Exponentiation)",
+      "category": "Số học & Lũy thừa",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Lũy Thừa Modulo Nhanh (CSES Exponentiation)</h3>\n  <p>Nhiệm vụ của bạn là tính toán giá trị của $a^b \\pmod{10^9 + 7}$.</p><p>### Dữ liệu vào:<br/>- Dòng đầu tiên chứa số nguyên $N$ là số lượng truy vấn ($1 \\le N \\le 10^5$).<br/>- $N$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $a$ và $b$ ($0 \\le a, b \\le 10^9$).<br/>- Quy ước toán học trong bài toán này: $0^0 = 1$.</p><p>### Dữ liệu ra:<br/>- Với mỗi truy vấn, in ra giá trị của $a^b \\pmod{10^9 + 7}$ trên một dòng.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3\n3 4\n2 8\n123 0</pre></td>\n      <td><pre style=\"margin:0;\">81\n256\n1</pre></td>\n      <td>3^4 = 81, 2^8 = 256, 123^0 = 1.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Nhiệm vụ của bạn là tính toán giá trị của $a^b \\pmod{10^9 + 7}$.\n\n### Dữ liệu vào:\n- Dòng đầu tiên chứa số nguyên $N$ là số lượng truy vấn ($1 \\le N \\le 10^5$).\n- $N$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $a$ và $b$ ($0 \\le a, b \\le 10^9$).\n- Quy ước toán học trong bài toán này: $0^0 = 1$.\n\n### Dữ liệu ra:\n- Với mỗi truy vấn, in ra giá trị của $a^b \\pmod{10^9 + 7}$ trên một dòng.",
+      "samples": [
+        {
+          "input": "3\n3 4\n2 8\n123 0\n",
+          "output": "81\n256\n1\n",
+          "explanation": "3^4 = 81, 2^8 = 256, 123^0 = 1."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.708Z"
+    },
+    {
+      "id": "prob-rm-cses-countdiv",
+      "code": "RM_CSES_COUNTDIV",
+      "title": "Đếm Số Lượng Ước Số (CSES Counting Divisors)",
+      "category": "Số học & Ước số",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Đếm Số Lượng Ước Số (CSES Counting Divisors)</h3>\n  <p>Cho $N$ số nguyên dương $X_1, X_2, \\dots, X_N$. Với mỗi số nguyên $X$, hãy đếm số lượng ước số nguyên dương của nó.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số lượng truy vấn $N$ ($1 \\le N \\le 10^5$).<br/>- $N$ dòng tiếp theo, mỗi dòng chứa một số nguyên $X$ ($1 \\le X \\le 10^6$).</p><p>### Dữ liệu ra:<br/>- Với mỗi số $X$, in ra số lượng ước số của nó trên một dòng.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3\n16\n17\n18</pre></td>\n      <td><pre style=\"margin:0;\">5\n2\n6</pre></td>\n      <td>16 có các ước 1, 2, 4, 8, 16 (5 ước). 17 là số nguyên tố (2 ước). 18 có 1, 2, 3, 6, 9, 18 (6 ước).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho $N$ số nguyên dương $X_1, X_2, \\dots, X_N$. Với mỗi số nguyên $X$, hãy đếm số lượng ước số nguyên dương của nó.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số lượng truy vấn $N$ ($1 \\le N \\le 10^5$).\n- $N$ dòng tiếp theo, mỗi dòng chứa một số nguyên $X$ ($1 \\le X \\le 10^6$).\n\n### Dữ liệu ra:\n- Với mỗi số $X$, in ra số lượng ước số của nó trên một dòng.",
+      "samples": [
+        {
+          "input": "3\n16\n17\n18\n",
+          "output": "5\n2\n6\n",
+          "explanation": "16 có các ước 1, 2, 4, 8, 16 (5 ước). 17 là số nguyên tố (2 ước). 18 có 1, 2, 3, 6, 9, 18 (6 ước)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.709Z"
+    },
+    {
+      "id": "prob-rm-cses-trailingzeros",
+      "code": "RM_CSES_TRAILINGZEROS",
+      "title": "Số Chữ Số 0 Tận Cùng Của N! (CSES Trailing Zeros)",
+      "category": "Số học & Công thức Legendre",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Số Chữ Số 0 Tận Cùng Của N! (CSES Trailing Zeros)</h3>\n  <p>Nhiệm vụ của bạn là tính số lượng chữ số $0$ tận cùng trong biểu diễn thập phân của $N!$ ($N$ giai thừa, $N! = 1 \\times 2 \\times \\dots \\times N$).</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên dương $N$ ($1 \\le N \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số chữ số 0 tận cùng của $N!$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">20</pre></td>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td>20! = 2432902008176640000 có 4 chữ số 0 tận cùng.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Nhiệm vụ của bạn là tính số lượng chữ số $0$ tận cùng trong biểu diễn thập phân của $N!$ ($N$ giai thừa, $N! = 1 \\times 2 \\times \\dots \\times N$).\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên dương $N$ ($1 \\le N \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số chữ số 0 tận cùng của $N!$.",
+      "samples": [
+        {
+          "input": "20\n",
+          "output": "4\n",
+          "explanation": "20! = 2432902008176640000 có 4 chữ số 0 tận cùng."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.710Z"
+    },
+    {
+      "id": "prob-rm-cses-bitstrings",
+      "code": "RM_CSES_BITSTRINGS",
+      "title": "Số Lượng Xâu Nhị Phân Độ Dài N (CSES Bit Strings)",
+      "category": "Toán tử Bit & Modulo",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Số Lượng Xâu Nhị Phân Độ Dài N (CSES Bit Strings)</h3>\n  <p>Nhiệm vụ của bạn là tính số lượng xâu nhị phân phân biệt có độ dài $N$.<br/>Vì kết quả có thể rất lớn, hãy in ra kết quả sau khi chia lấy dư cho $10^9 + 7$.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^6$).</p><p>### Dữ liệu ra:<br/>- In ra số lượng xâu nhị phân modulo $10^9 + 7$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td><pre style=\"margin:0;\">8</pre></td>\n      <td>Có 2^3 = 8 xâu: 000, 001, 010, 011, 100, 101, 110, 111.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Nhiệm vụ của bạn là tính số lượng xâu nhị phân phân biệt có độ dài $N$.\nVì kết quả có thể rất lớn, hãy in ra kết quả sau khi chia lấy dư cho $10^9 + 7$.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^6$).\n\n### Dữ liệu ra:\n- In ra số lượng xâu nhị phân modulo $10^9 + 7$.",
+      "samples": [
+        {
+          "input": "3\n",
+          "output": "8\n",
+          "explanation": "Có 2^3 = 8 xâu: 000, 001, 010, 011, 100, 101, 110, 111."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.712Z"
+    },
+    {
+      "id": "prob-rm-vnoi-arraygcd",
+      "code": "RM_VNOI_ARRAYGCD",
+      "title": "Ước Chung Lớn Nhất Của Dãy Số (VNOI Array GCD)",
+      "category": "Số học & Euclid GCD",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Ước Chung Lớn Nhất Của Dãy Số (VNOI Array GCD)</h3>\n  <p>Cho một dãy gồm $N$ số nguyên dương $A_1, A_2, \\dots, A_N$.<br/>Hãy tìm ước chung lớn nhất (GCD) của toàn bộ $N$ số trong dãy.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).<br/>- Dòng thứ hai chứa $N$ số nguyên dương $A_i$ ($1 \\le A_i \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là $\\gcd(A_1, A_2, \\dots, A_N)$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3\n12 18 24</pre></td>\n      <td><pre style=\"margin:0;\">6</pre></td>\n      <td>Ước chung lớn nhất của 12, 18, 24 là 6.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một dãy gồm $N$ số nguyên dương $A_1, A_2, \\dots, A_N$.\nHãy tìm ước chung lớn nhất (GCD) của toàn bộ $N$ số trong dãy.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).\n- Dòng thứ hai chứa $N$ số nguyên dương $A_i$ ($1 \\le A_i \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là $\\gcd(A_1, A_2, \\dots, A_N)$.",
+      "samples": [
+        {
+          "input": "3\n12 18 24\n",
+          "output": "6\n",
+          "explanation": "Ước chung lớn nhất của 12, 18, 24 là 6."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.713Z"
+    },
+    {
+      "id": "prob-rm-vnoi-primepalin",
+      "code": "RM_VNOI_PRIMEPALIN",
+      "title": "Số Nguyên Tố Đối Xứng (Prime Palindromes)",
+      "category": "Số học & Sàng nguyên tố",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Số Nguyên Tố Đối Xứng (Prime Palindromes)</h3>\n  <p>Số nguyên dương $N$ được gọi là \"nguyên tố đối xứng\" nếu nó vừa là số nguyên tố, vừa là số đối xứng (đọc từ trái sang phải hay từ phải sang trái đều như nhau, ví dụ $11, 101, 131, 151$).<br/>Cho hai số nguyên dương $A$ và $B$. Hãy tìm và in ra tất cả các số nguyên tố đối xứng trong đoạn $[A, B]$.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa hai số nguyên $A$ và $B$ ($1 \\le A \\le B \\le 10^5$).</p><p>### Dữ liệu ra:<br/>- In ra các số nguyên tố đối xứng theo thứ tự tăng dần, cách nhau bởi một dấu cách. Nếu không có số nào, in ra `-1`.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5 150</pre></td>\n      <td><pre style=\"margin:0;\">5 7 11 101 131</pre></td>\n      <td>Các số nguyên tố đối xứng trong [5, 150].</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Số nguyên dương $N$ được gọi là \"nguyên tố đối xứng\" nếu nó vừa là số nguyên tố, vừa là số đối xứng (đọc từ trái sang phải hay từ phải sang trái đều như nhau, ví dụ $11, 101, 131, 151$).\nCho hai số nguyên dương $A$ và $B$. Hãy tìm và in ra tất cả các số nguyên tố đối xứng trong đoạn $[A, B]$.\n\n### Dữ liệu vào:\n- Một dòng chứa hai số nguyên $A$ và $B$ ($1 \\le A \\le B \\le 10^5$).\n\n### Dữ liệu ra:\n- In ra các số nguyên tố đối xứng theo thứ tự tăng dần, cách nhau bởi một dấu cách. Nếu không có số nào, in ra `-1`.",
+      "samples": [
+        {
+          "input": "5 150\n",
+          "output": "5 7 11 101 131\n",
+          "explanation": "Các số nguyên tố đối xứng trong [5, 150]."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.721Z"
+    },
+    {
+      "id": "prob-rm-vnoi-singlenum",
+      "code": "RM_VNOI_SINGLENUM",
+      "title": "Tìm Phần Tử Đơn Lẻ Bằng XOR (Single Number)",
+      "category": "Toán tử Bit XOR",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Tìm Phần Tử Đơn Lẻ Bằng XOR (Single Number)</h3>\n  <p>Cho một mảng gồm $N$ số nguyên, trong đó mọi phần tử đều xuất hiện đúng hai lần, ngoại trừ duy nhất một phần tử chỉ xuất hiện đúng một lần.<br/>Hãy tìm giá trị của phần tử xuất hiện một lần đó bằng tính chất của toán tử XOR ($A \\oplus A = 0$ và $A \\oplus 0 = A$).</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên lẻ $N$ ($1 \\le N \\le 2 \\times 10^5$).<br/>- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra giá trị của phần tử duy nhất xuất hiện một lần.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5\n4 1 2 1 2</pre></td>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td>Số 1 và số 2 xuất hiện 2 lần. Số 4 xuất hiện 1 lần.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một mảng gồm $N$ số nguyên, trong đó mọi phần tử đều xuất hiện đúng hai lần, ngoại trừ duy nhất một phần tử chỉ xuất hiện đúng một lần.\nHãy tìm giá trị của phần tử xuất hiện một lần đó bằng tính chất của toán tử XOR ($A \\oplus A = 0$ và $A \\oplus 0 = A$).\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên lẻ $N$ ($1 \\le N \\le 2 \\times 10^5$).\n- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra giá trị của phần tử duy nhất xuất hiện một lần.",
+      "samples": [
+        {
+          "input": "5\n4 1 2 1 2\n",
+          "output": "4\n",
+          "explanation": "Số 1 và số 2 xuất hiện 2 lần. Số 4 xuất hiện 1 lần."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.723Z"
+    },
+    {
+      "id": "prob-rm-vnoi-squarecount",
+      "code": "RM_VNOI_SQUARECOUNT",
+      "title": "Đếm Số Chính Phương Trong Đoạn [A, B]",
+      "category": "Số học & Căn bậc hai",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Đếm Số Chính Phương Trong Đoạn [A, B]</h3>\n  <p>Số chính phương là số có thể viết dưới dạng bình phương của một số nguyên (ví dụ: $0, 1, 4, 9, 16, \\dots$).<br/>Cho hai số nguyên dương $A$ và $B$. Hãy đếm số lượng số chính phương nằm trong đoạn $[A, B]$.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa hai số nguyên dương $A$ và $B$ ($1 \\le A \\le B \\le 10^{18}$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số lượng số chính phương trong đoạn $[A, B]$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">10 50</pre></td>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td>Có 4 số chính phương: 16 (4^2), 25 (5^2), 36 (6^2), 49 (7^2).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Số chính phương là số có thể viết dưới dạng bình phương của một số nguyên (ví dụ: $0, 1, 4, 9, 16, \\dots$).\nCho hai số nguyên dương $A$ và $B$. Hãy đếm số lượng số chính phương nằm trong đoạn $[A, B]$.\n\n### Dữ liệu vào:\n- Một dòng chứa hai số nguyên dương $A$ và $B$ ($1 \\le A \\le B \\le 10^{18}$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số lượng số chính phương trong đoạn $[A, B]$.",
+      "samples": [
+        {
+          "input": "10 50\n",
+          "output": "4\n",
+          "explanation": "Có 4 số chính phương: 16 (4^2), 25 (5^2), 36 (6^2), 49 (7^2)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.724Z"
+    },
+    {
+      "id": "prob-rm-vnoi-digitcycle",
+      "code": "RM_VNOI_DIGITCYCLE",
+      "title": "Chữ Số Tận Cùng Của Lũy Thừa A^B",
+      "category": "Số học & Chu kỳ Modulo",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Chữ Số Tận Cùng Của Lũy Thừa A^B</h3>\n  <p>Cho hai số nguyên dương $A$ và $B$. Hãy tìm chữ số tận cùng của $A^B$ trong hệ thập phân.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số lượng test $T$ ($1 \\le T \\le 10^4$).<br/>- $T$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $A$ và $B$ ($1 \\le A, B \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- Với mỗi test, in ra chữ số tận cùng của $A^B$ trên một dòng.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">2\n3 10\n6 2024</pre></td>\n      <td><pre style=\"margin:0;\">9\n6</pre></td>\n      <td>3^10 = 59049 tận cùng là 9. 6 mũ bao nhiêu cũng tận cùng là 6.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho hai số nguyên dương $A$ và $B$. Hãy tìm chữ số tận cùng của $A^B$ trong hệ thập phân.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số lượng test $T$ ($1 \\le T \\le 10^4$).\n- $T$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $A$ và $B$ ($1 \\le A, B \\le 10^9$).\n\n### Dữ liệu ra:\n- Với mỗi test, in ra chữ số tận cùng của $A^B$ trên một dòng.",
+      "samples": [
+        {
+          "input": "2\n3 10\n6 2024\n",
+          "output": "9\n6\n",
+          "explanation": "3^10 = 59049 tận cùng là 9. 6 mũ bao nhiêu cũng tận cùng là 6."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.726Z"
+    },
+    {
+      "id": "prob-rm-cses-coinpiles",
+      "code": "RM_CSES_COINPILES",
+      "title": "Hai Đống Tiền Xu (CSES Coin Piles)",
+      "category": "Quan sát & Bất biến (Invariants)",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Hai Đống Tiền Xu (CSES Coin Piles)</h3>\n  <p>Bạn có hai đống tiền xu chứa lần lượt $a$ và $b$ đồng xu. Trong mỗi bước đi, bạn có thể thực hiện một trong hai thao tác:<br/>- Lấy $1$ đồng xu từ đống thứ nhất và $2$ đồng xu từ đống thứ hai.<br/>- Hoặc lấy $2$ đồng xu từ đống thứ nhất và $1$ đồng xu từ đống thứ hai.</p><p>Nhiệm vụ của bạn là kiểm tra xem liệu có thể làm rỗng cả hai đống xu cùng lúc hay không.</p><p>### Dữ liệu vào:<br/>- Dòng đầu tiên chứa số lượng test $T$ ($1 \\le T \\le 10^5$).<br/>- $T$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $a$ và $b$ ($0 \\le a, b \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- Với mỗi test, in ra `YES` nếu có thể làm rỗng cả hai đống, ngược lại in ra `NO`.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3\n2 1\n2 2\n3 3</pre></td>\n      <td><pre style=\"margin:0;\">YES\nNO\nYES</pre></td>\n      <td>2 1: Lấy (2, 1) là hết. 2 2: Không thể. 3 3: (1, 2) rồi (2, 1) là hết.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bạn có hai đống tiền xu chứa lần lượt $a$ và $b$ đồng xu. Trong mỗi bước đi, bạn có thể thực hiện một trong hai thao tác:\n- Lấy $1$ đồng xu từ đống thứ nhất và $2$ đồng xu từ đống thứ hai.\n- Hoặc lấy $2$ đồng xu từ đống thứ nhất và $1$ đồng xu từ đống thứ hai.\n\nNhiệm vụ của bạn là kiểm tra xem liệu có thể làm rỗng cả hai đống xu cùng lúc hay không.\n\n### Dữ liệu vào:\n- Dòng đầu tiên chứa số lượng test $T$ ($1 \\le T \\le 10^5$).\n- $T$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $a$ và $b$ ($0 \\le a, b \\le 10^9$).\n\n### Dữ liệu ra:\n- Với mỗi test, in ra `YES` nếu có thể làm rỗng cả hai đống, ngược lại in ra `NO`.",
+      "samples": [
+        {
+          "input": "3\n2 1\n2 2\n3 3\n",
+          "output": "YES\nNO\nYES\n",
+          "explanation": "2 1: Lấy (2, 1) là hết. 2 2: Không thể. 3 3: (1, 2) rồi (2, 1) là hết."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.727Z"
+    },
+    {
+      "id": "prob-rm-usaco-madscientist",
+      "code": "RM_USACO_MADSCIENTIST",
+      "title": "Nhà Bác Học Điên & Đảo Đoạn (USACO Mad Scientist)",
+      "category": "Bất biến chẵn lẻ & Lật đoạn",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Nhà Bác Học Điên & Đảo Đoạn (USACO Mad Scientist)</h3>\n  <p>Nhà bác học điên đã vô tình biến đổi một đàn gồm $N$ chú bò. Ban đầu giống bò của mỗi con được biểu diễn bởi xâu $A$, nhưng nay chúng đã bị biến thành xâu $B$. Cả $A$ và $B$ đều chỉ chứa các ký tự `H` (Holsteins) và `G` (Guernseys).<br/>John sở hữu một cỗ máy có thể chọn một đoạn liên tiếp các chú bò từ vị trí $i$ đến $j$ và đảo ngược giống của tất cả các con trong đoạn đó (`H` thành `G` và `G` thành `H`).<br/>Hãy tìm số lần sử dụng máy tối thiểu để biến xâu $B$ trở lại đúng như xâu ban đầu $A$.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).<br/>- Dòng thứ hai chứa xâu $A$ độ dài $N$.<br/>- Dòng thứ ba chứa xâu $B$ độ dài $N$.</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số lần đảo đoạn tối thiểu.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">7\nGHHHGHH\nGHGGGHH</pre></td>\n      <td><pre style=\"margin:0;\">1</pre></td>\n      <td>Chỉ cần đảo đoạn từ vị trí 3 đến 3 (\"G\" thành \"H\").</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Nhà bác học điên đã vô tình biến đổi một đàn gồm $N$ chú bò. Ban đầu giống bò của mỗi con được biểu diễn bởi xâu $A$, nhưng nay chúng đã bị biến thành xâu $B$. Cả $A$ và $B$ đều chỉ chứa các ký tự `H` (Holsteins) và `G` (Guernseys).\nJohn sở hữu một cỗ máy có thể chọn một đoạn liên tiếp các chú bò từ vị trí $i$ đến $j$ và đảo ngược giống của tất cả các con trong đoạn đó (`H` thành `G` và `G` thành `H`).\nHãy tìm số lần sử dụng máy tối thiểu để biến xâu $B$ trở lại đúng như xâu ban đầu $A$.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).\n- Dòng thứ hai chứa xâu $A$ độ dài $N$.\n- Dòng thứ ba chứa xâu $B$ độ dài $N$.\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số lần đảo đoạn tối thiểu.",
+      "samples": [
+        {
+          "input": "7\nGHHHGHH\nGHGGGHH\n",
+          "output": "1\n",
+          "explanation": "Chỉ cần đảo đoạn từ vị trí 3 đến 3 (\"G\" thành \"H\")."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.728Z"
+    },
+    {
+      "id": "prob-rm-cses-numspiral",
+      "code": "RM_CSES_NUMSPIRAL",
+      "title": "Ma Trận Xoắn Ốc Số Vô Hạn (CSES Number Spiral)",
+      "category": "Quy luật toán học O(1)",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Ma Trận Xoắn Ốc Số Vô Hạn (CSES Number Spiral)</h3>\n  <p>Một ma trận xoắn ốc số vô hạn được lấp đầy bởi các số nguyên dương từ $1$, bắt đầu từ ô $(1, 1)$:<br/>- Hàng 1: 1, 2, 9, 10, 25, ...<br/>- Hàng 2: 4, 3, 8, 11, 24, ...<br/>- Hàng 3: 5, 6, 7, 12, 23, ...<br/>- Hàng 4: 16, 15, 14, 13, 22, ...</p><p>Nhiệm vụ của bạn là tìm số nằm ở hàng $Y$, cột $X$ trong thời gian $O(1)$.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $T$ là số lượng test ($1 \\le T \\le 10^5$).<br/>- $T$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $Y$ và $X$ ($1 \\le Y, X \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- Với mỗi test, in ra số tại ô $(Y, X)$ trên một dòng.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3\n2 3\n1 1\n4 2</pre></td>\n      <td><pre style=\"margin:0;\">8\n1\n15</pre></td>\n      <td>Ô (2, 3) có giá trị 8; ô (1, 1) là 1; ô (4, 2) là 15.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Một ma trận xoắn ốc số vô hạn được lấp đầy bởi các số nguyên dương từ $1$, bắt đầu từ ô $(1, 1)$:\n- Hàng 1: 1, 2, 9, 10, 25, ...\n- Hàng 2: 4, 3, 8, 11, 24, ...\n- Hàng 3: 5, 6, 7, 12, 23, ...\n- Hàng 4: 16, 15, 14, 13, 22, ...\n\nNhiệm vụ của bạn là tìm số nằm ở hàng $Y$, cột $X$ trong thời gian $O(1)$.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $T$ là số lượng test ($1 \\le T \\le 10^5$).\n- $T$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $Y$ và $X$ ($1 \\le Y, X \\le 10^9$).\n\n### Dữ liệu ra:\n- Với mỗi test, in ra số tại ô $(Y, X)$ trên một dòng.",
+      "samples": [
+        {
+          "input": "3\n2 3\n1 1\n4 2\n",
+          "output": "8\n1\n15\n",
+          "explanation": "Ô (2, 3) có giá trị 8; ô (1, 1) là 1; ô (4, 2) là 15."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.729Z"
+    },
+    {
+      "id": "prob-rm-usaco-mixingmilk",
+      "code": "RM_USACO_MIXINGMILK",
+      "title": "Mô Phỏng Rót Sữa (USACO Mixing Milk)",
+      "category": "Mô phỏng chu trình",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Mô Phỏng Rót Sữa (USACO Mixing Milk)</h3>\n  <p>Bác John có $3$ xô sữa. Xô thứ $i$ có dung tích tối đa $C_i$ và lượng sữa hiện có là $M_i$.<br/>John thực hiện đúng $100$ lần rót sữa tuần hoàn như sau:<br/>- Bước 1: Rót từ xô 1 sang xô 2.<br/>- Bước 2: Rót từ xô 2 sang xô 3.<br/>- Bước 3: Rót từ xô 3 sang xô 1.<br/>- Bước 4: Rót từ xô 1 sang xô 2...<br/>và lặp lại cho đến hết 100 bước.<br/>Mỗi lần rót, John rót càng nhiều sữa càng tốt cho đến khi xô nguồn cạn sạch hoặc xô đích đầy tràn.<br/>Hãy in ra lượng sữa trong $3$ xô sau $100$ lần rót.</p><p>### Dữ liệu vào:<br/>- Ba dòng, dòng thứ $i$ chứa hai số nguyên $C_i$ và $M_i$ ($1 \\le C_i \\le 10^9, 0 \\le M_i \\le C_i$).</p><p>### Dữ liệu ra:<br/>- In ra 3 dòng, mỗi dòng là lượng sữa còn lại trong xô $1, 2, 3$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">10 3\n11 4\n12 5</pre></td>\n      <td><pre style=\"margin:0;\">0\n10\n2</pre></td>\n      <td>Sau 100 bước rót tuần hoàn, xô 1 còn 0, xô 2 còn 10, xô 3 còn 2.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bác John có $3$ xô sữa. Xô thứ $i$ có dung tích tối đa $C_i$ và lượng sữa hiện có là $M_i$.\nJohn thực hiện đúng $100$ lần rót sữa tuần hoàn như sau:\n- Bước 1: Rót từ xô 1 sang xô 2.\n- Bước 2: Rót từ xô 2 sang xô 3.\n- Bước 3: Rót từ xô 3 sang xô 1.\n- Bước 4: Rót từ xô 1 sang xô 2...\nvà lặp lại cho đến hết 100 bước.\nMỗi lần rót, John rót càng nhiều sữa càng tốt cho đến khi xô nguồn cạn sạch hoặc xô đích đầy tràn.\nHãy in ra lượng sữa trong $3$ xô sau $100$ lần rót.\n\n### Dữ liệu vào:\n- Ba dòng, dòng thứ $i$ chứa hai số nguyên $C_i$ và $M_i$ ($1 \\le C_i \\le 10^9, 0 \\le M_i \\le C_i$).\n\n### Dữ liệu ra:\n- In ra 3 dòng, mỗi dòng là lượng sữa còn lại trong xô $1, 2, 3$.",
+      "samples": [
+        {
+          "input": "10 3\n11 4\n12 5\n",
+          "output": "0\n10\n2\n",
+          "explanation": "Sau 100 bước rót tuần hoàn, xô 1 còn 0, xô 2 còn 10, xô 3 còn 2."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.731Z"
+    },
+    {
+      "id": "prob-rm-robot-grid",
+      "code": "RM_ROBOT_GRID",
+      "title": "Mô Phỏng Robot Trên Lưới Tọa Độ (Robot Grid Simulation)",
+      "category": "Mô phỏng ma trận & Vector hướng",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Mô Phỏng Robot Trên Lưới Tọa Độ (Robot Grid Simulation)</h3>\n  <p>Một robot đang ở vị trí $(R, C)$ trên bảng lưới kích thước $N \\times M$ (gồm các hàng từ $1$ đến $N$, các cột từ $1$ đến $M$).<br/>Robot nhận được một chuỗi lệnh di chuyển gồm các ký tự:<br/>- `U`: Đi lên trên (giảm hàng $R$ đi 1).<br/>- `D`: Đi xuống dưới (tăng hàng $R$ thêm 1).<br/>- `L`: Đi sang trái (giảm cột $C$ đi 1).<br/>- `R`: Đi sang phải (tăng cột $C$ thêm 1).</p><p>Nếu một bước di chuyển khiến robot đi ra khỏi biên của bảng lưới ($1 \\le R \\le N$ và $1 \\le C \\le M$), robot sẽ tự động bỏ qua lệnh đó và đứng yên.<br/>Hãy xác định tọa độ cuối cùng của robot sau khi thực hiện toàn bộ chuỗi lệnh.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa 4 số nguyên $N, M, R, C$ ($1 \\le N, M \\le 1000, 1 \\le R \\le N, 1 \\le C \\le M$).<br/>- Dòng thứ hai chứa chuỗi ký tự các bước di chuyển (độ dài không quá $10^5$).</p><p>### Dữ liệu ra:<br/>- In ra hai số nguyên $R'$ và $C'$ cách nhau bởi dấu cách là tọa độ cuối cùng của robot.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3 3 2 2\nUURDDL</pre></td>\n      <td><pre style=\"margin:0;\">3 2</pre></td>\n      <td>Robot đi U (lên 1,2), U (bỏ qua vì chạm biên), R (sang 1,3), D (xuống 2,3), D (xuống 3,3), L (sang 3,2).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Một robot đang ở vị trí $(R, C)$ trên bảng lưới kích thước $N \\times M$ (gồm các hàng từ $1$ đến $N$, các cột từ $1$ đến $M$).\nRobot nhận được một chuỗi lệnh di chuyển gồm các ký tự:\n- `U`: Đi lên trên (giảm hàng $R$ đi 1).\n- `D`: Đi xuống dưới (tăng hàng $R$ thêm 1).\n- `L`: Đi sang trái (giảm cột $C$ đi 1).\n- `R`: Đi sang phải (tăng cột $C$ thêm 1).\n\nNếu một bước di chuyển khiến robot đi ra khỏi biên của bảng lưới ($1 \\le R \\le N$ và $1 \\le C \\le M$), robot sẽ tự động bỏ qua lệnh đó và đứng yên.\nHãy xác định tọa độ cuối cùng của robot sau khi thực hiện toàn bộ chuỗi lệnh.\n\n### Dữ liệu vào:\n- Dòng đầu chứa 4 số nguyên $N, M, R, C$ ($1 \\le N, M \\le 1000, 1 \\le R \\le N, 1 \\le C \\le M$).\n- Dòng thứ hai chứa chuỗi ký tự các bước di chuyển (độ dài không quá $10^5$).\n\n### Dữ liệu ra:\n- In ra hai số nguyên $R'$ và $C'$ cách nhau bởi dấu cách là tọa độ cuối cùng của robot.",
+      "samples": [
+        {
+          "input": "3 3 2 2\nUURDDL\n",
+          "output": "3 2\n",
+          "explanation": "Robot đi U (lên 1,2), U (bỏ qua vì chạm biên), R (sang 1,3), D (xuống 2,3), D (xuống 3,3), L (sang 3,2)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.732Z"
+    },
+    {
+      "id": "prob-rm-valid-parentheses",
+      "code": "RM_VALID_PARENTHESES",
+      "title": "Kiểm Tra Dãy Ngoặc Hợp Lệ (Valid Bracket Sequence)",
+      "category": "Máy trạng thái & Stack",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Kiểm Tra Dãy Ngoặc Hợp Lệ (Valid Bracket Sequence)</h3>\n  <p>Cho một chuỗi chỉ bao gồm các ký tự ngoặc đơn `(`, `)` và ngoặc vuông `[`, `]`.<br/>Một chuỗi ngoặc được gọi là hợp lệ nếu:<br/>1. Mọi ngoặc mở đều được đóng bởi ngoặc cùng loại tương ứng.<br/>2. Các cặp ngoặc được đóng theo đúng thứ tự lồng nhau.<br/>3. Không có ngoặc đóng nào xuất hiện trước ngoặc mở tương ứng.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa chuỗi ngoặc (độ dài từ $1$ đến $10^5$).</p><p>### Dữ liệu ra:<br/>- In ra `YES` nếu chuỗi ngoặc hợp lệ, ngược lại in ra `NO`.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">([()][])</pre></td>\n      <td><pre style=\"margin:0;\">YES</pre></td>\n      <td>Các cặp ngoặc lồng nhau hoàn toàn hợp lệ.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">([)]</pre></td>\n      <td><pre style=\"margin:0;\">NO</pre></td>\n      <td>Ngoặc đóng không đúng thứ tự lồng nhau.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một chuỗi chỉ bao gồm các ký tự ngoặc đơn `(`, `)` và ngoặc vuông `[`, `]`.\nMột chuỗi ngoặc được gọi là hợp lệ nếu:\n1. Mọi ngoặc mở đều được đóng bởi ngoặc cùng loại tương ứng.\n2. Các cặp ngoặc được đóng theo đúng thứ tự lồng nhau.\n3. Không có ngoặc đóng nào xuất hiện trước ngoặc mở tương ứng.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa chuỗi ngoặc (độ dài từ $1$ đến $10^5$).\n\n### Dữ liệu ra:\n- In ra `YES` nếu chuỗi ngoặc hợp lệ, ngược lại in ra `NO`.",
+      "samples": [
+        {
+          "input": "([()][])\n",
+          "output": "YES\n",
+          "explanation": "Các cặp ngoặc lồng nhau hoàn toàn hợp lệ."
+        },
+        {
+          "input": "([)]\n",
+          "output": "NO\n",
+          "explanation": "Ngoặc đóng không đúng thứ tự lồng nhau."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.734Z"
+    },
+    {
+      "id": "prob-rm-usaco-shellgame",
+      "code": "RM_USACO_SHELLGAME",
+      "title": "Trò Chơi Tráo Vỏ Sò (USACO Shell Game)",
+      "category": "Mô phỏng trò chơi lượt",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Trò Chơi Tráo Vỏ Sò (USACO Shell Game)</h3>\n  <p>Bessie đang chơi trò chơi tráo vỏ sò với bác John. Ban đầu có 3 chiếc vỏ sò úp xuống bàn tại 3 vị trí $1, 2, 3$, và có một viên ngọc nhỏ được giấu dưới một trong ba chiếc vỏ đó.<br/>Trò chơi diễn ra qua $N$ lượt. Ở lượt thứ $i$:<br/>1. John tráo đổi vị trí của hai chiếc vỏ sò tại vị trí $a_i$ và $b_i$.<br/>2. Sau đó, Bessie đoán viên ngọc đang nằm ở vị trí $g_i$. Nếu đoán đúng, cô nhận được 1 điểm.</p><p>Bessie không biết ban đầu viên ngọc ở vị trí nào. Hãy tìm số điểm tối đa mà Bessie có thể đạt được nếu viên ngọc được đặt ở vị trí ban đầu tốt nhất.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 100$).<br/>- $N$ dòng tiếp theo, mỗi dòng chứa 3 số nguyên $a_i, b_i, g_i$ ($1 \\le a_i, b_i, g_i \\le 3, a_i \\ne b_i$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số điểm tối đa.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3\n1 2 1\n3 2 1\n1 3 1</pre></td>\n      <td><pre style=\"margin:0;\">2</pre></td>\n      <td>Nếu ban đầu viên ngọc ở vị trí 2, Bessie sẽ đoán đúng ở lượt 1 và 2 -> Đạt 2 điểm.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bessie đang chơi trò chơi tráo vỏ sò với bác John. Ban đầu có 3 chiếc vỏ sò úp xuống bàn tại 3 vị trí $1, 2, 3$, và có một viên ngọc nhỏ được giấu dưới một trong ba chiếc vỏ đó.\nTrò chơi diễn ra qua $N$ lượt. Ở lượt thứ $i$:\n1. John tráo đổi vị trí của hai chiếc vỏ sò tại vị trí $a_i$ và $b_i$.\n2. Sau đó, Bessie đoán viên ngọc đang nằm ở vị trí $g_i$. Nếu đoán đúng, cô nhận được 1 điểm.\n\nBessie không biết ban đầu viên ngọc ở vị trí nào. Hãy tìm số điểm tối đa mà Bessie có thể đạt được nếu viên ngọc được đặt ở vị trí ban đầu tốt nhất.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 100$).\n- $N$ dòng tiếp theo, mỗi dòng chứa 3 số nguyên $a_i, b_i, g_i$ ($1 \\le a_i, b_i, g_i \\le 3, a_i \\ne b_i$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số điểm tối đa.",
+      "samples": [
+        {
+          "input": "3\n1 2 1\n3 2 1\n1 3 1\n",
+          "output": "2\n",
+          "explanation": "Nếu ban đầu viên ngọc ở vị trí 2, Bessie sẽ đoán đúng ở lượt 1 và 2 -> Đạt 2 điểm."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.735Z"
+    },
+    {
+      "id": "prob-rm-usaco-bovineshuffle",
+      "code": "RM_USACO_BOVINESHUFFLE",
+      "title": "Hoán Vị Đàn Bò (USACO The Bovine Shuffle)",
+      "category": "Mô phỏng chu trình & Hoán vị ngược",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Hoán Vị Đàn Bò (USACO The Bovine Shuffle)</h3>\n  <p>Đàn bò gồm $N$ con đang xếp thành một hàng dài, được đánh số từ $1$ đến $N$.<br/>Bác John thực hiện một điệu nhảy \"Bovine Shuffle\" làm thay đổi vị trí của các chú bò. Điệu nhảy được mô tả bằng một dãy $N$ số nguyên $A_1, A_2, \\dots, A_N$, nghĩa là chú bò ở vị trí $i$ sẽ di chuyển tới vị trí $A_i$.<br/>Sau khi thực hiện điệu nhảy đúng $3$ lần liên tiếp, thứ tự mã định danh (ID) của các chú bò ở các vị trí $1..N$ được ghi nhận lại.<br/>Nhiệm vụ của bạn là tìm lại mã ID ban đầu của các chú bò trước khi thực hiện 3 lần xáo trộn.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).<br/>- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ là một hoán vị của $1..N$.<br/>- Dòng thứ ba chứa $N$ số nguyên là mã ID của các chú bò sau 3 lượt đảo.</p><p>### Dữ liệu ra:<br/>- In ra $N$ dòng, mỗi dòng chứa mã ID của chú bò ở vị trí ban đầu tương ứng từ $1$ đến $N$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5\n1 3 4 5 2\n1234567 2222222 3333333 4444444 5555555</pre></td>\n      <td><pre style=\"margin:0;\">1234567\n5555555\n2222222\n3333333\n4444444</pre></td>\n      <td>Tìm ngược lại 3 bước theo hoán vị nghịch đảo.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Đàn bò gồm $N$ con đang xếp thành một hàng dài, được đánh số từ $1$ đến $N$.\nBác John thực hiện một điệu nhảy \"Bovine Shuffle\" làm thay đổi vị trí của các chú bò. Điệu nhảy được mô tả bằng một dãy $N$ số nguyên $A_1, A_2, \\dots, A_N$, nghĩa là chú bò ở vị trí $i$ sẽ di chuyển tới vị trí $A_i$.\nSau khi thực hiện điệu nhảy đúng $3$ lần liên tiếp, thứ tự mã định danh (ID) của các chú bò ở các vị trí $1..N$ được ghi nhận lại.\nNhiệm vụ của bạn là tìm lại mã ID ban đầu của các chú bò trước khi thực hiện 3 lần xáo trộn.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).\n- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ là một hoán vị của $1..N$.\n- Dòng thứ ba chứa $N$ số nguyên là mã ID của các chú bò sau 3 lượt đảo.\n\n### Dữ liệu ra:\n- In ra $N$ dòng, mỗi dòng chứa mã ID của chú bò ở vị trí ban đầu tương ứng từ $1$ đến $N$.",
+      "samples": [
+        {
+          "input": "5\n1 3 4 5 2\n1234567 2222222 3333333 4444444 5555555\n",
+          "output": "1234567\n5555555\n2222222\n3333333\n4444444\n",
+          "explanation": "Tìm ngược lại 3 bước theo hoán vị nghịch đảo."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.736Z"
+    },
+    {
+      "id": "prob-rm-cses-twosets",
+      "code": "RM_CSES_TWOSETS",
+      "title": "Chia Hai Tập Bằng Nhau (CSES Two Sets)",
+      "category": "Thuật toán dựng nghiệm & Chẵn lẻ",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Chia Hai Tập Bằng Nhau (CSES Two Sets)</h3>\n  <p>Nhiệm vụ của bạn là chia tập hợp các số nguyên ${1, 2, \\dots, N}$ thành hai tập con rời nhau sao cho tổng các phần tử trong hai tập là bằng nhau.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^6$).</p><p>### Dữ liệu ra:<br/>- Nếu không thể chia, in ra `NO`.<br/>- Nếu có thể chia:<br/>  - Dòng 1: In ra `YES`.<br/>  - Dòng 2: In ra số lượng phần tử của tập thứ nhất.<br/>  - Dòng 3: In ra các phần tử của tập thứ nhất cách nhau bởi dấu cách.<br/>  - Dòng 4: In ra số lượng phần tử của tập thứ hai.<br/>  - Dòng 5: In ra các phần tử của tập thứ hai cách nhau bởi dấu cách.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">7</pre></td>\n      <td><pre style=\"margin:0;\">YES\n4\n1 2 4 7\n3\n3 5 6</pre></td>\n      <td>Tổng 1..7 là 28. Tập 1 có tổng 14, tập 2 có tổng 14.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Nhiệm vụ của bạn là chia tập hợp các số nguyên ${1, 2, \\dots, N}$ thành hai tập con rời nhau sao cho tổng các phần tử trong hai tập là bằng nhau.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^6$).\n\n### Dữ liệu ra:\n- Nếu không thể chia, in ra `NO`.\n- Nếu có thể chia:\n  - Dòng 1: In ra `YES`.\n  - Dòng 2: In ra số lượng phần tử của tập thứ nhất.\n  - Dòng 3: In ra các phần tử của tập thứ nhất cách nhau bởi dấu cách.\n  - Dòng 4: In ra số lượng phần tử của tập thứ hai.\n  - Dòng 5: In ra các phần tử của tập thứ hai cách nhau bởi dấu cách.",
+      "samples": [
+        {
+          "input": "7\n",
+          "output": "YES\n4\n1 2 4 7\n3\n3 5 6\n",
+          "explanation": "Tổng 1..7 là 28. Tập 1 có tổng 14, tập 2 có tổng 14."
+        }
+      ],
+      "testCount": 12,
+      "createdAt": "2026-10-11T02:21:53.737Z"
+    },
+    {
+      "id": "prob-rm-cses-palinreorder",
+      "code": "RM_CSES_PALINREORDER",
+      "title": "Sắp Đặt Xâu Đối Xứng (CSES Palindrome Reorder)",
+      "category": "Dựng nghiệm & Tính đối xứng",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Sắp Đặt Xâu Đối Xứng (CSES Palindrome Reorder)</h3>\n  <p>Cho một chuỗi ký tự chỉ gồm các chữ cái in hoa. Hãy sắp xếp lại các ký tự trong chuỗi để tạo thành một chuỗi đối xứng (palindrome).<br/>Nếu có nhiều cách sắp xếp, bạn có thể in ra bất kỳ cách nào. Nếu không thể sắp xếp thành chuỗi đối xứng, in ra `NO SOLUTION`.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa chuỗi ký tự (độ dài từ $1$ đến $10^6$).</p><p>### Dữ liệu ra:<br/>- In ra chuỗi đối xứng sau khi sắp xếp, hoặc `NO SOLUTION` nếu không thể.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">AAAACAC</pre></td>\n      <td><pre style=\"margin:0;\">AACACAA</pre></td>\n      <td>Xâu có 5 chữ A và 2 chữ C -> Xếp thành AACACAA đối xứng.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">ABC</pre></td>\n      <td><pre style=\"margin:0;\">NO SOLUTION</pre></td>\n      <td>Có quá nhiều ký tự xuất hiện số lẻ lần.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một chuỗi ký tự chỉ gồm các chữ cái in hoa. Hãy sắp xếp lại các ký tự trong chuỗi để tạo thành một chuỗi đối xứng (palindrome).\nNếu có nhiều cách sắp xếp, bạn có thể in ra bất kỳ cách nào. Nếu không thể sắp xếp thành chuỗi đối xứng, in ra `NO SOLUTION`.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa chuỗi ký tự (độ dài từ $1$ đến $10^6$).\n\n### Dữ liệu ra:\n- In ra chuỗi đối xứng sau khi sắp xếp, hoặc `NO SOLUTION` nếu không thể.",
+      "samples": [
+        {
+          "input": "AAAACAC\n",
+          "output": "AACACAA\n",
+          "explanation": "Xâu có 5 chữ A và 2 chữ C -> Xếp thành AACACAA đối xứng."
+        },
+        {
+          "input": "ABC\n",
+          "output": "NO SOLUTION\n",
+          "explanation": "Có quá nhiều ký tự xuất hiện số lẻ lần."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.739Z"
+    },
+    {
+      "id": "prob-rm-extreme-construct",
+      "code": "RM_EXTREME_CONSTRUCT",
+      "title": "Dựng Mảng Xen Kẽ Cực Trị (Extreme Interleaved Array)",
+      "category": "Dựng nghiệm Min/Max",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Dựng Mảng Xen Kẽ Cực Trị (Extreme Interleaved Array)</h3>\n  <p>Cho một mảng $N$ số nguyên. Hãy sắp xếp lại mảng này sao cho các phần tử được xếp xen kẽ: phần tử nhỏ nhất, phần tử lớn nhất, phần tử nhỏ thứ nhì, phần tử lớn thứ nhì...<br/>Tức là: $A_{(1)}, A_{(N)}, A_{(2)}, A_{(N-1)}, A_{(3)}, \\dots$</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).<br/>- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra mảng sau khi sắp xếp lại theo quy luật trên.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5\n1 2 3 4 5</pre></td>\n      <td><pre style=\"margin:0;\">1 5 2 4 3</pre></td>\n      <td>Nhỏ nhất 1, lớn nhất 5, nhỏ nhì 2, lớn nhì 4, còn lại 3.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một mảng $N$ số nguyên. Hãy sắp xếp lại mảng này sao cho các phần tử được xếp xen kẽ: phần tử nhỏ nhất, phần tử lớn nhất, phần tử nhỏ thứ nhì, phần tử lớn thứ nhì...\nTức là: $A_{(1)}, A_{(N)}, A_{(2)}, A_{(N-1)}, A_{(3)}, \\dots$\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).\n- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra mảng sau khi sắp xếp lại theo quy luật trên.",
+      "samples": [
+        {
+          "input": "5\n1 2 3 4 5\n",
+          "output": "1 5 2 4 3\n",
+          "explanation": "Nhỏ nhất 1, lớn nhất 5, nhỏ nhì 2, lớn nhì 4, còn lại 3."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.740Z"
+    },
+    {
+      "id": "prob-rm-usaco-blockedbillboard",
+      "code": "RM_USACO_BLOCKEDBILLBOARD",
+      "title": "Biển Quảng Cáo Bị Che Khuất (USACO Blocked Billboard)",
+      "category": "Mô phỏng hình học & Đoạn thẳng",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Biển Quảng Cáo Bị Che Khuất (USACO Blocked Billboard)</h3>\n  <p>Bác John dựng hai biển quảng cáo hình chữ nhật lớn trên cánh đồng. Một chiếc xe tải chở cỏ đỗ phía trước, có thể che khuất một phần hoặc toàn bộ cả hai biển quảng cáo.<br/>Mỗi biển quảng cáo và chiếc xe tải đều được biểu diễn bởi một hình chữ nhật có các cạnh song song với các trục tọa độ thông qua tọa độ góc dưới-trái $(x_1, y_1)$ và góc trên-phải $(x_2, y_2)$.<br/>Hãy tính tổng diện tích còn nhìn thấy được (không bị xe tải che khuất) của cả hai biển quảng cáo.</p><p>### Dữ liệu vào:<br/>- Dòng 1: Bốn số nguyên $x_1, y_1, x_2, y_2$ của biển quảng cáo 1.<br/>- Dòng 2: Bốn số nguyên $x_1, y_1, x_2, y_2$ của biển quảng cáo 2.<br/>- Dòng 3: Bốn số nguyên $x_1, y_1, x_2, y_2$ của chiếc xe tải.<br/>- Toàn bộ tọa độ nằm trong khoảng từ $-1000$ đến $1000$.</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là tổng diện tích nhìn thấy được.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">1 2 3 5\n6 0 10 4\n2 1 8 3</pre></td>\n      <td><pre style=\"margin:0;\">17</pre></td>\n      <td>Biển 1 diện tích 2*3=6, bị che 1*1=1 -> còn 5. Biển 2 diện tích 4*4=16, bị che 2*2=4 -> còn 12. Tổng = 17.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bác John dựng hai biển quảng cáo hình chữ nhật lớn trên cánh đồng. Một chiếc xe tải chở cỏ đỗ phía trước, có thể che khuất một phần hoặc toàn bộ cả hai biển quảng cáo.\nMỗi biển quảng cáo và chiếc xe tải đều được biểu diễn bởi một hình chữ nhật có các cạnh song song với các trục tọa độ thông qua tọa độ góc dưới-trái $(x_1, y_1)$ và góc trên-phải $(x_2, y_2)$.\nHãy tính tổng diện tích còn nhìn thấy được (không bị xe tải che khuất) của cả hai biển quảng cáo.\n\n### Dữ liệu vào:\n- Dòng 1: Bốn số nguyên $x_1, y_1, x_2, y_2$ của biển quảng cáo 1.\n- Dòng 2: Bốn số nguyên $x_1, y_1, x_2, y_2$ của biển quảng cáo 2.\n- Dòng 3: Bốn số nguyên $x_1, y_1, x_2, y_2$ của chiếc xe tải.\n- Toàn bộ tọa độ nằm trong khoảng từ $-1000$ đến $1000$.\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là tổng diện tích nhìn thấy được.",
+      "samples": [
+        {
+          "input": "1 2 3 5\n6 0 10 4\n2 1 8 3\n",
+          "output": "17\n",
+          "explanation": "Biển 1 diện tích 2*3=6, bị che 1*1=1 -> còn 5. Biển 2 diện tích 4*4=16, bị che 2*2=4 -> còn 12. Tổng = 17."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.741Z"
+    },
+    {
+      "id": "prob-rm-usaco-lostcow",
+      "code": "RM_USACO_LOSTCOW",
+      "title": "Chú Bò Lạc & Bước Nhảy Zigzag (USACO The Lost Cow)",
+      "category": "Mô phỏng trục tọa độ",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Chú Bò Lạc & Bước Nhảy Zigzag (USACO The Lost Cow)</h3>\n  <p>Bác John đang đứng ở vị trí $x$, và chú bò Bessie đang đứng ở vị trí $y$ trên trục số.<br/>John không biết Bessie đang ở đâu, nên áp dụng thuật toán tìm kiếm:<br/>Bắt đầu từ $x$, John đi đến $x + 1$, sau đó quay lại đi đến $x - 2$, rồi $x + 4$, rồi $x - 8$... Mỗi lần John đổi hướng và khoảng cách so với điểm xuất phát ban đầu gấp đôi lần trước ($(-2)^k$).<br/>John sẽ dừng lại ngay khi bắt gặp Bessie tại vị trí $y$.<br/>Hãy tính tổng quãng đường mà John đã đi.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa hai số nguyên $x$ và $y$ ($0 \\le x, y \\le 1000$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là tổng quãng đường John đã đi.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3 6</pre></td>\n      <td><pre style=\"margin:0;\">9</pre></td>\n      <td>3 -> 4 (1), 4 -> 1 (3), 1 -> 6 (gặp Bessie tại 6 mất 5 bước). Tổng = 1 + 3 + 5 = 9.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bác John đang đứng ở vị trí $x$, và chú bò Bessie đang đứng ở vị trí $y$ trên trục số.\nJohn không biết Bessie đang ở đâu, nên áp dụng thuật toán tìm kiếm:\nBắt đầu từ $x$, John đi đến $x + 1$, sau đó quay lại đi đến $x - 2$, rồi $x + 4$, rồi $x - 8$... Mỗi lần John đổi hướng và khoảng cách so với điểm xuất phát ban đầu gấp đôi lần trước ($(-2)^k$).\nJohn sẽ dừng lại ngay khi bắt gặp Bessie tại vị trí $y$.\nHãy tính tổng quãng đường mà John đã đi.\n\n### Dữ liệu vào:\n- Một dòng chứa hai số nguyên $x$ và $y$ ($0 \\le x, y \\le 1000$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là tổng quãng đường John đã đi.",
+      "samples": [
+        {
+          "input": "3 6\n",
+          "output": "9\n",
+          "explanation": "3 -> 4 (1), 4 -> 1 (3), 1 -> 6 (gặp Bessie tại 6 mất 5 bước). Tổng = 1 + 3 + 5 = 9."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.742Z"
+    },
+    {
+      "id": "prob-rm-usaco-censoring",
+      "code": "RM_USACO_CENSORING",
+      "title": "Xóa Chuỗi Con Kiểm Duyệt (USACO Censoring)",
+      "category": "Mô phỏng chuỗi & Stack",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Xóa Chuỗi Con Kiểm Duyệt (USACO Censoring)</h3>\n  <p>John muốn kiểm duyệt một tạp chí bằng cách xóa từ nhạy cảm $T$ khỏi văn bản $S$.<br/>Cụ thể, John tìm lần xuất hiện đầu tiên của $T$ trong $S$ và xóa nó đi. Thao tác xóa có thể làm ghép các phần còn lại lại với nhau và tạo ra lần xuất hiện mới của $T$. John tiếp tục lặp lại quá trình này cho đến khi không còn từ $T$ nào trong $S$.<br/>Hãy in ra xâu $S$ cuối cùng.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa xâu $S$ ($1 \\le |S| \\le 10^5$).<br/>- Dòng thứ hai chứa xâu $T$ ($1 \\le |T| \\le |S|$).</p><p>### Dữ liệu ra:<br/>- In ra chuỗi $S$ sau khi đã kiểm duyệt.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">whatthemomooofun\nmoo</pre></td>\n      <td><pre style=\"margin:0;\">whatthefun</pre></td>\n      <td>Xóa \"moo\" tạo thành \"whatthemooofun\", tiếp tục xóa \"moo\" tạo thành \"whatthefun\".</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "John muốn kiểm duyệt một tạp chí bằng cách xóa từ nhạy cảm $T$ khỏi văn bản $S$.\nCụ thể, John tìm lần xuất hiện đầu tiên của $T$ trong $S$ và xóa nó đi. Thao tác xóa có thể làm ghép các phần còn lại lại với nhau và tạo ra lần xuất hiện mới của $T$. John tiếp tục lặp lại quá trình này cho đến khi không còn từ $T$ nào trong $S$.\nHãy in ra xâu $S$ cuối cùng.\n\n### Dữ liệu vào:\n- Dòng đầu chứa xâu $S$ ($1 \\le |S| \\le 10^5$).\n- Dòng thứ hai chứa xâu $T$ ($1 \\le |T| \\le |S|$).\n\n### Dữ liệu ra:\n- In ra chuỗi $S$ sau khi đã kiểm duyệt.",
+      "samples": [
+        {
+          "input": "whatthemomooofun\nmoo\n",
+          "output": "whatthefun\n",
+          "explanation": "Xóa \"moo\" tạo thành \"whatthemooofun\", tiếp tục xóa \"moo\" tạo thành \"whatthefun\"."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.769Z"
+    },
+    {
+      "id": "prob-rm-cses-twoknights",
+      "code": "RM_CSES_TWOKNIGHTS",
+      "title": "Hai Quân Mã Không Tấn Công Nhau (CSES Two Knights)",
+      "category": "Tổ hợp & Trừ ô xung đột",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Hai Quân Mã Không Tấn Công Nhau (CSES Two Knights)</h3>\n  <p>Nhiệm vụ của bạn là đếm số cách đặt hai quân mã trên bàn cờ kích thước $k \\times k$ sao cho chúng không tấn công lẫn nhau.<br/>Hãy tính toán và in ra kết quả cho tất cả các giá trị $k$ từ $1$ đến $N$.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^4$).</p><p>### Dữ liệu ra:<br/>- In ra $N$ dòng, dòng thứ $k$ là số cách đặt trên bàn cờ $k \\times k$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td><pre style=\"margin:0;\">0\n6\n28\n96</pre></td>\n      <td>Bàn cờ 1x1: 0 cách. Bàn cờ 2x2: C(4,2) = 6 cách. Bàn cờ 3x3: C(9,2) - 8 = 28 cách.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Nhiệm vụ của bạn là đếm số cách đặt hai quân mã trên bàn cờ kích thước $k \\times k$ sao cho chúng không tấn công lẫn nhau.\nHãy tính toán và in ra kết quả cho tất cả các giá trị $k$ từ $1$ đến $N$.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^4$).\n\n### Dữ liệu ra:\n- In ra $N$ dòng, dòng thứ $k$ là số cách đặt trên bàn cờ $k \\times k$.",
+      "samples": [
+        {
+          "input": "4\n",
+          "output": "0\n6\n28\n96\n",
+          "explanation": "Bàn cờ 1x1: 0 cách. Bàn cờ 2x2: C(4,2) = 6 cách. Bàn cờ 3x3: C(9,2) - 8 = 28 cách."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.770Z"
+    },
+    {
+      "id": "prob-rm-usaco-speeding",
+      "code": "RM_USACO_SPEEDING",
+      "title": "Vé Phạt Quá Tốc Độ (USACO Speeding Ticket)",
+      "category": "Mô phỏng phân đoạn & Case Analysis",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Vé Phạt Quá Tốc Độ (USACO Speeding Ticket)</h3>\n  <p>Đoạn đường cao tốc dài đúng $100$ dặm.<br/>Quy định tốc độ gồm $N$ đoạn liên tiếp: đoạn thứ $i$ dài $L_i$ dặm và có tốc độ tối đa $S_i$ dặm/giờ.<br/>Bessie lái xe qua đoạn đường gồm $M$ chặng: chặng thứ $j$ dài $D_j$ dặm và Bessie chạy với tốc độ $B_j$ dặm/giờ.<br/>Tổng chiều dài cả hai phân đoạn đều đúng bằng $100$ dặm.<br/>Hãy tìm độ vượt tốc độ tối đa của Bessie so với quy định (nếu Bessie không vi phạm, in ra 0).</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa hai số nguyên $N$ và $M$ ($1 \\le N, M \\le 100$).<br/>- $N$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $L_i, S_i$ ($1 \\le L_i, S_i \\le 100$).<br/>- $M$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $D_j, B_j$ ($1 \\le D_j, B_j \\le 100$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là độ vượt tốc tối đa.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3 3\n40 75\n50 35\n10 45\n40 76\n20 30\n40 40</pre></td>\n      <td><pre style=\"margin:0;\">5</pre></td>\n      <td>Ở dặm 60-90, quy định là 35 nhưng Bessie chạy 40 -> vượt 5 dặm/giờ.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Đoạn đường cao tốc dài đúng $100$ dặm.\nQuy định tốc độ gồm $N$ đoạn liên tiếp: đoạn thứ $i$ dài $L_i$ dặm và có tốc độ tối đa $S_i$ dặm/giờ.\nBessie lái xe qua đoạn đường gồm $M$ chặng: chặng thứ $j$ dài $D_j$ dặm và Bessie chạy với tốc độ $B_j$ dặm/giờ.\nTổng chiều dài cả hai phân đoạn đều đúng bằng $100$ dặm.\nHãy tìm độ vượt tốc độ tối đa của Bessie so với quy định (nếu Bessie không vi phạm, in ra 0).\n\n### Dữ liệu vào:\n- Dòng đầu chứa hai số nguyên $N$ và $M$ ($1 \\le N, M \\le 100$).\n- $N$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $L_i, S_i$ ($1 \\le L_i, S_i \\le 100$).\n- $M$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $D_j, B_j$ ($1 \\le D_j, B_j \\le 100$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là độ vượt tốc tối đa.",
+      "samples": [
+        {
+          "input": "3 3\n40 75\n50 35\n10 45\n40 76\n20 30\n40 40\n",
+          "output": "5\n",
+          "explanation": "Ở dặm 60-90, quy định là 35 nhưng Bessie chạy 40 -> vượt 5 dặm/giờ."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.772Z"
+    },
+    {
+      "id": "prob-rm-usaco-cowgym",
+      "code": "RM_USACO_COWGYM",
+      "title": "Xếp Hạng Bò Nhất Quán (USACO Cow Gymnastics)",
+      "category": "Mô phỏng & Thu hẹp không gian tìm kiếm",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Xếp Hạng Bò Nhất Quán (USACO Cow Gymnastics)</h3>\n  <p>Để nâng cao thể lực, $N$ chú bò tham gia $K$ buổi tập thể dục. Sau mỗi buổi tập, huấn luyện viên ghi lại bảng xếp hạng thứ tự về đích của $N$ chú bò từ vị trí $1$ (nhanh nhất) đến vị trí $N$ (chậm nhất).<br/>Một cặp bò $(A, B)$ (với $A \\ne B$) được gọi là \"nhất quán\" nếu chú bò $A$ luôn về đích trước chú bò $B$ trong tất cả $K$ buổi tập.<br/>Hãy đếm số lượng cặp bò $(A, B)$ có thứ tự nhất quán.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa hai số nguyên $K$ và $N$ ($1 \\le K \\le 10, 1 \\le N \\le 20$).<br/>- $K$ dòng tiếp theo, mỗi dòng chứa một hoán vị của các số từ $1$ đến $N$ là thứ tự về đích trong buổi tập đó.</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số cặp bò nhất quán.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3 4\n4 1 2 3\n4 1 3 2\n4 2 1 3</pre></td>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td>Các cặp nhất quán: (4,1), (4,2), (4,3), (1,3).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Để nâng cao thể lực, $N$ chú bò tham gia $K$ buổi tập thể dục. Sau mỗi buổi tập, huấn luyện viên ghi lại bảng xếp hạng thứ tự về đích của $N$ chú bò từ vị trí $1$ (nhanh nhất) đến vị trí $N$ (chậm nhất).\nMột cặp bò $(A, B)$ (với $A \\ne B$) được gọi là \"nhất quán\" nếu chú bò $A$ luôn về đích trước chú bò $B$ trong tất cả $K$ buổi tập.\nHãy đếm số lượng cặp bò $(A, B)$ có thứ tự nhất quán.\n\n### Dữ liệu vào:\n- Dòng đầu chứa hai số nguyên $K$ và $N$ ($1 \\le K \\le 10, 1 \\le N \\le 20$).\n- $K$ dòng tiếp theo, mỗi dòng chứa một hoán vị của các số từ $1$ đến $N$ là thứ tự về đích trong buổi tập đó.\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số cặp bò nhất quán.",
+      "samples": [
+        {
+          "input": "3 4\n4 1 2 3\n4 1 3 2\n4 2 1 3\n",
+          "output": "4\n",
+          "explanation": "Các cặp nhất quán: (4,1), (4,2), (4,3), (1,3)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.774Z"
+    },
+    {
+      "id": "prob-rm-target-sum-arr",
+      "code": "RM_TARGET_SUM_ARR",
+      "title": "Dựng Mảng Có Tổng Mục Tiêu (Target Sum Array)",
+      "category": "Dựng mảng với tổng cố định",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Dựng Mảng Có Tổng Mục Tiêu (Target Sum Array)</h3>\n  <p>Cho hai số nguyên dương $N$ và $S$.<br/>Hãy dựng một dãy gồm $N$ số nguyên dương phân biệt và tăng nghiêm ngặt: $1 \\le A_1 < A_2 < \\dots < A_N$ sao cho tổng của chúng đúng bằng $S$:<br/>$$A_1 + A_2 + \\dots + A_N = S$$<br/>Nếu có nhiều dãy thỏa mãn, hãy in ra dãy có các phần tử đầu tiên nhỏ nhất có thể (thứ tự từ điển nhỏ nhất). Nếu không tồn tại, in ra `-1`.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa hai số nguyên dương $N$ và $S$ ($1 \\le N \\le 10^5, 1 \\le S \\le 10^{12}$).</p><p>### Dữ liệu ra:<br/>- In ra $N$ số nguyên của dãy thỏa mãn, hoặc `-1` nếu không thể.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3 10</pre></td>\n      <td><pre style=\"margin:0;\">1 2 7</pre></td>\n      <td>Dãy 1 < 2 < 7 có tổng 10 và có thứ tự từ điển nhỏ nhất.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho hai số nguyên dương $N$ và $S$.\nHãy dựng một dãy gồm $N$ số nguyên dương phân biệt và tăng nghiêm ngặt: $1 \\le A_1 < A_2 < \\dots < A_N$ sao cho tổng của chúng đúng bằng $S$:\n$$A_1 + A_2 + \\dots + A_N = S$$\nNếu có nhiều dãy thỏa mãn, hãy in ra dãy có các phần tử đầu tiên nhỏ nhất có thể (thứ tự từ điển nhỏ nhất). Nếu không tồn tại, in ra `-1`.\n\n### Dữ liệu vào:\n- Một dòng chứa hai số nguyên dương $N$ và $S$ ($1 \\le N \\le 10^5, 1 \\le S \\le 10^{12}$).\n\n### Dữ liệu ra:\n- In ra $N$ số nguyên của dãy thỏa mãn, hoặc `-1` nếu không thể.",
+      "samples": [
+        {
+          "input": "3 10\n",
+          "output": "1 2 7\n",
+          "explanation": "Dãy 1 < 2 < 7 có tổng 10 và có thứ tự từ điển nhỏ nhất."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.775Z"
+    },
+    {
+      "id": "prob-rm-spiral-rotate",
+      "code": "RM_SPIRAL_ROTATE",
+      "title": "Xoay Ma Trận Xoắn Ốc 90 Độ (Spiral Matrix Rotate)",
+      "category": "Ma trận xoắn ốc & Xoay góc 90 độ",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Xoay Ma Trận Xoắn Ốc 90 Độ (Spiral Matrix Rotate)</h3>\n  <p>Cho số nguyên dương $N$.<br/>1. Trước hết, tạo một ma trận vuông $N \\times N$ được điền các số từ $1$ đến $N^2$ theo chiều kim đồng hồ theo hình xoắn ốc bắt đầu từ ô $(1, 1)$.<br/>2. Sau đó, xoay ma trận này $90$ độ theo chiều kim đồng hồ.<br/>Hãy in ra ma trận sau khi đã xoay.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 30$).</p><p>### Dữ liệu ra:<br/>- In ra ma trận $N \\times N$ sau khi đã xoay, mỗi hàng trên một dòng, các số cách nhau bởi dấu cách.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td><pre style=\"margin:0;\">7 4 1\n8 9 2\n5 6 3</pre></td>\n      <td>Ma trận xoắn ốc gốc: [[1,2,3],[8,9,4],[7,6,5]]. Xoay 90 độ: [[7,4,1],[8,9,2],[5,6,3]].</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho số nguyên dương $N$.\n1. Trước hết, tạo một ma trận vuông $N \\times N$ được điền các số từ $1$ đến $N^2$ theo chiều kim đồng hồ theo hình xoắn ốc bắt đầu từ ô $(1, 1)$.\n2. Sau đó, xoay ma trận này $90$ độ theo chiều kim đồng hồ.\nHãy in ra ma trận sau khi đã xoay.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 30$).\n\n### Dữ liệu ra:\n- In ra ma trận $N \\times N$ sau khi đã xoay, mỗi hàng trên một dòng, các số cách nhau bởi dấu cách.",
+      "samples": [
+        {
+          "input": "3\n",
+          "output": "7 4 1\n8 9 2\n5 6 3\n",
+          "explanation": "Ma trận xoắn ốc gốc: [[1,2,3],[8,9,4],[7,6,5]]. Xoay 90 độ: [[7,4,1],[8,9,2],[5,6,3]]."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.777Z"
+    },
+    {
+      "id": "prob-rm-cses-graycode",
+      "code": "RM_CSES_GRAYCODE",
+      "title": "Dãy Mã Gray Nhị Phân (CSES Gray Code)",
+      "category": "Mã hóa nhị phân & Bit manipulation",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Dãy Mã Gray Nhị Phân (CSES Gray Code)</h3>\n  <p>Mã Gray là một danh sách gồm tất cả $2^N$ chuỗi nhị phân độ dài $N$ sao cho hai chuỗi liên tiếp bất kỳ chỉ khác nhau ở đúng một bit (chuỗi đầu tiên và chuỗi cuối cùng cũng có thể khác nhau 1 bit).<br/>Quy tắc sinh mã Gray kinh điển: Giá trị số nguyên $i$ ($0 \\le i < 2^N$) chuyển đổi thành mã Gray qua công thức:<br/>$$G(i) = i \\oplus (i \\gg 1)$$<br/>Hãy in ra toàn bộ $2^N$ chuỗi mã Gray độ dài $N$ theo thứ tự $i = 0, 1, \\dots, 2^N - 1$.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 16$).</p><p>### Dữ liệu ra:<br/>- In ra $2^N$ dòng, mỗi dòng chứa một chuỗi nhị phân độ dài $N$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">2</pre></td>\n      <td><pre style=\"margin:0;\">00\n01\n11\n10</pre></td>\n      <td>4 mã Gray độ dài 2: 00 -> 01 (đổi bit cuối) -> 11 (đổi bit đầu) -> 10 (đổi bit cuối).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Mã Gray là một danh sách gồm tất cả $2^N$ chuỗi nhị phân độ dài $N$ sao cho hai chuỗi liên tiếp bất kỳ chỉ khác nhau ở đúng một bit (chuỗi đầu tiên và chuỗi cuối cùng cũng có thể khác nhau 1 bit).\nQuy tắc sinh mã Gray kinh điển: Giá trị số nguyên $i$ ($0 \\le i < 2^N$) chuyển đổi thành mã Gray qua công thức:\n$$G(i) = i \\oplus (i \\gg 1)$$\nHãy in ra toàn bộ $2^N$ chuỗi mã Gray độ dài $N$ theo thứ tự $i = 0, 1, \\dots, 2^N - 1$.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 16$).\n\n### Dữ liệu ra:\n- In ra $2^N$ dòng, mỗi dòng chứa một chuỗi nhị phân độ dài $N$.",
+      "samples": [
+        {
+          "input": "2\n",
+          "output": "00\n01\n11\n10\n",
+          "explanation": "4 mã Gray độ dài 2: 00 -> 01 (đổi bit cuối) -> 11 (đổi bit đầu) -> 10 (đổi bit cuối)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:21:53.779Z"
+    },
+    {
+      "id": "prob-rm-hollow-square",
+      "code": "RM_HOLLOW_SQUARE",
+      "title": "Vẽ Khung Hình Vuông Rỗng (Hollow Square Pattern)",
+      "category": "Vòng lặp lồng nhau",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Vẽ Khung Hình Vuông Rỗng (Hollow Square Pattern)</h3>\n  <p>Cho một số nguyên dương $N$. Hãy vẽ một hình vuông rỗng kích thước $N \\times N$ bằng ký tự `*`:<br/>- Viền ngoài gồm các ký tự `*`.<br/>- Phần ruột bên trong gồm các ký tự dấu cách ` `.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa số nguyên $N$ ($1 \\le N \\le 50$).</p><p>### Dữ liệu ra:<br/>- In ra hình vuông rỗng kích thước $N \\times N$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td><pre style=\"margin:0;\">****\n*  *\n*  *\n****</pre></td>\n      <td>Hình vuông rỗng 4x4.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một số nguyên dương $N$. Hãy vẽ một hình vuông rỗng kích thước $N \\times N$ bằng ký tự `*`:\n- Viền ngoài gồm các ký tự `*`.\n- Phần ruột bên trong gồm các ký tự dấu cách ` `.\n\n### Dữ liệu vào:\n- Một dòng chứa số nguyên $N$ ($1 \\le N \\le 50$).\n\n### Dữ liệu ra:\n- In ra hình vuông rỗng kích thước $N \\times N$.",
+      "samples": [
+        {
+          "input": "4\n",
+          "output": "****\n*  *\n*  *\n****\n",
+          "explanation": "Hình vuông rỗng 4x4."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.351Z"
+    },
+    {
+      "id": "prob-rm-first-negative",
+      "code": "RM_FIRST_NEGATIVE",
+      "title": "Tìm Vị Trí Số Âm Đầu Tiên (First Negative Element)",
+      "category": "Điều khiển vòng lặp break",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Tìm Vị Trí Số Âm Đầu Tiên (First Negative Element)</h3>\n  <p>Cho một dãy gồm $N$ số nguyên. Hãy tìm vị trí (chỉ số 1-indexed) của số âm đầu tiên xuất hiện trong dãy.<br/>Nếu trong dãy không có số âm nào, hãy in ra `-1`.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).<br/>- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra chỉ số của số âm đầu tiên, hoặc `-1` nếu không có.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5\n10 20 -5 30 -40</pre></td>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td>Số -5 ở vị trí thứ 3 là số âm đầu tiên.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một dãy gồm $N$ số nguyên. Hãy tìm vị trí (chỉ số 1-indexed) của số âm đầu tiên xuất hiện trong dãy.\nNếu trong dãy không có số âm nào, hãy in ra `-1`.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^5$).\n- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($-10^9 \\le A_i \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra chỉ số của số âm đầu tiên, hoặc `-1` nếu không có.",
+      "samples": [
+        {
+          "input": "5\n10 20 -5 30 -40\n",
+          "output": "3\n",
+          "explanation": "Số -5 ở vị trí thứ 3 là số âm đầu tiên."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.353Z"
+    },
+    {
+      "id": "prob-rm-is-alphanum",
+      "code": "RM_IS_ALPHANUM",
+      "title": "Phân Loại Ký Tự (Character Classification)",
+      "category": "Ký tự char & Bảng mã ASCII",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Phân Loại Ký Tự (Character Classification)</h3>\n  <p>Cho một ký tự đơn $C$. Hãy phân loại ký tự $C$ thành một trong các nhóm sau:<br/>- `HOA` nếu $C$ là chữ cái in hoa ('A' đến 'Z').<br/>- `THUONG` nếu $C$ là chữ cái in thường ('a' đến 'z').<br/>- `SO` nếu $C$ là chữ số ('0' đến '9').<br/>- `DAC BIET` cho tất cả các trường hợp ký tự còn lại.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa một ký tự duy nhất $C$.</p><p>### Dữ liệu ra:<br/>- In ra một dòng là nhóm phân loại của ký tự $C$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">A</pre></td>\n      <td><pre style=\"margin:0;\">HOA</pre></td>\n      <td>Chữ cái in hoa.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">9</pre></td>\n      <td><pre style=\"margin:0;\">SO</pre></td>\n      <td>Chữ số.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">#</pre></td>\n      <td><pre style=\"margin:0;\">DAC BIET</pre></td>\n      <td>Ký tự đặc biệt.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một ký tự đơn $C$. Hãy phân loại ký tự $C$ thành một trong các nhóm sau:\n- `HOA` nếu $C$ là chữ cái in hoa ('A' đến 'Z').\n- `THUONG` nếu $C$ là chữ cái in thường ('a' đến 'z').\n- `SO` nếu $C$ là chữ số ('0' đến '9').\n- `DAC BIET` cho tất cả các trường hợp ký tự còn lại.\n\n### Dữ liệu vào:\n- Một dòng chứa một ký tự duy nhất $C$.\n\n### Dữ liệu ra:\n- In ra một dòng là nhóm phân loại của ký tự $C$.",
+      "samples": [
+        {
+          "input": "A\n",
+          "output": "HOA\n",
+          "explanation": "Chữ cái in hoa."
+        },
+        {
+          "input": "9\n",
+          "output": "SO\n",
+          "explanation": "Chữ số."
+        },
+        {
+          "input": "#\n",
+          "output": "DAC BIET\n",
+          "explanation": "Ký tự đặc biệt."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.355Z"
+    },
+    {
+      "id": "prob-rm-is-prime-func",
+      "code": "RM_IS_PRIME_FUNC",
+      "title": "Hàm Kiểm Tra Số Nguyên Tố (Prime Function)",
+      "category": "Hàm (Functions)",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Hàm Kiểm Tra Số Nguyên Tố (Prime Function)</h3>\n  <p>Viết một hàm kiểm tra số nguyên tố và áp dụng để đếm xem trong $N$ số nguyên cho trước có bao nhiêu số nguyên tố.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^4$).<br/>- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($1 \\le A_i \\le 10^7$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số lượng số nguyên tố trong dãy.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">5\n2 3 4 5 6</pre></td>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td>Các số nguyên tố là 2, 3, 5 (tổng 3 số).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Viết một hàm kiểm tra số nguyên tố và áp dụng để đếm xem trong $N$ số nguyên cho trước có bao nhiêu số nguyên tố.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 10^4$).\n- Dòng thứ hai chứa $N$ số nguyên $A_1, A_2, \\dots, A_N$ ($1 \\le A_i \\le 10^7$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số lượng số nguyên tố trong dãy.",
+      "samples": [
+        {
+          "input": "5\n2 3 4 5 6\n",
+          "output": "3\n",
+          "explanation": "Các số nguyên tố là 2, 3, 5 (tổng 3 số)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.355Z"
+    },
+    {
+      "id": "prob-rm-fraction-struct",
+      "code": "RM_FRACTION_STRUCT",
+      "title": "Cộng Hai Phân Số Tối Giản (Fraction Struct Addition)",
+      "category": "Cấu trúc Struct",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Cộng Hai Phân Số Tối Giản (Fraction Struct Addition)</h3>\n  <p>Định nghĩa cấu trúc `Fraction` biểu diễn phân số gồm tử số và mẫu số.<br/>Cho hai phân số $\\frac{a}{b}$ và $\\frac{c}{d}$. Hãy tính tổng của chúng và in ra phân số kết quả dưới dạng tối giản $\\frac{p}{q}$ (nếu $q = 1$ chỉ in ra $p$).</p><p>### Dữ liệu vào:<br/>- Một dòng chứa 4 số nguyên dương $a, b, c, d$ ($1 \\le a, b, c, d \\le 10^4$).</p><p>### Dữ liệu ra:<br/>- In ra phân số tổng tối giản theo định dạng `p/q` hoặc `p` (nếu $q = 1$).</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">1 2 1 3</pre></td>\n      <td><pre style=\"margin:0;\">5/6</pre></td>\n      <td>1/2 + 1/3 = 5/6.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">1 2 1 2</pre></td>\n      <td><pre style=\"margin:0;\">1</pre></td>\n      <td>1/2 + 1/2 = 1/1 = 1.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Định nghĩa cấu trúc `Fraction` biểu diễn phân số gồm tử số và mẫu số.\nCho hai phân số $\\frac{a}{b}$ và $\\frac{c}{d}$. Hãy tính tổng của chúng và in ra phân số kết quả dưới dạng tối giản $\\frac{p}{q}$ (nếu $q = 1$ chỉ in ra $p$).\n\n### Dữ liệu vào:\n- Một dòng chứa 4 số nguyên dương $a, b, c, d$ ($1 \\le a, b, c, d \\le 10^4$).\n\n### Dữ liệu ra:\n- In ra phân số tổng tối giản theo định dạng `p/q` hoặc `p` (nếu $q = 1$).",
+      "samples": [
+        {
+          "input": "1 2 1 3\n",
+          "output": "5/6\n",
+          "explanation": "1/2 + 1/3 = 5/6."
+        },
+        {
+          "input": "1 2 1 2\n",
+          "output": "1\n",
+          "explanation": "1/2 + 1/2 = 1/1 = 1."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.356Z"
+    },
+    {
+      "id": "prob-rm-lcm-pair",
+      "code": "RM_LCM_PAIR",
+      "title": "Bội Chung Nhỏ Nhất Tránh Tràn Số (LCM Pair)",
+      "category": "Số học & Bội chung nhỏ nhất",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Bội Chung Nhỏ Nhất Tránh Tràn Số (LCM Pair)</h3>\n  <p>Cho hai số nguyên dương $A$ và $B$. Hãy tìm bội chung nhỏ nhất $\\text{LCM}(A, B)$.<br/>Lưu ý: Để tránh tràn số nguyên 64-bit khi tính $A \\times B$, bạn nên chia trước cho $\\gcd(A, B)$:<br/>$$\\text{LCM}(A, B) = \\frac{A}{\\gcd(A, B)} \\times B$$</p><p>### Dữ liệu vào:<br/>- Một dòng chứa hai số nguyên dương $A$ và $B$ ($1 \\le A, B \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là $\\text{LCM}(A, B)$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">12 18</pre></td>\n      <td><pre style=\"margin:0;\">36</pre></td>\n      <td>LCM(12, 18) = 36.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho hai số nguyên dương $A$ và $B$. Hãy tìm bội chung nhỏ nhất $\\text{LCM}(A, B)$.\nLưu ý: Để tránh tràn số nguyên 64-bit khi tính $A \\times B$, bạn nên chia trước cho $\\gcd(A, B)$:\n$$\\text{LCM}(A, B) = \\frac{A}{\\gcd(A, B)} \\times B$$\n\n### Dữ liệu vào:\n- Một dòng chứa hai số nguyên dương $A$ và $B$ ($1 \\le A, B \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là $\\text{LCM}(A, B)$.",
+      "samples": [
+        {
+          "input": "12 18\n",
+          "output": "36\n",
+          "explanation": "LCM(12, 18) = 36."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.357Z"
+    },
+    {
+      "id": "prob-rm-vnoi-primerange",
+      "code": "RM_VNOI_PRIMERANGE",
+      "title": "Đếm Số Nguyên Tố Trong Đoạn [L, R] (Prime Range Query)",
+      "category": "Sàng Eratosthenes & Prefix Sum",
+      "difficulty": "Trung bình",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Đếm Số Nguyên Tố Trong Đoạn [L, R] (Prime Range Query)</h3>\n  <p>Cho $Q$ truy vấn, mỗi truy vấn gồm hai số nguyên $L$ và $R$. Hãy đếm số lượng số nguyên tố nằm trong đoạn $[L, R]$.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số lượng truy vấn $Q$ ($1 \\le Q \\le 10^5$).<br/>- $Q$ dòng tiếp theo, mỗi dòng chứa hai số $L, R$ ($1 \\le L \\le R \\le 10^6$).</p><p>### Dữ liệu ra:<br/>- Với mỗi truy vấn, in ra số lượng số nguyên tố trên một dòng.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">3\n1 10\n10 20\n20 30</pre></td>\n      <td><pre style=\"margin:0;\">4\n4\n2</pre></td>\n      <td>[1,10] có 2,3,5,7 (4 số). [10,20] có 11,13,17,19 (4 số). [20,30] có 23,29 (2 số).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho $Q$ truy vấn, mỗi truy vấn gồm hai số nguyên $L$ và $R$. Hãy đếm số lượng số nguyên tố nằm trong đoạn $[L, R]$.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số lượng truy vấn $Q$ ($1 \\le Q \\le 10^5$).\n- $Q$ dòng tiếp theo, mỗi dòng chứa hai số $L, R$ ($1 \\le L \\le R \\le 10^6$).\n\n### Dữ liệu ra:\n- Với mỗi truy vấn, in ra số lượng số nguyên tố trên một dòng.",
+      "samples": [
+        {
+          "input": "3\n1 10\n10 20\n20 30\n",
+          "output": "4\n4\n2\n",
+          "explanation": "[1,10] có 2,3,5,7 (4 số). [10,20] có 11,13,17,19 (4 số). [20,30] có 23,29 (2 số)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.400Z"
+    },
+    {
+      "id": "prob-rm-count-even-odd-digits",
+      "code": "RM_COUNT_EVEN_ODD_DIGITS",
+      "title": "Đếm Chữ Số Chẵn & Lẻ Của N (Even/Odd Digit Count)",
+      "category": "Kỹ thuật tách chữ số",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Đếm Chữ Số Chẵn & Lẻ Của N (Even/Odd Digit Count)</h3>\n  <p>Cho một số nguyên dương $N$. Hãy đếm số lượng chữ số chẵn và số lượng chữ số lẻ trong biểu diễn thập phân của $N$.</p><p>### Dữ liệu vào:<br/>- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^{18}$).</p><p>### Dữ liệu ra:<br/>- In ra hai số nguyên cách nhau bởi dấu cách lần lượt là số lượng chữ số chẵn và số lượng chữ số lẻ.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">123456</pre></td>\n      <td><pre style=\"margin:0;\">3 3</pre></td>\n      <td>Chữ số chẵn: 2, 4, 6 (3 số). Chữ số lẻ: 1, 3, 5 (3 số).</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">2024</pre></td>\n      <td><pre style=\"margin:0;\">4 0</pre></td>\n      <td>Tất cả 4 chữ số 2, 0, 2, 4 đều là số chẵn.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một số nguyên dương $N$. Hãy đếm số lượng chữ số chẵn và số lượng chữ số lẻ trong biểu diễn thập phân của $N$.\n\n### Dữ liệu vào:\n- Một dòng duy nhất chứa số nguyên $N$ ($1 \\le N \\le 10^{18}$).\n\n### Dữ liệu ra:\n- In ra hai số nguyên cách nhau bởi dấu cách lần lượt là số lượng chữ số chẵn và số lượng chữ số lẻ.",
+      "samples": [
+        {
+          "input": "123456\n",
+          "output": "3 3\n",
+          "explanation": "Chữ số chẵn: 2, 4, 6 (3 số). Chữ số lẻ: 1, 3, 5 (3 số)."
+        },
+        {
+          "input": "2024\n",
+          "output": "4 0\n",
+          "explanation": "Tất cả 4 chữ số 2, 0, 2, 4 đều là số chẵn."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.401Z"
+    },
+    {
+      "id": "prob-rm-check-kth-bit",
+      "code": "RM_CHECK_KTH_BIT",
+      "title": "Kiểm Tra & Bật Bit Thứ K (Check and Set K-th Bit)",
+      "category": "Kỹ thuật Bitmask",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Kiểm Tra & Bật Bit Thứ K (Check and Set K-th Bit)</h3>\n  <p>Cho số nguyên dương $N$ và chỉ số bit $K$ (đánh chỉ số từ $0$ bắt đầu từ bit có trọng số nhỏ nhất).<br/>1. Hãy kiểm tra bit thứ $K$ của $N$ là $0$ hay $1$.<br/>2. Hãy tính giá trị của $N$ sau khi bật bit thứ $K$ thành $1$ ($N \\mid (1 \\ll K)$).</p><p>### Dữ liệu vào:<br/>- Một dòng chứa hai số nguyên $N$ và $K$ ($1 \\le N \\le 10^9, 0 \\le K \\le 30$).</p><p>### Dữ liệu ra:<br/>- In ra hai số nguyên cách nhau bởi dấu cách: giá trị bit thứ $K$ (0 hoặc 1) và giá trị của $N$ sau khi bật bit.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">10 1</pre></td>\n      <td><pre style=\"margin:0;\">1 10</pre></td>\n      <td>10 = 1010_2. Bit thứ 1 là 1. Bật bit 1 vẫn là 10.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">10 2</pre></td>\n      <td><pre style=\"margin:0;\">0 14</pre></td>\n      <td>Bit thứ 2 là 0. Bật bit 2 ta được 10 | 4 = 14 (1110_2).</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho số nguyên dương $N$ và chỉ số bit $K$ (đánh chỉ số từ $0$ bắt đầu từ bit có trọng số nhỏ nhất).\n1. Hãy kiểm tra bit thứ $K$ của $N$ là $0$ hay $1$.\n2. Hãy tính giá trị của $N$ sau khi bật bit thứ $K$ thành $1$ ($N \\mid (1 \\ll K)$).\n\n### Dữ liệu vào:\n- Một dòng chứa hai số nguyên $N$ và $K$ ($1 \\le N \\le 10^9, 0 \\le K \\le 30$).\n\n### Dữ liệu ra:\n- In ra hai số nguyên cách nhau bởi dấu cách: giá trị bit thứ $K$ (0 hoặc 1) và giá trị của $N$ sau khi bật bit.",
+      "samples": [
+        {
+          "input": "10 1\n",
+          "output": "1 10\n",
+          "explanation": "10 = 1010_2. Bit thứ 1 là 1. Bật bit 1 vẫn là 10."
+        },
+        {
+          "input": "10 2\n",
+          "output": "0 14\n",
+          "explanation": "Bit thứ 2 là 0. Bật bit 2 ta được 10 | 4 = 14 (1110_2)."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.402Z"
+    },
+    {
+      "id": "prob-rm-repeated-digit-sum",
+      "code": "RM_REPEATED_DIGIT_SUM",
+      "title": "Căn Số Học Lặp (Digital Root Sum)",
+      "category": "Tổng chữ số & Đồng dư mod 9",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Căn Số Học Lặp (Digital Root Sum)</h3>\n  <p>Cho một số nguyên dương $N$. Ta liên tục thay thế $N$ bằng tổng các chữ số của nó cho đến khi $N$ chỉ còn đúng một chữ số.<br/>Giá trị một chữ số cuối cùng này được gọi là \"căn số học\" (Digital Root). Hãy tìm giá trị đó.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa số nguyên $N$ ($1 \\le N \\le 10^{18}$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất từ 1 đến 9 là căn số học của $N$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">38</pre></td>\n      <td><pre style=\"margin:0;\">2</pre></td>\n      <td>3 + 8 = 11 -> 1 + 1 = 2.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">999</pre></td>\n      <td><pre style=\"margin:0;\">9</pre></td>\n      <td>9 + 9 + 9 = 27 -> 2 + 7 = 9.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Cho một số nguyên dương $N$. Ta liên tục thay thế $N$ bằng tổng các chữ số của nó cho đến khi $N$ chỉ còn đúng một chữ số.\nGiá trị một chữ số cuối cùng này được gọi là \"căn số học\" (Digital Root). Hãy tìm giá trị đó.\n\n### Dữ liệu vào:\n- Một dòng chứa số nguyên $N$ ($1 \\le N \\le 10^{18}$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất từ 1 đến 9 là căn số học của $N$.",
+      "samples": [
+        {
+          "input": "38\n",
+          "output": "2\n",
+          "explanation": "3 + 8 = 11 -> 1 + 1 = 2."
+        },
+        {
+          "input": "999\n",
+          "output": "9\n",
+          "explanation": "9 + 9 + 9 = 27 -> 2 + 7 = 9."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.403Z"
+    },
+    {
+      "id": "prob-rm-fib-last-digit",
+      "code": "RM_FIB_LAST_DIGIT",
+      "title": "Chữ Số Tận Cùng Của Số Fibonacci (Fibonacci Last Digit)",
+      "category": "Fibonacci & Chu kỳ Pisano mod 10",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Chữ Số Tận Cùng Của Số Fibonacci (Fibonacci Last Digit)</h3>\n  <p>Dãy số Fibonacci được định nghĩa: $F_0 = 0, F_1 = 1, F_n = F_{n-1} + F_{n-2}$ với $n \\ge 2$.<br/>Cho số nguyên dương $N$. Hãy tìm chữ số tận cùng của $F_N$.<br/>(Gợi ý: Dãy chữ số tận cùng của Fibonacci tuần hoàn theo chu kỳ 60).</p><p>### Dữ liệu vào:<br/>- Một dòng chứa số nguyên $N$ ($1 \\le N \\le 10^9$).</p><p>### Dữ liệu ra:<br/>- In ra chữ số tận cùng của $F_N$.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">9</pre></td>\n      <td><pre style=\"margin:0;\">4</pre></td>\n      <td>F_9 = 34 có chữ số tận cùng là 4.</td>\n    </tr>\n    <tr>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td><pre style=\"margin:0;\">2</pre></td>\n      <td>F_3 = 2.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Dãy số Fibonacci được định nghĩa: $F_0 = 0, F_1 = 1, F_n = F_{n-1} + F_{n-2}$ với $n \\ge 2$.\nCho số nguyên dương $N$. Hãy tìm chữ số tận cùng của $F_N$.\n(Gợi ý: Dãy chữ số tận cùng của Fibonacci tuần hoàn theo chu kỳ 60).\n\n### Dữ liệu vào:\n- Một dòng chứa số nguyên $N$ ($1 \\le N \\le 10^9$).\n\n### Dữ liệu ra:\n- In ra chữ số tận cùng của $F_N$.",
+      "samples": [
+        {
+          "input": "9\n",
+          "output": "4\n",
+          "explanation": "F_9 = 34 có chữ số tận cùng là 4."
+        },
+        {
+          "input": "3\n",
+          "output": "2\n",
+          "explanation": "F_3 = 2."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.404Z"
+    },
+    {
+      "id": "prob-rm-usaco-cowcross",
+      "code": "RM_USACO_COWCROSS",
+      "title": "Đếm Lần Bò Sang Đường (USACO Cow Cross The Road)",
+      "category": "Mô phỏng quan sát trạng thái",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Đếm Lần Bò Sang Đường (USACO Cow Cross The Road)</h3>\n  <p>Bác John đang quan sát $10$ chú bò được đánh số từ $1$ đến $10$ qua đường. Con đường chia cánh đồng thành hai bên: bên 0 và bên 1.<br/>John ghi lại $N$ lần quan sát theo thứ tự thời gian. Mỗi lần quan sát gồm mã số chú bò $ID$ và bên đường hiện tại của chú bò đó ($0$ hoặc $1$).<br/>Mỗi khi một chú bò được phát hiện ở bên đường khác so với lần quan sát trước đó của chính nó, ta tính là một lần chú bò đó đã băng qua đường.<br/>Hãy tính tổng số lần các chú bò đã băng qua đường.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 100$).<br/>- $N$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $ID$ và $Side$ ($1 \\le ID \\le 10, Side \\in \\{0, 1\\}$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là tổng số lần qua đường.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">8\n3 1\n3 0\n6 0\n2 1\n4 1\n3 0\n4 0\n3 1</pre></td>\n      <td><pre style=\"margin:0;\">3</pre></td>\n      <td>Bò 3 đổi bên 2 lần (1->0 rồi 0->1). Bò 4 đổi bên 1 lần (1->0). Tổng = 3.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bác John đang quan sát $10$ chú bò được đánh số từ $1$ đến $10$ qua đường. Con đường chia cánh đồng thành hai bên: bên 0 và bên 1.\nJohn ghi lại $N$ lần quan sát theo thứ tự thời gian. Mỗi lần quan sát gồm mã số chú bò $ID$ và bên đường hiện tại của chú bò đó ($0$ hoặc $1$).\nMỗi khi một chú bò được phát hiện ở bên đường khác so với lần quan sát trước đó của chính nó, ta tính là một lần chú bò đó đã băng qua đường.\nHãy tính tổng số lần các chú bò đã băng qua đường.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 100$).\n- $N$ dòng tiếp theo, mỗi dòng chứa hai số nguyên $ID$ và $Side$ ($1 \\le ID \\le 10, Side \\in \\{0, 1\\}$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là tổng số lần qua đường.",
+      "samples": [
+        {
+          "input": "8\n3 1\n3 0\n6 0\n2 1\n4 1\n3 0\n4 0\n3 1\n",
+          "output": "3\n",
+          "explanation": "Bò 3 đổi bên 2 lần (1->0 rồi 0->1). Bò 4 đổi bên 1 lần (1->0). Tổng = 3."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.405Z"
+    },
+    {
+      "id": "prob-rm-usaco-squarepasture",
+      "code": "RM_USACO_SQUAREPASTURE",
+      "title": "Bao Đóng Đồng Cỏ Hình Vuông (USACO Square Pasture)",
+      "category": "Mô phỏng hình học chữ nhật",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Bao Đóng Đồng Cỏ Hình Vuông (USACO Square Pasture)</h3>\n  <p>Bác John có hai đồng cỏ hình chữ nhật. Đồng cỏ thứ nhất có tọa độ góc dưới-trái $(x_1, y_1)$ và góc trên-phải $(x_2, y_2)$. Đồng cỏ thứ hai có tọa độ $(x_3, y_3)$ và $(x_4, y_4)$.<br/>John muốn xây một hàng rào hình vuông duy nhất (các cạnh song song với các trục tọa độ) bao trọn toàn bộ cả hai đồng cỏ này.<br/>Hãy tìm diện tích nhỏ nhất của đồng cỏ hình vuông đó.</p><p>### Dữ liệu vào:<br/>- Dòng 1: Bốn số nguyên $x_1, y_1, x_2, y_2$.<br/>- Dòng 2: Bốn số nguyên $x_3, y_3, x_4, y_4$.<br/>- Toàn bộ tọa độ nằm trong khoảng từ $0$ đến $10$.</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là diện tích hình vuông nhỏ nhất.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">6 6 8 8\n1 8 4 9</pre></td>\n      <td><pre style=\"margin:0;\">49</pre></td>\n      <td>X kéo dài từ 1 đến 8 (dài 7). Y kéo dài từ 6 đến 9 (dài 3). Cạnh hình vuông = max(7, 3) = 7 -> Diện tích = 49.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Bác John có hai đồng cỏ hình chữ nhật. Đồng cỏ thứ nhất có tọa độ góc dưới-trái $(x_1, y_1)$ và góc trên-phải $(x_2, y_2)$. Đồng cỏ thứ hai có tọa độ $(x_3, y_3)$ và $(x_4, y_4)$.\nJohn muốn xây một hàng rào hình vuông duy nhất (các cạnh song song với các trục tọa độ) bao trọn toàn bộ cả hai đồng cỏ này.\nHãy tìm diện tích nhỏ nhất của đồng cỏ hình vuông đó.\n\n### Dữ liệu vào:\n- Dòng 1: Bốn số nguyên $x_1, y_1, x_2, y_2$.\n- Dòng 2: Bốn số nguyên $x_3, y_3, x_4, y_4$.\n- Toàn bộ tọa độ nằm trong khoảng từ $0$ đến $10$.\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là diện tích hình vuông nhỏ nhất.",
+      "samples": [
+        {
+          "input": "6 6 8 8\n1 8 4 9\n",
+          "output": "49\n",
+          "explanation": "X kéo dài từ 1 đến 8 (dài 7). Y kéo dài từ 6 đến 9 (dài 3). Cạnh hình vuông = max(7, 3) = 7 -> Diện tích = 49."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.406Z"
+    },
+    {
+      "id": "prob-rm-usaco-daisychains",
+      "code": "RM_USACO_DAISYCHAINS",
+      "title": "Chuỗi Hoa Cúc & Giá Trị Trung Bình (USACO Daisy Chains)",
+      "category": "Thu hẹp không gian tìm kiếm O(N^2)",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Chuỗi Hoa Cúc & Giá Trị Trung Bình (USACO Daisy Chains)</h3>\n  <p>Mỗi ngày Bessie đi dạo qua một cánh đồng gồm $N$ bông hoa cúc xếp thành hàng, bông hoa thứ $i$ có $P_i$ cánh hoa.<br/>Bessie chụp ảnh tất cả các đoạn con liên tiếp từ bông hoa thứ $i$ đến bông hoa thứ $j$ ($1 \\le i \\le j \\le N$).<br/>Một bức ảnh được gọi là \"đặc biệt\" nếu trong số các bông hoa được chụp, tồn tại ít nhất một bông hoa có số cánh hoa đúng bằng số cánh hoa trung bình của toàn bộ các bông hoa trong bức ảnh đó.<br/>Hãy đếm xem có bao nhiêu bức ảnh đặc biệt.</p><p>### Dữ liệu vào:<br/>- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 100$).<br/>- Dòng thứ hai chứa $N$ số nguyên $P_1, P_2, \\dots, P_N$ ($1 \\le P_i \\le 1000$).</p><p>### Dữ liệu ra:<br/>- In ra một số nguyên duy nhất là số bức ảnh đặc biệt.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">4\n1 1 2 3</pre></td>\n      <td><pre style=\"margin:0;\">6</pre></td>\n      <td>Tất cả 4 bức ảnh 1 bông hoa đều đặc biệt. Đoạn [1, 2] có trung bình 1 (có hoa cánh 1). Đoạn [1, 4] có trung bình (1+1+2+3)/4 không nguyên. Tổng có 6 bức ảnh đặc biệt.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Mỗi ngày Bessie đi dạo qua một cánh đồng gồm $N$ bông hoa cúc xếp thành hàng, bông hoa thứ $i$ có $P_i$ cánh hoa.\nBessie chụp ảnh tất cả các đoạn con liên tiếp từ bông hoa thứ $i$ đến bông hoa thứ $j$ ($1 \\le i \\le j \\le N$).\nMột bức ảnh được gọi là \"đặc biệt\" nếu trong số các bông hoa được chụp, tồn tại ít nhất một bông hoa có số cánh hoa đúng bằng số cánh hoa trung bình của toàn bộ các bông hoa trong bức ảnh đó.\nHãy đếm xem có bao nhiêu bức ảnh đặc biệt.\n\n### Dữ liệu vào:\n- Dòng đầu chứa số nguyên $N$ ($1 \\le N \\le 100$).\n- Dòng thứ hai chứa $N$ số nguyên $P_1, P_2, \\dots, P_N$ ($1 \\le P_i \\le 1000$).\n\n### Dữ liệu ra:\n- In ra một số nguyên duy nhất là số bức ảnh đặc biệt.",
+      "samples": [
+        {
+          "input": "4\n1 1 2 3\n",
+          "output": "6\n",
+          "explanation": "Tất cả 4 bức ảnh 1 bông hoa đều đặc biệt. Đoạn [1, 2] có trung bình 1 (có hoa cánh 1). Đoạn [1, 4] có trung bình (1+1+2+3)/4 không nguyên. Tổng có 6 bức ảnh đặc biệt."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.407Z"
+    },
+    {
+      "id": "prob-rm-run-length-enc",
+      "code": "RM_RUN_LENGTH_ENC",
+      "title": "Nén Chuỗi Độ Dài Chạy RLE (Run-Length Encoding)",
+      "category": "Mô phỏng xâu ký tự",
+      "difficulty": "Cơ bản",
+      "points": 100,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "statementHtml": "\n<div class=\"problem-statement\">\n  <h3>Nén Chuỗi Độ Dài Chạy RLE (Run-Length Encoding)</h3>\n  <p>Kỹ thuật nén chuỗi Run-Length Encoding (RLE) thay thế mỗi đoạn các ký tự liên tiếp giống nhau bằng chính ký tự đó kèm theo số lần xuất hiện của nó.<br/>Ví dụ: Chuỗi `WWWWWWAAAA` được nén thành `W6A4`. Chuỗi `B` được nén thành `B1`.<br/>Cho chuỗi ký tự $S$, hãy in ra dạng nén RLE của nó.</p><p>### Dữ liệu vào:<br/>- Một dòng chứa chuỗi ký tự $S$ gồm các chữ cái in hoa (độ dài từ $1$ đến $10^5$).</p><p>### Dữ liệu ra:<br/>- In ra chuỗi sau khi nén RLE.</p>\n  <h4>Ví dụ:</h4>\n  <table border=\"1\" cellpadding=\"8\" style=\"border-collapse:collapse;width:100%;background:rgba(255,255,255,0.03);\">\n    <tr style=\"background:rgba(255,255,255,0.08);\">\n      <th>Input</th>\n      <th>Output</th>\n      <th>Giải thích</th>\n    </tr>\n    \n    <tr>\n      <td><pre style=\"margin:0;\">WWWWWWAAAA</pre></td>\n      <td><pre style=\"margin:0;\">W6A4</pre></td>\n      <td>6 chữ W và 4 chữ A.</td>\n    </tr>\n  </table>\n</div>",
+      "statement": "Kỹ thuật nén chuỗi Run-Length Encoding (RLE) thay thế mỗi đoạn các ký tự liên tiếp giống nhau bằng chính ký tự đó kèm theo số lần xuất hiện của nó.\nVí dụ: Chuỗi `WWWWWWAAAA` được nén thành `W6A4`. Chuỗi `B` được nén thành `B1`.\nCho chuỗi ký tự $S$, hãy in ra dạng nén RLE của nó.\n\n### Dữ liệu vào:\n- Một dòng chứa chuỗi ký tự $S$ gồm các chữ cái in hoa (độ dài từ $1$ đến $10^5$).\n\n### Dữ liệu ra:\n- In ra chuỗi sau khi nén RLE.",
+      "samples": [
+        {
+          "input": "WWWWWWAAAA\n",
+          "output": "W6A4\n",
+          "explanation": "6 chữ W và 4 chữ A."
+        }
+      ],
+      "testCount": 10,
+      "createdAt": "2026-10-11T02:22:06.408Z"
     }
   ],
   "submissions": [
@@ -1906,6 +3124,46 @@
     }
   ],
   "contests": [
+    {
+      "id": "cnt-fa930cab-889a-46dd-9cc4-cb6cb0ef3f3a",
+      "title": "Kỳ thi thử Virtual",
+      "description": "",
+      "mode": "offline",
+      "scopeType": "ALL",
+      "targetGrades": [],
+      "targetClasses": [],
+      "targetStudents": [],
+      "totalScore": 100,
+      "memoryLimit": 256,
+      "category": "regular",
+      "classIds": [],
+      "candidateIds": [],
+      "problemIds": [],
+      "pdfUrl": "",
+      "pdfFileName": "",
+      "statementHtml": "",
+      "_pdfDiskPath": "",
+      "startTime": "2026-10-11T01:18:19.357Z",
+      "endTime": "2026-10-11T02:18:18.358Z",
+      "durationMinutes": 45,
+      "status": "ended",
+      "gradingMode": "direct",
+      "freezeScoreboardMinutes": 15,
+      "pinCode": "",
+      "hideTestDetailsForStudents": true,
+      "requireFreopen": false,
+      "allowReopen": true,
+      "manualEndOnly": true,
+      "ioMode": "stdin",
+      "scoringMode": "LIVE_BEST",
+      "ipWhitelist": "",
+      "antiCheat": {
+        "preventTabSwitch": true,
+        "maxTabViolations": 3,
+        "preventCopyPaste": false
+      },
+      "createdAt": "2026-10-11T02:18:19.358Z"
+    },
     {
       "id": "cnt-2099f9f8-3b33-42c0-b827-07262b2fc825",
       "title": "Kỳ thi thử Virtual",
@@ -4131,7 +5389,7 @@
       "difficulty": 1,
       "estimatedMinutes": 30,
       "prerequisiteLessonIds": [],
-      "problemId": "prob-rm-fastio",
+      "problemId": "prob-rm-cses-weird",
       "problemCode": "RM_FASTIO",
       "shortTheory": "### Cấu trúc chương trình C++ chuẩn\nMọi chương trình C++ bắt đầu từ hàm `main()`. Trong Competitive Programming, để tăng tốc độ nhập xuất ta sử dụng:\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    long long a, b;\n    if (cin >> a >> b) {\n        cout << a + b << \"\\n\";\n    }\n    return 0;\n}\n```\n- Dùng `\\n` thay vì `endl` để tránh ép xả buffer nhiều lần gây Time Limit Exceeded (TLE).",
       "hints": [
@@ -4139,7 +5397,11 @@
         "Tính tổng hoặc giá trị biểu thức theo yêu cầu và in ra bằng cout << ans << \"\\n\";",
         "Nhớ thêm ios_base::sync_with_stdio(false); cin.tie(NULL); ở đầu hàm main."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_FASTIO",
+        "RM_CSES_WEIRD"
+      ]
     },
     {
       "id": "les-1-23",
@@ -4179,7 +5441,11 @@
         "Phép trừ có thể ra số âm, cần cộng thêm modulo m trước khi lấy dư.",
         "Dùng kiểu long long khi nhân 2 số trước khi lấy modulo để tránh tràn số."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_LASTDIGITPOW",
+        "RM_CSES_TRAILINGZEROS"
+      ]
     },
     {
       "id": "les-3-1",
@@ -4199,7 +5465,11 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CSES_COINPILES",
+        "RM_USACO_COWCROSS"
+      ]
     },
     {
       "id": "les-4-1",
@@ -4365,7 +5635,7 @@
       "prerequisiteLessonIds": [
         "les-2-1"
       ],
-      "problemId": "prob-rm-divisors",
+      "problemId": "prob-rm-cses-countdiv",
       "problemCode": "RM_DIVISORS",
       "shortTheory": "### Tìm ước trong $O(\\sqrt{N})$\nNếu $d$ là ước của $N$ thì $\\frac{N}{d}$ cũng là ước của $N$. Do đó ta chỉ cần duyệt $d$ từ $1$ đến $\\sqrt{N}$:\n```cpp\nvector<long long> timUoc(long long n) {\n    vector<long long> uoc;\n    for (long long i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            uoc.push_back(i);\n            if (i * i != n) {\n                uoc.push_back(n / i);\n            }\n        }\n    }\n    return uoc;\n}\n```",
       "hints": [
@@ -4373,7 +5643,11 @@
         "Nếu i * i == n thì chỉ thêm i một lần (tránh trùng khi n là số chính phương).",
         "Sắp xếp lại vector các ước nếu bài toán yêu cầu thứ tự tăng dần."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_DIVISORS",
+        "RM_CSES_COUNTDIV"
+      ]
     },
     {
       "id": "les-3-2",
@@ -4393,7 +5667,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_MADSCIENTIST"
+      ]
     },
     {
       "id": "les-4-2",
@@ -4589,7 +5866,11 @@
         "Số lượng ước là tích của (số mũ + 1).",
         "Áp dụng công thức cấp số nhân để tính tổng ước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_AMICABLE",
+        "RM_CSES_COUNTDIV"
+      ]
     },
     {
       "id": "les-3-3",
@@ -4609,7 +5890,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CSES_NUMSPIRAL"
+      ]
     },
     {
       "id": "les-4-3",
@@ -4759,7 +6043,7 @@
       "prerequisiteLessonIds": [
         "les-1-3"
       ],
-      "problemId": "prob-rm-compare",
+      "problemId": "prob-rm-usaco-fencepaint",
       "problemCode": "RM_COMPARE",
       "shortTheory": "### Câu lệnh điều kiện if - else\nDùng để rẽ nhánh thực thi chương trình dựa trên biểu thức điều kiện:\n```cpp\nif (condition) {\n    // Thực thi khi condition đúng (khác 0)\n} else {\n    // Thực thi khi condition sai\n}\n```\n- Các toán tử so sánh: `==`, `!=`, `<`, `<=`, `>`, `>=`.\n- **Lưu ý**: So sánh bằng là `==`, không nhầm với phép gán `=`.",
       "hints": [
@@ -4767,7 +6051,12 @@
         "Dùng if (a > b) hoặc các phép so sánh tương ứng.",
         "In ra kết quả tương ứng theo từng nhánh rẽ."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_COMPARE",
+        "RM_USACO_TELEPORT",
+        "RM_USACO_FENCEPAINT"
+      ]
     },
     {
       "id": "les-2-4",
@@ -4787,7 +6076,11 @@
         "std::gcd(a, b) có sẵn từ C++17.",
         "gcd(a, b) không đổi khi đổi chỗ a và b."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_FRACSUM",
+        "RM_VNOI_ARRAYGCD"
+      ]
     },
     {
       "id": "les-3-4",
@@ -4807,7 +6100,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_MIXINGMILK"
+      ]
     },
     {
       "id": "les-4-4",
@@ -4939,7 +6235,7 @@
       "prerequisiteLessonIds": [
         "les-1-4"
       ],
-      "problemId": "prob-rm-logic",
+      "problemId": "prob-rm-vnoi-triangle",
       "problemCode": "RM_LOGIC",
       "shortTheory": "### Toán tử logic phức hợp\n- `&&` (AND): Đúng khi cả hai điều kiện cùng đúng.\n- `||` (OR): Đúng khi ít nhất một điều kiện đúng.\n- `!` (NOT): Phủ định giá trị logic.\n\n```cpp\nif (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {\n    cout << \"NAM NHUAN\\n\";\n} else {\n    cout << \"NAM KHONG NHUAN\\n\";\n}\n```",
       "hints": [
@@ -4947,7 +6243,11 @@
         "Đọc kỹ các trường hợp ngoại lệ trong đề bài.",
         "Kiểm tra lại nhánh else cuối cùng xem đã bao quát hết chưa."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_LOGIC",
+        "RM_VNOI_TRIANGLE"
+      ]
     },
     {
       "id": "les-2-5",
@@ -4967,7 +6267,11 @@
         "Sau đó nhân với b để tránh tràn số long long.",
         "Kiểm tra trường hợp a = 0 hoặc b = 0."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_NUMDIVFORM",
+        "RM_LCM_PAIR"
+      ]
     },
     {
       "id": "les-3-5",
@@ -4987,7 +6291,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_ROBOT_GRID"
+      ]
     },
     {
       "id": "les-4-5",
@@ -5119,7 +6426,7 @@
       "prerequisiteLessonIds": [
         "les-1-5"
       ],
-      "problemId": "prob-rm-ticket",
+      "problemId": "prob-rm-usaco-fencepaint",
       "problemCode": "RM_TICKET",
       "shortTheory": "### Phân loại nhiều khoảng giá trị\nKhi gặp bài toán tính tiền theo từng mức (ví dụ tiền điện, giá vé xe, thuế):\n```cpp\nlong long tinhTien(int tuoi, int loaiVe) {\n    if (tuoi < 6) return 0;\n    if (tuoi <= 12) return 50000;\n    if (tuoi >= 65) return 30000;\n    return 100000;\n}\n```\nNên xử lý các trường hợp đặc biệt trước (trẻ em, người cao tuổi) để đơn giản hóa logic.",
       "hints": [
@@ -5127,7 +6434,12 @@
         "Kiểm tra kỹ xem các mốc có bao gồm dấu bằng (<=, >=) hay không.",
         "Tính tổng hoặc áp dụng mức chiết khấu theo đúng đề bài."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_TICKET",
+        "RM_USACO_TELEPORT",
+        "RM_USACO_FENCEPAINT"
+      ]
     },
     {
       "id": "les-2-6",
@@ -5139,7 +6451,7 @@
       "prerequisiteLessonIds": [
         "les-2-5"
       ],
-      "problemId": "prob-rm-prime",
+      "problemId": "prob-rm-vnoi-primepalin",
       "problemCode": "RM_PRIME",
       "shortTheory": "### Kiểm tra số nguyên tố\nSố nguyên tố là số nguyên lớn hơn 1, chỉ có đúng 2 ước là 1 và chính nó.\n```cpp\nbool isPrime(long long n) {\n    if (n < 2) return false;\n    if (n == 2 || n == 3) return true;\n    if (n % 2 == 0 || n % 3 == 0) return false;\n    for (long long i = 5; i * i <= n; i += 6) {\n        if (n % i == 0 || n % (i + 2) == 0) return false;\n    }\n    return true;\n}\n```",
       "hints": [
@@ -5147,7 +6459,11 @@
         "Bước nhảy i += 6 kiểm tra i và i + 2 giúp giảm số phép chia đi 3 lần.",
         "Chỉ cần duyệt đến căn bậc 2 của n."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_PRIME",
+        "RM_VNOI_PRIMEPALIN"
+      ]
     },
     {
       "id": "les-3-6",
@@ -5167,7 +6483,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_VALID_PARENTHESES"
+      ]
     },
     {
       "id": "les-4-6",
@@ -5299,7 +6618,7 @@
       "prerequisiteLessonIds": [
         "les-1-6"
       ],
-      "problemId": "prob-rm-digitsum",
+      "problemId": "prob-rm-cses-weird",
       "problemCode": "RM_DIGITSUM",
       "shortTheory": "### Vòng lặp while\nLặp lại một khối lệnh khi điều kiện còn thỏa mãn:\n```cpp\nint n; cin >> n;\nint sumDigits = 0;\nwhile (n > 0) {\n    sumDigits += n % 10;\n    n /= 10;\n}\n```\nThích hợp cho các bài toán không biết trước số lần lặp, như phân tích chữ số của một số nguyên.",
       "hints": [
@@ -5307,7 +6626,11 @@
         "Ở mỗi bước: lấy chữ số cuối bằng n % 10 cộng dồn vào tổng, tăng biến đếm số chữ số lên 1, sau đó loại bỏ chữ số cuối bằng n = n / 10.",
         "Lưu ý trường hợp đặc biệt: nếu N = 0 thì số chữ số là 1 và tổng là 0."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_DIGITSUM",
+        "RM_CSES_WEIRD"
+      ]
     },
     {
       "id": "les-2-7",
@@ -5327,7 +6650,11 @@
         "Gán isP[0] = isP[1] = false.",
         "Vòng lặp trong bắt đầu từ j = i * i để tránh làm lại các bội nhỏ đã duyệt."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_SIEVEQUERY",
+        "RM_VNOI_PRIMERANGE"
+      ]
     },
     {
       "id": "les-3-7",
@@ -5347,7 +6674,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_SHELLGAME"
+      ]
     },
     {
       "id": "les-4-7",
@@ -5479,7 +6809,7 @@
       "prerequisiteLessonIds": [
         "les-1-7"
       ],
-      "problemId": "prob-rm-loopsum",
+      "problemId": "prob-rm-cses-missing",
       "problemCode": "RM_LOOPSUM",
       "shortTheory": "### Vòng lặp for\nCấu trúc lặp phổ biến nhất khi biết trước số lần lặp:\n```cpp\nlong long sum = 0;\nfor (int i = 1; i <= n; i++) {\n    if (i % 2 == 0) {\n        sum += i;\n    }\n}\n```\n- Khởi tạo biến tích lũy: `sum = 0` hoặc `product = 1LL`.\n- Luôn kiểm tra xem `sum` có vượt giới hạn `int` không để khai báo `long long`.",
       "hints": [
@@ -5487,7 +6817,11 @@
         "Cộng dồn vào biến sum kiểu long long.",
         "In kết quả ra màn hình."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_LOOPSUM",
+        "RM_CSES_MISSING"
+      ]
     },
     {
       "id": "les-2-8",
@@ -5527,7 +6861,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_BOVINESHUFFLE"
+      ]
     },
     {
       "id": "les-4-8",
@@ -5659,7 +6996,7 @@
       "prerequisiteLessonIds": [
         "les-1-8"
       ],
-      "problemId": "prob-rm-printpattern",
+      "problemId": "prob-rm-hollow-square",
       "problemCode": "RM_PRINTPATTERN",
       "shortTheory": "### Vòng lặp lồng nhau (Nested Loops)\nDùng khi xử lý cấu trúc 2 chiều (bảng, hình vuông, tam giác):\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << \"*\";\n    }\n    cout << \"\\n\";\n}\n```\nĐộ phức tạp của 2 vòng lặp lồng nhau chạy đến $N$ thường là $O(N^2)$. Nếu $N \\le 5000$, $O(N^2)$ chạy trong ~1 giây.",
       "hints": [
@@ -5667,7 +7004,11 @@
         "Nếu ô đang xét nằm trên viền: i == 1, i == R, j == 1 hoặc j == C thì in ra ký tự \"*\".",
         "Ngược lại in ra ký tự \".\". Sau khi in hết một dòng thì xuống dòng \"\\n\"."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_PRINTPATTERN",
+        "RM_HOLLOW_SQUARE"
+      ]
     },
     {
       "id": "les-2-9",
@@ -5707,7 +7048,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CSES_TWOSETS"
+      ]
     },
     {
       "id": "les-4-9",
@@ -5839,7 +7183,7 @@
       "prerequisiteLessonIds": [
         "les-1-9"
       ],
-      "problemId": "prob-rm-firsteven",
+      "problemId": "prob-rm-first-negative",
       "problemCode": "RM_FIRSTEVEN",
       "shortTheory": "### break và continue\n- `break`: Lập tức thoát khỏi vòng lặp gần nhất.\n- `continue`: Bỏ qua phần còn lại của lần lặp hiện tại và chuyển sang lần lặp tiếp theo.\n```cpp\nbool hasZero = false;\nfor (int i = 0; i < n; i++) {\n    if (a[i] == 0) {\n        hasZero = true;\n        break; // Dừng sớm khi tìm thấy\n    }\n}\n```",
       "hints": [
@@ -5848,7 +7192,11 @@
         "Khi gặp phần tử chẵn đầu tiên, in ra vị trí (1-based) và giá trị của nó, sau đó dùng lệnh break để dừng vòng lặp ngay lập tức.",
         "Nếu duyệt hết mảng mà không tìm thấy số chẵn nào, in ra -1."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_FIRSTEVEN",
+        "RM_FIRST_NEGATIVE"
+      ]
     },
     {
       "id": "les-2-10",
@@ -5888,7 +7236,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CSES_PALINREORDER"
+      ]
     },
     {
       "id": "les-4-10",
@@ -6020,7 +7371,7 @@
       "prerequisiteLessonIds": [
         "les-1-10"
       ],
-      "problemId": "prob-rm-arrayquery",
+      "problemId": "prob-rm-cses-increasing",
       "problemCode": "RM_ARRAYQUERY",
       "shortTheory": "### Mảng 1 chiều (1D Static Array)\nTập hợp các phần tử cùng kiểu dữ liệu lưu trữ liên tiếp trong bộ nhớ:\n```cpp\nconst int MAXN = 100005;\nint a[MAXN]; // Khai báo toàn cục để mảng tự động gán giá trị 0 và không tràn stack\n\nint main() {\n    int n; cin >> n;\n    for (int i = 0; i < n; i++) cin >> a[i];\n}\n```\n- Chỉ số mảng trong C++ chạy từ `0` đến `N - 1` (hoặc `1` đến `N`).\n- Tránh khai báo mảng kích thước lớn ($> 10^5$) bên trong hàm `main` vì dễ tràn Stack.",
       "hints": [
@@ -6028,7 +7379,11 @@
         "Cộng dồn tất cả các phần tử vào biến tổng sum kiểu long long.",
         "Phần tử tại vị trí P (1-based) tương ứng với chỉ số A[P - 1] trong mảng 0-based của C++."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_ARRAYQUERY",
+        "RM_CSES_INCREASING"
+      ]
     },
     {
       "id": "les-2-11",
@@ -6048,7 +7403,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_MODARITH",
+        "RM_CSES_EXPON"
+      ]
     },
     {
       "id": "les-3-11",
@@ -6068,7 +7427,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_EXTREME_CONSTRUCT"
+      ]
     },
     {
       "id": "les-4-11",
@@ -6200,7 +7562,7 @@
       "prerequisiteLessonIds": [
         "les-1-11"
       ],
-      "problemId": "prob-rm-minmaxpos",
+      "problemId": "prob-rm-cses-increasing",
       "problemCode": "RM_MINMAXPOS",
       "shortTheory": "### Tìm Min/Max trên mảng\n```cpp\nint minVal = a[0], maxVal = a[0];\nfor (int i = 1; i < n; i++) {\n    if (a[i] < minVal) minVal = a[i];\n    if (a[i] > maxVal) maxVal = a[i];\n}\n```\n- Hoặc dùng hàm có sẵn trong C++: `*min_element(a, a + n)` và `*max_element(a, a + n)`.",
       "hints": [
@@ -6208,7 +7570,11 @@
         "Duyệt từ i = 2 đến N. Sử dụng dấu so sánh nghiêm ngặt: nếu A[i] > maxVal thì mới cập nhật maxVal và maxPos. Tương tự nếu A[i] < minVal thì cập nhật minVal và minPos.",
         "Việc dùng dấu > và < đảm bảo khi có nhiều phần tử bằng nhau, vị trí xuất hiện ĐẦU TIÊN (earliest index) luôn được giữ nguyên."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_MINMAXPOS",
+        "RM_CSES_INCREASING"
+      ]
     },
     {
       "id": "les-2-12",
@@ -6228,7 +7594,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_FACTMOD",
+        "RM_CSES_EXPON"
+      ]
     },
     {
       "id": "les-3-12",
@@ -6248,7 +7618,11 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_BLOCKEDBILLBOARD",
+        "RM_USACO_SQUAREPASTURE"
+      ]
     },
     {
       "id": "les-4-12",
@@ -6380,7 +7754,7 @@
       "prerequisiteLessonIds": [
         "les-1-12"
       ],
-      "problemId": "prob-rm-reversearr",
+      "problemId": "prob-rm-cses-permute",
       "problemCode": "RM_REVERSEARR",
       "shortTheory": "### Thao tác biến đổi mảng\n- Đảo ngược mảng: Sử dụng 2 biến chỉ số chạy từ 2 đầu hoặc dùng `reverse(a, a + n)`.\n```cpp\nint l = 0, r = n - 1;\nwhile (l < r) {\n    swap(a[l], a[r]);\n    l++; r--;\n}\n```\n- Xóa phần tử tại vị trí $k$: Dịch tất cả phần tử từ $k + 1$ sang trái 1 bước và giảm $N$.",
       "hints": [
@@ -6388,7 +7762,11 @@
         "Duyệt vòng for ngược: for (int i = n - 1; i >= 0; i--) cout << a[i] << \" \";",
         "Hoặc sử dụng hàm thư viện sẵn có: reverse(a.begin(), a.end());"
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_REVERSEARR",
+        "RM_CSES_PERMUTE"
+      ]
     },
     {
       "id": "les-2-13",
@@ -6408,7 +7786,11 @@
         "Gợi ý 2: Dùng phép chia nguyên / 10 để xóa chữ số cuối cùng.",
         "Gợi ý 3: Đừng quên xử lý trường hợp đặc biệt N = 0 (có 1 chữ số là 0)."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_DIGITPOW",
+        "RM_COUNT_EVEN_ODD_DIGITS"
+      ]
     },
     {
       "id": "les-3-13",
@@ -6428,7 +7810,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_LOSTCOW"
+      ]
     },
     {
       "id": "les-4-13",
@@ -6560,7 +7945,7 @@
       "prerequisiteLessonIds": [
         "les-1-13"
       ],
-      "problemId": "prob-rm-gradefreq",
+      "problemId": "prob-rm-cses-missing",
       "problemCode": "RM_GRADEFREQ",
       "shortTheory": "### Kỹ thuật đếm phân phối (Frequency Array)\nKhi giá trị các phần tử nhỏ ($A_i \\le 10^6$), ta dùng một mảng phụ để đếm số lần xuất hiện của từng giá trị trong $O(1)$:\n```cpp\nint cnt[1000005] = {0};\nfor (int i = 0; i < n; i++) {\n    cnt[a[i]]++;\n}\n// Tìm phần tử xuất hiện nhiều nhất\nint maxFreq = 0, bestVal = 0;\nfor (int v = 0; v <= 1000000; v++) {\n    if (cnt[v] > maxFreq) {\n        maxFreq = cnt[v];\n        bestVal = v;\n    }\n}\n```",
       "hints": [
@@ -6568,7 +7953,11 @@
         "Khi đọc vào từng điểm số score (0 <= score <= 10), thực hiện tăng cnt[score]++.",
         "Dùng vòng lặp for từ 0 đến 10 để in ra theo đúng định dạng: cout << \"Diem \" << score << \": \" << cnt[score] << \"\\n\";"
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_GRADEFREQ",
+        "RM_CSES_MISSING"
+      ]
     },
     {
       "id": "les-2-14",
@@ -6588,7 +7977,11 @@
         "Gợi ý 2: Khi tìm số chính phương trong [A, B], chỉ cần xét căn bậc hai của 2 đầu mút.",
         "Gợi ý 3: Tương tự với số lập phương: r = round(cbrt(n)) và r * r * r == n."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_SQUAREFREE",
+        "RM_VNOI_SQUARECOUNT"
+      ]
     },
     {
       "id": "les-3-14",
@@ -6608,7 +8001,11 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_CENSORING",
+        "RM_RUN_LENGTH_ENC"
+      ]
     },
     {
       "id": "les-4-14",
@@ -6740,7 +8137,7 @@
       "prerequisiteLessonIds": [
         "les-1-14"
       ],
-      "problemId": "prob-rm-charshift",
+      "problemId": "prob-rm-is-alphanum",
       "problemCode": "RM_CHARSHIFT",
       "shortTheory": "### Ký tự và mã ASCII\nMỗi ký tự là một số nguyên trong bảng mã ASCII:\n- `'0'` có mã 48, `'A'` có mã 65, `'a'` có mã 97.\n- Chuyển ký tự số sang giá trị nguyên: `int digit = ch - '0';`\n- Chuyển chữ hoa sang chữ thường: `char lower = ch + 32;` hoặc dùng `tolower(ch)`.\n- Kiểm tra loại ký tự: `isdigit(ch)`, `isalpha(ch)`, `isupper(ch)`, `islower(ch)`.",
       "hints": [
@@ -6749,7 +8146,11 @@
         "Nếu \"A\" <= c && c <= \"Z\" thì dịch sang ký tự kế tiếp vòng tròn: c = (c - \"A\" + 1) % 26 + \"A\" (đặc biệt Z trở thành A).",
         "Các ký tự khác (chữ số, dấu cách, dấu câu) giữ nguyên không đổi."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CHARSHIFT",
+        "RM_IS_ALPHANUM"
+      ]
     },
     {
       "id": "les-2-15",
@@ -6789,7 +8190,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CSES_TWOKNIGHTS"
+      ]
     },
     {
       "id": "les-4-15",
@@ -6921,7 +8325,7 @@
       "prerequisiteLessonIds": [
         "les-1-15"
       ],
-      "problemId": "prob-rm-palindrome",
+      "problemId": "prob-rm-cses-repetitions",
       "problemCode": "RM_PALINDROME",
       "shortTheory": "### std::string trong C++\n```cpp\n#include <string>\nstring s;\ncin >> s; // Đọc chuỗi không chứa khoảng trắng\ngetline(cin, s); // Đọc cả dòng có khoảng trắng\n\ncout << s.length() << \"\\n\"; // Độ dài chuỗi\ncout << s[0] << \"\\n\"; // Ký tự đầu tiên\n```\n> **Lưu ý khi dùng getline**: Nếu trước đó có dùng `cin >> n;`, cần gọi `cin.ignore();` để bỏ qua ký tự xuống dòng còn sót lại trong bộ đệm.",
       "hints": [
@@ -6929,7 +8333,11 @@
         "Sử dụng 2 con trỏ: left = 0 và right = s.length() - 1.",
         "So sánh s[left] và s[right]. Nếu khác nhau kết luận NO ngay lập tức. Nếu duyệt hết mà luôn bằng nhau thì kết luận YES."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_PALINDROME",
+        "RM_CSES_REPETITIONS"
+      ]
     },
     {
       "id": "les-2-16",
@@ -6949,7 +8357,11 @@
         "Gợi ý 2: Tìm chu kỳ tuần hoàn của trạng thái rồi lấy K % chu_kỳ.",
         "Gợi ý 3: Công thức chia làm tròn lên an toàn là (n + k - 1) / k."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CYCLEJUMP",
+        "RM_VNOI_DIGITCYCLE"
+      ]
     },
     {
       "id": "les-3-16",
@@ -6969,7 +8381,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_SPEEDING"
+      ]
     },
     {
       "id": "les-4-16",
@@ -7081,7 +8496,7 @@
       "prerequisiteLessonIds": [
         "les-1-16"
       ],
-      "problemId": "prob-rm-countvowels",
+      "problemId": "prob-rm-usaco-wordproc",
       "problemCode": "RM_COUNTVOWELS",
       "shortTheory": "### Các thao tác phổ biến trên string\n- `s.substr(pos, len)`: Cắt chuỗi con từ vị trí `pos` với độ dài `len`.\n- `s.find(sub)`: Tìm vị trí đầu tiên của `sub` trong `s`. Trả về `string::npos` nếu không tìm thấy.\n- Nối chuỗi: `s1 + s2`.\n- `reverse(s.begin(), s.end())`: Đảo ngược chuỗi.\n- Chuyển đổi: `to_string(num)` và `stoll(str)`.",
       "hints": [
@@ -7089,7 +8504,12 @@
         "Chuyển từng ký tự sang chữ thường tolower(c) để kiểm tra thuận tiện.",
         "Kiểm tra xem ký tự có phải là một trong các nguyên âm \"a\", \"e\", \"i\", \"o\", \"u\" hay không và tăng biến đếm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_COUNTVOWELS",
+        "RM_CSES_REPETITIONS",
+        "RM_USACO_WORDPROC"
+      ]
     },
     {
       "id": "les-2-17",
@@ -7129,7 +8549,11 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_USACO_COWGYM",
+        "RM_USACO_DAISYCHAINS"
+      ]
     },
     {
       "id": "les-4-17",
@@ -7241,7 +8665,7 @@
       "prerequisiteLessonIds": [
         "les-1-17"
       ],
-      "problemId": "prob-rm-squarecheck",
+      "problemId": "prob-rm-is-prime-func",
       "problemCode": "RM_SQUARECHECK",
       "shortTheory": "### Hàm trong C++\nTái sử dụng code và module hóa logic bài toán:\n```cpp\nlong long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long r = a % b;\n        a = b;\n        b = r;\n    }\n    return a;\n}\n```\n- Kiểu trả về: `int`, `long long`, `bool`, `void` (không trả về giá trị).",
       "hints": [
@@ -7249,7 +8673,11 @@
         "Khi N lên tới 10^18, hàm sqrt(double) trong C++ có thể bị sai số dấu chấm động. Ví dụ: sqrt(999999999999999999) có thể làm tròn thành 10^9.",
         "Để chính xác tuyệt đối: tính r = round(sqrt((double)n)), sau đó hiệu chỉnh bằng vòng lặp: while ((r + 1) * (r + 1) <= n && r < 1000000000LL) r++; while (r * r > n) r--; rồi kiểm tra r * r == n."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_SQUARECHECK",
+        "RM_IS_PRIME_FUNC"
+      ]
     },
     {
       "id": "les-2-18",
@@ -7289,7 +8717,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_TARGET_SUM_ARR"
+      ]
     },
     {
       "id": "les-4-18",
@@ -7429,7 +8860,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_BINOMMOD",
+        "RM_VNOI_SINGLENUM"
+      ]
     },
     {
       "id": "les-3-19",
@@ -7449,7 +8884,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_SPIRAL_ROTATE"
+      ]
     },
     {
       "id": "les-4-19",
@@ -7590,7 +9028,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_POW2CHECK",
+        "RM_CSES_BITSTRINGS"
+      ]
     },
     {
       "id": "les-3-20",
@@ -7610,7 +9052,10 @@
         "Gợi ý 2: Tìm yếu tố bất biến (tổng các phần tử, tính chẵn lẻ, vị trí tương đối).",
         "Gợi ý 3: Viết hàm mô phỏng rõ ràng, tách biệt logic các bước."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_CSES_GRAYCODE"
+      ]
     },
     {
       "id": "les-4-20",
@@ -7751,7 +9196,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_BITOPERATIONS",
+        "RM_CHECK_KTH_BIT"
+      ]
     },
     {
       "id": "les-4-21",
@@ -7863,7 +9312,7 @@
       "prerequisiteLessonIds": [
         "les-1-21"
       ],
-      "problemId": "prob-rm-studentrank",
+      "problemId": "prob-rm-fraction-struct",
       "problemCode": "RM_STUDENTRANK",
       "shortTheory": "### Struct trong C++\nGom nhóm các thuộc tính liên quan vào một kiểu dữ liệu duy nhất:\n```cpp\nstruct ThiSinh {\n    string id;\n    string ten;\n    double toan, tin;\n    double tongDiem() const {\n        return toan + tin;\n    }\n};\nThiSinh ds[1000];\n```",
       "hints": [
@@ -7871,7 +9320,11 @@
         "Tổng điểm được tính bằng math + lit.",
         "Quy tắc xử lý bằng nhau (Tie-breaker): Khi duyệt tìm max, sử dụng điều kiện nghiêm ngặt if (s.total > maxTotal) để luôn giữ học sinh xuất hiện sớm hơn trong danh sách nhập vào."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_STUDENTRANK",
+        "RM_FRACTION_STRUCT"
+      ]
     },
     {
       "id": "les-2-22",
@@ -8153,7 +9606,11 @@
         "Kiểm tra tràn số long long và tối ưu fast I/O."
       ],
       "readToComplete": true,
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_MAXDIFF",
+        "RM_VNOI_KADANE1D"
+      ]
     },
     {
       "id": "les-2-24",
@@ -8173,7 +9630,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_PALINNUM",
+        "RM_VNOI_PRIMEPALIN"
+      ]
     },
     {
       "id": "les-4-24",
@@ -8293,7 +9754,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_DIGITSUMROOT",
+        "RM_REPEATED_DIGIT_SUM"
+      ]
     },
     {
       "id": "les-4-25",
@@ -8513,7 +9978,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_FIBMOD",
+        "RM_FIB_LAST_DIGIT"
+      ]
     },
     {
       "id": "les-5-26",
@@ -8713,7 +10182,11 @@
         "Gợi ý 2: Áp dụng công thức rút gọn hoặc lũy thừa nhanh để giảm độ phức tạp.",
         "Gợi ý 3: Lưu ý các trường hợp cơ sở: n = 0, n = 1 và số âm."
       ],
-      "track": "olympic"
+      "track": "olympic",
+      "problemCodes": [
+        "RM_GEOMSUM",
+        "RM_CSES_TRAILINGZEROS"
+      ]
     },
     {
       "id": "les-5-28",
@@ -9500,6 +10973,24 @@
       ]
     },
     "test-user-progress-c6b0dd8d-a8a6-4e62-bb16-159c2cb9bcde": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-prereq-457d72c8-b658-4cee-8757-902012a607e0": {
+      "completedLessonIds": [
+        "les-1-1"
+      ],
+      "testedOutStageIds": []
+    },
+    "test-user-testout-ac4e7b8a-c850-4175-9887-276fb6b7f1c0": {
+      "completedLessonIds": [],
+      "testedOutStageIds": [
+        "stage-1"
+      ]
+    },
+    "test-user-progress-7f9fc485-1c8d-4695-84b3-97050e92035a": {
       "completedLessonIds": [],
       "testedOutStageIds": [
         "stage-1"
